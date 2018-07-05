@@ -14,14 +14,14 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="问题描述本机装了Visual Studio2017与2012两个版本，不知道是不是有冲突还是其它的一些原因，在2017项目中添加引用时总是报错，错误信息如下图所示： 解决方法 用管理员权限打开命令行（不用管理员权限进行下面的操作可能会提示无权限）在命行中打开如下路径:1C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Com">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2018/01/07/Visual-Studio-2017无法添加引用/Visual-Studio-2017无法添加引用/Error1.png">
-<meta property="og:image" content="http://yoursite.com/2018/01/07/Visual-Studio-2017无法添加引用/Visual-Studio-2017无法添加引用/EditPath.png">
-<meta property="og:image" content="http://yoursite.com/2018/01/07/Visual-Studio-2017无法添加引用/Visual-Studio-2017无法添加引用/Add%20Succeed.png">
+<meta property="og:image" content="http://yoursite.com/2018/01/07/Visual-Studio-2017无法添加引用/Error1.png">
+<meta property="og:image" content="http://yoursite.com/2018/01/07/Visual-Studio-2017无法添加引用/EditPath.png">
+<meta property="og:image" content="http://yoursite.com/2018/01/07/Visual-Studio-2017无法添加引用/Add%20Succeed.png">
 <meta property="og:updated_time" content="2018-03-23T03:20:07.864Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Visual Studio 2017无法添加引用">
 <meta name="twitter:description" content="问题描述本机装了Visual Studio2017与2012两个版本，不知道是不是有冲突还是其它的一些原因，在2017项目中添加引用时总是报错，错误信息如下图所示： 解决方法 用管理员权限打开命令行（不用管理员权限进行下面的操作可能会提示无权限）在命行中打开如下路径:1C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Com">
-<meta name="twitter:image" content="http://yoursite.com/2018/01/07/Visual-Studio-2017无法添加引用/Visual-Studio-2017无法添加引用/Error1.png">
+<meta name="twitter:image" content="http://yoursite.com/2018/01/07/Visual-Studio-2017无法添加引用/Error1.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -90,7 +90,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>本机装了Visual Studio2017与2012两个版本，不知道是不是有冲突还是其它的一些原因，在2017项目中添加引用时总是报错，错误信息如下图所示：<br><img src="Visual-Studio-2017无法添加引用\Error1.png" alt="Error Image"></p>
+        <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>本机装了Visual Studio2017与2012两个版本，不知道是不是有冲突还是其它的一些原因，在2017项目中添加引用时总是报错，错误信息如下图所示：<br><img src="/2018/01/07/Visual-Studio-2017无法添加引用/Error1.png" alt="Error Image"></p>
 <h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><ol>
 <li>用管理员权限打开命令行（不用管理员权限进行下面的操作可能会提示无权限）<br>在命行中打开如下路径:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\PublicAssemblies</span><br></pre></td></tr></table></figure>
 </li>
@@ -100,18 +100,18 @@
 <li>添加环境变量<br>在path下添加<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Program Files (x86)\Microsoft SDKs\Windows\v8.0A\bin\NETFX 4.0 Tools\x64</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p><img src="Visual-Studio-2017无法添加引用\EditPath.png" alt="EditPath"></p>
+<p><img src="/2018/01/07/Visual-Studio-2017无法添加引用/EditPath.png" alt="EditPath"></p>
 <ol start="3">
 <li>执行如下命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gacutil -i Microsoft.VisualStudio.Shell.Interop.11.0.dll</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p><img src="Visual-Studio-2017无法添加引用\Add Succeed.png" alt="Add Succeed"><br>完成后重启Visual Studio，查看问题是否解决</p>
+<p><img src="/2018/01/07/Visual-Studio-2017无法添加引用/Add Succeed.png" alt="Add Succeed"><br>完成后重启Visual Studio，查看问题是否解决</p>
 <h2 id="resharper"><a href="#resharper" class="headerlink" title="resharper"></a>resharper</h2><p>在线服务器<br><a href="http://idea.iteblog.com/key.php" target="_blank" rel="noopener">http://idea.iteblog.com/key.php</a><br><a href="http://xidea.online" target="_blank" rel="noopener">http://xidea.online</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/07/Visual-Studio-2017无法添加引用/" data-id="cjj7ujnav000v58uqaf3y3aki" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/07/Visual-Studio-2017无法添加引用/" data-id="cjj7ux73q00113cuq0la8of22" class="article-share-link">Share</a>
       
       
     </footer>

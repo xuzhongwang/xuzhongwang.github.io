@@ -14,14 +14,14 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1. 常用正则表达式1.1. 校验数字的表达式123456789101112131415161718191. 数字 ：^[0-9]*$2. n位的数字：^\d&amp;#123;n&amp;#125;$3. 至少n位的数字：^\d&amp;#123;n,&amp;#125;$4. m-n位的数字：^\d&amp;#123;m,n&amp;#125;$5. 零和非零开头的数字：^(0|[1-9][0-9]*)$6. 非零开头的最多带两位小数的数字">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2018/01/30/正则表达式/正则表达式/捕获组编号规则.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/01/30/正则表达式/正则表达式/命名捕获组编号规则.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/01/30/正则表达式/正则表达式/普通与命名混合捕获组编号规则.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/01/30/正则表达式/捕获组编号规则.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/01/30/正则表达式/命名捕获组编号规则.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/01/30/正则表达式/普通与命名混合捕获组编号规则.jpg">
 <meta property="og:updated_time" content="2018-03-01T02:59:21.159Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式">
 <meta name="twitter:description" content="1. 常用正则表达式1.1. 校验数字的表达式123456789101112131415161718191. 数字 ：^[0-9]*$2. n位的数字：^\d&amp;#123;n&amp;#125;$3. 至少n位的数字：^\d&amp;#123;n,&amp;#125;$4. m-n位的数字：^\d&amp;#123;m,n&amp;#125;$5. 零和非零开头的数字：^(0|[1-9][0-9]*)$6. 非零开头的最多带两位小数的数字">
-<meta name="twitter:image" content="http://yoursite.com/2018/01/30/正则表达式/正则表达式/捕获组编号规则.jpg">
+<meta name="twitter:image" content="http://yoursite.com/2018/01/30/正则表达式/捕获组编号规则.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -98,15 +98,15 @@
 <h2 id="2-3-捕获组编号规则"><a href="#2-3-捕获组编号规则" class="headerlink" title="2.3. 捕获组编号规则"></a>2.3. 捕获组编号规则</h2><ul>
 <li>普通捕获组编号规则</li>
 </ul>
-<p><img src="正则表达式/捕获组编号规则.jpg" alt="捕获组编号规则"></p>
+<p><img src="/2018/01/30/正则表达式/捕获组编号规则.jpg" alt="捕获组编号规则"></p>
 <ul>
 <li>命名捕获组编号规则</li>
 </ul>
-<p><img src="正则表达式/命名捕获组编号规则.jpg" alt="命名捕获组编号规则"></p>
+<p><img src="/2018/01/30/正则表达式/命名捕获组编号规则.jpg" alt="命名捕获组编号规则"></p>
 <ul>
 <li>普通与命名混合</li>
 </ul>
-<p><img src="正则表达式/普通与命名混合捕获组编号规则.jpg" alt="普通与命名混合捕获组编号规则"></p>
+<p><img src="/2018/01/30/正则表达式/普通与命名混合捕获组编号规则.jpg" alt="普通与命名混合捕获组编号规则"></p>
 <h2 id="2-4-捕获组的引用"><a href="#2-4-捕获组的引用" class="headerlink" title="2.4. 捕获组的引用"></a>2.4. 捕获组的引用</h2><h3 id="2-4-1-反向引用"><a href="#2-4-1-反向引用" class="headerlink" title="2.4.1. 反向引用"></a>2.4.1. 反向引用</h3><p>正则表达式中，对前面捕获组捕获的内容进行引用，称为反向引用；</p>
 <h3 id="2-4-2-在程序中引用"><a href="#2-4-2-在程序中引用" class="headerlink" title="2.4.2. 在程序中引用"></a>2.4.2. 在程序中引用</h3><h4 id="2-4-2-1-在javascript中的引用"><a href="#2-4-2-1-在javascript中的引用" class="headerlink" title="2.4.2.1. 在javascript中的引用"></a>2.4.2.1. 在javascript中的引用</h4><p>1 由于JavaScript中不支持命名捕获组，所以对于捕获组的引用就只支持普通捕获组的反向引用和$number方式的引用。程序中的引用一般在替换和匹配时使用。<br>举例：替换掉html标签中的属性。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;textarea id=<span class="string">"result"</span> rows=<span class="string">"10"</span> cols=<span class="string">"100"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span> </span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt; </span><br><span class="line"><span class="keyword">var</span> data = <span class="string">"&lt;table id=\"test\"&gt;&lt;tr class=\"light\"&gt;&lt;td&gt; test &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;"</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/&lt;([a-z]+)[^&gt;]*&gt;/ig</span>;</span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">"result"</span>).value = data.replace(reg, <span class="string">"&lt;$1&gt;"</span>);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
@@ -125,7 +125,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/30/正则表达式/" data-id="cjj7ujnb5001558uq9or1crdm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/30/正则表达式/" data-id="cjj7ux73u00133cuqvvjhr4ca" class="article-share-link">Share</a>
       
       
     </footer>

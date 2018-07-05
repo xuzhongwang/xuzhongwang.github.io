@@ -14,14 +14,14 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1. JavaScript简介1.1. JavaScript简史最初设计的主要目的是为了处理以前由服务器端语言(如Perl)负责的一些输入验证操作。 1.2. JavaScript实现一个完整的JavaScript实现由三部分组成  核心：ECMAScript 文档对象模型：DOM 浏览器对象模型：BOM  2. 在HTML中使用JavaScript2.1. &amp;lt;script&amp;gt;元素带有s">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2018/01/30/javascript高级程序设计/javascript高级程序设计/理解原型对象.png">
-<meta property="og:image" content="http://yoursite.com/2018/01/30/javascript高级程序设计/javascript高级程序设计/原型对象的动态性.png">
-<meta property="og:image" content="http://yoursite.com/2018/01/30/javascript高级程序设计/javascript高级程序设计/原型链继承.png">
+<meta property="og:image" content="http://yoursite.com/2018/01/30/javascript高级程序设计/理解原型对象.png">
+<meta property="og:image" content="http://yoursite.com/2018/01/30/javascript高级程序设计/原型对象的动态性.png">
+<meta property="og:image" content="http://yoursite.com/2018/01/30/javascript高级程序设计/原型链继承.png">
 <meta property="og:updated_time" content="2018-04-21T03:23:39.054Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript高级程序设计">
 <meta name="twitter:description" content="1. JavaScript简介1.1. JavaScript简史最初设计的主要目的是为了处理以前由服务器端语言(如Perl)负责的一些输入验证操作。 1.2. JavaScript实现一个完整的JavaScript实现由三部分组成  核心：ECMAScript 文档对象模型：DOM 浏览器对象模型：BOM  2. 在HTML中使用JavaScript2.1. &amp;lt;script&amp;gt;元素带有s">
-<meta name="twitter:image" content="http://yoursite.com/2018/01/30/javascript高级程序设计/javascript高级程序设计/理解原型对象.png">
+<meta name="twitter:image" content="http://yoursite.com/2018/01/30/javascript高级程序设计/理解原型对象.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -712,7 +712,7 @@
 <h3 id="6-2-3-原型模式"><a href="#6-2-3-原型模式" class="headerlink" title="6.2.3. 原型模式"></a>6.2.3. 原型模式</h3><p>每个函数都有一个 prototype (原型)属性，这个属性是一个指针，指向一个对象，而这个对象的用途是包含可以由特定类型所有实例共享的属性和方法。如果按照字面意思来理解，那么 prototype 就是通过调用构造函数而创建的那个对象实例的原型对象。使用原型对象的好处是可以让所有的对象实例共享它所包含的属性和方法。</p>
 <p>1 理解原型对象</p>
 <p>当调用构造函数创建一个新实例后，该实例内部会包含一个指针(内部属性) [[Prototype]]，指向构造函数的原型对象。</p>
-<p><img src="javascript高级程序设计/理解原型对象.png" alt="理解原型对象"><br>上图中展示了Person构造函数、Person的原型以及Person现有两个实例的关系。<br>在此 Person.prototype 指向了原型对象，而 Person.protype.constructor 又指回了 Person. 原型对象除包含 constructor 属性外，还包括后来添加的其它属性。<br>Person 的每个实例 ———— person1和person2 都包含一个内部属性，该属性仅仅指向了 Person.prototype. 换句话说，它们与构造函数没有直接关系。</p>
+<p><img src="/2018/01/30/javascript高级程序设计/理解原型对象.png" alt="理解原型对象"><br>上图中展示了Person构造函数、Person的原型以及Person现有两个实例的关系。<br>在此 Person.prototype 指向了原型对象，而 Person.protype.constructor 又指回了 Person. 原型对象除包含 constructor 属性外，还包括后来添加的其它属性。<br>Person 的每个实例 ———— person1和person2 都包含一个内部属性，该属性仅仅指向了 Person.prototype. 换句话说，它们与构造函数没有直接关系。</p>
 <p>ECMAScript5 增加了一个新的方法，Object.getPrototypeOf()，在所有支持的实现中，这个方法返回[[Prototype]] 的值。使用此方法可以方便地获得一个对象的原型。</p>
 <p>每当代码读取某个对象的某个属性时，都会执行一次搜索，目标是具有给定名字的属性。搜索首先从对象实例本身开始。<br>如果在对象实例中找到了具有给定名字的属性，则返回该属性的值。如果没有找到，则继续搜索指针指向原型对象，在原型对象中查找具有给定名字的属性。</p>
 <p>虽然可以通过对象实例访问保存在原型中的值，但却不能通过对象实例重写原型中的值。如果我们在实例中添加了一个属性，则该属性与实例原型中的一个属性同名，那我们就在实例中创建该属性，该属性将会屏蔽原型中的那个属性。<br>delete操作符则可以完全删除实例属性，从而让我们重新访问原型中属性。</p>
@@ -732,7 +732,7 @@
 <p>但以上这种方式会重设 constructor 属性会导致它的 [[Enumerable]] 特性被设置为 true.默认情况下，原生的 constructor 属性是不可枚举的。</p>
 <p>4 原型的动态性</p>
 <p>由于在原型中查找值的过程是一次搜索，因此我们对象原型对象所做的任何修改都能够立即从实例反映出来————即使创建新实例后修改原型也照样如此。但如果重写整个原型对象，那么情况就不一样了。调用构造函数时会为实例添加一个指向最初原型 [[Prototype]] 指针，而原型修改为另外一个对象就等于切断了构造函数与最初原型之间的联系。<br>实例中的指针仅指向原型，而不指向构造函数。</p>
-<p><img src="javascript高级程序设计/原型对象的动态性.png" alt="原型对象的动态性"></p>
+<p><img src="/2018/01/30/javascript高级程序设计/原型对象的动态性.png" alt="原型对象的动态性"></p>
 <p>5 原生对象的原型</p>
 <p>6 原型对象的问题</p>
 <ul>
@@ -748,7 +748,7 @@
 <h3 id="6-2-7-稳妥构造函数模式"><a href="#6-2-7-稳妥构造函数模式" class="headerlink" title="6.2.7. 稳妥构造函数模式"></a>6.2.7. 稳妥构造函数模式</h3><p>稳妥对象： 没有公共属性，而且其方法也不引用this的对象。</p>
 <h2 id="6-3-继承"><a href="#6-3-继承" class="headerlink" title="6.3. 继承"></a>6.3. 继承</h2><p>ECMAScript只支持实现继承，而且其实现继承主要是依靠原型链来实现的。</p>
 <h3 id="6-3-1-原型链"><a href="#6-3-1-原型链" class="headerlink" title="6.3.1. 原型链"></a>6.3.1. 原型链</h3><p>其基本思想是利用原型让一个引用类型继承另一个引用类型的属性和方法。</p>
-<p><img src="javascript高级程序设计\原型链继承.png" alt="原型链继承"></p>
+<p><img src="/2018/01/30/javascript高级程序设计/原型链继承.png" alt="原型链继承"></p>
 <p>原型与实例关系的两种方式</p>
 <ul>
 <li>使用 instanceof 操作符：只要用这个操作符来测试实例与原型链中出现过的构造函数，结果就会返回 true</li>
@@ -1018,7 +1018,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/30/javascript高级程序设计/" data-id="cjj7ujncp001b58uqmh3aghch" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/30/javascript高级程序设计/" data-id="cjj7ux74q00193cuqjm34p2sw" class="article-share-link">Share</a>
       
       
     </footer>

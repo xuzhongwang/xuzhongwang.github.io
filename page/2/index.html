@@ -89,7 +89,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/25/Sublime使用/" data-id="cjj7ujnap000q58uqej9lg1vj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/25/Sublime使用/" data-id="cjj7ux737000m3cuqqrxkcp7i" class="article-share-link">Share</a>
       
       
     </footer>
@@ -128,7 +128,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/25/MarkDown使用/" data-id="cjj7ujnaj000k58uqn5gs9vhn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/25/MarkDown使用/" data-id="cjj7ux72w000i3cuqs1h6lxf8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -165,7 +165,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/07/CAD二次开发知识积累/" data-id="cjj7ujn9u000458uqjtd5o0lr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/07/CAD二次开发知识积累/" data-id="cjj7ux72c00043cuqory440vw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -219,7 +219,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/01/EntityFramwork/" data-id="cjj7ujna3000a58uq0vzaiwlf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/01/EntityFramwork/" data-id="cjj7ux72l000a3cuqakqa77tj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -873,7 +873,7 @@
 <h3 id="6-2-3-原型模式"><a href="#6-2-3-原型模式" class="headerlink" title="6.2.3. 原型模式"></a>6.2.3. 原型模式</h3><p>每个函数都有一个 prototype (原型)属性，这个属性是一个指针，指向一个对象，而这个对象的用途是包含可以由特定类型所有实例共享的属性和方法。如果按照字面意思来理解，那么 prototype 就是通过调用构造函数而创建的那个对象实例的原型对象。使用原型对象的好处是可以让所有的对象实例共享它所包含的属性和方法。</p>
 <p>1 理解原型对象</p>
 <p>当调用构造函数创建一个新实例后，该实例内部会包含一个指针(内部属性) [[Prototype]]，指向构造函数的原型对象。</p>
-<p><img src="javascript高级程序设计/理解原型对象.png" alt="理解原型对象"><br>上图中展示了Person构造函数、Person的原型以及Person现有两个实例的关系。<br>在此 Person.prototype 指向了原型对象，而 Person.protype.constructor 又指回了 Person. 原型对象除包含 constructor 属性外，还包括后来添加的其它属性。<br>Person 的每个实例 ———— person1和person2 都包含一个内部属性，该属性仅仅指向了 Person.prototype. 换句话说，它们与构造函数没有直接关系。</p>
+<p><img src="/2018/01/30/javascript高级程序设计/理解原型对象.png" alt="理解原型对象"><br>上图中展示了Person构造函数、Person的原型以及Person现有两个实例的关系。<br>在此 Person.prototype 指向了原型对象，而 Person.protype.constructor 又指回了 Person. 原型对象除包含 constructor 属性外，还包括后来添加的其它属性。<br>Person 的每个实例 ———— person1和person2 都包含一个内部属性，该属性仅仅指向了 Person.prototype. 换句话说，它们与构造函数没有直接关系。</p>
 <p>ECMAScript5 增加了一个新的方法，Object.getPrototypeOf()，在所有支持的实现中，这个方法返回[[Prototype]] 的值。使用此方法可以方便地获得一个对象的原型。</p>
 <p>每当代码读取某个对象的某个属性时，都会执行一次搜索，目标是具有给定名字的属性。搜索首先从对象实例本身开始。<br>如果在对象实例中找到了具有给定名字的属性，则返回该属性的值。如果没有找到，则继续搜索指针指向原型对象，在原型对象中查找具有给定名字的属性。</p>
 <p>虽然可以通过对象实例访问保存在原型中的值，但却不能通过对象实例重写原型中的值。如果我们在实例中添加了一个属性，则该属性与实例原型中的一个属性同名，那我们就在实例中创建该属性，该属性将会屏蔽原型中的那个属性。<br>delete操作符则可以完全删除实例属性，从而让我们重新访问原型中属性。</p>
@@ -893,7 +893,7 @@
 <p>但以上这种方式会重设 constructor 属性会导致它的 [[Enumerable]] 特性被设置为 true.默认情况下，原生的 constructor 属性是不可枚举的。</p>
 <p>4 原型的动态性</p>
 <p>由于在原型中查找值的过程是一次搜索，因此我们对象原型对象所做的任何修改都能够立即从实例反映出来————即使创建新实例后修改原型也照样如此。但如果重写整个原型对象，那么情况就不一样了。调用构造函数时会为实例添加一个指向最初原型 [[Prototype]] 指针，而原型修改为另外一个对象就等于切断了构造函数与最初原型之间的联系。<br>实例中的指针仅指向原型，而不指向构造函数。</p>
-<p><img src="javascript高级程序设计/原型对象的动态性.png" alt="原型对象的动态性"></p>
+<p><img src="/2018/01/30/javascript高级程序设计/原型对象的动态性.png" alt="原型对象的动态性"></p>
 <p>5 原生对象的原型</p>
 <p>6 原型对象的问题</p>
 <ul>
@@ -909,7 +909,7 @@
 <h3 id="6-2-7-稳妥构造函数模式"><a href="#6-2-7-稳妥构造函数模式" class="headerlink" title="6.2.7. 稳妥构造函数模式"></a>6.2.7. 稳妥构造函数模式</h3><p>稳妥对象： 没有公共属性，而且其方法也不引用this的对象。</p>
 <h2 id="6-3-继承"><a href="#6-3-继承" class="headerlink" title="6.3. 继承"></a>6.3. 继承</h2><p>ECMAScript只支持实现继承，而且其实现继承主要是依靠原型链来实现的。</p>
 <h3 id="6-3-1-原型链"><a href="#6-3-1-原型链" class="headerlink" title="6.3.1. 原型链"></a>6.3.1. 原型链</h3><p>其基本思想是利用原型让一个引用类型继承另一个引用类型的属性和方法。</p>
-<p><img src="javascript高级程序设计\原型链继承.png" alt="原型链继承"></p>
+<p><img src="/2018/01/30/javascript高级程序设计/原型链继承.png" alt="原型链继承"></p>
 <p>原型与实例关系的两种方式</p>
 <ul>
 <li>使用 instanceof 操作符：只要用这个操作符来测试实例与原型链中出现过的构造函数，结果就会返回 true</li>
@@ -1179,7 +1179,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/30/javascript高级程序设计/" data-id="cjj7ujncp001b58uqmh3aghch" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/30/javascript高级程序设计/" data-id="cjj7ux74q00193cuqjm34p2sw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1233,7 +1233,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/30/WCF学习笔记/" data-id="cjj7ujnaw000w58uqaznl20om" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/30/WCF学习笔记/" data-id="cjj7ux74o00183cuquyzvzvic" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1273,15 +1273,15 @@
 <h2 id="2-3-捕获组编号规则"><a href="#2-3-捕获组编号规则" class="headerlink" title="2.3. 捕获组编号规则"></a>2.3. 捕获组编号规则</h2><ul>
 <li>普通捕获组编号规则</li>
 </ul>
-<p><img src="正则表达式/捕获组编号规则.jpg" alt="捕获组编号规则"></p>
+<p><img src="/2018/01/30/正则表达式/捕获组编号规则.jpg" alt="捕获组编号规则"></p>
 <ul>
 <li>命名捕获组编号规则</li>
 </ul>
-<p><img src="正则表达式/命名捕获组编号规则.jpg" alt="命名捕获组编号规则"></p>
+<p><img src="/2018/01/30/正则表达式/命名捕获组编号规则.jpg" alt="命名捕获组编号规则"></p>
 <ul>
 <li>普通与命名混合</li>
 </ul>
-<p><img src="正则表达式/普通与命名混合捕获组编号规则.jpg" alt="普通与命名混合捕获组编号规则"></p>
+<p><img src="/2018/01/30/正则表达式/普通与命名混合捕获组编号规则.jpg" alt="普通与命名混合捕获组编号规则"></p>
 <h2 id="2-4-捕获组的引用"><a href="#2-4-捕获组的引用" class="headerlink" title="2.4. 捕获组的引用"></a>2.4. 捕获组的引用</h2><h3 id="2-4-1-反向引用"><a href="#2-4-1-反向引用" class="headerlink" title="2.4.1. 反向引用"></a>2.4.1. 反向引用</h3><p>正则表达式中，对前面捕获组捕获的内容进行引用，称为反向引用；</p>
 <h3 id="2-4-2-在程序中引用"><a href="#2-4-2-在程序中引用" class="headerlink" title="2.4.2. 在程序中引用"></a>2.4.2. 在程序中引用</h3><h4 id="2-4-2-1-在javascript中的引用"><a href="#2-4-2-1-在javascript中的引用" class="headerlink" title="2.4.2.1. 在javascript中的引用"></a>2.4.2.1. 在javascript中的引用</h4><p>1 由于JavaScript中不支持命名捕获组，所以对于捕获组的引用就只支持普通捕获组的反向引用和$number方式的引用。程序中的引用一般在替换和匹配时使用。<br>举例：替换掉html标签中的属性。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;textarea id=<span class="string">"result"</span> rows=<span class="string">"10"</span> cols=<span class="string">"100"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span> </span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt; </span><br><span class="line"><span class="keyword">var</span> data = <span class="string">"&lt;table id=\"test\"&gt;&lt;tr class=\"light\"&gt;&lt;td&gt; test &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;"</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/&lt;([a-z]+)[^&gt;]*&gt;/ig</span>;</span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">"result"</span>).value = data.replace(reg, <span class="string">"&lt;$1&gt;"</span>);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
@@ -1300,7 +1300,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/30/正则表达式/" data-id="cjj7ujnb5001558uq9or1crdm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/30/正则表达式/" data-id="cjj7ux73u00133cuqvvjhr4ca" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1337,7 +1337,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/30/我们为什么要做架构/" data-id="cjj7ujnb3001358uq44tu87y8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/30/我们为什么要做架构/" data-id="cjj7ux73s00123cuqz87rh2cw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1414,7 +1414,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/30/Sql语句/" data-id="cjj7ujnao000p58uq1ynkx9g1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/30/Sql语句/" data-id="cjj7ux73a000o3cuqyfpd6f8r" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1453,7 +1453,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/27/MVC错误记录/" data-id="cjj7ujnai000j58uqw8lxf8vh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/27/MVC错误记录/" data-id="cjj7ux72t000f3cuq9soje3nv" class="article-share-link">Share</a>
       
       
     </footer>
