@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>我们为什么要做架构 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近和一位从事近十年工作的“老”工程师谈到架构问题，他说对于一个业务型的公司，做架构完全是没有必要的，有那个时间还不如去想想怎么把业务做好，这是让我十分吃惊的，不过也就解释了为什么我看他的代码是完全没有架构可言，甚至连简单的三层都没有分，winform界面与逻辑代码完全紧耦合，当我拿到这段代码时，内心是痛苦的，我一度怀疑这种代码只有我入行前半年时才写的出，后半年我就不会再这么写的代码会在一个已经成">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我们为什么要做架构">
+<meta property="og:url" content="http://yoursite.com/2018/01/30/我们为什么要做架构/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="最近和一位从事近十年工作的“老”工程师谈到架构问题，他说对于一个业务型的公司，做架构完全是没有必要的，有那个时间还不如去想想怎么把业务做好，这是让我十分吃惊的，不过也就解释了为什么我看他的代码是完全没有架构可言，甚至连简单的三层都没有分，winform界面与逻辑代码完全紧耦合，当我拿到这段代码时，内心是痛苦的，我一度怀疑这种代码只有我入行前半年时才写的出，后半年我就不会再这么写的代码会在一个已经成">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-01-30T01:25:21.018Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="我们为什么要做架构">
+<meta name="twitter:description" content="最近和一位从事近十年工作的“老”工程师谈到架构问题，他说对于一个业务型的公司，做架构完全是没有必要的，有那个时间还不如去想想怎么把业务做好，这是让我十分吃惊的，不过也就解释了为什么我看他的代码是完全没有架构可言，甚至连简单的三层都没有分，winform界面与逻辑代码完全紧耦合，当我拿到这段代码时，内心是痛苦的，我一度怀疑这种代码只有我入行前半年时才写的出，后半年我就不会再这么写的代码会在一个已经成">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-我们为什么要做架构" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/30/我们为什么要做架构/" class="article-date">
+  <time datetime="2018-01-30T01:12:38.000Z" itemprop="datePublished">2018-01-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      我们为什么要做架构
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近和一位从事近十年工作的“老”工程师谈到架构问题，他说对于一个业务型的公司，做架构完全是没有必要的，有那个时间还不如去想想怎么把业务做好，这是让我十分吃惊的，不过也就解释了为什么我看他的代码是完全没有架构可言，甚至连简单的三层都没有分，winform界面与逻辑代码完全紧耦合，当我拿到这段代码时，内心是痛苦的，我一度怀疑这种代码只有我入行前半年时才写的出，后半年我就不会再这么写的代码会在一个已经成型的产品上出现，这就让我不得不思考，我们为什么要做架构，吃饱了撑的？<br>答案显然不是，要不那么多大型公司就不会那么推崇架构师。但是为什么在中小型公司，架构这个东西看起来是显得那么多余。<br>其存在必有其道理。<br>首先一个中小型的公司，其首要解决的问题应该是生存的问题。没有生存，其它谈任何的理想都是空想。在这种背景下，公司需要的是什么，是产品的快速上线，是迅速的抢占这个市场，架构这个东西，客户是看不出来的，你只要是金玉其外，哪管你是不是败絮在内呢。所以这个时候公司的做法就是不管你用什么办法，给我做出来。做架构这种事，</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/30/我们为什么要做架构/" data-id="cjj7ujnb3001358uq44tu87y8" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/01/30/正则表达式/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          正则表达式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/01/30/Sql语句/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">常用sql语句</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/07/05/CLR via C#学习笔记/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/16/济宁项目/">项目总结</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/12/达意房产测绘软件/">项目总结</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/08/ModelUI for WPF/">ModelUI for WPF</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/04/设计模式/">设计模式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

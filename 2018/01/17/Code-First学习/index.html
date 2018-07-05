@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Code First学习 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1. CodeFirst学习笔记1.1. EntityTypeConfiguration&amp;lt;T&amp;gt;1.2. SetInitializer1 CreateDatabaseIfNotExists&amp;lt;&amp;gt; 只有在没有数据库的时候才会根据数据库连接配置创建新的数据库。这种配置主要用于production环境，因为你不可能把你现在使用的数据库删除掉，那样会损失重要的数据。你需要让你的实施人员">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Code First学习">
+<meta property="og:url" content="http://yoursite.com/2018/01/17/Code-First学习/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1. CodeFirst学习笔记1.1. EntityTypeConfiguration&amp;lt;T&amp;gt;1.2. SetInitializer1 CreateDatabaseIfNotExists&amp;lt;&amp;gt; 只有在没有数据库的时候才会根据数据库连接配置创建新的数据库。这种配置主要用于production环境，因为你不可能把你现在使用的数据库删除掉，那样会损失重要的数据。你需要让你的实施人员">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-03-06T05:37:29.143Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Code First学习">
+<meta name="twitter:description" content="1. CodeFirst学习笔记1.1. EntityTypeConfiguration&amp;lt;T&amp;gt;1.2. SetInitializer1 CreateDatabaseIfNotExists&amp;lt;&amp;gt; 只有在没有数据库的时候才会根据数据库连接配置创建新的数据库。这种配置主要用于production环境，因为你不可能把你现在使用的数据库删除掉，那样会损失重要的数据。你需要让你的实施人员">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Code-First学习" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/17/Code-First学习/" class="article-date">
+  <time datetime="2018-01-17T05:54:21.000Z" itemprop="datePublished">2018-01-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Code First学习
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-CodeFirst学习笔记"><a href="#1-CodeFirst学习笔记" class="headerlink" title="1. CodeFirst学习笔记"></a>1. CodeFirst学习笔记</h1><h2 id="1-1-EntityTypeConfiguration-lt-T-gt"><a href="#1-1-EntityTypeConfiguration-lt-T-gt" class="headerlink" title="1.1. EntityTypeConfiguration&lt;T&gt;"></a>1.1. EntityTypeConfiguration&lt;T&gt;</h2><h2 id="1-2-SetInitializer"><a href="#1-2-SetInitializer" class="headerlink" title="1.2. SetInitializer"></a>1.2. SetInitializer</h2><p>1 CreateDatabaseIfNotExists&lt;&gt;</p>
+<p>只有在没有数据库的时候才会根据数据库连接配置创建新的数据库。这种配置主要用于production环境，因为你不可能把你现在使用的数据库删除掉，那样会损失重要的数据。你需要让你的实施人员拿着与Fluent API配置对应的数据库脚本去更新数据库。</p>
+<p>2 DropCreateDatabaseIfModelChanges&lt;T&gt;</p>
+<p>只要Fluent API配置的数据库映射发生变化或者domain中的model发生变化了，就把以前的数据库删除掉，根据新的配置重新建立数据库。这种方式比较适合开发数据库，可以减少开发人员的工作量。</p>
+<p>3 DropCreateDatabaseAlways&lt;&gt;<br>不管数据库映射或者model是否发生变化，每次都重新删除并根据配置重建数据库。这种方式可以适用于一些特殊情况的测试，比如说当每次测试结束之后把所有的测试数据都删除掉，并且在测试开始前插入一些基础数据。<br>可以用配置文件配置上述信息</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">appSettings</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">add</span> <span class="attr">key</span>=<span class="string">"DatabaseInitializerForType OrderSystemContext"</span></span></span><br><span class="line"><span class="tag"><span class="attr">value</span>=<span class="string">"System.Data.Entity.DropCreateDatabaseIfModelChanges[[OrderSystemContext]], EntityFramework"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">appSettings</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-3-添加初始数据"><a href="#1-3-添加初始数据" class="headerlink" title="1.3. 添加初始数据"></a>1.3. 添加初始数据</h2><h2 id="1-4-使用Fluent-API-配置属性"><a href="#1-4-使用Fluent-API-配置属性" class="headerlink" title="1.4. 使用Fluent API 配置属性"></a>1.4. 使用Fluent API 配置属性</h2><h3 id="1-4-1-配置Length"><a href="#1-4-1-配置Length" class="headerlink" title="1.4.1. 配置Length"></a>1.4.1. 配置Length</h3><p>Length用来描述数组的长度，当前包括string和Byte数组。<br>默认约定：Code First对string或byte数组的默认长度约定是max。注意：Sql Server Compact中默认最大数组长度是4000。<br>重写约定：使用HasMaxLength(nn)，参数为可空整数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Property(t =&gt; t.Name).HasMaxLength(50);</span><br></pre></td></tr></table></figure>
+<p>另外关于Length的Fluent API还有下面2个：</p>
+<ul>
+<li><p>IsFixedLength()，配置属性为固定长度。</p>
+</li>
+<li><p>IsMaxLength()，配置属性为数据库提供程序允许的最大长度。</p>
+</li>
+</ul>
+<h3 id="1-4-2-配置Data-Type"><a href="#1-4-2-配置Data-Type" class="headerlink" title="1.4.2. 配置Data Type"></a>1.4.2. 配置Data Type</h3><p>Data Type表示将.NET类型映射到的数据库的数据类型。<br>默认约定：列的数据类型由使用的数据库提供程序决定。以SQL Server为例：String-&gt;nvarchar(max),Integer-&gt;int,Byte[]-&gt;varbinary(max),Boolean-&gt;bit。<br>重写约定：使用HasColumnType(“xxx”)，下面列子的Photo是byte[]类型，配置映射到image数据类型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Property(t =&gt; t.Photo).HasColumnType(&quot;image&quot;);</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-3-配置允许为空和不允许为空"><a href="#1-4-3-配置允许为空和不允许为空" class="headerlink" title="1.4.3. 配置允许为空和不允许为空"></a>1.4.3. 配置允许为空和不允许为空</h3><p>默认约定：主键属性不允许为空，引用类型（String,array）允许为空，值类型（所有的数字类型，Datetime,bool,char）不允许为空，可空的值类型Nullable<t>允许为空。<br>重写约定：使用IsRequired()配置不允许为空，使用IsOptional()配置允许为空。下面配置Name属性为不为空：</t></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Property(t =&gt; t.Name).IsRequired();</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-4-配置属性到指定列"><a href="#1-4-4-配置属性到指定列" class="headerlink" title="1.4.4. 配置属性到指定列"></a>1.4.4. 配置属性到指定列</h3><p>默认约定：映射到与属性名相同的列。</p>
+<p>重写约定：使用Property(t=&gt;t.属性名).HasColumnName(“xxx”)。下面配置Name映射到DepartmentName：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Property(t =&gt; t.Name).HasColumnName(&quot;DepartmentName&quot;);</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-5-配置主键"><a href="#1-4-5-配置主键" class="headerlink" title="1.4.5. 配置主键"></a>1.4.5. 配置主键</h3><p>默认约定：<br>(1)属性名为ID或Id的默认为主键<br>(2)类名+ID或类名+Id默认为主键  （其中ID或Id的优先级大于类名+ID或类名+Id）</p>
+<p>重写约定：使用HasKey(t=&gt;t.属性名)。下面将BlogId配置为主键：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HasKey(t =&gt; t.BlogId);</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-6-配置组合主键"><a href="#1-4-6-配置组合主键" class="headerlink" title="1.4.6. 配置组合主键"></a>1.4.6. 配置组合主键</h3><p>下面的例子将DepartmentId和Name属性组合作为Department类型的主键：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HasKey(t =&gt; new &#123; t.DepartmentId, t.Name &#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-7-配置Database-Generated"><a href="#1-4-7-配置Database-Generated" class="headerlink" title="1.4.7. 配置Database-Generated"></a>1.4.7. 配置Database-Generated</h3><p>默认约定：整型键：Identity。</p>
+<p>重写约定：使用Property(t =&gt; t.属性名).HasDatabaseGeneratedOption(DatabaseGeneratedOption)。</p>
+<p>DatabaseGeneratedOption枚举包括三个成员：<br>(1) None：数据库不生成值<br>(2) Identity：当插入行时，数据库生成值<br>(3) Computed：当插入或更新行时，数据库生成值</p>
+<p>整型默认是Identity，数据库生成值，自动增长，如果不想数据库自动生成值，使用DatabaseGeneratedOption.None。</p>
+<p>Guid类型作为主键时，要显示配置为DatabaseGeneratedOption.Identity。</p>
+<h3 id="1-4-8-配置TimeStamp-RowVersion的乐观并发"><a href="#1-4-8-配置TimeStamp-RowVersion的乐观并发" class="headerlink" title="1.4.8. 配置TimeStamp/RowVersion的乐观并发"></a>1.4.8. 配置TimeStamp/RowVersion的乐观并发</h3><p>默认约定：这个没有默认约定。</p>
+<p>配置：使用Property(t=&gt;t.属性名).IsRowVersion()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Property(t =&gt; t.RowVersion).IsRowVersion();</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-9-不配置TimeStamp的乐观并发"><a href="#1-4-9-不配置TimeStamp的乐观并发" class="headerlink" title="1.4.9. 不配置TimeStamp的乐观并发"></a>1.4.9. 不配置TimeStamp的乐观并发</h3><p>有些数据库不支持RowVersion类型，但是又想对数据库的一个或多个字段并发检查，这时可以使用Property(t=&gt;t.属性名).IsConcurrencyToken(),下面的例子将SocialSecurityNumber配置为并发检查。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Property(t =&gt; t.SocialSecurityNumber).IsConcurrencyToken();</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-10-配置String属性是否支持Unicode内容"><a href="#1-4-10-配置String属性是否支持Unicode内容" class="headerlink" title="1.4.10. 配置String属性是否支持Unicode内容"></a>1.4.10. 配置String属性是否支持Unicode内容</h3><p>默认约定：默认string是Unicode（在SQL Server中是nvarchar）的。</p>
+<p>重写约定：下面的例子使用IsUnicode()方法将Name属性配置为varchar类型的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Property(t =&gt; t.Name).IsUnicode(false);</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-11-配置小数的精度和小数位数"><a href="#1-4-11-配置小数的精度和小数位数" class="headerlink" title="1.4.11. 配置小数的精度和小数位数"></a>1.4.11. 配置小数的精度和小数位数</h3><p>默认约定：小数是(18,2)</p>
+<p>配置：使用Property(t=&gt;t.属性名).HasPrecision(n,n)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public decimal MilesFromNearestAirport &#123; get; set; &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-12-复杂类型"><a href="#1-4-12-复杂类型" class="headerlink" title="1.4.12. 复杂类型"></a>1.4.12. 复杂类型</h3><p>默认复杂类型有以下规则：</p>
+<p>(1) 复杂类型没有主键属性<br>(2) 复杂类型只能包含原始属性。<br>(3)在其他类中使用复杂类型时，必须表示为非集合类型。</p>
+<p>使用DbModelBuilder.ComplexType方法显示配置为复杂类型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">modelBuilder.ComplexType&lt;Address&gt;();</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-13-嵌套的复杂类型"><a href="#1-4-13-嵌套的复杂类型" class="headerlink" title="1.4.13. 嵌套的复杂类型"></a>1.4.13. 嵌套的复杂类型</h3><p>嵌套的复杂类型只需显示配置外层，内层自动继承复杂类型的约定。</p>
+<h3 id="1-4-14-配置复杂类型的属性"><a href="#1-4-14-配置复杂类型的属性" class="headerlink" title="1.4.14. 配置复杂类型的属性"></a>1.4.14. 配置复杂类型的属性</h3><p>配置复杂类型的属性和配置实体属性一样，具体参考下面的实例。</p>
+<h3 id="1-4-15-实例"><a href="#1-4-15-实例" class="headerlink" title="1.4.15. 实例"></a>1.4.15. 实例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br></pre></td><td class="code"><pre><span class="line">  //实体</span><br><span class="line">public class Trip</span><br><span class="line">&#123;</span><br><span class="line">    public Guid Identifier &#123; get; set; &#125;</span><br><span class="line">    public DateTime StartDate &#123; get; set; &#125;</span><br><span class="line">    public DateTime EndDate &#123; get; set; &#125;</span><br><span class="line">    public decimal CostUSD &#123; get; set; &#125;</span><br><span class="line">    public string Description &#123; get; set; &#125;</span><br><span class="line">    public byte[] RowVersion &#123; get; set; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//复杂类型</span><br><span class="line">public class Address</span><br><span class="line">&#123;</span><br><span class="line">    public int AddressId &#123; get; set; &#125;</span><br><span class="line">    public string StreetAddress &#123; get; set; &#125;</span><br><span class="line">    public string City &#123; get; set; &#125;</span><br><span class="line">    public string State &#123; get; set; &#125;</span><br><span class="line">    public string ZipCode &#123; get; set; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//复杂类型</span><br><span class="line">public class PersonalInfo</span><br><span class="line">&#123;</span><br><span class="line">    public Measurement Weight &#123; get; set; &#125;</span><br><span class="line">    public Measurement Height &#123; get; set; &#125;</span><br><span class="line">    public string DietryRestrictions &#123; get; set; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//复杂类型</span><br><span class="line">public class Measurement</span><br><span class="line">&#123;</span><br><span class="line">    public decimal Reading &#123; get; set; &#125;</span><br><span class="line">    public string Units &#123; get; set; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//实体</span><br><span class="line">public class Person</span><br><span class="line">&#123;</span><br><span class="line">    public Person()</span><br><span class="line">    &#123;</span><br><span class="line">        Address = new Address();</span><br><span class="line">        Info = new PersonalInfo()</span><br><span class="line">        &#123;</span><br><span class="line">            Weight = new Measurement(),</span><br><span class="line">            Height = new Measurement()</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public int PersonId &#123; get; set; &#125;</span><br><span class="line">    public int SocialSecurityNumber &#123; get; set; &#125;</span><br><span class="line">    public string FirstName &#123; get; set; &#125;</span><br><span class="line">    public string LastName &#123; get; set; &#125;</span><br><span class="line">    public Address Address &#123; get; set; &#125;</span><br><span class="line">    public byte[] Photo &#123; get; set; &#125;</span><br><span class="line">    public PersonalInfo Info &#123; get; set; &#125;</span><br><span class="line">    public byte[] RowVersion &#123; get; set; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//对实体Trip的配置，继承自EntityTypeConfiguration&lt;T&gt;</span><br><span class="line">public class TripConfiguration : EntityTypeConfiguration&lt;Trip&gt;</span><br><span class="line">&#123;</span><br><span class="line">    public TripConfiguration()</span><br><span class="line">    &#123;</span><br><span class="line">        //配置Identifier映射到TripId列，并设为主键，且默认值为newid()</span><br><span class="line">        HasKey(t =&gt; t.Identifier).Property(t =&gt; t.Identifier).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity).HasColumnName(&quot;TripId&quot;);</span><br><span class="line">        //配置CostUSD的精度为20，小数位数为3</span><br><span class="line">        Property(t =&gt; t.CostUSD).HasPrecision(20, 3);</span><br><span class="line">        //配置Description的长度为500</span><br><span class="line">        Property(t =&gt; t.Description).HasMaxLength(500);</span><br><span class="line">        //配置RowVersion乐观并发检查</span><br><span class="line">        Property(t =&gt; t.RowVersion).IsRowVersion();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//对实体Person的配置，继承自EntityTypeConfiguration&lt;T&gt;</span><br><span class="line">public class PersonConfiguration : EntityTypeConfiguration&lt;Person&gt;</span><br><span class="line">&#123;</span><br><span class="line">    public PersonConfiguration()</span><br><span class="line">    &#123;</span><br><span class="line">        //配置SocialSecurityNumber不允许为空且乐观并发检查</span><br><span class="line">        Property(t =&gt; t.SocialSecurityNumber).IsRequired().IsConcurrencyToken();</span><br><span class="line">        //配置FirstName不允许为空</span><br><span class="line">        Property(t =&gt; t.FirstName).IsRequired();</span><br><span class="line">        //配置LastName不允许为空</span><br><span class="line">        Property(t =&gt; t.LastName).IsRequired();</span><br><span class="line">        //配置Photo映射到数据库的数据类型为image</span><br><span class="line">        Property(t =&gt; t.Photo).HasColumnType(&quot;image&quot;);</span><br><span class="line">        //配置RowVersion乐观并发检查</span><br><span class="line">        Property(t =&gt; t.RowVersion).IsRowVersion();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//对复杂类型Address的配置，继承自ComplexTypeConfiguration&lt;T&gt;</span><br><span class="line">public class AddressConfiguration : ComplexTypeConfiguration&lt;Address&gt;</span><br><span class="line">&#123;</span><br><span class="line">    public AddressConfiguration()</span><br><span class="line">    &#123;</span><br><span class="line">        //配置AddressId映射到AddressId列</span><br><span class="line">        Property(t =&gt; t.AddressId).HasColumnName(&quot;AddressId&quot;);</span><br><span class="line">        //配置StreetAddress长度为100并映射到StreetAddrress列</span><br><span class="line">        Property(t =&gt; t.StreetAddress).HasMaxLength(100).HasColumnName(&quot;StreetAddress&quot;);</span><br><span class="line">        //配置State长度为50并映射到State列</span><br><span class="line">        Property(t =&gt; t.State).HasMaxLength(50).HasColumnName(&quot;State&quot;);</span><br><span class="line">        //配置City长度为50并映射到City列</span><br><span class="line">        Property(t =&gt; t.City).HasMaxLength(50).HasColumnName(&quot;City&quot;);</span><br><span class="line">        //配置ZipCode映射到ZipCode列，不支持Unicode内容，并设为固定长度为6</span><br><span class="line">        Property(t =&gt; t.ZipCode).IsUnicode(false).IsFixedLength().HasMaxLength(6).HasColumnName(&quot;ZipCode&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//对复杂类型PersonalInfo的配置，继承自ComplexTypeConfiguration&lt;T&gt;</span><br><span class="line">public class PersonalInfoConfiguration : ComplexTypeConfiguration&lt;PersonalInfo&gt;</span><br><span class="line">&#123;</span><br><span class="line">    public PersonalInfoConfiguration()</span><br><span class="line">    &#123;</span><br><span class="line">        //配置DietryRestrictions长度为100</span><br><span class="line">        Property(t =&gt; t.DietryRestrictions).HasMaxLength(100);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class BreakAwayContext : DbContext</span><br><span class="line">&#123;</span><br><span class="line">    public DbSet&lt;Trip&gt; Trips &#123; get; set; &#125;</span><br><span class="line">    public DbSet&lt;Person&gt; People &#123; get; set; &#125;</span><br><span class="line"></span><br><span class="line">    protected override void OnModelCreating(DbModelBuilder modelBuilder)</span><br><span class="line">    &#123;</span><br><span class="line">        //注册配置</span><br><span class="line">        modelBuilder.Configurations.Add(new TripConfiguration());</span><br><span class="line">        modelBuilder.Configurations.Add(new PersonConfiguration());</span><br><span class="line">        modelBuilder.Configurations.Add(new AddressConfiguration());</span><br><span class="line">        modelBuilder.Configurations.Add(new PersonalInfoConfiguration());</span><br><span class="line">        base.OnModelCreating(modelBuilder);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="异常记录"><a href="#异常记录" class="headerlink" title="异常记录"></a>异常记录</h2><h3 id="从-datetime2-数据类型到-datetime-数据类型的转换产生一个超出范围的值"><a href="#从-datetime2-数据类型到-datetime-数据类型的转换产生一个超出范围的值" class="headerlink" title="从 datetime2 数据类型到 datetime 数据类型的转换产生一个超出范围的值"></a>从 datetime2 数据类型到 datetime 数据类型的转换产生一个超出范围的值</h3><p>触发该错误的条件如下：</p>
+<ul>
+<li>SQL Server数据库版本中的字段类型为datetime2</li>
+<li>数据库中，某个要进行Add或者Edit的字段的数据类型为datetime，比如表A中的today字段，类型为datetime。而后台代码进行数据库操作时，并没有给today（datetime类型）赋值。结果就是VS2015编译的时候默认将其类型编译为datetime2，导致用EF进行add和edit操作的时候出现该异常。 </li>
+</ul>
+<p>解决方案：</p>
+<ul>
+<li>给这些字段一个值（不管它是否在数据库设置了默认值），并且日期要大于1753年1月1日，这是最简单的方法。</li>
+<li>将数据库类型修改为datetime？类型，也就是说允许为空。</li>
+<li>修改数据库字段类型为datetime2类型，前提是数据库要支持该类型。</li>
+<li>在C#中用new DateTime(year,month,day,hour,minute,second)来限制精度，原因之后会在datetime2和datetime的区别中提到。</li>
+<li>这个方法不太推荐，将model的edmx中的providerManifestToken设置成2005，这样ef就默认转化成datetime。</li>
+</ul>
+<p>datetime2和datetime的区别：</p>
+<p>官方MSDN对于datetime2的说明：定义结合了 24 小时制时间的日期。 可将 datetime2 视作现有 datetime 类型的扩展，其数据范围更大，默认的小数精度更高，并具有可选的用户定义的精度。</p>
+<p>这里值的注意的是datetime2的日期范围是”0001-01-01 到 9999-12-31”（公元元年 1 月 1 日到公元 9999 年 12 月 31 日）。</p>
+<p>而datetime的日期范围是：”1753 年 1 月 1 日到 9999 年 12 月 31 日“。这里的日期范围就是造成“从 datetime2 数据类型到 datetime 数据类型的转换产生一个超出范围的值”这个错误的原因。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DateTime字段类型对应的时间格式是yyyy-MM-dd HH:mm:ss.fff，3个f，精确到1毫秒(ms)，示例2014-12-0317:06:15.433.</span><br><span class="line">DateTime2字段类型对应的时间格式是yyyy-MM-dd HH:mm:ss.fffffff，7个f，精确到0.1微秒(μs)，示例2014-12-0317:23:19.2880929. </span><br><span class="line">如果用SQL的日期函数进行赋值，DateTime字段类型要用GETDATE()，DateTime2字段类型要用SYSDATETIME()。</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/17/Code-First学习/" data-id="cjj7ujn9z000758uqopm4hrlb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/01/19/AutoMapper/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          AutoMapper
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/01/16/通向财务自由/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">通向财务自由</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/07/05/CLR via C#学习笔记/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/16/济宁项目/">项目总结</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/12/达意房产测绘软件/">项目总结</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/08/ModelUI for WPF/">ModelUI for WPF</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/04/设计模式/">设计模式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

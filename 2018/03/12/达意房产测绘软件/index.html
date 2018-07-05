@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>项目总结 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="新建幢图任务提取按 usercode 查询，查询出 Flow_Flag = ‘3’ AND State_Flag =’0’ 1234declare @usercode varchar(50)set @usercode = N&apos;00000011&apos;SELECT RTRIM(T.Income_ID) AS Income_ID,Four_Code,Owner_Name,Location,Build_Cod">
+<meta property="og:type" content="article">
+<meta property="og:title" content="项目总结">
+<meta property="og:url" content="http://yoursite.com/2018/03/12/达意房产测绘软件/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="新建幢图任务提取按 usercode 查询，查询出 Flow_Flag = ‘3’ AND State_Flag =’0’ 1234declare @usercode varchar(50)set @usercode = N&apos;00000011&apos;SELECT RTRIM(T.Income_ID) AS Income_ID,Four_Code,Owner_Name,Location,Build_Cod">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-03-12T05:49:36.323Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="项目总结">
+<meta name="twitter:description" content="新建幢图任务提取按 usercode 查询，查询出 Flow_Flag = ‘3’ AND State_Flag =’0’ 1234declare @usercode varchar(50)set @usercode = N&apos;00000011&apos;SELECT RTRIM(T.Income_ID) AS Income_ID,Four_Code,Owner_Name,Location,Build_Cod">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-达意房产测绘软件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/12/达意房产测绘软件/" class="article-date">
+  <time datetime="2018-03-12T07:30:28.000Z" itemprop="datePublished">2018-03-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      项目总结
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="新建幢图"><a href="#新建幢图" class="headerlink" title="新建幢图"></a>新建幢图</h1><h2 id="任务提取"><a href="#任务提取" class="headerlink" title="任务提取"></a>任务提取</h2><p>按 usercode 查询，查询出 Flow_Flag = ‘3’ AND State_Flag =’0’</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">declare</span> @usercode <span class="built_in">varchar</span>(<span class="number">50</span>)</span><br><span class="line"><span class="keyword">set</span> @usercode = N<span class="string">'00000011'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">RTRIM</span>(T.Income_ID) <span class="keyword">AS</span> Income_ID,Four_Code,Owner_Name,Location,Build_Code,Build_Name,Developer,Ask_Code <span class="keyword">FROM</span> Reg_Mapping_Main M,Reg_Mapping_Task T <span class="keyword">WHERE</span> T.Income_ID =M.Income_ID  <span class="keyword">AND</span> Flow_Flag = <span class="string">'3'</span> <span class="keyword">AND</span> State_Flag =<span class="string">'0'</span> <span class="keyword">AND</span> Ask_Code =<span class="string">'01'</span> <span class="keyword">AND</span> T.Income_ID <span class="keyword">NOT</span> <span class="keyword">IN</span> (<span class="keyword">SELECT</span> Income_ID <span class="keyword">FROM</span> Dwg_Name) <span class="keyword">AND</span> T.User_Code = @usercode <span class="keyword">ORDER</span> <span class="keyword">BY</span> T.Income_ID <span class="keyword">DESC</span></span><br></pre></td></tr></table></figure>
+<h2 id="新建"><a href="#新建" class="headerlink" title="新建"></a>新建</h2><h3 id="Dwg-Name"><a href="#Dwg-Name" class="headerlink" title="Dwg_Name"></a>Dwg_Name</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> Dwg_Name ([Income_Id],[Four_Code],[Build_Class],[Build_Code],[Build_Name],[Total_Floor],[Down_Floor],[Build_Area],[Down_Area],[Same_Floor_Info],[Structure],[Purpose],[Structure_Code],[Purpose_Code],[Finish_Date],[Owner_Name],[Location],[Developer],[State],[User_Code],[Map_Man],[Check_Man]) <span class="keyword">VALUES</span> (<span class="string">'20180226004'</span>,<span class="string">'0101220002'</span>,<span class="string">'00'</span>,<span class="string">'0004'</span>,<span class="string">'4'</span>,<span class="string">'10'</span>,<span class="string">''</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="string">''</span>,<span class="string">'混合'</span>,<span class="string">'测试'</span>,<span class="string">'0004'</span>,<span class="string">'0001'</span>,<span class="string">'2012'</span>,<span class="string">'cad2010'</span>,<span class="string">'cad004'</span>,<span class="string">'河北宏鑫房地产开发有限公司'</span>,<span class="string">'0'</span>,<span class="string">'00000011'</span>,<span class="string">'ceshi'</span>,<span class="string">''</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="Code-Four-Build-Floor"><a href="#Code-Four-Build-Floor" class="headerlink" title="Code_Four_Build_Floor"></a>Code_Four_Build_Floor</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> Code_Four_Build_Floor ([Income_Id],[Four_Code],[Build_Code],[Floor_Num],[Same_Floor],[Purpose_Code],[Purpose_Name]) <span class="keyword">VALUES</span> (<span class="string">'20180226004'</span>,<span class="string">'0101220002'</span>,<span class="string">'0004'</span>,<span class="string">'0'</span>,<span class="string">''</span>,<span class="string">'0001'</span>,<span class="string">'测试'</span>);<span class="keyword">INSERT</span> <span class="keyword">INTO</span> Code_Four_Build_Floor ([Income_Id],[Four_Code],[Build_Code],[Floor_Num],[Same_Floor],[Purpose_Code],[Purpose_Name]) <span class="keyword">VALUES</span> (<span class="string">'20180226004'</span>,<span class="string">'0101220002'</span>,<span class="string">'0004'</span>,<span class="string">'1'</span>,<span class="string">''</span>,<span class="string">'0001'</span>,<span class="string">'测试'</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="创建文件"><a href="#创建文件" class="headerlink" title="创建文件"></a>创建文件</h3><ul>
+<li>数据库文件</li>
+<li>图纸文件</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/12/达意房产测绘软件/" data-id="cjj7ujnb8001858uqoy5s9ysc" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/03/16/济宁项目/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          项目总结
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/08/ModelUI for WPF/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ModelUI for WPF</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/07/05/CLR via C#学习笔记/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/16/济宁项目/">项目总结</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/12/达意房产测绘软件/">项目总结</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/08/ModelUI for WPF/">ModelUI for WPF</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/04/设计模式/">设计模式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>EasyUI使用 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1. datagrid使用1.1. 初始化12345678910111213141516171819202122232425262728293031$(&apos;#HouseData&apos;).datagrid(&amp;#123;    url: &apos;/Ashx/TempHouse.ashx?type=extractinghouseinfo&amp;amp;ownerinfo=&apos; + ownerInfo,    method:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="EasyUI使用">
+<meta property="og:url" content="http://yoursite.com/2018/01/04/EasyUI使用/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1. datagrid使用1.1. 初始化12345678910111213141516171819202122232425262728293031$(&apos;#HouseData&apos;).datagrid(&amp;#123;    url: &apos;/Ashx/TempHouse.ashx?type=extractinghouseinfo&amp;amp;ownerinfo=&apos; + ownerInfo,    method:">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-01T07:17:07.644Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="EasyUI使用">
+<meta name="twitter:description" content="1. datagrid使用1.1. 初始化12345678910111213141516171819202122232425262728293031$(&apos;#HouseData&apos;).datagrid(&amp;#123;    url: &apos;/Ashx/TempHouse.ashx?type=extractinghouseinfo&amp;amp;ownerinfo=&apos; + ownerInfo,    method:">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-EasyUI使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/04/EasyUI使用/" class="article-date">
+  <time datetime="2018-01-04T01:48:04.000Z" itemprop="datePublished">2018-01-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      EasyUI使用
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-datagrid使用"><a href="#1-datagrid使用" class="headerlink" title="1. datagrid使用"></a>1. datagrid使用</h1><h2 id="1-1-初始化"><a href="#1-1-初始化" class="headerlink" title="1.1. 初始化"></a>1.1. 初始化</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#HouseData'</span>).datagrid(&#123;</span><br><span class="line">    url: <span class="string">'/Ashx/TempHouse.ashx?type=extractinghouseinfo&amp;ownerinfo='</span> + ownerInfo,</span><br><span class="line">    method: <span class="string">'get'</span>,</span><br><span class="line">    idField: <span class="string">'house_id'</span>,</span><br><span class="line">    loadMsg: <span class="string">"数据加载中......"</span>,</span><br><span class="line">    fitColumns: <span class="literal">true</span>,<span class="comment">//自适应宽度</span></span><br><span class="line">    singleSelect: <span class="literal">true</span>,<span class="comment">//是否单选 </span></span><br><span class="line">    pagination: <span class="literal">true</span>,<span class="comment">//分页控件 </span></span><br><span class="line">    pageSize: <span class="number">15</span>,<span class="comment">//每页显示的记录条数，默认为10 </span></span><br><span class="line">    pageList: [<span class="number">5</span>, <span class="number">10</span>, <span class="number">15</span>],<span class="comment">//可以设置每页记录条数的列表 </span></span><br><span class="line">    beforePageText: <span class="string">'第'</span>,<span class="comment">//页数文本框前显示的汉字 </span></span><br><span class="line">    afterPageText: <span class="string">'页    共 &#123;pages&#125; 页'</span>,</span><br><span class="line">    displayMsg: <span class="string">'当前显示 &#123;from&#125; - &#123;to&#125; 条记录   共 &#123;total&#125; 条记录'</span>,</span><br><span class="line">    rownumbers: <span class="literal">true</span>,<span class="comment">//行号 </span></span><br><span class="line">    striped: <span class="literal">true</span>,<span class="comment">//隔行变色</span></span><br><span class="line">    columns: [[</span><br><span class="line">        &#123; <span class="attr">field</span>: <span class="string">'ck'</span>, <span class="attr">checkbox</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">        &#123; <span class="attr">field</span>: <span class="string">'house_id'</span>, <span class="attr">title</span>: <span class="string">'房屋ID'</span>, <span class="attr">width</span>: <span class="number">180</span>, <span class="attr">hidden</span>: <span class="string">'true'</span> &#125;,</span><br><span class="line">        &#123; <span class="attr">field</span>: <span class="string">'income_id'</span>, <span class="attr">title</span>: <span class="string">'业务号'</span>, <span class="attr">width</span>: <span class="number">180</span> &#125;,</span><br><span class="line">        &#123; <span class="attr">field</span>: <span class="string">'right_id'</span>, <span class="attr">title</span>: <span class="string">'房产证号'</span>, <span class="attr">width</span>: <span class="number">180</span> &#125;,</span><br><span class="line">        &#123; <span class="attr">field</span>: <span class="string">'owner_name'</span>, <span class="attr">title</span>: <span class="string">'产权人'</span>, <span class="attr">width</span>: <span class="number">180</span> &#125;,</span><br><span class="line">        &#123; <span class="attr">field</span>: <span class="string">'card_id'</span>, <span class="attr">title</span>: <span class="string">'身份证号'</span>, <span class="attr">width</span>: <span class="number">180</span> &#125;,</span><br><span class="line">        &#123; <span class="attr">field</span>: <span class="string">'seat_name'</span>, <span class="attr">title</span>: <span class="string">'房屋坐落'</span>, <span class="attr">width</span>: <span class="number">180</span> &#125;,</span><br><span class="line">        &#123; <span class="attr">field</span>: <span class="string">'build_name'</span>, <span class="attr">title</span>: <span class="string">"幢名"</span>, <span class="attr">width</span>: <span class="number">180</span> &#125;,</span><br><span class="line">        &#123; <span class="attr">field</span>: <span class="string">'house_name'</span>, <span class="attr">title</span>: <span class="string">"房名"</span>, <span class="attr">width</span>: <span class="number">180</span> &#125;,</span><br><span class="line">        &#123; <span class="attr">field</span>: <span class="string">'current_floor'</span>, <span class="attr">title</span>: <span class="string">"所在层"</span>, <span class="attr">width</span>: <span class="number">180</span> &#125;,</span><br><span class="line">        &#123; <span class="attr">field</span>: <span class="string">'build_area'</span>, <span class="attr">title</span>: <span class="string">"建筑面积"</span>, <span class="attr">width</span>: <span class="number">180</span> &#125;,</span><br><span class="line">        &#123; <span class="attr">field</span>: <span class="string">'from_name'</span>, <span class="attr">title</span>: <span class="string">"产权来源"</span>, <span class="attr">width</span>: <span class="number">180</span> &#125;</span><br><span class="line">    ]],</span><br><span class="line">    enableFilter: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="load-reload和loadData"><a href="#load-reload和loadData" class="headerlink" title="load,reload和loadData"></a>load,reload和loadData</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(“#grid”).datagrid(“load”,&#123; &#125;); //里面写的是你要传输的参数的键值对，调用这个方法来加载数据的时候，它传给后台的分页信息是从第一页开始的。</span><br><span class="line">$(“#grid”).datagrid(“reload”,&#123; &#125;);//但它传给后台的分布信息是当前的页码，就是实现刷新当前页的功能。</span><br><span class="line">$(“#grid”).datagrid(“loadData”,&#123; “total”:”30″,rows:[] &#125;);//它加载的本地数据，就是不会跟后台什么的有交互，它的使用方式是</span><br></pre></td></tr></table></figure>
+<h2 id="1-2-获取选中行"><a href="#1-2-获取选中行" class="headerlink" title="1.2. 获取选中行"></a>1.2. 获取选中行</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> ($(<span class="string">"#dg_houselist"</span>).datagrid(<span class="string">"getSelections"</span>).length &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> houseids = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">var</span> rows = $(<span class="string">"#dg_houselist"</span>).datagrid(<span class="string">"getSelections"</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; rows.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (rows[i].limit_flag ==<span class="string">"0"</span>) &#123;</span><br><span class="line">            $.messager.alert(<span class="string">"警告"</span>, rows[i].house_name + <span class="string">"不存在纪监查封"</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        houseids += rows[i].house_id + <span class="string">","</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line">    $.messager.alert(<span class="string">"友情提示"</span>, <span class="string">"请您选择要添加限制的房屋"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="2-combobox"><a href="#2-combobox" class="headerlink" title="2. combobox"></a>2. combobox</h1><h2 id="从后台加载数据"><a href="#从后台加载数据" class="headerlink" title="从后台加载数据"></a>从后台加载数据</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#comboid"</span>).combobox(&#123;</span><br><span class="line">    url:<span class="string">"/Ashx/ImpownContract.ashx?type=GetOtherMan"</span>,</span><br><span class="line">    valueField:<span class="string">"code"</span>,</span><br><span class="line">    textField: <span class="string">"name_c"</span>,</span><br><span class="line">    onSelect:<span class="function"><span class="keyword">function</span>(<span class="params">record</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> selectValue = record.value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取json数据格式</span></span><br><span class="line">[</span><br><span class="line">&#123;<span class="string">"code"</span>:<span class="string">"0001"</span>,<span class="string">"name_c"</span>:<span class="string">"中国工商银行股份有限公司兖州支行"</span>&#125;,</span><br><span class="line">&#123;<span class="string">"code"</span>:<span class="string">"0002"</span>,<span class="string">"name_c"</span>:<span class="string">"中国农业银行股份有限公司兖州市支行"</span>&#125;,</span><br><span class="line">&#123;<span class="string">"code"</span>:<span class="string">"0003"</span>,<span class="string">"name_c"</span>:<span class="string">"中国建设银行股份有限公司兖州支行"</span>&#125;,</span><br><span class="line">&#123;<span class="string">"code"</span>:<span class="string">"0004"</span>,<span class="string">"name_c"</span>:<span class="string">"中国银行股份有限公司兖州支行"</span>&#125;,</span><br><span class="line">&#123;<span class="string">"code"</span>:<span class="string">"0005"</span>,<span class="string">"name_c"</span>:<span class="string">"中国建设银行股份有限公司济宁分行"</span>&#125;,</span><br><span class="line">&#123;<span class="string">"code"</span>:<span class="string">"0006"</span>,<span class="string">"name_c"</span>:<span class="string">"山东圣泰农村合作银行草桥口支行"</span>&#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;#xx&quot;).combobox(&#123;disabled: true&#125;);      //设置下拉款为禁用</span><br><span class="line">$(&quot;#xx&quot;).combobox(&apos;setValue&apos;,xlid);  //设置下拉款的默认值  xlid是你下拉款的id属性</span><br><span class="line">$(&quot;#xx&quot;).combobox(&apos;getValue&apos;);      //获取下拉款id值</span><br><span class="line">$(&quot;#xx&quot;).combobox(&apos;getText&apos;);      //获取下拉款name值</span><br></pre></td></tr></table></figure>
+<h1 id="3-判断元素是否隐藏"><a href="#3-判断元素是否隐藏" class="headerlink" title="3. 判断元素是否隐藏"></a>3. 判断元素是否隐藏</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> isHaveHouse =  $(<span class="string">"#HouseDiv"</span>).is(<span class="string">":hidden"</span>);<span class="comment">//是否隐藏</span></span><br><span class="line"><span class="keyword">var</span> temp1=$(<span class="string">"#test"</span>).is(<span class="string">":visible"</span>);<span class="comment">//是否可见</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/04/EasyUI使用/" data-id="cjj7ujna5000b58uq4al4u0ju" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/01/04/JQuery使用/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JQuery使用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/01/04/razor语法/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">razor语法</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/07/05/CLR via C#学习笔记/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/16/济宁项目/">项目总结</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/12/达意房产测绘软件/">项目总结</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/08/ModelUI for WPF/">ModelUI for WPF</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/04/设计模式/">设计模式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

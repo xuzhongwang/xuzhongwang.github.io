@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>常用sql语句 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1. 分页变量说明 123@pagesize 每页的容量@pageindex 页码@require 本要查询的语句 1.1. sqlserver123select top @pagesize * from (    select Row_Number() over (order by ID) as RowNumber,@require    ) as A where A.RowNumber &amp;gt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用sql语句">
+<meta property="og:url" content="http://yoursite.com/2018/01/30/Sql语句/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1. 分页变量说明 123@pagesize 每页的容量@pageindex 页码@require 本要查询的语句 1.1. sqlserver123select top @pagesize * from (    select Row_Number() over (order by ID) as RowNumber,@require    ) as A where A.RowNumber &amp;gt">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-02T14:18:13.687Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="常用sql语句">
+<meta name="twitter:description" content="1. 分页变量说明 123@pagesize 每页的容量@pageindex 页码@require 本要查询的语句 1.1. sqlserver123select top @pagesize * from (    select Row_Number() over (order by ID) as RowNumber,@require    ) as A where A.RowNumber &amp;gt">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Sql语句" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/30/Sql语句/" class="article-date">
+  <time datetime="2018-01-30T00:53:36.000Z" itemprop="datePublished">2018-01-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      常用sql语句
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-分页"><a href="#1-分页" class="headerlink" title="1. 分页"></a>1. 分页</h1><p>变量说明</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@pagesize 每页的容量</span><br><span class="line">@pageindex 页码</span><br><span class="line">@require 本要查询的语句</span><br></pre></td></tr></table></figure>
+<h2 id="1-1-sqlserver"><a href="#1-1-sqlserver" class="headerlink" title="1.1. sqlserver"></a>1.1. sqlserver</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> top @pagesize * <span class="keyword">from</span> (</span><br><span class="line">    <span class="keyword">select</span> Row_Number() <span class="keyword">over</span> (<span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">ID</span>) <span class="keyword">as</span> RowNumber,@require</span><br><span class="line">    ) <span class="keyword">as</span> A <span class="keyword">where</span> A.RowNumber &gt; @pagesize*(@pageindex<span class="number">-1</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="1-2-sqlserver"><a href="#1-2-sqlserver" class="headerlink" title="1.2. sqlserver"></a>1.2. sqlserver</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@require offset @pagesize*(@pageindex-1) rows fetch next @pagesize rows only</span><br></pre></td></tr></table></figure>
+<h1 id="2-ISNULL"><a href="#2-ISNULL" class="headerlink" title="2. ISNULL"></a>2. ISNULL</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ISNULL ( check_expression , replacement_value )</span><br></pre></td></tr></table></figure>
+<p>如果 check_expression 不为 NULL，则返回它的值；否则，在将 replacement_value 隐式转换为 check_expression 的类型（如果这两个类型不同）后，则返回前者。</p>
+<h1 id="3-CAST"><a href="#3-CAST" class="headerlink" title="3. CAST"></a>3. CAST</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CAST (expression AS data_type)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>expression：任何有效的SQServer表达式。</li>
+<li>AS：用于分隔两个参数，在AS之前的是要处理的数据，在AS之后是要转换的数据类型。</li>
+<li>data_type：目标系统所提供的数据类型，包括bigint和sql_variant，不能使用用户定义的数据类型。</li>
+</ul>
+<p>如果试图进行不可能的转换（例如，将含有字母的 char 表达式转换为 int 类型），SQServer 将显示一条错误信息。<br>如果转换时没有指定数据类型的长度，则SQServer自动提供长度为30。</p>
+<h1 id="4-Join"><a href="#4-Join" class="headerlink" title="4. Join"></a>4. Join</h1><ol>
+<li>from A inner join B on A.ID=B.ID:两表都有的记录才列出</li>
+<li>from A left join B on A.ID=B.ID:A表中所有记录列出，B中无法匹配的用Null匹配</li>
+<li>from A right join B on A.ID=B.ID:B表中所有记录列出,A中无法匹配的用Null匹配</li>
+<li>from A full outer join B on A.ID=B.ID.</li>
+</ol>
+<p>其它join查询：</p>
+<ol>
+<li>left outer join,等价于left join.</li>
+<li>right outer join, 等价于right join.</li>
+<li>cross join,    笛卡尔乘积查询</li>
+</ol>
+<h1 id="5-找出数量大于的"><a href="#5-找出数量大于的" class="headerlink" title="5. 找出数量大于的"></a>5. 找出数量大于的</h1><p>SELECT DISTINCT HouseName FROM MainTable GROUP BY HouseName HAVING COUNT(*) &gt; 1</p>
+<h1 id="Group-By"><a href="#Group-By" class="headerlink" title="Group By"></a>Group By</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> BusinessCode, [<span class="keyword">values</span>]=<span class="keyword">stuff</span>((<span class="keyword">select</span> <span class="string">','</span>+FlageCode <span class="keyword">from</span> R_SYS_business_logic t <span class="keyword">where</span> BusinessCode=t.BusinessCode <span class="keyword">for</span> <span class="keyword">xml</span> <span class="keyword">path</span>(<span class="string">''</span>)), <span class="number">1</span>, <span class="number">1</span>, <span class="string">''</span>) </span><br><span class="line"><span class="keyword">from</span> R_SYS_business_logic </span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> BusinessCode</span><br></pre></td></tr></table></figure>
+<h2 id="stuff函数"><a href="#stuff函数" class="headerlink" title="stuff函数"></a>stuff函数</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">STUFF ( character_expression , <span class="keyword">start</span> , <span class="keyword">length</span> ,character_expression )</span><br></pre></td></tr></table></figure>
+<p>参数</p>
+<ul>
+<li>character_expression：一个字符数据表达式。character_expression 可以是常量、变量，也可以是字符列或二进制数据列。</li>
+<li>start：一个整数值，指定删除和插入的开始位置。如果 start 或 length 为负，则返回空字符串。如果 start 比第一个character_expression 长，则返回空字符串。start 可以是 bigint 类型。</li>
+<li>length：一个整数，指定要删除的字符数。如果 length 比第一个 character_expression 长，则最多删除到最后一个character_expression 中的最后一个字符。length 可以是 bigint 类型。</li>
+<li>返回类型：如果 character_expression 是受支持的字符数据类型，则返回字符数据。如果 character_expression 是一个受支持的 binary 数据类型，则返回二进制数据。</li>
+</ul>
+<p>备注：如果开始位置或长度值是负数，或者如果开始位置大于第一个字符串的长度，将返回空字符串。如果要删除的长度大于第一个字符串的长度，将删除到第一个字符串中的第一个字符。<br>如果结果值大于返回类型支持的最大值，则产生错误。</p>
+<p>示例<br>以下示例在第一个字符串 abcdef 中删除从第 2 个位置（字符 b）开始的三个字符，然后在删除的起始位置插入第二个字符串，从而创建并返回一个字符串。</p>
+<p>SELECT STUFF(‘abcdef’, 2, 3, ‘ijklmn’);<br>GO</p>
+<h2 id="下面是结果集："><a href="#下面是结果集：" class="headerlink" title="下面是结果集： "></a>下面是结果集： </h2><p>aijklmnef</p>
+<p>(1 row(s) affected)</p>
+<h2 id="for-xml-path"><a href="#for-xml-path" class="headerlink" title="for xml path"></a>for xml path</h2><h1 id="判断是否相等"><a href="#判断是否相等" class="headerlink" title="判断是否相等"></a>判断是否相等</h1><p>  select isnull(nullif(‘1’,’1’),0)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/30/Sql语句/" data-id="cjj7ujnao000p58uq1ynkx9g1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/01/30/我们为什么要做架构/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          我们为什么要做架构
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/01/27/MVC错误记录/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">MVC错误记录</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/07/05/CLR via C#学习笔记/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/16/济宁项目/">项目总结</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/12/达意房产测绘软件/">项目总结</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/08/ModelUI for WPF/">ModelUI for WPF</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/04/设计模式/">设计模式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>CAD二次开发错误记录 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1、CAD崩溃，错误“unhandled access violation reading”=“未将对象引用设置到对象的实例”。 2、建模操作错误:指向给定边的指针为空。建模操作错误:访问冲突。acdbmgdeGeneralModelingFailure  情形一这类错误是CAD直接在其命令行中输出提示的，有时候会引发CAD崩溃，但有时候又不会引发崩溃。  我碰到的这种类错误的情况是：频繁对一些R">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CAD二次开发错误记录">
+<meta property="og:url" content="http://yoursite.com/2018/01/26/CAD二次开发错误记录/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1、CAD崩溃，错误“unhandled access violation reading”=“未将对象引用设置到对象的实例”。 2、建模操作错误:指向给定边的指针为空。建模操作错误:访问冲突。acdbmgdeGeneralModelingFailure  情形一这类错误是CAD直接在其命令行中输出提示的，有时候会引发CAD崩溃，但有时候又不会引发崩溃。  我碰到的这种类错误的情况是：频繁对一些R">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-01-26T07:20:30.985Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CAD二次开发错误记录">
+<meta name="twitter:description" content="1、CAD崩溃，错误“unhandled access violation reading”=“未将对象引用设置到对象的实例”。 2、建模操作错误:指向给定边的指针为空。建模操作错误:访问冲突。acdbmgdeGeneralModelingFailure  情形一这类错误是CAD直接在其命令行中输出提示的，有时候会引发CAD崩溃，但有时候又不会引发崩溃。  我碰到的这种类错误的情况是：频繁对一些R">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-CAD二次开发错误记录" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/26/CAD二次开发错误记录/" class="article-date">
+  <time datetime="2018-01-26T06:12:35.000Z" itemprop="datePublished">2018-01-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CAD二次开发错误记录
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1、CAD崩溃，错误“unhandled access violation reading”=“未将对象引用设置到对象的实例”。</p>
+<p>2、建模操作错误:指向给定边的指针为空。<br>建模操作错误:访问冲突。<br>acdbmgdeGeneralModelingFailure</p>
+<ul>
+<li>情形一<br>这类错误是CAD直接在其命令行中输出提示的，有时候会引发CAD崩溃，但有时候又不会引发崩溃。</li>
+</ul>
+<p>我碰到的这种类错误的情况是：频繁对一些Region进行重复炸碎，出现了这类错误。重复时间间隔越短越容易出问题，有时候中间间隔十几秒半分钟，但还会引发这类错误。</p>
+<p>原因可能是炸碎之后对象的释放不及时，CAD内存管理上出了问题；炸碎之后的实体存放在了DBObjectCollection中，虽然这个类的继承了IDisopsable，并且实现了Dispose方法和析构函数，但C#对它的释放时机好像没有把握对，释放的太晚，可能我第一次炸碎之后的得到的对象，在我第二次进行炸碎操作的时候还没有释放掉，或者在炸碎的过程中进行了释放，于是出错误。</p>
+<p>而对于释放不及时的原因，我猜想是因为DBObjectCollection内部有些地方用了GC.KeepAlive，而使得C#对它的释放不够及时。</p>
+<p>解决的办法是尽量手动释放，发现这个问题之后，我刚开始是在使用完炸碎Region得到的DBObjectCollection之后，进行了统一的释放，但是还会出现这类错误。于是在使用DBObjectCollection的循环内部，每次循环结束后，主动调用每个DBObject的Dispose方法，然后在循环结束之后，再对DBObjectCollection进行统一释放，至此，没有再出现这类错误。</p>
+<ul>
+<li>情形二<br>注意foreach循环</li>
+</ul>
+<p>3、不会命中断点，源代码与原始版本不同。</p>
+<p>在时候用VS调试代码的时候设的断点无效，断点上会出来一个黄色的三角形，鼠标放上去会提示“不会命中断点，源代码与原始版本不同”，出现这种情况可以把项目中bin文件夹和obj文件夹清空，然后再重新生成解决方案。如果不能解决，可以找到工具-&gt;选项-&gt;调试-&gt;要求源文件与原始版本完成匹配，去掉勾选。</p>
+<p>4、eNonCoplanarGeometry</p>
+<p>当实体不共面时，即有些实体的Z值不为0，则进行想到计算、判断时（如面域的布尔运算），会有此提示，此时把对应实体或所有实体的Z值全部清零即可，或者是在进行计算、判断前先判断每个参与操作的实体的Z值是否为0，如果不为0则跳过不进行运算。</p>
+<p>5、eNotApplicable</p>
+<p>情况1：一个面域是复合面域，是一个回字形面域，但它里面的那一块非常非常小，此时将它炸开时会失败（不管是用接口的炸开还是用CAD命令炸开都会失败）。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/26/CAD二次开发错误记录/" data-id="cjj7ujn9y000658uq3dpjzr2o" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/01/27/MVC错误记录/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          MVC错误记录
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/01/25/CAD二次开发/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">C#进行CAD二次开发</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/07/05/CLR via C#学习笔记/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/16/济宁项目/">项目总结</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/12/达意房产测绘软件/">项目总结</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/08/ModelUI for WPF/">ModelUI for WPF</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/04/设计模式/">设计模式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

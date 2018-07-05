@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>JQuery使用 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="$.each的用法遍历对象1234$.each(parentData,function(index,childData)&amp;#123;    index ;     //选择器的index位置     childData;  //当前元素    &amp;#125;) checkbox1、获取单个checkbox选中项(三种写法)$(“input:checkbox:checked”).val()或者$(“i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JQuery使用">
+<meta property="og:url" content="http://yoursite.com/2018/01/04/JQuery使用/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="$.each的用法遍历对象1234$.each(parentData,function(index,childData)&amp;#123;    index ;     //选择器的index位置     childData;  //当前元素    &amp;#125;) checkbox1、获取单个checkbox选中项(三种写法)$(“input:checkbox:checked”).val()或者$(“i">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-04-18T09:41:16.604Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JQuery使用">
+<meta name="twitter:description" content="$.each的用法遍历对象1234$.each(parentData,function(index,childData)&amp;#123;    index ;     //选择器的index位置     childData;  //当前元素    &amp;#125;) checkbox1、获取单个checkbox选中项(三种写法)$(“input:checkbox:checked”).val()或者$(“i">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JQuery使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/04/JQuery使用/" class="article-date">
+  <time datetime="2018-01-04T01:48:44.000Z" itemprop="datePublished">2018-01-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JQuery使用
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="each的用法"><a href="#each的用法" class="headerlink" title="$.each的用法"></a>$.each的用法</h1><h2 id="遍历对象"><a href="#遍历对象" class="headerlink" title="遍历对象"></a>遍历对象</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$.each(parentData,function(index,childData)&#123;</span><br><span class="line">    index ;     //选择器的index位置 </span><br><span class="line">    childData;  //当前元素</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+<h1 id="checkbox"><a href="#checkbox" class="headerlink" title="checkbox"></a>checkbox</h1><p>1、获取单个checkbox选中项(三种写法)<br>$(“input:checkbox:checked”).val()<br>或者<br>$(“input:[type=’checkbox’]:checked”).val();<br>或者<br>$(“input:[name=’ck’]:checked”).val();</p>
+<p>2、 获取多个checkbox选中项<br>$(‘input:checkbox’).each(function() {<br>        if ($(this).attr(‘checked’) ==true) {<br>                alert($(this).val());<br>        }<br>});</p>
+<p>3、设置第一个checkbox 为选中值<br>$(‘input:checkbox:first’).attr(“checked”,’checked’);<br>或者<br>$(‘input:checkbox’).eq(0).attr(“checked”,’true’);</p>
+<p>4、设置最后一个checkbox为选中值<br>$(‘input:radio:last’).attr(‘checked’, ‘checked’);<br>或者<br>$(‘input:radio:last’).attr(‘checked’, ‘true’);</p>
+<p>5、根据索引值设置任意一个checkbox为选中值<br>$(‘input:checkbox).eq(索引值).attr(‘checked’, ‘true’);索引值=0,1,2….<br>或者<br>$(‘input:radio’).slice(1,2).attr(‘checked’, ‘true’);</p>
+<p>6、选中多个checkbox同时选中第1个和第2个的checkbox<br>$(‘input:radio’).slice(0,2).attr(‘checked’,’true’);</p>
+<p>7、根据Value值设置checkbox为选中值<br>$(“input:checkbox[value=’1’]”).attr(‘checked’,’true’);</p>
+<p>8、删除Value=1的checkbox<br>$(“input:checkbox[value=’1’]”).remove();</p>
+<p>9、删除第几个checkbox<br>$(“input:checkbox”).eq(索引值).remove();索引值=0,1,2….<br>如删除第3个checkbox:<br>$(“input:checkbox”).eq(2).remove();</p>
+<p>10、遍历checkbox<br>$(‘input:checkbox’).each(function (index, domEle) {<br>//写入代码<br>});</p>
+<p>11、全部选中<br>$(‘input:checkbox’).each(function() {<br>        $(this).attr(‘checked’, true);<br>});</p>
+<p>12、全部取消选择<br>$(‘input:checkbox’).each(function () {<br>        $(this).attr(‘checked’,false);<br>});</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/04/JQuery使用/" data-id="cjj7ujna9000f58uqhy4gz3pv" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/01/04/FundManage设计/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          设计概要
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/01/04/EasyUI使用/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">EasyUI使用</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/07/05/CLR via C#学习笔记/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/16/济宁项目/">项目总结</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/12/达意房产测绘软件/">项目总结</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/08/ModelUI for WPF/">ModelUI for WPF</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/04/设计模式/">设计模式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

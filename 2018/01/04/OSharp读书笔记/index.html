@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>OSharp读书笔记 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="EntityFramework与其它ORM相比有什么优点 EntityFramework 是微软大力发展的一个开源项目，EF 6 在 codeplex.com 开源，EF 7 在 github.com 随 ASP.NET 5 开源。 EntityFramework 能轻松支持各大主流数据库，只要引入相应数据库的 DataProvider 即可，能无差异的操作各大主流数据库。 EntityFrame">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OSharp读书笔记">
+<meta property="og:url" content="http://yoursite.com/2018/01/04/OSharp读书笔记/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="EntityFramework与其它ORM相比有什么优点 EntityFramework 是微软大力发展的一个开源项目，EF 6 在 codeplex.com 开源，EF 7 在 github.com 随 ASP.NET 5 开源。 EntityFramework 能轻松支持各大主流数据库，只要引入相应数据库的 DataProvider 即可，能无差异的操作各大主流数据库。 EntityFrame">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-03-01T01:32:49.739Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OSharp读书笔记">
+<meta name="twitter:description" content="EntityFramework与其它ORM相比有什么优点 EntityFramework 是微软大力发展的一个开源项目，EF 6 在 codeplex.com 开源，EF 7 在 github.com 随 ASP.NET 5 开源。 EntityFramework 能轻松支持各大主流数据库，只要引入相应数据库的 DataProvider 即可，能无差异的操作各大主流数据库。 EntityFrame">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-OSharp读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/04/OSharp读书笔记/" class="article-date">
+  <time datetime="2018-01-04T07:50:42.000Z" itemprop="datePublished">2018-01-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      OSharp读书笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="EntityFramework与其它ORM相比有什么优点"><a href="#EntityFramework与其它ORM相比有什么优点" class="headerlink" title="EntityFramework与其它ORM相比有什么优点"></a>EntityFramework与其它ORM相比有什么优点</h1><ul>
+<li>EntityFramework 是微软大力发展的一个开源项目，EF 6 在 codeplex.com 开源，EF 7 在 github.com 随 ASP.NET 5 开源。</li>
+<li>EntityFramework 能轻松支持各大主流数据库，只要引入相应数据库的 DataProvider 即可，能无差异的操作各大主流数据库。</li>
+<li>EntityFramework 支持 linq to entities 语句查询，强类型支持，高效实现查询需求。</li>
+<li>EntityFramework 全面封装了数据库细节，使用了大量的“约定胜于配置”的思想，使开发者不必直接对关系存储架构编程，减少代码量，减轻维护工作，并使项目可维护性更高</li>
+</ul>
+<h1 id="为什么要封装EntityFramework"><a href="#为什么要封装EntityFramework" class="headerlink" title="为什么要封装EntityFramework"></a>为什么要封装EntityFramework</h1><ul>
+<li>不是所有的开发人员都对 EntityFramework 足够熟悉，封装之后能将 EntityFramework 的细节及较敏感的 API 进行包装与隐藏，使 EntityFramework 的使用更加透明易用。</li>
+<li>统一的封装，有利于对业务层提供统一的 API，对业务层的代码规范非常有利。</li>
+<li>封装有利于业务实体与 EntityFramework 的解耦。如果不封装，所有业务实体模型（Model）都要在上下文类中设置一个 DbSet<tentity> 类型的实体集，将与上下文强耦合，当需求发生变化时，都要对原有代码进行修改，很不利于维护。而封装之后，所有的实体模型都是动态加载到上下文类中的，业务实体与 EntityFramework 能够完全解耦，大大增强系统的可维护性。 </tentity></li>
+</ul>
+<h1 id="IEnumerable-与-IQueryable-的区别"><a href="#IEnumerable-与-IQueryable-的区别" class="headerlink" title="IEnumerable 与 IQueryable 的区别"></a>IEnumerable<t> 与 IQueryable<t> 的区别</t></t></h1><p>　　在设计数据访问层的查询API的时候，IEnumerable<t> 和 IQueryable<t> 都可以作为集合类查询结果的返回类型，那么，这两者有什么区别呢？为什么误用的时候会造成致命的性能问题呢？<br>　　IEnumerable<t> 接口的声明为：　</t></t></t></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/// &lt;summary&gt;</span><br><span class="line">/// 公开枚举数，该枚举数支持在指定类型的集合上进行简单迭代。</span><br><span class="line">/// &lt;/summary&gt;</span><br><span class="line">public interface IEnumerable&lt;out T&gt; : IEnumerable</span><br></pre></td></tr></table></figure>
+<p>IQueryable&lt;&lt;T&gt; 接口的声明为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/// &lt;summary&gt;</span><br><span class="line">/// 提供对数据类型已知的特定数据源的查询进行计算的功能。</span><br><span class="line">/// &lt;/summary&gt;</span><br><span class="line">public interface IQueryable&lt;out T&gt; : IEnumerable&lt;T&gt;, IQueryable, IEnumerable</span><br></pre></td></tr></table></figure>
+<p>在进行查询的时候，IEnumerable<t> 接口接受一个 Func&lt;T, bool&gt; 类型的委托参数： public static IEnumerable<tsource> Where<tsource>(this IEnumerable<tsource> source, Func&lt;TSource, bool&gt; predicate); ，而 IQueryable<t> 接口接受一个 Expression&lt;Func&lt;T, bool&gt;&gt; 类型的表达式参数： public static IQueryable<tsource> Where<tsource>(this IQueryable<tsource> source, Expression&lt;Func&lt;TSource, bool&gt;&gt; predicate); 。<br>正因为 IEnumerable<t> 接受的参数 predicate 数据类型是委托类型，所以这个参数在被调用的时候，就会立即执行查询逻辑，然后将查询的结果保存在内存中，后续的查询逻辑是完全在内存中执行的。而 IQueryable<t> 接受的参数 predicate 数据类型是表达式类型，这个参数会一直往下传递，直到被 IQueryable 中的 IQueryableProvider 类型的 Provider 属性解析成真正的查询语句（如 sql 语句），才传到数据源中进行查询动作。<br>所以，如果查询返回的数据集合很大的时候，使用 IEnumerable<t> 作为返回类型，会将这个数据集合立即加载到内存中，比如在设计 IRepository<t> 的 API 时，设计  IEnumerable<t> GetAll(); ， IEnumerable<t> GetByPredicate(Func&lt;T, bool&gt; predicate); 这种 API ，是非常可怕的，如果一个表中有几十上百万的数据，也同样会把所有数据加载到内存中，可能直接就导致服务器宕机了。即使数据量不大，当并发量上来的时候，也同样会造成极大的性能问题。</t></t></t></t></t></t></tsource></tsource></tsource></t></tsource></tsource></tsource></t></p>
+<h1 id="过早地内存化数据"><a href="#过早地内存化数据" class="headerlink" title="过早地内存化数据"></a>过早地内存化数据</h1><p>　　IEnumerable<t> 类型与 IQueryable<t> 类型是支持延迟的，没有真正使用数据之前，不管怎么调用，都不会执行查询，数据还是在数据库内，只有真正使用数据的时候，才会执行查询，把数据本地化到内存中。这样一来，什么时候执行本地化操作（ToArray()，ToList()等操作）就显得非常重要了，如果过早的执行本地化操作，那么就容易造成加载到内存的数据集合过于庞大，记录条数过多，造成性能问题。因此，在进行数据查询的时候，原则上应该按需获取数据，取出的数据集合就尽量的小，字段应尽量少，到数据真正使用的时候，才执行数据内存本地化操作。对于筛选部分字段的需求，linq to entities 的 select 查询匿名结果的查询方式，提供了有力的支持。</t></t></p>
+<h1 id="导航属性的延迟加载与循环"><a href="#导航属性的延迟加载与循环" class="headerlink" title="导航属性的延迟加载与循环"></a>导航属性的延迟加载与循环</h1><p>　　EntityFramework 实体模型的导航属性（即与当前表有外键关系的关联表）通常标记为 virtual，标记为 virtual 之后，相应属性的数据是具有延迟加载的特性的，只有真正用到相应属性的数据时，才会根据外键关系执行相应的查询动作，加载相应的数据。延迟加载的特性，能给系统性能带来优化，因为加载主干实体时只加载主干实体的信息，不会把关联实体的信息都加载进来，关联实体的数据只有用到的时候都会去加载。但也正是因为延迟加载，导航属性的数据是用到一次就执行一次查询动作，加载一次数据，一次还如，如果对于相同实体，需要多次用到同一个导航属性，就会产生多次重复的查询动作来加载导航属性的数据，给系统带来性能问题。例如如下的操作：</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/04/OSharp读书笔记/" data-id="cjj7ujnal000n58uq1rttggdf" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/01/05/SourceTree使用/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          SourceTree使用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/01/04/Dom元素/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Dom元素</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/07/05/CLR via C#学习笔记/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/16/济宁项目/">项目总结</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/12/达意房产测绘软件/">项目总结</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/08/ModelUI for WPF/">ModelUI for WPF</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/04/设计模式/">设计模式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

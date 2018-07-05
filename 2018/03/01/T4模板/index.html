@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>T4模板 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1. T4基本语法T4语法主要包括三类：1指令 2文本块 3指令块 1.1. 指令123&amp;lt;# 标准控制块 #&amp;gt; 可以包含语句&amp;lt;#= 表达式控制块 #&amp;gt; 可以包含表达式&amp;lt;#+ 类特征控制块 #&amp;gt; 可以包含方法、属性和字段，就像一个类的内部 指令主要包括template, output, assembly, import, include等类型在这里是指令T4语法以">
+<meta name="keywords" content="学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="T4模板">
+<meta property="og:url" content="http://yoursite.com/2018/03/01/T4模板/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1. T4基本语法T4语法主要包括三类：1指令 2文本块 3指令块 1.1. 指令123&amp;lt;# 标准控制块 #&amp;gt; 可以包含语句&amp;lt;#= 表达式控制块 #&amp;gt; 可以包含表达式&amp;lt;#+ 类特征控制块 #&amp;gt; 可以包含方法、属性和字段，就像一个类的内部 指令主要包括template, output, assembly, import, include等类型在这里是指令T4语法以">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-03-05T00:20:24.327Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="T4模板">
+<meta name="twitter:description" content="1. T4基本语法T4语法主要包括三类：1指令 2文本块 3指令块 1.1. 指令123&amp;lt;# 标准控制块 #&amp;gt; 可以包含语句&amp;lt;#= 表达式控制块 #&amp;gt; 可以包含表达式&amp;lt;#+ 类特征控制块 #&amp;gt; 可以包含方法、属性和字段，就像一个类的内部 指令主要包括template, output, assembly, import, include等类型在这里是指令T4语法以">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-T4模板" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/01/T4模板/" class="article-date">
+  <time datetime="2018-03-01T09:19:55.000Z" itemprop="datePublished">2018-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      T4模板
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-T4基本语法"><a href="#1-T4基本语法" class="headerlink" title="1. T4基本语法"></a>1. T4基本语法</h1><p>T4语法主要包括三类：1指令 2文本块 3指令块</p>
+<h2 id="1-1-指令"><a href="#1-1-指令" class="headerlink" title="1.1. 指令"></a>1.1. 指令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;# 标准控制块 #&gt; 可以包含语句</span><br><span class="line">&lt;#= 表达式控制块 #&gt; 可以包含表达式</span><br><span class="line">&lt;#+ 类特征控制块 #&gt; 可以包含方法、属性和字段，就像一个类的内部</span><br></pre></td></tr></table></figure>
+<p>指令主要包括template, output, assembly, import, include等类型<br>在这里是指令T4语法以&lt;#开头结尾</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;#@ 指令 属性=“值”#&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="1-1-1-模板指令"><a href="#1-1-1-模板指令" class="headerlink" title="1.1.1. 模板指令"></a>1.1.1. 模板指令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;#@ template debug=&quot;false&quot; hostspecific=&quot;false&quot; language=&quot;C#&quot; #&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>language: 输出语言.</li>
+<li>debug: 是否启用调试.</li>
+<li>hostspecific:有效值true、false，默认为false。如果将此特性的值设置为 true，则会将名为 Host 的属性添加到由文本模板生成的类中。 该属性是对转换引擎的宿主的引用，并声明为Microsoft.VisualStudio.TextTemplating.ITextTemplatingEngineHost。</li>
+<li>inheirits:可以指定模板的程序代码可以继承自另一个类</li>
+</ul>
+<h2 id="1-2-输出指令"><a href="#1-2-输出指令" class="headerlink" title="1.2. 输出指令"></a>1.2. 输出指令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;#@ output extension=&quot;.cs&quot; #&gt;</span><br></pre></td></tr></table></figure>
+<p>生成文件的后缀名.</p>
+<h2 id="1-3-程序集指令"><a href="#1-3-程序集指令" class="headerlink" title="1.3. 程序集指令"></a>1.3. 程序集指令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;#@ assembly name=&apos;System&apos; #&gt;</span><br></pre></td></tr></table></figure>
+<p>告诉T4引擎编译运行时引用System程序集.</p>
+<ul>
+<li>$(SolutionDir):当前项目所在解决方案目录</li>
+<li>$(ProjectDir):当前项目所在目录</li>
+<li>$(TargetPath):当前项目编译输出文件绝对路径</li>
+<li>$(TargetDir):当前项目编译输出目录，即web项目的Bin目录，控制台、类库项目bin目录下的debug或release目录(取决于当前的编译模式)</li>
+</ul>
+<p>举个例子：比如我们在D盘根目录建立了一个控制台项目MyTest，解决方案目录为D:\Feng，项目目录为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">D:\Feng\MyTest，那么此时在Debug编译模式下</span><br><span class="line">$(SolutionDir)的值为D:\Feng</span><br><span class="line">$(ProjectDir)的值为D:\Feng\MyTest</span><br><span class="line">$(TargetPath)值为D:\Feng\MyTest\bin\Debug\MyTest.exe</span><br><span class="line">$(TargetDir)值为D:\Feng\MyTest\bin\Debug\</span><br></pre></td></tr></table></figure>
+<h3 id="1-3-1-导入指令"><a href="#1-3-1-导入指令" class="headerlink" title="1.3.1. 导入指令"></a>1.3.1. 导入指令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;#@ import namespace=&quot;System.Data&quot; #&gt;</span><br></pre></td></tr></table></figure>
+<p>告诉T4引擎编译运行时引用某个名称空间。在 Visual Studio T4 文本模板的代码块中，import 指令允许您在不提供完全限定名称的情况下引用另一个命名空间中的元素。 它等效于 C# 中的 using 或 Visual Basic 中的 imports。默认已经导入了System命名空间的引用。</p>
+<h3 id="1-3-2-包含指令"><a href="#1-3-2-包含指令" class="headerlink" title="1.3.2. 包含指令"></a>1.3.2. 包含指令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;#@ include file=&quot;Base.ttinclude&quot;#&gt;</span><br></pre></td></tr></table></figure>
+<p>运行时引用某个文件，类似于JS的引用。</p>
+<p>包含指令可以提高代码复用率，比如我们可以将一些常用的程序集、命名空间引用放到一个文件里，使用时仅需要引用下即可，省去了每次都要重新引用一遍的烦恼，如我们建立Reference.ttinclude文件，里面包含了我们平时常用的程序集引用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;#@ assembly name=&quot;System.Core.dll&quot; #&gt;</span><br><span class="line">&lt;#@ assembly name=&quot;System.Data.dll&quot; #&gt;</span><br><span class="line">&lt;#@ assembly name=&quot;System.Data.DataSetExtensions.dll&quot; #&gt;</span><br><span class="line">&lt;#@ assembly name=&quot;System.Xml.dll&quot; #&gt;</span><br><span class="line">&lt;#@ import namespace=&quot;System&quot; #&gt;</span><br><span class="line">&lt;#@ import namespace=&quot;System.Xml&quot; #&gt;</span><br><span class="line">&lt;#@ import namespace=&quot;System.Linq&quot; #&gt;</span><br><span class="line">&lt;#@ import namespace=&quot;System.Data&quot; #&gt;</span><br><span class="line">&lt;#@ import namespace=&quot;System.Data.SqlClient&quot; #&gt;</span><br><span class="line">&lt;#@ import namespace=&quot;System.Collections.Generic&quot; #&gt;</span><br><span class="line">&lt;#@ import namespace=&quot;System.IO&quot; #&gt;</span><br></pre></td></tr></table></figure>
+<p>使用时只需要使用包含指令引用下即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;#@ include file=&quot;$(ProjectDir)Reference.ttinclude&quot;  #&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="1-3-3-参数指令"><a href="#1-3-3-参数指令" class="headerlink" title="1.3.3. 参数指令"></a>1.3.3. 参数指令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;#@ parameter type=&quot;string&quot; name=&quot;ParameterName&quot; #&gt;</span><br></pre></td></tr></table></figure>
+<p>顾名思义就是定义一个参数在其他的地方使用。</p>
+<h2 id="1-4-文本块"><a href="#1-4-文本块" class="headerlink" title="1.4. 文本块"></a>1.4. 文本块</h2><p>文本块直接向输出文件插入文本。</p>
+<h2 id="1-5-指令块"><a href="#1-5-指令块" class="headerlink" title="1.5. 指令块"></a>1.5. 指令块</h2><p>主要用于控制文本的输出。在控制块中可以写任意的C#代码</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/01/T4模板/" data-id="cjj7ujnaq000r58uq86fwa3az" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/03/04/设计模式/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          设计模式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/01/Access数据库/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Access总结</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/07/05/CLR via C#学习笔记/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/16/济宁项目/">项目总结</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/12/达意房产测绘软件/">项目总结</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/08/ModelUI for WPF/">ModelUI for WPF</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/04/设计模式/">设计模式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
