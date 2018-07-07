@@ -62,102 +62,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-日常代码积累" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/01/07/日常代码积累/" class="article-date">
-  <time datetime="2018-01-07T09:05:56.000Z" itemprop="datePublished">2018-01-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/07/日常代码积累/">日常代码积累</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="字符的全半角转换"><a href="#字符的全半角转换" class="headerlink" title="字符的全半角转换"></a>字符的全半角转换</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">/// &lt;summary&gt;</span><br><span class="line">      /// 转全角(SBC case)</span><br><span class="line">      /// &lt;/summary&gt;</span><br><span class="line">      /// &lt;param name=&quot;input&quot;&gt;任意字符串&lt;/param&gt;</span><br><span class="line">      /// &lt;returns&gt;全角字符串&lt;/returns&gt;</span><br><span class="line">      public static string ToSBC(this string input)</span><br><span class="line">      &#123;</span><br><span class="line">          char[] c = input.ToCharArray();</span><br><span class="line">          for (int i = 0; i &lt; c.Length; i++)</span><br><span class="line">          &#123;</span><br><span class="line">              if (c[i] == 32)</span><br><span class="line">              &#123;</span><br><span class="line">                  c[i] = (char)12288;</span><br><span class="line">                  continue;</span><br><span class="line">              &#125;</span><br><span class="line">              if (c[i] &lt; 127)</span><br><span class="line">                  c[i] = (char)(c[i] + 65248);</span><br><span class="line">          &#125;</span><br><span class="line">          return new string(c);</span><br><span class="line">      &#125;</span><br><span class="line">      /// &lt;summary&gt;</span><br><span class="line">      /// 转半角(DBC case)</span><br><span class="line">      /// &lt;/summary&gt;</span><br><span class="line">      /// &lt;param name=&quot;input&quot;&gt;任意字符串&lt;/param&gt;</span><br><span class="line">      /// &lt;returns&gt;半角字符串&lt;/returns&gt;</span><br><span class="line">      public static string ToDBC(this string input)</span><br><span class="line">      &#123;</span><br><span class="line">          char[] c = input.ToCharArray();</span><br><span class="line">          for (int i = 0; i &lt; c.Length; i++)</span><br><span class="line">          &#123;</span><br><span class="line">              if (c[i] == 12288)</span><br><span class="line">              &#123;</span><br><span class="line">                  c[i] = (char)32;</span><br><span class="line">                  continue;</span><br><span class="line">              &#125;</span><br><span class="line">              if (c[i] &gt; 65280 &amp;&amp; c[i] &lt; 65375)</span><br><span class="line">                  c[i] = (char)(c[i] - 65248);</span><br><span class="line">          &#125;</span><br><span class="line">          return new string(c);</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
-<h1 id="javascript-大小写转换"><a href="#javascript-大小写转换" class="headerlink" title="javascript 大小写转换"></a>javascript 大小写转换</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//转换成大写人民币</span></span><br><span class="line"><span class="keyword">var</span> digitUppercase = <span class="function"><span class="keyword">function</span> (<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> fraction = [<span class="string">'角'</span>, <span class="string">'分'</span>];</span><br><span class="line">    <span class="keyword">var</span> digit = [</span><br><span class="line">        <span class="string">'零'</span>, <span class="string">'壹'</span>, <span class="string">'贰'</span>, <span class="string">'叁'</span>, <span class="string">'肆'</span>,</span><br><span class="line">        <span class="string">'伍'</span>, <span class="string">'陆'</span>, <span class="string">'柒'</span>, <span class="string">'捌'</span>, <span class="string">'玖'</span></span><br><span class="line">    ];</span><br><span class="line">    <span class="keyword">var</span> unit = [</span><br><span class="line">        [<span class="string">'元'</span>, <span class="string">'万'</span>, <span class="string">'亿'</span>],</span><br><span class="line">        [<span class="string">''</span>, <span class="string">'拾'</span>, <span class="string">'佰'</span>, <span class="string">'仟'</span>]</span><br><span class="line">    ];</span><br><span class="line">    <span class="keyword">var</span> head = n &lt; <span class="number">0</span> ? <span class="string">'欠'</span> : <span class="string">''</span>;</span><br><span class="line">    n = <span class="built_in">Math</span>.abs(n);</span><br><span class="line">    <span class="keyword">var</span> s = <span class="string">''</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; fraction.length; i++) &#123;</span><br><span class="line">        s += (digit[<span class="built_in">Math</span>.floor(n * <span class="number">10</span> * <span class="built_in">Math</span>.pow(<span class="number">10</span>, i)) % <span class="number">10</span>] + fraction[i]).replace(<span class="regexp">/零./</span>, <span class="string">''</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    s = s || <span class="string">'整'</span>;</span><br><span class="line">    n = <span class="built_in">Math</span>.floor(n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; unit[<span class="number">0</span>].length &amp;&amp; n &gt; <span class="number">0</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">var</span> p = <span class="string">''</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; unit[<span class="number">1</span>].length &amp;&amp; n &gt; <span class="number">0</span>; j++) &#123;</span><br><span class="line">            p = digit[n % <span class="number">10</span>] + unit[<span class="number">1</span>][j] + p;</span><br><span class="line">            n = <span class="built_in">Math</span>.floor(n / <span class="number">10</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        s = p.replace(<span class="regexp">/(零.)*零$/</span>, <span class="string">''</span>).replace(<span class="regexp">/^$/</span>, <span class="string">'零'</span>) + unit[<span class="number">0</span>][i] + s;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> head + s.replace(<span class="regexp">/(零.)*零元/</span>, <span class="string">'元'</span>)</span><br><span class="line">        .replace(<span class="regexp">/(零.)+/g</span>, <span class="string">'零'</span>)</span><br><span class="line">        .replace(<span class="regexp">/^整$/</span>, <span class="string">'零元整'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="获取两个List或数组的差集与交集"><a href="#获取两个List或数组的差集与交集" class="headerlink" title="获取两个List或数组的差集与交集"></a>获取两个List或数组的差集与交集</h1><h2 id="差集"><a href="#差集" class="headerlink" title="差集"></a>差集</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">List&lt;int&gt; list1 = new List&lt;int&gt;();</span><br><span class="line">list1.Add(1);</span><br><span class="line">list1.Add(2);</span><br><span class="line">list1.Add(3);</span><br><span class="line">List&lt;int&gt; list2 = new List&lt;int&gt;();</span><br><span class="line">list2.Add(3);</span><br><span class="line">list2.Add(4);</span><br><span class="line">list2.Add(5);</span><br><span class="line">//得到的结果是4,5 即减去了相同的元素。</span><br><span class="line">List&lt;int&gt; list3 = list2.Except(list1).ToList();</span><br><span class="line">foreach (int i in list3)</span><br><span class="line">&#123;</span><br><span class="line">    MessageBox.Show(i.ToString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="合并两个数组-并去掉重复元素-然后排序-C"><a href="#合并两个数组-并去掉重复元素-然后排序-C" class="headerlink" title="合并两个数组,并去掉重复元素,然后排序(C#)"></a>合并两个数组,并去掉重复元素,然后排序(C#)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">List&lt;int&gt; numbers1 = new List&lt;int&gt;() &#123; 5, 4, 1, 3, 9, 8, 6, 7, 12, 10 &#125;;</span><br><span class="line">List&lt;int&gt; numbers2 = new List&lt;int&gt;() &#123; 15, 14, 11, 13, 19, 18, 16, 17, 12, 10 &#125;;</span><br><span class="line">var newQuerty = numbers1.Concat(</span><br><span class="line">from n in numbers2</span><br><span class="line">where !numbers1.Contains(n)</span><br><span class="line">select n</span><br><span class="line">).OrderBy(n=&gt;n);</span><br></pre></td></tr></table></figure>
-<h2 id="合并两个数组，并去除合并后的重复数据，-并排序"><a href="#合并两个数组，并去除合并后的重复数据，-并排序" class="headerlink" title="合并两个数组，并去除合并后的重复数据， 并排序"></a>合并两个数组，并去除合并后的重复数据， 并排序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int[] A=&#123;1,2,2,3,4,5,6,6,6&#125;;</span><br><span class="line">int[] B=&#123;2,2,2,3,7,8,9,5&#125;;</span><br><span class="line">List&lt;int&gt; list = new List&lt;int&gt;(A);</span><br><span class="line">list.AddRange(B);</span><br></pre></td></tr></table></figure>
-<h1 id="List-lt-父类-gt-引用List-lt-子类-gt"><a href="#List-lt-父类-gt-引用List-lt-子类-gt" class="headerlink" title="List&lt;父类&gt;引用List&lt;子类&gt;"></a>List&lt;父类&gt;引用List&lt;子类&gt;</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public class Father</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">public class Son:Father</span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class Test</span><br><span class="line">&#123;</span><br><span class="line">    public void Test()</span><br><span class="line">    &#123;</span><br><span class="line">        List&lt;Father&gt; fathers = new List&lt;Father&gt;();</span><br><span class="line">        List&lt;Son&gt; sons = new List&lt;Sons&gt;();</span><br><span class="line">        sons = sons.Cast&lt;Father&gt;().ToList();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">DlogOwner</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">    $(<span class="string">"#dlg"</span>).dialog(&#123;</span><br><span class="line">        title: <span class="string">'人员信息'</span>,</span><br><span class="line">        modal: <span class="literal">true</span>,</span><br><span class="line">        closed: <span class="literal">true</span>,</span><br><span class="line">        href: url,</span><br><span class="line">        queryParams: &#123; <span class="attr">type</span>: <span class="string">'add'</span>, <span class="attr">income_id</span>: $(<span class="string">"#income_id3"</span>).val() &#125;,</span><br><span class="line">        buttons: [&#123;</span><br><span class="line">            text: <span class="string">'取消'</span>,</span><br><span class="line">            handler: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                $(<span class="string">'#dlg'</span>).dialog(<span class="string">'close'</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;],</span><br><span class="line">        onClose: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> income_id = $(<span class="string">"#income_id3"</span>).val();</span><br><span class="line">            FillNewOwner(income_id);</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment">//content: "&lt;iframe scrolling='auto' frameborder='0' src='" + url + "' style='width:100%; height:100%; display:block;'&gt;&lt;/iframe&gt;"</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getQueryParam</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> obj = $(<span class="string">'#dd'</span>).dialog(<span class="string">'options'</span>);</span><br><span class="line">            <span class="keyword">var</span> queryParams = obj[<span class="string">"queryParams"</span>];</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> queryParams[name];</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-<h1 id="隐藏下拉框"><a href="#隐藏下拉框" class="headerlink" title="隐藏下拉框"></a>隐藏下拉框</h1><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">select</span> &#123;  </span><br><span class="line"><span class="comment">/*Chrome和Firefox里面的边框是不一样的，所以复写了一下*/</span>  </span><br><span class="line"><span class="attribute">border</span>: solid <span class="number">1px</span> <span class="number">#000</span>;  </span><br><span class="line">  </span><br><span class="line"><span class="comment">/*很关键：将默认的select选择框样式清除*/</span>  </span><br><span class="line"><span class="attribute">appearance</span>:none;  </span><br><span class="line"><span class="attribute">-moz-appearance</span>:none;  </span><br><span class="line"><span class="attribute">-webkit-appearance</span>:none;  </span><br><span class="line">  </span><br><span class="line"><span class="comment">/*在选择框的最右侧中间显示小箭头图片*/</span>  </span><br><span class="line"><span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">"http://ourjs.github.io/static/2015/arrow.png"</span>) no-repeat scroll right center transparent;  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"><span class="comment">/*为下拉小箭头留出一点位置，避免被文字覆盖*/</span>  </span><br><span class="line"><span class="attribute">padding-right</span>: <span class="number">14px</span>;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"><span class="comment">/*清除ie的默认选择框样式清除，隐藏下拉箭头*/</span>  </span><br><span class="line"><span class="selector-tag">select</span><span class="selector-pseudo">::-ms-expand</span> &#123; <span class="attribute">display</span>: none; &#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/07/日常代码积累/" data-id="cjj7v1hu00014dguqkz43etqz" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Visual-Studio-2017无法添加引用" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/01/07/Visual-Studio-2017无法添加引用/" class="article-date">
-  <time datetime="2018-01-07T07:43:02.000Z" itemprop="datePublished">2018-01-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/07/Visual-Studio-2017无法添加引用/">Visual Studio 2017无法添加引用</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>本机装了Visual Studio2017与2012两个版本，不知道是不是有冲突还是其它的一些原因，在2017项目中添加引用时总是报错，错误信息如下图所示：<br><img src="/2018/01/07/Visual-Studio-2017无法添加引用/Error1.png" alt="Error Image"></p>
-<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><ol>
-<li>用管理员权限打开命令行（不用管理员权限进行下面的操作可能会提示无权限）<br>在命行中打开如下路径:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\PublicAssemblies</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>此路径因安装visaul studio的位置不同而不同，我装在C盘</p>
-<ol start="2">
-<li>添加环境变量<br>在path下添加<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Program Files (x86)\Microsoft SDKs\Windows\v8.0A\bin\NETFX 4.0 Tools\x64</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><img src="/2018/01/07/Visual-Studio-2017无法添加引用/EditPath.png" alt="EditPath"></p>
-<ol start="3">
-<li>执行如下命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gacutil -i Microsoft.VisualStudio.Shell.Interop.11.0.dll</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><img src="/2018/01/07/Visual-Studio-2017无法添加引用/Add Succeed.png" alt="Add Succeed"><br>完成后重启Visual Studio，查看问题是否解决</p>
-<h2 id="resharper"><a href="#resharper" class="headerlink" title="resharper"></a>resharper</h2><p>在线服务器<br><a href="http://idea.iteblog.com/key.php" target="_blank" rel="noopener">http://idea.iteblog.com/key.php</a><br><a href="http://xidea.online" target="_blank" rel="noopener">http://xidea.online</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/07/Visual-Studio-2017无法添加引用/" data-id="cjj7v1htr000vdguq94pj7xot" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-Log4net学习" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/01/06/Log4net学习/" class="article-date">
@@ -325,7 +229,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/06/Log4net学习/" data-id="cjj7v1ht8000hdguqn2qs54jn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/06/Log4net学习/" data-id="cjjb45g5x000grsuq2qqovll9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -372,7 +276,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/05/Hexo的使用/" data-id="cjj7v1ht4000edguqdkjmdg7n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/05/Hexo的使用/" data-id="cjjb45g5i000arsuq9dbheupq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -410,7 +314,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/05/SourceTree使用/" data-id="cjj7v1htk000odguq7opbzeiw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/05/SourceTree使用/" data-id="cjjb45g69000prsuqnmkbn9k2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -464,7 +368,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/04/OSharp读书笔记/" data-id="cjj7v1hti000ndguqk2yp2nx3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/04/OSharp读书笔记/" data-id="cjjb45g60000jrsuqsc9f2w76" class="article-share-link">Share</a>
       
       
     </footer>
@@ -501,7 +405,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/04/Dom元素/" data-id="cjj7v1hsw0008dguq6qz1ru87" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/04/Dom元素/" data-id="cjjb45g550003rsuqvw8vl2yn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -538,7 +442,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/04/FundManage设计/" data-id="cjj7v1ht1000bdguqu3vgo2gm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/04/FundManage设计/" data-id="cjjb45g590006rsuqsw4fcmfn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -587,7 +491,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/04/JQuery使用/" data-id="cjj7v1ht5000fdguq08rbvsr0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/04/JQuery使用/" data-id="cjjb45g5f0009rsuqqbq5iuqn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -625,11 +529,104 @@
 <h1 id="2-combobox"><a href="#2-combobox" class="headerlink" title="2. combobox"></a>2. combobox</h1><h2 id="从后台加载数据"><a href="#从后台加载数据" class="headerlink" title="从后台加载数据"></a>从后台加载数据</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#comboid"</span>).combobox(&#123;</span><br><span class="line">    url:<span class="string">"/Ashx/ImpownContract.ashx?type=GetOtherMan"</span>,</span><br><span class="line">    valueField:<span class="string">"code"</span>,</span><br><span class="line">    textField: <span class="string">"name_c"</span>,</span><br><span class="line">    onSelect:<span class="function"><span class="keyword">function</span>(<span class="params">record</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> selectValue = record.value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取json数据格式</span></span><br><span class="line">[</span><br><span class="line">&#123;<span class="string">"code"</span>:<span class="string">"0001"</span>,<span class="string">"name_c"</span>:<span class="string">"中国工商银行股份有限公司兖州支行"</span>&#125;,</span><br><span class="line">&#123;<span class="string">"code"</span>:<span class="string">"0002"</span>,<span class="string">"name_c"</span>:<span class="string">"中国农业银行股份有限公司兖州市支行"</span>&#125;,</span><br><span class="line">&#123;<span class="string">"code"</span>:<span class="string">"0003"</span>,<span class="string">"name_c"</span>:<span class="string">"中国建设银行股份有限公司兖州支行"</span>&#125;,</span><br><span class="line">&#123;<span class="string">"code"</span>:<span class="string">"0004"</span>,<span class="string">"name_c"</span>:<span class="string">"中国银行股份有限公司兖州支行"</span>&#125;,</span><br><span class="line">&#123;<span class="string">"code"</span>:<span class="string">"0005"</span>,<span class="string">"name_c"</span>:<span class="string">"中国建设银行股份有限公司济宁分行"</span>&#125;,</span><br><span class="line">&#123;<span class="string">"code"</span>:<span class="string">"0006"</span>,<span class="string">"name_c"</span>:<span class="string">"山东圣泰农村合作银行草桥口支行"</span>&#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 <h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;#xx&quot;).combobox(&#123;disabled: true&#125;);      //设置下拉款为禁用</span><br><span class="line">$(&quot;#xx&quot;).combobox(&apos;setValue&apos;,xlid);  //设置下拉款的默认值  xlid是你下拉款的id属性</span><br><span class="line">$(&quot;#xx&quot;).combobox(&apos;getValue&apos;);      //获取下拉款id值</span><br><span class="line">$(&quot;#xx&quot;).combobox(&apos;getText&apos;);      //获取下拉款name值</span><br></pre></td></tr></table></figure>
 <h1 id="3-判断元素是否隐藏"><a href="#3-判断元素是否隐藏" class="headerlink" title="3. 判断元素是否隐藏"></a>3. 判断元素是否隐藏</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> isHaveHouse =  $(<span class="string">"#HouseDiv"</span>).is(<span class="string">":hidden"</span>);<span class="comment">//是否隐藏</span></span><br><span class="line"><span class="keyword">var</span> temp1=$(<span class="string">"#test"</span>).is(<span class="string">":visible"</span>);<span class="comment">//是否可见</span></span><br></pre></td></tr></table></figure>
+<h1 id="treegrid"><a href="#treegrid" class="headerlink" title="treegrid"></a>treegrid</h1>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/04/EasyUI使用/" data-id="cjjb45g63000krsuq6lz3szbe" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-razor语法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/04/razor语法/" class="article-date">
+  <time datetime="2018-01-04T01:38:00.000Z" itemprop="datePublished">2018-01-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/04/razor语法/">razor语法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Razor标识符与任务域"><a href="#Razor标识符与任务域" class="headerlink" title="Razor标识符与任务域"></a>Razor标识符与任务域</h1><p>@字符被定义为Razor服务器代码块的标识符，后面的表示的是服务器代码。<br>{}表示Razor的作用域<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@&#123;string userName= &quot;razor test&quot;;&#125;</span><br><span class="line">    &lt;span&gt;@userName&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;@DateTime.Now.ToString(&quot;yyyy-MM-hh&quot;)&lt;/span&gt;</span><br></pre></td></tr></table></figure></p>
+<h1 id="Razor注释"><a href="#Razor注释" class="headerlink" title="Razor注释"></a>Razor注释</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@&#123;</span><br><span class="line">   @*</span><br><span class="line">       多行注释</span><br><span class="line">   *@</span><br><span class="line">   var i = 10;  @* 单行注释 *@</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Razor类型转换"><a href="#Razor类型转换" class="headerlink" title="Razor类型转换"></a>Razor类型转换</h1><p>  AsInt(), IsInt()<br>　AsBool(),IsBool()<br>  AsFloat(),IsFloat()<br>　AsDecimal(),IsDecimal()<br>　AsDateTime(),IsDateTime()<br>　ToString()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@&#123;</span><br><span class="line">    var i = “10”;</span><br><span class="line">&#125;</span><br><span class="line">&lt;p&gt; i = @i.AsInt() &lt;/p&gt; &lt;!-- 输出 i = 10 --&gt;</span><br></pre></td></tr></table></figure></p>
+<h1 id="布局Layout"><a href="#布局Layout" class="headerlink" title="布局Layout"></a>布局Layout</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;utf-8&quot; /&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot; /&gt;</span><br><span class="line">    &lt;title&gt;@ViewBag.Title&lt;/title&gt;</span><br><span class="line">    @Styles.Render(&quot;~/Content/css&quot;)</span><br><span class="line">    @Scripts.Render(&quot;~/bundles/modernizr&quot;)</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    @RenderBody()</span><br><span class="line"></span><br><span class="line">    @Scripts.Render(&quot;~/bundles/jquery&quot;)</span><br><span class="line">    @RenderSection(&quot;scripts&quot;, required: false)</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>@RenderBody</li>
+<li>@Scripts.Render</li>
+<li>@RenderSection</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/04/EasyUI使用/" data-id="cjj7v1hsy0009dguqw8u2o3h1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/04/razor语法/" data-id="cjjb45g6e000trsuqxhov5rx3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-项目总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/03/项目总结/" class="article-date">
+  <time datetime="2018-01-03T07:30:28.000Z" itemprop="datePublished">2018-01-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/03/项目总结/">项目总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-远程数据采集系统"><a href="#1-远程数据采集系统" class="headerlink" title="1. 远程数据采集系统"></a>1. 远程数据采集系统</h1><h2 id="1-1-需求"><a href="#1-1-需求" class="headerlink" title="1.1. 需求"></a>1.1. 需求</h2><ul>
+<li>数据采集</li>
+<li>实时监控</li>
+<li>数据查询</li>
+</ul>
+<h2 id="1-2-难点"><a href="#1-2-难点" class="headerlink" title="1.2. 难点"></a>1.2. 难点</h2><p>数据监控的实时性<br>采集数据频率高，导致查询数据量大</p>
+<h1 id="2-污水处理厂数据采集系统"><a href="#2-污水处理厂数据采集系统" class="headerlink" title="2. 污水处理厂数据采集系统"></a>2. 污水处理厂数据采集系统</h1><h2 id="2-1-需求"><a href="#2-1-需求" class="headerlink" title="2.1. 需求"></a>2.1. 需求</h2><ul>
+<li>七个现场数据采集</li>
+<li>现场数据实时监控、预警并短信通知相关人员</li>
+<li>数据查询</li>
+</ul>
+<h2 id="2-2-难点"><a href="#2-2-难点" class="headerlink" title="2.2. 难点"></a>2.2. 难点</h2><p>数据监控的实时性<br>采集数据频率高，导致查询数据量大</p>
+<h1 id="3-变压器厂绕线管理系统"><a href="#3-变压器厂绕线管理系统" class="headerlink" title="3. 变压器厂绕线管理系统"></a>3. 变压器厂绕线管理系统</h1><h1 id="4-国际化"><a href="#4-国际化" class="headerlink" title="4. 国际化"></a>4. 国际化</h1><h1 id="5-机床厂管理系统"><a href="#5-机床厂管理系统" class="headerlink" title="5. 机床厂管理系统"></a>5. 机床厂管理系统</h1><h1 id="6-冷链物流温湿度监测"><a href="#6-冷链物流温湿度监测" class="headerlink" title="6. 冷链物流温湿度监测"></a>6. 冷链物流温湿度监测</h1><h1 id="7-电厂数据接口"><a href="#7-电厂数据接口" class="headerlink" title="7. 电厂数据接口"></a>7. 电厂数据接口</h1><h1 id="8-CAD二次开发"><a href="#8-CAD二次开发" class="headerlink" title="8. CAD二次开发"></a>8. CAD二次开发</h1><h1 id="9-三方联网系统"><a href="#9-三方联网系统" class="headerlink" title="9. 三方联网系统"></a>9. 三方联网系统</h1>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/03/项目总结/" data-id="cjjb45g6u0015rsuq7ocjy6he" class="article-share-link">Share</a>
       
       
     </footer>

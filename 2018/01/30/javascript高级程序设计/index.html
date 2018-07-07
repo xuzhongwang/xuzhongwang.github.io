@@ -17,7 +17,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/01/30/javascript高级程序设计/理解原型对象.png">
 <meta property="og:image" content="http://yoursite.com/2018/01/30/javascript高级程序设计/原型对象的动态性.png">
 <meta property="og:image" content="http://yoursite.com/2018/01/30/javascript高级程序设计/原型链继承.png">
-<meta property="og:updated_time" content="2018-04-21T03:23:39.054Z">
+<meta property="og:updated_time" content="2018-07-07T02:23:53.833Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript高级程序设计">
 <meta name="twitter:description" content="1. JavaScript简介1.1. JavaScript简史最初设计的主要目的是为了处理以前由服务器端语言(如Perl)负责的一些输入验证操作。 1.2. JavaScript实现一个完整的JavaScript实现由三部分组成  核心：ECMAScript 文档对象模型：DOM 浏览器对象模型：BOM  2. 在HTML中使用JavaScript2.1. &amp;lt;script&amp;gt;元素带有s">
@@ -1014,11 +1014,43 @@
 </ul>
 <p>blur 和 focus 事件在所有表单字段中都是相同的.但是,change 事件在不同表单控件中触发的次数会有所不同，对于 &lt;input&gt; 和 &lt;textarea&gt; 元素，当它们从获得焦点到失去焦点且 value 值改变时，才会触发 change 事件.对于 &lt;select&gt;元素，只要用户选择了不同的选项，就会触发 change 事件，换句话说，不失去焦点也会触发 change 事件。</p>
 <p>可以使用 focus 和 blur 事件来以某种方式来改变用户界面，要么是向用户给出视觉提示，要么是向界面中添加额外的功能。而 change 事件则经常用于验证用户在字段中输入的数据。</p>
-<h2 id="14-2-文本框脚本"><a href="#14-2-文本框脚本" class="headerlink" title="14.2. 文本框脚本"></a>14.2. 文本框脚本</h2><h1 id="15-1使用Canvas绘图"><a href="#15-1使用Canvas绘图" class="headerlink" title="15. 1使用Canvas绘图"></a>15. 1使用Canvas绘图</h1><h1 id="16-1HTML脚本编程"><a href="#16-1HTML脚本编程" class="headerlink" title="16. 1HTML脚本编程"></a>16. 1HTML脚本编程</h1><h1 id="17-1错误处理与脚本调试"><a href="#17-1错误处理与脚本调试" class="headerlink" title="17. 1错误处理与脚本调试"></a>17. 1错误处理与脚本调试</h1><h1 id="18-1Javascript与XML"><a href="#18-1Javascript与XML" class="headerlink" title="18. 1Javascript与XML"></a>18. 1Javascript与XML</h1><h1 id="19-1EX"><a href="#19-1EX" class="headerlink" title="19. 1EX"></a>19. 1EX</h1><h1 id="20-2JSON"><a href="#20-2JSON" class="headerlink" title="20. 2JSON"></a>20. 2JSON</h1><h1 id="21-2Ajax与Comet"><a href="#21-2Ajax与Comet" class="headerlink" title="21. 2Ajax与Comet"></a>21. 2Ajax与Comet</h1><h1 id="22-2高级技巧"><a href="#22-2高级技巧" class="headerlink" title="22. 2高级技巧"></a>22. 2高级技巧</h1><h1 id="23-2离线应用与客户端存储"><a href="#23-2离线应用与客户端存储" class="headerlink" title="23. 2离线应用与客户端存储"></a>23. 2离线应用与客户端存储</h1><h1 id="24-2最佳实践"><a href="#24-2最佳实践" class="headerlink" title="24. 2最佳实践"></a>24. 2最佳实践</h1><h1 id="25-2新兴的API"><a href="#25-2新兴的API" class="headerlink" title="25. 2新兴的API"></a>25. 2新兴的API</h1>
+<h2 id="14-2-文本框脚本"><a href="#14-2-文本框脚本" class="headerlink" title="14.2. 文本框脚本"></a>14.2. 文本框脚本</h2><h1 id="15-1使用Canvas绘图"><a href="#15-1使用Canvas绘图" class="headerlink" title="15. 1使用Canvas绘图"></a>15. 1使用Canvas绘图</h1><h1 id="16-1HTML脚本编程"><a href="#16-1HTML脚本编程" class="headerlink" title="16. 1HTML脚本编程"></a>16. 1HTML脚本编程</h1><h1 id="17-1错误处理与脚本调试"><a href="#17-1错误处理与脚本调试" class="headerlink" title="17. 1错误处理与脚本调试"></a>17. 1错误处理与脚本调试</h1><h1 id="18-1Javascript与XML"><a href="#18-1Javascript与XML" class="headerlink" title="18. 1Javascript与XML"></a>18. 1Javascript与XML</h1><h1 id="19-1EX"><a href="#19-1EX" class="headerlink" title="19. 1EX"></a>19. 1EX</h1><h1 id="20-2JSON"><a href="#20-2JSON" class="headerlink" title="20. 2JSON"></a>20. 2JSON</h1><p>关于Json，最重要的是理解它是一种数据格式，不是一种编程语言。</p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>JSON 的语法可以表示以下三种类型的值</p>
+<ul>
+<li>简单值：使用与 JavaScript 相同的语法，可以在JSON中表示字符串、数值、布尔值和null,值 JSON 中不支持JavaScript中的特殊值 undefined</li>
+<li>对象：对象作为一种复杂的数据类型，表示的是一组有序的键值对儿，而每个键值对的值可以是简单值，也可以是复杂数据类型的值</li>
+<li>数组：数组也是一种复杂的数据类型，表示一组有序的值的列表，可以通过数值索引来访问其中的值。数组的值也可以是任意类型———简单值、对象或数组</li>
+</ul>
+<h3 id="简单值"><a href="#简单值" class="headerlink" title="简单值"></a>简单值</h3><p>JavaScript字符串与JSON字符串最大的区别在于，JSON字符串必须使用双引号</p>
+<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><p>与 JavaScript 的对象字面量相比，JSON 对象有两个地方不一样。<br>首先，没有声明变量<br>其次，没有末尾的分号</p>
+<p>与 JavaScript 不同，JSON 中的对象的属性名任何时候都必须加双引号。</p>
+<h2 id="解析与序列化"><a href="#解析与序列化" class="headerlink" title="解析与序列化"></a>解析与序列化</h2><p>JSON 之所以流行，拥有与 JavaScript 类似的语法并不是全部原因。更重要的原因是，可以把 JSON 数据结构解析为有用的 JavaScript 对象。</p>
+<h3 id="JSON-对象"><a href="#JSON-对象" class="headerlink" title="JSON 对象"></a>JSON 对象</h3><p>ECMAScript5 定义了全局对象 JSON</p>
+<p>有两个方法：stringify() 和 parse()</p>
+<h3 id="序列化选项"><a href="#序列化选项" class="headerlink" title="序列化选项"></a>序列化选项</h3><p>JSON.stringify() 除了要序列化的 JavaScript 对象外，还可以接收另外两个参数，这两个参数用于指定以不同方式序列化 JavaScript对象。<br>第一个参数是过滤器，可以是一个数组，也可以是一个函数。<br>第二个参数是一个选项，表示是否在JSON字符串中保留缩进。</p>
+<ol>
+<li>过滤结果</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> book = &#123;</span><br><span class="line">    <span class="string">"title"</span>:<span class="string">"Professional JavaScript"</span>,</span><br><span class="line">    <span class="string">"authors"</span>:[<span class="string">"Ni"</span>],</span><br><span class="line">    edition:<span class="number">3</span>,</span><br><span class="line">    year:<span class="number">2011</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> jsonText = <span class="built_in">JSON</span>.stringify(book,[<span class="string">"title"</span>,<span class="string">"edition"</span>]);</span><br></pre></td></tr></table></figure>
+<p>如果第二个参数是函数，行为会稍有不同，传入的函数接收两个参数，属性（键）名和属性值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> book = &#123;</span><br><span class="line">    <span class="string">"title"</span>:<span class="string">"Professional JavaScript"</span>,</span><br><span class="line">    <span class="string">"authors"</span>:[<span class="string">"Ni"</span>],</span><br><span class="line">    edition:<span class="number">3</span>,</span><br><span class="line">    year:<span class="number">2011</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> jsonText = <span class="built_in">JSON</span>.stringify(book,<span class="function"><span class="keyword">function</span>(<span class="params">key,value</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">switch</span>(key)&#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"authors"</span>:</span><br><span class="line">        <span class="keyword">return</span> value.join(<span class="string">","</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>字符串缩进</li>
+</ol>
+<p>JSON.stringify() 方法的第三个参数用于控制结果中的缩进和空白符。如果这个参数是一个数值，那它表示的是每个级别缩进的空格数。</p>
+<ol start="3">
+<li>toJSON() 方法</li>
+</ol>
+<p>在对象上调用 toJSON 方法，返回其自身的 JSON 数据格式。</p>
+<p>可以为任何对象添加 toJSON() 方法，如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> book = &#123;</span><br><span class="line">    <span class="string">"title"</span>:<span class="string">"Professional JavaScript"</span>,</span><br><span class="line">    <span class="string">"authors"</span>:[<span class="string">"Ni"</span>],</span><br><span class="line">    edition:<span class="number">3</span>,</span><br><span class="line">    year:<span class="number">2011</span>,</span><br><span class="line">    toJSON:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.title;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> jsonText = <span class="built_in">JSON</span>.stringify(book);</span><br></pre></td></tr></table></figure>
+<p>把一个对象传入 JSON.stringify(),序列化该对象的顺序如下：</p>
+<p>(1) 如果存在 toJSON 方法而且能通过它取得有效值，则调用该方法，否则按默认顺序执行序列化。<br>(2) 如果提供了第二个参数，应用这个函数过滤器。传入函数过滤器的值是第(1)步返回的值。<br>(3) 对第(2)步返回的每个值进行相应序列化。<br>(4) 如果提供了第三个参数，执行相应格式化。</p>
+<h3 id="序列化选项-1"><a href="#序列化选项-1" class="headerlink" title="序列化选项"></a>序列化选项</h3><h1 id="21-2Ajax与Comet"><a href="#21-2Ajax与Comet" class="headerlink" title="21. 2Ajax与Comet"></a>21. 2Ajax与Comet</h1><h1 id="22-2高级技巧"><a href="#22-2高级技巧" class="headerlink" title="22. 2高级技巧"></a>22. 2高级技巧</h1><h1 id="23-2离线应用与客户端存储"><a href="#23-2离线应用与客户端存储" class="headerlink" title="23. 2离线应用与客户端存储"></a>23. 2离线应用与客户端存储</h1><h1 id="24-2最佳实践"><a href="#24-2最佳实践" class="headerlink" title="24. 2最佳实践"></a>24. 2最佳实践</h1><h1 id="25-2新兴的API"><a href="#25-2新兴的API" class="headerlink" title="25. 2新兴的API"></a>25. 2新兴的API</h1>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/30/javascript高级程序设计/" data-id="cjj7v1hub001bdguqnsi5xz9w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/30/javascript高级程序设计/" data-id="cjjb45g8u0019rsuqdble4k63" class="article-share-link">Share</a>
       
       
     </footer>

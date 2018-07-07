@@ -62,99 +62,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-razor语法" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/01/04/razor语法/" class="article-date">
-  <time datetime="2018-01-04T01:38:00.000Z" itemprop="datePublished">2018-01-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/04/razor语法/">razor语法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Razor标识符与任务域"><a href="#Razor标识符与任务域" class="headerlink" title="Razor标识符与任务域"></a>Razor标识符与任务域</h1><p>@字符被定义为Razor服务器代码块的标识符，后面的表示的是服务器代码。<br>{}表示Razor的作用域<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@&#123;string userName= &quot;razor test&quot;;&#125;</span><br><span class="line">    &lt;span&gt;@userName&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;@DateTime.Now.ToString(&quot;yyyy-MM-hh&quot;)&lt;/span&gt;</span><br></pre></td></tr></table></figure></p>
-<h1 id="Razor注释"><a href="#Razor注释" class="headerlink" title="Razor注释"></a>Razor注释</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@&#123;</span><br><span class="line">   @*</span><br><span class="line">       多行注释</span><br><span class="line">   *@</span><br><span class="line">   var i = 10;  @* 单行注释 *@</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="Razor类型转换"><a href="#Razor类型转换" class="headerlink" title="Razor类型转换"></a>Razor类型转换</h1><p>  AsInt(), IsInt()<br>　AsBool(),IsBool()<br>  AsFloat(),IsFloat()<br>　AsDecimal(),IsDecimal()<br>　AsDateTime(),IsDateTime()<br>　ToString()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@&#123;</span><br><span class="line">    var i = “10”;</span><br><span class="line">&#125;</span><br><span class="line">&lt;p&gt; i = @i.AsInt() &lt;/p&gt; &lt;!-- 输出 i = 10 --&gt;</span><br></pre></td></tr></table></figure></p>
-<h1 id="布局Layout"><a href="#布局Layout" class="headerlink" title="布局Layout"></a>布局Layout</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;utf-8&quot; /&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot; /&gt;</span><br><span class="line">    &lt;title&gt;@ViewBag.Title&lt;/title&gt;</span><br><span class="line">    @Styles.Render(&quot;~/Content/css&quot;)</span><br><span class="line">    @Scripts.Render(&quot;~/bundles/modernizr&quot;)</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    @RenderBody()</span><br><span class="line"></span><br><span class="line">    @Scripts.Render(&quot;~/bundles/jquery&quot;)</span><br><span class="line">    @RenderSection(&quot;scripts&quot;, required: false)</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>@RenderBody</li>
-<li>@Scripts.Render</li>
-<li>@RenderSection</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/04/razor语法/" data-id="cjj7v1htu000xdguq6u1zrimq" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-项目总结" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/01/03/项目总结/" class="article-date">
-  <time datetime="2018-01-03T07:30:28.000Z" itemprop="datePublished">2018-01-03</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/03/项目总结/">项目总结</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-远程数据采集系统"><a href="#1-远程数据采集系统" class="headerlink" title="1. 远程数据采集系统"></a>1. 远程数据采集系统</h1><h2 id="1-1-需求"><a href="#1-1-需求" class="headerlink" title="1.1. 需求"></a>1.1. 需求</h2><ul>
-<li>数据采集</li>
-<li>实时监控</li>
-<li>数据查询</li>
-</ul>
-<h2 id="1-2-难点"><a href="#1-2-难点" class="headerlink" title="1.2. 难点"></a>1.2. 难点</h2><p>数据监控的实时性<br>采集数据频率高，导致查询数据量大</p>
-<h1 id="2-污水处理厂数据采集系统"><a href="#2-污水处理厂数据采集系统" class="headerlink" title="2. 污水处理厂数据采集系统"></a>2. 污水处理厂数据采集系统</h1><h2 id="2-1-需求"><a href="#2-1-需求" class="headerlink" title="2.1. 需求"></a>2.1. 需求</h2><ul>
-<li>七个现场数据采集</li>
-<li>现场数据实时监控、预警并短信通知相关人员</li>
-<li>数据查询</li>
-</ul>
-<h2 id="2-2-难点"><a href="#2-2-难点" class="headerlink" title="2.2. 难点"></a>2.2. 难点</h2><p>数据监控的实时性<br>采集数据频率高，导致查询数据量大</p>
-<h1 id="3-变压器厂绕线管理系统"><a href="#3-变压器厂绕线管理系统" class="headerlink" title="3. 变压器厂绕线管理系统"></a>3. 变压器厂绕线管理系统</h1><h1 id="4-国际化"><a href="#4-国际化" class="headerlink" title="4. 国际化"></a>4. 国际化</h1><h1 id="5-机床厂管理系统"><a href="#5-机床厂管理系统" class="headerlink" title="5. 机床厂管理系统"></a>5. 机床厂管理系统</h1><h1 id="6-冷链物流温湿度监测"><a href="#6-冷链物流温湿度监测" class="headerlink" title="6. 冷链物流温湿度监测"></a>6. 冷链物流温湿度监测</h1><h1 id="7-电厂数据接口"><a href="#7-电厂数据接口" class="headerlink" title="7. 电厂数据接口"></a>7. 电厂数据接口</h1><h1 id="8-CAD二次开发"><a href="#8-CAD二次开发" class="headerlink" title="8. CAD二次开发"></a>8. CAD二次开发</h1><h1 id="9-三方联网系统"><a href="#9-三方联网系统" class="headerlink" title="9. 三方联网系统"></a>9. 三方联网系统</h1>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/03/项目总结/" data-id="cjj7v1hu7001adguq898g11x1" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-GitHub博客部署" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/12/27/GitHub博客部署/" class="article-date">
@@ -208,7 +115,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/27/GitHub博客部署/" data-id="cjj7v1ht3000cdguq00jtqdh6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/27/GitHub博客部署/" data-id="cjjb45g5b0007rsuqydxhpp4b" class="article-share-link">Share</a>
       
       
     </footer>
