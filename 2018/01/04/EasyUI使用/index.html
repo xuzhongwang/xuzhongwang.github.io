@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1. datagrid使用1.1. 初始化12345678910111213141516171819202122232425262728293031$(&apos;#HouseData&apos;).datagrid(&amp;#123;    url: &apos;/Ashx/TempHouse.ashx?type=extractinghouseinfo&amp;amp;ownerinfo=&apos; + ownerInfo,    method:">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-06T09:16:41.856Z">
+<meta property="og:updated_time" content="2018-07-09T06:12:52.698Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="EasyUI使用">
 <meta name="twitter:description" content="1. datagrid使用1.1. 初始化12345678910111213141516171819202122232425262728293031$(&apos;#HouseData&apos;).datagrid(&amp;#123;    url: &apos;/Ashx/TempHouse.ashx?type=extractinghouseinfo&amp;amp;ownerinfo=&apos; + ownerInfo,    method:">
@@ -92,11 +92,13 @@
 <h1 id="2-combobox"><a href="#2-combobox" class="headerlink" title="2. combobox"></a>2. combobox</h1><h2 id="从后台加载数据"><a href="#从后台加载数据" class="headerlink" title="从后台加载数据"></a>从后台加载数据</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#comboid"</span>).combobox(&#123;</span><br><span class="line">    url:<span class="string">"/Ashx/ImpownContract.ashx?type=GetOtherMan"</span>,</span><br><span class="line">    valueField:<span class="string">"code"</span>,</span><br><span class="line">    textField: <span class="string">"name_c"</span>,</span><br><span class="line">    onSelect:<span class="function"><span class="keyword">function</span>(<span class="params">record</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> selectValue = record.value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取json数据格式</span></span><br><span class="line">[</span><br><span class="line">&#123;<span class="string">"code"</span>:<span class="string">"0001"</span>,<span class="string">"name_c"</span>:<span class="string">"中国工商银行股份有限公司兖州支行"</span>&#125;,</span><br><span class="line">&#123;<span class="string">"code"</span>:<span class="string">"0002"</span>,<span class="string">"name_c"</span>:<span class="string">"中国农业银行股份有限公司兖州市支行"</span>&#125;,</span><br><span class="line">&#123;<span class="string">"code"</span>:<span class="string">"0003"</span>,<span class="string">"name_c"</span>:<span class="string">"中国建设银行股份有限公司兖州支行"</span>&#125;,</span><br><span class="line">&#123;<span class="string">"code"</span>:<span class="string">"0004"</span>,<span class="string">"name_c"</span>:<span class="string">"中国银行股份有限公司兖州支行"</span>&#125;,</span><br><span class="line">&#123;<span class="string">"code"</span>:<span class="string">"0005"</span>,<span class="string">"name_c"</span>:<span class="string">"中国建设银行股份有限公司济宁分行"</span>&#125;,</span><br><span class="line">&#123;<span class="string">"code"</span>:<span class="string">"0006"</span>,<span class="string">"name_c"</span>:<span class="string">"山东圣泰农村合作银行草桥口支行"</span>&#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 <h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;#xx&quot;).combobox(&#123;disabled: true&#125;);      //设置下拉款为禁用</span><br><span class="line">$(&quot;#xx&quot;).combobox(&apos;setValue&apos;,xlid);  //设置下拉款的默认值  xlid是你下拉款的id属性</span><br><span class="line">$(&quot;#xx&quot;).combobox(&apos;getValue&apos;);      //获取下拉款id值</span><br><span class="line">$(&quot;#xx&quot;).combobox(&apos;getText&apos;);      //获取下拉款name值</span><br></pre></td></tr></table></figure>
 <h1 id="3-判断元素是否隐藏"><a href="#3-判断元素是否隐藏" class="headerlink" title="3. 判断元素是否隐藏"></a>3. 判断元素是否隐藏</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> isHaveHouse =  $(<span class="string">"#HouseDiv"</span>).is(<span class="string">":hidden"</span>);<span class="comment">//是否隐藏</span></span><br><span class="line"><span class="keyword">var</span> temp1=$(<span class="string">"#test"</span>).is(<span class="string">":visible"</span>);<span class="comment">//是否可见</span></span><br></pre></td></tr></table></figure>
-<h1 id="treegrid"><a href="#treegrid" class="headerlink" title="treegrid"></a>treegrid</h1>
+<h1 id="Parser-解析器"><a href="#Parser-解析器" class="headerlink" title="Parser(解析器)"></a>Parser(解析器)</h1><p>解析器是 easy ui 很重要的基础组件，在 easy ui 中我们可以简单的通过 class 定义一个组件，从而渲染出很好的交互效果，就是通过 parser 进行解析的。</p>
+<p>parser 会获取全部在指定内定为 easy ui 组件的 class 定义，而且根据后缀定义把当前节点解析渲染成特定组件。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$.parser.parse();<span class="comment">//不带参数，默认解析该页面中全部定义为 easyui 组件的节点</span></span><br><span class="line">$.parser.onComplete();<span class="comment">//在解析器完成解析操作的时候触发。</span></span><br><span class="line">$.parser.parse(<span class="string">'#cc'</span>);<span class="comment">//带一个jquery 选择器，使用这样的方式能够单独解析局部 easyui 组件节点</span></span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/04/EasyUI使用/" data-id="cjjb45g63000krsuq6lz3szbe" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/04/EasyUI使用/" data-id="cjjwkdfmx000fhsuqncf0kqjv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -168,23 +170,23 @@
       <ul>
         
           <li>
-            <a href="/2018/07/05/CLR via C#学习笔记/">(no title)</a>
+            <a href="/2018/07/22/打造自己的linqProvider/">打造自己的linqProvider</a>
           </li>
         
           <li>
-            <a href="/2018/03/16/济宁项目/">项目总结</a>
+            <a href="/2018/07/21/CSS入门及提高/">CSS入门及提高</a>
           </li>
         
           <li>
-            <a href="/2018/03/12/达意房产测绘软件/">项目总结</a>
+            <a href="/2018/07/18/从零做一个前端开源项目学习笔记/">从零做一个前端开源项目学习笔记</a>
           </li>
         
           <li>
-            <a href="/2018/03/08/ModelUI for WPF/">ModelUI for WPF</a>
+            <a href="/2018/07/09/SQL Server编程入门经典/">SQL Server编程入门经典</a>
           </li>
         
           <li>
-            <a href="/2018/03/04/设计模式/">设计模式</a>
+            <a href="/2018/07/07/EasyUI TreeGrid使用总结/">EasyUI TreeGrid使用总结</a>
           </li>
         
       </ul>

@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1. 问题记录1.1. 未找到实例框架程序未找到具有固定名称“System.Data.SqlClient”的 ADO.NET 提供程序的实体框架提供程序。请确保在应用程序配置文件的“entityFramework”节中注册了该提供程序。有关详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkId=260882 解决方法，在项目中添加EntityFramewor">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-03-06T07:58:48.549Z">
+<meta property="og:updated_time" content="2018-07-18T13:30:46.689Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="EntityFramwork">
 <meta name="twitter:description" content="1. 问题记录1.1. 未找到实例框架程序未找到具有固定名称“System.Data.SqlClient”的 ADO.NET 提供程序的实体框架提供程序。请确保在应用程序配置文件的“entityFramework”节中注册了该提供程序。有关详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkId=260882 解决方法，在项目中添加EntityFramewor">
@@ -105,10 +105,12 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Add-Migration -Name <span class="string">"EditCST_DevicePhoto"</span>  -ProjectName <span class="string">"DBAccessLib"</span> -StartUpProjectName <span class="string">"WebSite"</span> -ConnectionStringName <span class="string">"TJSSDBContext"</span> -Verbose</span><br><span class="line"></span><br><span class="line">Update-Database -Script -ProjectName <span class="string">"DBAccessLib"</span> -StartUpProjectName <span class="string">"WebSite"</span> -ConnectionStringName <span class="string">"TJSSDBContext"</span>  -Verbose</span><br></pre></td></tr></table></figure>
 <p>使用过程中注意去掉 script参数</p>
 <h2 id="2-3-Migration-数据迁移常用命令"><a href="#2-3-Migration-数据迁移常用命令" class="headerlink" title="2.3. Migration 数据迁移常用命令"></a>2.3. Migration 数据迁移常用命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">PM&gt; Enable-Migrations -EnableAutomaticMigrations</span><br><span class="line">PM&gt; Add-Migration InitialCreate</span><br><span class="line">PM&gt; Update-Database -Verbose</span><br><span class="line">PM&gt; Update-Database –TargetMigration:<span class="string">"201309201643300_AddCity.cs"</span></span><br><span class="line"></span><br><span class="line">生成数据库版本之间的Sql脚本</span><br><span class="line">　　执行程序包管理器控制台语句，生成数据库版本之间的Sql脚本。该操作仅为生成Sql语句，并未在数据库中进行执行。</span><br><span class="line">Update-Database -Script -SourceMigration:<span class="string">"201309201643300_AddCity.cs"</span> -TargetMigration:<span class="string">"201309201708043_ModifyCity.cs"</span></span><br></pre></td></tr></table></figure>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><h2 id="LINQ-to-Entities-不支持指定的类型成员“Date”。只支持初始值设定项、实体成员和实体导航属性。"><a href="#LINQ-to-Entities-不支持指定的类型成员“Date”。只支持初始值设定项、实体成员和实体导航属性。" class="headerlink" title="LINQ to Entities 不支持指定的类型成员“Date”。只支持初始值设定项、实体成员和实体导航属性。"></a>LINQ to Entities 不支持指定的类型成员“Date”。只支持初始值设定项、实体成员和实体导航属性。</h2><p>将时间字符串写在 linq 外面</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/01/EntityFramwork/" data-id="cjjb45g580005rsuq8ahjtm0t" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/01/EntityFramwork/" data-id="cjjwkdfn0000hhsuqw3ulp6z1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -180,23 +182,23 @@
       <ul>
         
           <li>
-            <a href="/2018/07/05/CLR via C#学习笔记/">(no title)</a>
+            <a href="/2018/07/22/打造自己的linqProvider/">打造自己的linqProvider</a>
           </li>
         
           <li>
-            <a href="/2018/03/16/济宁项目/">项目总结</a>
+            <a href="/2018/07/21/CSS入门及提高/">CSS入门及提高</a>
           </li>
         
           <li>
-            <a href="/2018/03/12/达意房产测绘软件/">项目总结</a>
+            <a href="/2018/07/18/从零做一个前端开源项目学习笔记/">从零做一个前端开源项目学习笔记</a>
           </li>
         
           <li>
-            <a href="/2018/03/08/ModelUI for WPF/">ModelUI for WPF</a>
+            <a href="/2018/07/09/SQL Server编程入门经典/">SQL Server编程入门经典</a>
           </li>
         
           <li>
-            <a href="/2018/03/04/设计模式/">设计模式</a>
+            <a href="/2018/07/07/EasyUI TreeGrid使用总结/">EasyUI TreeGrid使用总结</a>
           </li>
         
       </ul>

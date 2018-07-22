@@ -62,6 +62,335 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-打造自己的linqProvider" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/22/打造自己的linqProvider/" class="article-date">
+  <time datetime="2018-07-22T07:04:18.000Z" itemprop="datePublished">2018-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/22/打造自己的linqProvider/">打造自己的linqProvider</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="认识表达式树"><a href="#认识表达式树" class="headerlink" title="认识表达式树"></a>认识表达式树</h1><p>表达式树是一种抽象语法或者数据结构，通过解析表达式目录可以实现一些特定功能。</p>
+<p>如何构造表达式树，最简单的方法莫过于使用 Lambda 表达式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Expression&lt;Func&lt;int,int,int&gt; expression = (a,b) =&gt; a*b +2;</span><br></pre></td></tr></table></figure>
+<p>在我们将Lambda表达式指定给Expression&lt;TDelegate&gt;类型的变量（参数）时，编译器将会发出生成表达式目录树的指令，如上面这段代码中的Lambda表达式(a, b) =&gt; a * b + 2将创建一个表达式目录树，它表示的是一种数据结构，即我们把一行代码用数据结构的形式表示了出来，具体来说最终构造出来的表达式目录树形状如下图所示：</p>
+<p><img src="/2018/07/22/打造自己的linqProvider/表达式目录树形状.png" alt="表达式目录树形状"></p>
+<p>这里每一个节点都表示一个表达式，可能是一个二元运算，也可能是一个常量或者参数等，如上图中的ParameterExpression就是一个参数表达式，ConstantExpression是一个常量表达式，BinaryExpression是一个二元表达式。我们也可以在Visual Studio中使用Expression Tree Visualizer来查看该表达式目录树：</p>
+<p>.NET Framework到底提供的表达式类型：</p>
+<p><img src="/2018/07/22/打造自己的linqProvider/表达式类型.png" alt="表达式类型"></p>
+<p>它们都继承于抽象的基类Expression，而泛型的Expression<tdelegate>则继承于LambdaExpression。在Expression类中提供了大量的工厂方法，这些方法负责创建以上各种表达式对象，如调用Add()方法将创建一个表示不进行溢出检查的算术加法运算的BinaryExpression对象，调用Lambda方法将创建一个表示lambda 表达式的LambdaExpression对象，具体提供的方法大家可以查阅MSDN。上面构造表达式目录树时我们使用了Lambda表达式，现在我们看一下如何通过这些表达式对象手工构造出一个表达式目录树，如下代码所示：</tdelegate></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">static void Main(string[] args)</span><br><span class="line">&#123;</span><br><span class="line">    ParameterExpression paraLeft = Expression.Parameter(typeof(int), &quot;a&quot;);</span><br><span class="line">    ParameterExpression paraRight = Expression.Parameter(typeof(int), &quot;b&quot;);</span><br><span class="line"></span><br><span class="line">    BinaryExpression binaryLeft = Expression.Multiply(paraLeft, paraRight);</span><br><span class="line">    ConstantExpression conRight = Expression.Constant(2, typeof(int));</span><br><span class="line"></span><br><span class="line">    BinaryExpression binaryBody = Expression.Add(binaryLeft, conRight);</span><br><span class="line"></span><br><span class="line">    LambdaExpression lambda = </span><br><span class="line">        Expression.Lambda&lt;Func&lt;int, int, int&gt;&gt;(binaryBody, paraLeft, paraRight);</span><br><span class="line"></span><br><span class="line">    Console.WriteLine(lambda.ToString());</span><br><span class="line"></span><br><span class="line">    Console.Read();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对于一个表达式目录树来说，它有几个比较重要的属性：</p>
+<ul>
+<li>Body：指表达式的主体部分；</li>
+<li>Parameters：指表达式的参数；</li>
+<li>NodeType：指表达式的节点类型，如在上面的例子中，它的节点类型是Lambda；</li>
+<li>Type：指表达式的静态类型，在上面的例子中，Type为Fun&lt;int,int,int&gt;。</li>
+</ul>
+<h2 id="表达式目录树与委托"><a href="#表达式目录树与委托" class="headerlink" title="表达式目录树与委托"></a>表达式目录树与委托</h2><p>大家可能经常看到如下这样的语言，其中第一句是直接用Lambda表达式来初始化了Func委托，而第二句则使用Lambda表达式来构造了一个表达式目录树，它们之间的区别是什么呢？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">static void Main(string[] args)</span><br><span class="line">&#123;</span><br><span class="line">    Func&lt;int, int, int&gt; lambda = (a, b) =&gt; a + b * 2;</span><br><span class="line"></span><br><span class="line">    Expression&lt;Func&lt;int, int, int&gt;&gt; expression = (a, b) =&gt; a + b * 2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其实看一下IL就很明显，其中第一句直接将Lambda表达式直接编译成了IL，如下代码所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">.method private hidebysig static void  Main(string[] args) cil managed</span><br><span class="line">&#123;</span><br><span class="line">  .entrypoint</span><br><span class="line">  .maxstack  3</span><br><span class="line">  .locals init ([0] class [System.Core]System.Func`3&lt;int32,int32,int32&gt; lambda)</span><br><span class="line">  IL_0000:  nop</span><br><span class="line">  IL_0001:  ldsfld     class [System.Core]System.Func`3&lt;int32,int32,int32&gt; </span><br><span class="line">                        TerryLee.LinqToLiveSearch.Program::&apos;CS$&lt;&gt;9__CachedAnonymousMethodDelegate1&apos;</span><br><span class="line">  IL_0006:  brtrue.s   IL_001b</span><br><span class="line">  IL_0008:  ldnull</span><br><span class="line">  IL_0009:  ldftn      int32 TerryLee.LinqToLiveSearch.Program::&apos;&lt;Main&gt;b__0&apos;(int32,</span><br><span class="line">                                                                             int32)</span><br><span class="line">  IL_000f:  newobj     instance void class [System.Core]System.Func`3&lt;int32,int32,int32&gt;::.ctor(object,</span><br><span class="line">                                                                                                native int)</span><br><span class="line">  IL_0014:  stsfld     class [System.Core]System.Func`3&lt;int32,int32,int32&gt; </span><br><span class="line">                    TerryLee.LinqToLiveSearch.Program::&apos;CS$&lt;&gt;9__CachedAnonymousMethodDelegate1&apos;</span><br><span class="line">  IL_0019:  br.s       IL_001b</span><br><span class="line">  IL_001b:  ldsfld     class [System.Core]System.Func`3&lt;int32,int32,int32&gt; </span><br><span class="line">                    TerryLee.LinqToLiveSearch.Program::&apos;CS$&lt;&gt;9__CachedAnonymousMethodDelegate1&apos;</span><br><span class="line">  IL_0020:  stloc.0</span><br><span class="line">  IL_0021:  ret</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>而第二句，由于告诉编译器是一个表达式目录树，所以编译器会分析该Lambda表达式，并生成表示该Lambda表达式的表达式目录树，即它与我们手工创建表达式目录树所生成的IL是一致的，如下代码所示，此处为了节省空间省略掉了部分代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">.method private hidebysig static void  Main(string[] args) cil managed</span><br><span class="line">&#123;</span><br><span class="line">  .entrypoint</span><br><span class="line">  .maxstack  4</span><br><span class="line">  .locals init ([0] class [System.Core]System.Linq.Expressions.Expression`1&lt;</span><br><span class="line">                class [System.Core]System.Func`3&lt;int32,int32,int32&gt;&gt; expression,</span><br><span class="line">           [1] class [System.Core]System.Linq.Expressions.ParameterExpression CS$0$0000,</span><br><span class="line">           [2] class [System.Core]System.Linq.Expressions.ParameterExpression CS$0$0001,</span><br><span class="line">           [3] class [System.Core]System.Linq.Expressions.ParameterExpression[] CS$0$0002)</span><br><span class="line">  IL_0000:  nop</span><br><span class="line">  IL_0001:  ldtoken    [mscorlib]System.Int32</span><br><span class="line">  IL_0006:  call       class [mscorlib]System.Type [mscorlib]System.Type::GetTypeFromHandle(...)</span><br><span class="line">  IL_000b:  ldstr      &quot;a&quot;</span><br><span class="line">  IL_0010:  call       class [System.Core]System.Linq.Expressions.ParameterExpression </span><br><span class="line">                        [System.Core]System.Linq.Expressions.Expression::Parameter(</span><br><span class="line">                        class [mscorlib]System.Type,</span><br><span class="line"></span><br><span class="line">  IL_0038:  call    class [mscorlib]System.Type [mscorlib]System.Type::GetTypeFromHandle()</span><br><span class="line">  IL_003d:  call    class [System.Core]System.Linq.Expressions.ConstantExpression </span><br><span class="line">                    [System.Core]System.Linq.Expressions.Expression::Constant(object,</span><br><span class="line">                    class [mscorlib]System.Type)</span><br><span class="line">  IL_0042:  call    class [System.Core]System.Linq.Expressions.BinaryExpression </span><br><span class="line">                    [System.Core]System.Linq.Expressions.Expression::Multiply(class [System.Core]System.Linq.Expressions.Expression,</span><br><span class="line">                    class [System.Core]System.Linq.Expressions.Expression)</span><br><span class="line">  IL_0047:  call    class [System.Core]System.Linq.Expressions.BinaryExpression</span><br><span class="line">                    [System.Core]System.Linq.Expressions.Expression::Add(class [System.Core]System.Linq.Expressions.Expression,</span><br><span class="line">                    class [System.Core]System.Linq.Expressions.Expression)</span><br><span class="line">  IL_004c:  ldc.i4.2</span><br><span class="line">  IL_004d:  newarr     [System.Core]System.Linq.Expressions.ParameterExpression</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在相信大家都看明白了，这里讲解它们的区别主要是为了加深大家对于表达式目录树的区别。</p>
+<h2 id="执行表达式目录树"><a href="#执行表达式目录树" class="headerlink" title="执行表达式目录树"></a>执行表达式目录树</h2><p>前面已经可以构造出一个表达式目录树了，现在看看如何去执行表达式目录树。我们需要调用Compile方法来创建一个可执行委托，并且调用该委托，如下面的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">static void Main(string[] args)</span><br><span class="line">&#123;</span><br><span class="line">    ParameterExpression paraLeft = Expression.Parameter(typeof(int), &quot;a&quot;);</span><br><span class="line">    ParameterExpression paraRight = Expression.Parameter(typeof(int), &quot;b&quot;);</span><br><span class="line"></span><br><span class="line">    BinaryExpression binaryLeft = Expression.Multiply(paraLeft, paraRight);</span><br><span class="line">    ConstantExpression conRight = Expression.Constant(2, typeof(int));</span><br><span class="line"></span><br><span class="line">    BinaryExpression binaryBody = Expression.Add(binaryLeft, conRight);</span><br><span class="line"></span><br><span class="line">    Expression&lt;Func&lt;int, int, int&gt;&gt; lambda = </span><br><span class="line">        Expression.Lambda&lt;Func&lt;int, int, int&gt;&gt;(binaryBody, paraLeft, paraRight);</span><br><span class="line"></span><br><span class="line">    Func&lt;int, int, int&gt; myLambda = lambda.Compile();</span><br><span class="line"></span><br><span class="line">    int result = myLambda(2, 3);</span><br><span class="line">    Console.WriteLine(&quot;result:&quot; + result.ToString());</span><br><span class="line"></span><br><span class="line">    Console.Read();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行后输出的结果：</p>
+<p><img src="/2018/07/22/打造自己的linqProvider/lambda_result.png" alt="lambda_result"></p>
+<p>这里我们只要简单的调用Compile方法就可以了，事实上在.NET Framework中是调用了一个名为ExpressionCompiler的内部类来做表达式目录树的执行（注意此处的Compiler不等同于编译器的编译）。另外，只能执行表示Lambda表达式的表达式目录树，即LambdaExpression或者Expression&lt;TDelegate&gt;类型。如果表达式目录树不是表示Lambda表达式，需要调用Lambda方法创建一个新的表达式。如下面的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">static void Main(string[] args)</span><br><span class="line">&#123;</span><br><span class="line">    BinaryExpression body = Expression.Add(</span><br><span class="line">        Expression.Constant(2),</span><br><span class="line">        Expression.Constant(3));</span><br><span class="line"></span><br><span class="line">    Expression&lt;Func&lt;int&gt;&gt; expression = </span><br><span class="line">        Expression.Lambda&lt;Func&lt;int&gt;&gt;(body, null);</span><br><span class="line"></span><br><span class="line">    Func&lt;int&gt; lambda = expression.Compile();</span><br><span class="line"></span><br><span class="line">    Console.WriteLine(lambda());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="访问与修改表达式目录树"><a href="#访问与修改表达式目录树" class="headerlink" title="访问与修改表达式目录树"></a>访问与修改表达式目录树</h2><p>在.NET Framework中，提供了一个抽象的表达式目录树访问类ExpressionVisitor，但它是一个internal的，我们不能直接访问。幸运的是，在MSDN中微软给出了ExpressionVisitor类的实现，我们可以直接拿来使用。该类是一个抽象类，微软旨在让我们在集成ExpressionVisitor的基础上，实现自己的表达式目录树访问类。现在我们来看简单的表达式目录树：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">static void Main(string[] args)</span><br><span class="line">&#123;</span><br><span class="line">    Expression&lt;Func&lt;int, int, int&gt;&gt; lambda = (a, b) =&gt; a + b * 2;</span><br><span class="line"></span><br><span class="line">    Console.WriteLine(lambda.ToString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出后为：</p>
+<p><img src="/2018/07/22/打造自己的linqProvider/result2.png" alt="result2"></p>
+<p>现在我们想要修改表达式目录树，让它表示的Lambda表达式为(a,b)=&gt;(a - (b * 2))，这时就需要编写自己的表达式目录树访问器，如下代码所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public class OperationsVisitor : ExpressionVisitor</span><br><span class="line">&#123;</span><br><span class="line">    public Expression Modify(Expression expression)</span><br><span class="line">    &#123;</span><br><span class="line">        return Visit(expression);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    protected override Expression VisitBinary(BinaryExpression b)</span><br><span class="line">    &#123;</span><br><span class="line">        if (b.NodeType == ExpressionType.Add)</span><br><span class="line">        &#123;</span><br><span class="line">            Expression left = this.Visit(b.Left);</span><br><span class="line">            Expression right = this.Visit(b.Right);</span><br><span class="line">            return Expression.Subtract(left,right);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return base.VisitBinary(b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用表达式目录树访问器来修改表达式目录树，如下代码所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">static void Main(string[] args)</span><br><span class="line">&#123;</span><br><span class="line">    Expression&lt;Func&lt;int, int, int&gt;&gt; lambda = (a, b) =&gt; a + b * 2;</span><br><span class="line"></span><br><span class="line">    var operationsVisitor = new OperationsVisitor();</span><br><span class="line">    Expression modifyExpression = operationsVisitor.Modify(lambda);</span><br><span class="line"></span><br><span class="line">    Console.WriteLine(modifyExpression.ToString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果如下：</p>
+<p><img src="/2018/07/22/打造自己的linqProvider/result3.png" alt="result3"></p>
+<p>似乎我们是修改表达式目录树，其实也不全对，我们只是修改表达式目录树的一个副本而已，因为表达式目录树是不可变的，我们不能直接修改表达式目录树，看看上面的OperationsVisitor类的实现大家就知道了，在修改过程中复制了表达式目录树的节点。</p>
+<h2 id="为什么需要表达式目录树"><a href="#为什么需要表达式目录树" class="headerlink" title="为什么需要表达式目录树"></a>为什么需要表达式目录树</h2><p>就拿LINQ to SQL为例</p>
+<p><img src="/2018/07/22/打造自己的linqProvider/linq_to_sql.png" alt="linq_to_sql"></p>
+<p>当我们在C#语言中编写一个查询表达式时，它将返回一个IQueryable类型的值，在该类型中包含了两个很重要的属性Expression和Provider，如下面的代码：</p>
+<p><img src="/2018/07/22/打造自己的linqProvider/IQueryAble.png" alt="IQueryAble"></p>
+<p>我们编写的查询表达式，将封装为一种抽象的数据结构，这个数据结构就是表达式目录树，当我们在使用上面返回的值时，编译器将会以该值所期望的方式进行翻译，这种方式就是由Expression和Provider来决定。可以看到，这样将会非常的灵活且具有良好的可扩展性，有了表达式目录树，可以自由的编写自己的Provider，去查询我们希望的数据源。经常说LINQ为访问各种不同的数据源提供了一种统一的编程方式，其奥秘就在这里。然而需要注意的是LINQ to Objects并不需要任何特定的LINQ Provider，因为它并不翻译为表达式目录树，后面会说到这一点。</p>
+<h2 id="IEnumerable-lt-T-gt-接口"><a href="#IEnumerable-lt-T-gt-接口" class="headerlink" title="IEnumerable&lt;T&gt;接口"></a>IEnumerable&lt;T&gt;接口</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">static void Main(string[] args)</span><br><span class="line">&#123;</span><br><span class="line">    List&lt;String&gt; myList = new List&lt;String&gt;() &#123; &quot;a&quot;, &quot;ab&quot;, &quot;cd&quot;, &quot;bd&quot; &#125;;</span><br><span class="line"></span><br><span class="line">    IEnumerable&lt;String&gt; query = from s in myList</span><br><span class="line">                where s.StartsWith(&quot;a&quot;)</span><br><span class="line">                select s;</span><br><span class="line"></span><br><span class="line">    foreach (String s in query)</span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(s);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Console.Read();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/07/22/打造自己的linqProvider/result4.png" alt="result4"></p>
+<p>为什么在LINQ to Objects中返回的是IEnumerable<t>类型的数据而不是IQueryable<t>呢？<br>在LINQ to Objects中查询表达式或者Lambda表达式并不翻译为表达式目录树，因为LINQ to Objects查询的都是实现了IEnmerable<t>接口的数据，所以查询表达式或者Lambda表达式都可以直接转换为.NET代码来执行，无需再经过转换为表达式目录这一步，这也是LINQ to Objects比较特殊的地方，它不需要特定的LINQ Provider。我们可以看一下IEnumerable<t>接口的实现，它里面并没有Expression和Provider这样的属性，如下图所示：</t></t></t></t></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public interface IEnumerable&lt;T&gt;:Ienumerable</span><br><span class="line">&#123;</span><br><span class="line">    IEnumerator&lt;T&gt; GetEnumerator();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>至于LINQ to Objects中所有的标准查询操作符都是通过扩展方法来实现的，它们在抽象类Enumerable中定义，如其中的Where扩展方法如下代码所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">public static class Enumerable</span><br><span class="line">&#123;</span><br><span class="line">    public static IEnumerable&lt;TSource&gt; Where&lt;TSource&gt;(</span><br><span class="line">        this IEnumerable&lt;TSource&gt; source, </span><br><span class="line">        Func&lt;TSource, bool&gt; predicate)</span><br><span class="line">    &#123;</span><br><span class="line">        if (source == null)</span><br><span class="line">        &#123;</span><br><span class="line">            throw Error.ArgumentNull(&quot;source&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        if (predicate == null)</span><br><span class="line">        &#123;</span><br><span class="line">            throw Error.ArgumentNull(&quot;predicate&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        return WhereIterator&lt;TSource&gt;(source, predicate);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static IEnumerable&lt;TSource&gt; Where&lt;TSource&gt;(</span><br><span class="line">        this IEnumerable&lt;TSource&gt; source, </span><br><span class="line">        Func&lt;TSource, int, bool&gt; predicate)</span><br><span class="line">    &#123;</span><br><span class="line">        if (source == null)</span><br><span class="line">        &#123;</span><br><span class="line">            throw Error.ArgumentNull(&quot;source&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        if (predicate == null)</span><br><span class="line">        &#123;</span><br><span class="line">            throw Error.ArgumentNull(&quot;predicate&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        return WhereIterator&lt;TSource&gt;(source, predicate);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意到这里方法的参数Func<tsource>系列委托，而非Expression&lt;Func<tsource>&gt;，在本文的后面，你将看到，IQueryable接口的数据，这些扩展方法的参数都是Expression&lt;Func<tsource>&gt;.</tsource></tsource></tsource></p>
+<p>同样还有一点需要说明的是，在IEnumerable<t>中提供了一组扩展方法AsQueryable()，可以用来把一个IEnumerable<t>类型的数据转换为IQueryable<t>类型，如下代码所示：</t></t></t></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">static void Main(string[] args)</span><br><span class="line">&#123;</span><br><span class="line">    var myList = new List&lt;String&gt;() </span><br><span class="line">                &#123; &quot;a&quot;, &quot;ab&quot;, &quot;cd&quot;, &quot;bd&quot; &#125;.AsQueryable&lt;String&gt;();</span><br><span class="line"></span><br><span class="line">    IQueryable&lt;String&gt; query = from s in myList</span><br><span class="line">                where s.StartsWith(&quot;a&quot;)</span><br><span class="line">                select s;</span><br><span class="line"></span><br><span class="line">    foreach (String s in query)</span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(s);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Console.Read();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行这段代码，虽然它的输出结果与上面的示例完全相同，但它们查询的机制却完全不同：</p>
+<h2 id="IQueryable-lt-T-gt-接口"><a href="#IQueryable-lt-T-gt-接口" class="headerlink" title="IQueryable&lt;T&gt;接口"></a>IQueryable&lt;T&gt;接口</h2><p><img src="/2018/07/22/打造自己的linqProvider/IQueryable定义.png" alt="IQueryable定义"></p>
+<p>这里有两个很重要的属性Expression和Provider，分别表示获取与IQueryable 的实例关联的表达式目录树和获取与此数据源关联的查询提供程序，我们所有定义在查询表达式中方法调用或者Lambda表达式都将由该Expression属性表示，而最终会由Provider表示的提供程序翻译为它所对应的数据源的查询语言，这个数据源可能是数据库，XML文件或者是WebService等。该接口非常重要，在我们自定义LINQ Provider中必须要实现这个接口。同样对于IQueryable的标准查询操作都是由Queryable中的扩展方法来实现的，如下代码所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">public static class Queryable</span><br><span class="line">&#123;</span><br><span class="line">    public static IQueryable&lt;TSource&gt; Where&lt;TSource&gt;(this IQueryable&lt;TSource&gt; source, </span><br><span class="line">            Expression&lt;Func&lt;TSource, bool&gt;&gt; predicate)</span><br><span class="line">    &#123;</span><br><span class="line">        if (source == null)</span><br><span class="line">        &#123;</span><br><span class="line">            throw Error.ArgumentNull(&quot;source&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        if (predicate == null)</span><br><span class="line">        &#123;</span><br><span class="line">            throw Error.ArgumentNull(&quot;predicate&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        return source.Provider.CreateQuery&lt;TSource&gt;(</span><br><span class="line">            Expression.Call(null, ((MethodInfo) MethodBase.GetCurrentMethod())</span><br><span class="line">            .MakeGenericMethod(new Type[] &#123; typeof(TSource) &#125;), </span><br><span class="line">            new Expression[] &#123; source.Expression, Expression.Quote(predicate) &#125;));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static IQueryable&lt;TSource&gt; Where&lt;TSource&gt;(this IQueryable&lt;TSource&gt; source,</span><br><span class="line">        Expression&lt;Func&lt;TSource, int, bool&gt;&gt; predicate)</span><br><span class="line">    &#123;</span><br><span class="line">        if (source == null)</span><br><span class="line">        &#123;</span><br><span class="line">            throw Error.ArgumentNull(&quot;source&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        if (predicate == null)</span><br><span class="line">        &#123;</span><br><span class="line">            throw Error.ArgumentNull(&quot;predicate&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        return source.Provider.CreateQuery&lt;TSource&gt;(</span><br><span class="line">            Expression.Call(null, ((MethodInfo) MethodBase.GetCurrentMethod())</span><br><span class="line">            .MakeGenericMethod(new Type[] &#123; typeof(TSource) &#125;), </span><br><span class="line">            new Expression[] &#123; source.Expression, Expression.Quote(predicate) &#125;));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后还有一点，如果我们定义的查询需要支持Orderby等操作，还必须实现IOrderedQueryable&lt;T&gt; 接口，它继承自IQueryable&lt;T&gt;，如下图所示：</p>
+<p><img src="/2018/07/22/打造自己的linqProvider/IOrderedQueryable.png" alt="IOrderedQueryable"></p>
+<h2 id="IQueryProvider接口"><a href="#IQueryProvider接口" class="headerlink" title="IQueryProvider接口"></a>IQueryProvider接口</h2><p>在认识了IQueryable接口之后，我们再来看看在自定义LINQ Provider中另一个非常重要的接口IQueryProvider。它的定义如下图所示：</p>
+<p><img src="/2018/07/22/打造自己的linqProvider/IQueryProvider.png" alt="IQueryProvider"></p>
+<p>看到这里两组方法的参数，其实大家已经可以知道，Provider负责执行表达式目录树并返回结果。如果是LINQ to SQL的Provider，则它会负责把表达式目录树翻译为T-SQL语句并并传递给数据库服务器，并返回最后的执行的结果；如果是一个Web Service的Provider，则它会负责翻译表达式目录树并调用Web Service，最终返回结果。<br>这里四个方法其实就两个操作CreateQuery和Execute（分别有泛型和非泛型），CreateQuery方法用于构造一个 IQueryable<t> 对象，该对象可计算指定表达式目录树所表示的查询，返回的结果是一个可枚举的类型，；而Execute执行指定表达式目录树所表示的查询，返回的结果是一个单一值。自定义一个最简单的LINQ Provider，至少需要实现IQueryable<t>和IQueryProvider两个接口，在下篇文章中，你将看到一个综合的实例。</t></t></p>
+<h2 id="扩展LINQ的两种方式"><a href="#扩展LINQ的两种方式" class="headerlink" title="扩展LINQ的两种方式"></a>扩展LINQ的两种方式</h2><p>通过前面的讲解，我们可以想到，对于LINQ的扩展有两种方式，一是借助于LINQ to Objects，如果我们所做的查询直接在.NET代码中执行，就可以实现IEnumerable<t>接口，而无须再去实现IQueryable并编写自定义的LINQ Provider，如.NET中内置的List<t>等。如我们可以编写一段简单自定义代码：</t></t></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public class MyData&lt;T&gt; : IEnumerable&lt;T&gt;</span><br><span class="line">                where T : class</span><br><span class="line">&#123;</span><br><span class="line">    public IEnumerator&lt;T&gt; GetEnumerator()</span><br><span class="line">    &#123;</span><br><span class="line">        return null;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    IEnumerator IEnumerable.GetEnumerator()</span><br><span class="line">    &#123;</span><br><span class="line">        return null;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 其它成员</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第二种扩展LINQ的方式当然就是自定义LINQ Provider了，我们需要实现IQueryable<t>和IQueryProvider两个接口，下面先给出一段简单的示意代码，在下一篇中我们将完整的来实现一个LINQ Provider。如下代码所示：</t></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line">public class QueryableData&lt;TData&gt; : IQueryable&lt;TData&gt;</span><br><span class="line">&#123;</span><br><span class="line">    public QueryableData()</span><br><span class="line">    &#123;</span><br><span class="line">        Provider = new TerryQueryProvider();</span><br><span class="line">        Expression = Expression.Constant(this);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public QueryableData(TerryQueryProvider provider, </span><br><span class="line">        Expression expression)</span><br><span class="line">    &#123;</span><br><span class="line">        if (provider == null)</span><br><span class="line">        &#123;</span><br><span class="line">            throw new ArgumentNullException(&quot;provider&quot;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if (expression == null)</span><br><span class="line">        &#123;</span><br><span class="line">            throw new ArgumentNullException(&quot;expression&quot;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if (!typeof(IQueryable&lt;TData&gt;).IsAssignableFrom(expression.Type))</span><br><span class="line">        &#123;</span><br><span class="line">            throw new ArgumentOutOfRangeException(&quot;expression&quot;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        Provider = provider;</span><br><span class="line">        Expression = expression;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public IQueryProvider Provider &#123; get; private set; &#125;</span><br><span class="line">    public Expression Expression &#123; get; private set; &#125;</span><br><span class="line"></span><br><span class="line">    public Type ElementType</span><br><span class="line">    &#123;</span><br><span class="line">        get &#123; return typeof(TData); &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public IEnumerator&lt;TData&gt; GetEnumerator()</span><br><span class="line">    &#123;</span><br><span class="line">        return (Provider.Execute&lt;IEnumerable&lt;TData&gt;&gt;(Expression)).GetEnumerator();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    IEnumerator IEnumerable.GetEnumerator()</span><br><span class="line">    &#123;</span><br><span class="line">        return (Provider.Execute&lt;IEnumerable&gt;(Expression)).GetEnumerator();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class TerryQueryProvider : IQueryProvider</span><br><span class="line">&#123;</span><br><span class="line">    public IQueryable CreateQuery(Expression expression)</span><br><span class="line">    &#123;</span><br><span class="line">        Type elementType = TypeSystem.GetElementType(expression.Type);</span><br><span class="line">        try</span><br><span class="line">        &#123;</span><br><span class="line">            return (IQueryable)Activator.CreateInstance(</span><br><span class="line">                typeof(QueryableData&lt;&gt;).MakeGenericType(elementType),</span><br><span class="line">                new object[] &#123; this, expression &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        catch</span><br><span class="line">        &#123;</span><br><span class="line">            throw new Exception();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public IQueryable&lt;TResult&gt; CreateQuery&lt;TResult&gt;(Expression expression)</span><br><span class="line">    &#123;</span><br><span class="line">        return new QueryableData&lt;TResult&gt;(this, expression);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public object Execute(Expression expression)</span><br><span class="line">    &#123;</span><br><span class="line">        // ......</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public TResult Execute&lt;TResult&gt;(Expression expression)</span><br><span class="line">    &#123;</span><br><span class="line">        // ......</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面这两个接口都没有完成，这里只是示意性的代码，如果实现了这两个接口，我们就可以像下面这样使用了（当然这样的使用是没有意义的，这里只是为了演示）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">static void Main(string[] args)</span><br><span class="line">&#123;</span><br><span class="line">    QueryableData&lt;String&gt; mydata = new QueryableData&lt;String&gt; &#123; </span><br><span class="line">        &quot;TerryLee&quot;,</span><br><span class="line">        &quot;Cnblogs&quot;,</span><br><span class="line">        &quot;Dingxue&quot;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    var result = from d in mydata</span><br><span class="line">                 select d;</span><br><span class="line">    foreach (String item in result)</span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(item);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在再来分析一下这个执行过程，首先是实例化QueryableData<string>，同时也会实例化TerryQueryProvider；当执行查询表达式的时候，会调用TerryQueryProvider中的CreateQuery方法，来构造表达式目录树，此时查询并不会被真正执行（即延迟加载），只有当我们调用GetEnumerator方法，上例中的foreach，此时会调用TerryQueryProvider中的Execute方法，此时查询才会被真正执行，如下图所示：</string></p>
+<p><img src="/2018/07/22/打造自己的linqProvider/执行过程.png" alt="执行过程"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/22/打造自己的linqProvider/" data-id="cjjwkdfp20015hsuqf8gbvt9o" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-CSS入门及提高" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/21/CSS入门及提高/" class="article-date">
+  <time datetime="2018-07-21T06:30:58.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/21/CSS入门及提高/">CSS入门及提高</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="CSS-样式规则"><a href="#CSS-样式规则" class="headerlink" title="CSS 样式规则"></a>CSS 样式规则</h1><p><img src="/2018/07/21/CSS入门及提高/CSS样式规则.png" alt="CSS入门及提高"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/21/CSS入门及提高/" data-id="cjjwkdfmc0002hsuq2ek2bqkr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-从零做一个前端开源项目学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/18/从零做一个前端开源项目学习笔记/" class="article-date">
+  <time datetime="2018-07-18T11:28:43.000Z" itemprop="datePublished">2018-07-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/18/从零做一个前端开源项目学习笔记/">从零做一个前端开源项目学习笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="什么是开源"><a href="#什么是开源" class="headerlink" title="什么是开源"></a>什么是开源</h1><p>开源包括：</p>
+<ul>
+<li>源码</li>
+<li>文档，如二次开发文档和用户使用文档</li>
+<li>开发环境，告诉二次开发者如何搭建和运行代码</li>
+<li>允许他人贡献代码：而不是仅仅给别人阅读代码的权限</li>
+<li>问题：用户提问，维护者答复，问题共享</li>
+<li>问题列表和升级计划：记录当前问题，以及何时解决、何时升级</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/18/从零做一个前端开源项目学习笔记/" data-id="cjjwkdfoq000whsuqxv571p8j" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="&#39;sql-SQL Server编程入门经典" class="article article-type-&#39;sql" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/09/SQL Server编程入门经典/" class="article-date">
+  <time datetime="2018-07-09T01:09:25.000Z" itemprop="datePublished">2018-07-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/09/SQL Server编程入门经典/">SQL Server编程入门经典</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-RDBMS-基础：SQLServer-数据库的构成"><a href="#1-RDBMS-基础：SQLServer-数据库的构成" class="headerlink" title="1. RDBMS 基础：SQLServer 数据库的构成"></a>1. RDBMS 基础：SQLServer 数据库的构成</h1><h2 id="1-1-数据对象的概述"><a href="#1-1-数据对象的概述" class="headerlink" title="1.1. 数据对象的概述"></a>1.1. 数据对象的概述</h2><p>数据库对象：</p>
+<ul>
+<li>数据库本身</li>
+<li>事务日志</li>
+<li>表</li>
+<li>索引</li>
+<li>文件组</li>
+<li>数据库关系图</li>
+<li>视图</li>
+<li>存储过程</li>
+<li>用户自定义函数</li>
+<li>序列</li>
+<li>用户</li>
+<li>角色</li>
+<li>程序集</li>
+<li>报表</li>
+<li>全文目录</li>
+<li>用户自定义数据类型</li>
+</ul>
+<h3 id="1-1-1-数据库对象"><a href="#1-1-1-数据库对象" class="headerlink" title="1.1.1. 数据库对象"></a>1.1.1. 数据库对象</h3><p>存储过程和视图是对存储在数据库表中的数据的特定分组</p>
+<p>SQL Server 第一次启动时至少包括4个系统数据库</p>
+<ul>
+<li>master：系统表用于系统的总体控件</li>
+<li>model：是指可以基于该模型得一个副本</li>
+<li>msdb：SQL Agent 进程存储任意系统任务的地方</li>
+<li>tempdb：是服务器的主要工作地方之一。在执行一个复杂或者大型的查询操作时，SQL Server可能需要创建一些中间表来完成该操作。每次启动SQLServer,tempdb数据库是系统中唯一完全重建的数据库。</li>
+</ul>
+<h3 id="1-1-2-事务日志"><a href="#1-1-2-事务日志" class="headerlink" title="1.1.2. 事务日志"></a>1.1.2. 事务日志</h3><p>实际上，任意数据库的更改起初不进入数据库本身，而是不断地被写入到事务日志。<br>日志是数据进入磁盘上的最先位置，且稍后会被传播到实际的数据库。需要数据库文件和事务日志一起完成数据库功能。</p>
+<h3 id="1-1-3-最基本的数据库对象：表"><a href="#1-1-3-最基本的数据库对象：表" class="headerlink" title="1.1.3. 最基本的数据库对象：表"></a>1.1.3. 最基本的数据库对象：表</h3><ol>
+<li>索引</li>
+</ol>
+<p>索引分两类：</p>
+<ul>
+<li>群集索引：每个表只能有一个群集索引，如果为百科全书做索引，则群集索引是书的页码</li>
+<li>非群集索引：每个表可以有多个非群集索引。</li>
+</ul>
+<p>注意：具有索引的视图在有非群集索引之前必须有一个群集索引</p>
+<ol start="2">
+<li>触发器</li>
+</ol>
+<p>触发器有多种用途，但主要用于输入时复制数据或在更新时检查数据，确保数据满足相应条件。</p>
+<ol start="3">
+<li>约束</li>
+</ol>
+<h3 id="文件组"><a href="#文件组" class="headerlink" title="文件组"></a>文件组</h3><h3 id="数据库关系图"><a href="#数据库关系图" class="headerlink" title="数据库关系图"></a>数据库关系图</h3><h3 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h3><p>视图仅仅是表中所存储数据的一个预先计划的映射和表示。视图以查询的形式存储在数据库中。</p>
+<p>视图的主要目的是控制视图用户查看的数据。</p>
+<p>索引视图除了可以创建索引外，其它都与视图相同，其对使用性能的影响如下：</p>
+<ul>
+<li>对于引用多个表的视图来说，索引视图的可读性更好，因为它预告构建了表之间的连接。</li>
+<li>由于预先计算好视图中执行的聚合(aggregation)，并将其作为索引的一部分存储，因此聚合只要执行一次（在插入或更新时），然后就可从索引信息中直接读取它。</li>
+<li>由于视图上的索引必须及时更新，因此插入和删除索引需要更多的系统开销，如果更新影响到索引的键列或群集键，则更新也需要更多的系统开销。</li>
+</ul>
+<h3 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h3><p>存储过程优点：</p>
+<ul>
+<li>不使用长字符中文本而使用短字符串存储过程名，可减少运行存储过程中的代码所需要的网络通信流量。</li>
+<li>预先优化和预编译，节省每次运行存储过程的时间。</li>
+<li>通常考虑安全原因，或仅仅隐藏数据库的复杂性，将过程封装。</li>
+<li>可从其它存储过程调用，使得它们在某些限定意义上重用。</li>
+</ul>
+<h3 id="用户自定义函数"><a href="#用户自定义函数" class="headerlink" title="用户自定义函数"></a>用户自定义函数</h3><p>用户自定义函数（UDF）与存储过程十分相似，不同之处有如下几点：</p>
+<ul>
+<li>返回值的数据类型包括大部分 SQLServer 数据类型。不包括的返回值数据类型有：text,ntext,image,cursor,timestamp</li>
+<li>没有“副作用”。基本上用户自定义函数不能超出函数的作用范围。</li>
+</ul>
+<p>传送到函数中的所有变量都是按值传递的，但可以返回一种特殊的数据类型–表</p>
+<h3 id="序列"><a href="#序列" class="headerlink" title="序列"></a>序列</h3><p>序列的作用是提供任意数量的进程都可以访问的序号源，同时保证任意两个进程不会同时获取相同的下一个值。因为序列是单独存在的对象(没有绑定到任何表),所以它可以有多种用途。</p>
+<h3 id="用户和角色"><a href="#用户和角色" class="headerlink" title="用户和角色"></a>用户和角色</h3><h3 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h3><h3 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h3><p>SQL Server 中有两种类型的默认值，包括对象本身的默认值，以及描述表中特定列的元数据的默认值。</p>
+<h3 id="用户自定义数据类型"><a href="#用户自定义数据类型" class="headerlink" title="用户自定义数据类型"></a>用户自定义数据类型</h3><h3 id="全文目录"><a href="#全文目录" class="headerlink" title="全文目录"></a>全文目录</h3><h2 id="SQL-Server-数据类型"><a href="#SQL-Server-数据类型" class="headerlink" title="SQL Server 数据类型"></a>SQL Server 数据类型</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/09/SQL Server编程入门经典/" data-id="cjjwkdfnc000nhsuqm3w7ne3n" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="easyui-EasyUI TreeGrid使用总结" class="article article-type-easyui" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/07/EasyUI TreeGrid使用总结/" class="article-date">
+  <time datetime="2018-07-07T08:21:51.000Z" itemprop="datePublished">2018-07-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/07/EasyUI TreeGrid使用总结/">EasyUI TreeGrid使用总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="对于EasyUI-treegrid-使用方法的总结"><a href="#对于EasyUI-treegrid-使用方法的总结" class="headerlink" title="对于EasyUI treegrid 使用方法的总结"></a>对于EasyUI treegrid 使用方法的总结</h1>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/07/EasyUI TreeGrid使用总结/" data-id="cjjwkdfmh0005hsuqe0duwvpe" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-CLR via C#学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/05/CLR via C#学习笔记/" class="article-date">
@@ -83,7 +412,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/05/CLR via C#学习笔记/" data-id="cjjb45g520002rsuql9qenxj7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/05/CLR via C#学习笔记/" data-id="cjjwkdfme0003hsuqq5opz98d" class="article-share-link">Share</a>
       
       
     </footer>
@@ -334,7 +663,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/16/济宁项目/" data-id="cjjb45g6x0017rsuqa95ukqrx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/16/济宁项目/" data-id="cjjwkdfpa001ahsuqykkx4bdy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -378,7 +707,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/12/达意房产测绘软件/" data-id="cjjb45g6y0018rsuqtkppho25" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/12/达意房产测绘软件/" data-id="cjjwkdfpd001chsuqfeeowdzh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -421,7 +750,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/08/ModelUI for WPF/" data-id="cjjb45g68000orsuq04rk72ge" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/08/ModelUI for WPF/" data-id="cjjwkdfni000rhsuqjvfr39mg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -459,256 +788,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/04/设计模式/" data-id="cjjb45g6s0014rsuqtdncmmxx" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-T4模板" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/01/T4模板/" class="article-date">
-  <time datetime="2018-03-01T09:19:55.000Z" itemprop="datePublished">2018-03-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/01/T4模板/">T4模板</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-T4基本语法"><a href="#1-T4基本语法" class="headerlink" title="1. T4基本语法"></a>1. T4基本语法</h1><p>T4语法主要包括三类：1指令 2文本块 3指令块</p>
-<h2 id="1-1-指令"><a href="#1-1-指令" class="headerlink" title="1.1. 指令"></a>1.1. 指令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;# 标准控制块 #&gt; 可以包含语句</span><br><span class="line">&lt;#= 表达式控制块 #&gt; 可以包含表达式</span><br><span class="line">&lt;#+ 类特征控制块 #&gt; 可以包含方法、属性和字段，就像一个类的内部</span><br></pre></td></tr></table></figure>
-<p>指令主要包括template, output, assembly, import, include等类型<br>在这里是指令T4语法以&lt;#开头结尾</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;#@ 指令 属性=“值”#&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="1-1-1-模板指令"><a href="#1-1-1-模板指令" class="headerlink" title="1.1.1. 模板指令"></a>1.1.1. 模板指令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;#@ template debug=&quot;false&quot; hostspecific=&quot;false&quot; language=&quot;C#&quot; #&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>language: 输出语言.</li>
-<li>debug: 是否启用调试.</li>
-<li>hostspecific:有效值true、false，默认为false。如果将此特性的值设置为 true，则会将名为 Host 的属性添加到由文本模板生成的类中。 该属性是对转换引擎的宿主的引用，并声明为Microsoft.VisualStudio.TextTemplating.ITextTemplatingEngineHost。</li>
-<li>inheirits:可以指定模板的程序代码可以继承自另一个类</li>
-</ul>
-<h2 id="1-2-输出指令"><a href="#1-2-输出指令" class="headerlink" title="1.2. 输出指令"></a>1.2. 输出指令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;#@ output extension=&quot;.cs&quot; #&gt;</span><br></pre></td></tr></table></figure>
-<p>生成文件的后缀名.</p>
-<h2 id="1-3-程序集指令"><a href="#1-3-程序集指令" class="headerlink" title="1.3. 程序集指令"></a>1.3. 程序集指令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;#@ assembly name=&apos;System&apos; #&gt;</span><br></pre></td></tr></table></figure>
-<p>告诉T4引擎编译运行时引用System程序集.</p>
-<ul>
-<li>$(SolutionDir):当前项目所在解决方案目录</li>
-<li>$(ProjectDir):当前项目所在目录</li>
-<li>$(TargetPath):当前项目编译输出文件绝对路径</li>
-<li>$(TargetDir):当前项目编译输出目录，即web项目的Bin目录，控制台、类库项目bin目录下的debug或release目录(取决于当前的编译模式)</li>
-</ul>
-<p>举个例子：比如我们在D盘根目录建立了一个控制台项目MyTest，解决方案目录为D:\Feng，项目目录为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">D:\Feng\MyTest，那么此时在Debug编译模式下</span><br><span class="line">$(SolutionDir)的值为D:\Feng</span><br><span class="line">$(ProjectDir)的值为D:\Feng\MyTest</span><br><span class="line">$(TargetPath)值为D:\Feng\MyTest\bin\Debug\MyTest.exe</span><br><span class="line">$(TargetDir)值为D:\Feng\MyTest\bin\Debug\</span><br></pre></td></tr></table></figure>
-<h3 id="1-3-1-导入指令"><a href="#1-3-1-导入指令" class="headerlink" title="1.3.1. 导入指令"></a>1.3.1. 导入指令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;#@ import namespace=&quot;System.Data&quot; #&gt;</span><br></pre></td></tr></table></figure>
-<p>告诉T4引擎编译运行时引用某个名称空间。在 Visual Studio T4 文本模板的代码块中，import 指令允许您在不提供完全限定名称的情况下引用另一个命名空间中的元素。 它等效于 C# 中的 using 或 Visual Basic 中的 imports。默认已经导入了System命名空间的引用。</p>
-<h3 id="1-3-2-包含指令"><a href="#1-3-2-包含指令" class="headerlink" title="1.3.2. 包含指令"></a>1.3.2. 包含指令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;#@ include file=&quot;Base.ttinclude&quot;#&gt;</span><br></pre></td></tr></table></figure>
-<p>运行时引用某个文件，类似于JS的引用。</p>
-<p>包含指令可以提高代码复用率，比如我们可以将一些常用的程序集、命名空间引用放到一个文件里，使用时仅需要引用下即可，省去了每次都要重新引用一遍的烦恼，如我们建立Reference.ttinclude文件，里面包含了我们平时常用的程序集引用。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;#@ assembly name=&quot;System.Core.dll&quot; #&gt;</span><br><span class="line">&lt;#@ assembly name=&quot;System.Data.dll&quot; #&gt;</span><br><span class="line">&lt;#@ assembly name=&quot;System.Data.DataSetExtensions.dll&quot; #&gt;</span><br><span class="line">&lt;#@ assembly name=&quot;System.Xml.dll&quot; #&gt;</span><br><span class="line">&lt;#@ import namespace=&quot;System&quot; #&gt;</span><br><span class="line">&lt;#@ import namespace=&quot;System.Xml&quot; #&gt;</span><br><span class="line">&lt;#@ import namespace=&quot;System.Linq&quot; #&gt;</span><br><span class="line">&lt;#@ import namespace=&quot;System.Data&quot; #&gt;</span><br><span class="line">&lt;#@ import namespace=&quot;System.Data.SqlClient&quot; #&gt;</span><br><span class="line">&lt;#@ import namespace=&quot;System.Collections.Generic&quot; #&gt;</span><br><span class="line">&lt;#@ import namespace=&quot;System.IO&quot; #&gt;</span><br></pre></td></tr></table></figure>
-<p>使用时只需要使用包含指令引用下即可</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;#@ include file=&quot;$(ProjectDir)Reference.ttinclude&quot;  #&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="1-3-3-参数指令"><a href="#1-3-3-参数指令" class="headerlink" title="1.3.3. 参数指令"></a>1.3.3. 参数指令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;#@ parameter type=&quot;string&quot; name=&quot;ParameterName&quot; #&gt;</span><br></pre></td></tr></table></figure>
-<p>顾名思义就是定义一个参数在其他的地方使用。</p>
-<h2 id="1-4-文本块"><a href="#1-4-文本块" class="headerlink" title="1.4. 文本块"></a>1.4. 文本块</h2><p>文本块直接向输出文件插入文本。</p>
-<h2 id="1-5-指令块"><a href="#1-5-指令块" class="headerlink" title="1.5. 指令块"></a>1.5. 指令块</h2><p>主要用于控制文本的输出。在控制块中可以写任意的C#代码</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/01/T4模板/" data-id="cjjb45g6b000qrsuq6jh7zcpq" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Access数据库" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/01/Access数据库/" class="article-date">
-  <time datetime="2018-03-01T05:28:22.000Z" itemprop="datePublished">2018-03-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/01/Access数据库/">Access总结</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Access字段属性"><a href="#Access字段属性" class="headerlink" title="Access字段属性"></a>Access字段属性</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">OleDbCommand command = new OleDbCommand(sql, Connection);</span><br><span class="line">OleDbDataReader reader = command.ExecuteReader();</span><br><span class="line">DataTable dt = new DataTable();</span><br><span class="line">dt = reader.GetSchemaTable();</span><br></pre></td></tr></table></figure>
-<p>下表是dt所包含的内容<br>| dt列名     | OLE DB 列 ID  | 说明                                                     |<br>| ———- | ————- | ——————————————————– |<br>| ColumnName | DBCOLUMN_NAME | 列的名称；它可能不唯一。如果无法确定该名称，则返回空值。此名称始终反映最近对当前视图或命令文本中的列进行的重命名|<br>|ColumnOrdinal|DBCOLUMN_NUMBER|列的序号。它对于行的书签列（如果有的话）为零。其他列从一开始编号。该列不能包含空值|<br>|ColumnSize|DBCOLUMN_COLUMNSIZE|列中值的最大可能长度。对于采用固定长度数据类型的列，它是该数据类型的大小|<br>|NumericPrecision|DBCOLUMN_PRECISION|如果 DbType 是数值数据类型，则它是列的最大精度。数据类型为 DBTYPE_DECIMAL 或 DBTYPE_NUMERIC 的列的精度取决于该列的定义。如果 DbType 不是数值数据类型，则它为空值|<br>|NumericScale|DBCOLUMN_SCALE|如果 DbType 是 DBTYPE_DECIMAL 或 DBTYPE_NUMERIC，则它是小数点右侧的位数。否则，它为空值|<br>|DataType|无|映射到列的 .NET Framework 类型。<br>|ProviderType|DBCOLUMN_TYPE|列的数据类型的指示符。如果不同行的列数据类型不同，则它必须为 DBTYPE_VARIANT。该列不能包含空值。<br>|IsLong|DBCOLUMNFLAGS_ISLONG|如果列中有包含非常长的数据的二进制长对象 (BLOB)，则提供程序设置 DBCOLUMNFLAGS_ISLONG。非常长的数据的定义针对于提供程序。此标志的设置对应于该数据类型的 PROVIDER_TYPES 行集合中 IS_LONG 列的值。<br>|AllowDBNull|DBCOLUMNFLAGS_ISNULLABLE|如果使用者可将列设置为空值，或者提供程序无法确定使用者是否可将列设置为空值，提供程序就会设置DBCOLUMNFLAGS_ISNULLABLE。即使列无法设置为空值，|它仍可能包含空值。<br>|IsReadOnly|DBCOLUMNFLAGS_WRITE|如果不能修改该列，则为 true；否则为 false。如果提供程序已经设置了 DBCOLUMNFLAGS_WRITE 或DBCOLUMNFLAGS_WRITEUNKNOWN 标志，则认为该列是可写的。<br>|IsRowVersion|DBCOLUMNFLAGS_ISROWID|如果列包含不能写入的持久性行标识符，并且该标识符除了标识行以外没有其他有意义的值，则提供程序设置 DBCOLUMNFLAGS_ISROWID。<br>|IsUnique|DBCOLUMN_ISUNIQUE|VARIANT_TRUE：在该列中，基表（返回到 BaseTableName 中的表）中的任意两行的值都不能相同。如果该列本身表示一个键，或者有一个只应用于该列的 UNIQUE 类型的约束，则 IsUnique保证为 VARIANT_TRUE。VARIANT_FALSE：该列包含基表中的重复值。此列的默认值为 VARIANT_FALSE。<br>|IsKey|DBCOLUMN_KEYCOLUMN|VARIANT_TRUE：该列属于行集中的列集，结合使用列集中的列可唯一标识行。IsKey 设置为 VARIANT_TRUE 的列集必须唯一标识行集中的行。不要求此列集是最小列集。这组列可以从基表主键、唯一约束或唯一索引生成。VARIANT_FALSE：不要求该列唯一标识行。<br>|IsAutoIncrement|DBCOLUMN_ISAUTOINCREMENT|VARIANT_TRUE：该列以固定的增量向新行赋值。VARIANT_FALSE：该列不会以固定增量为新行赋值。此列的默认值为 VARIANT_FALSE。<br>|BaseSchemaName|DBCOLUMN_BASESCHEMANAME|包含列的数据存储区中的架构的名称。如果无法确定基架构名称，则为空值。该列的默认值为空值。<br>|BaseCatalogName|DBCOLUMN_BASECATALOGNAME|包含列的数据存储区中的目录的名称。如果无法确定基目录名称，则为空值。该列的默认值为空值。<br>|BaseTableName|DBCOLUMN_BASETABLENAME|包含列的数据存储区中的表或视图的名称。如果无法确定基表名称，则为空值。该列的默认值为空值。<br>|BaseColumnName|DBCOLUMN_BASECOLUMNNAME|数据存储区中列的名称。如果使用别名，它可能不同于在ColumnName 列中返回的列名称。如果无法确定基列名称，或者如果行集合列从数据存储区中的列导出但不等于该列，则为空值。该列的默认值为空值。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/01/Access数据库/" data-id="cjjb45g2l0001rsuqh37sicnd" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-千万别说你懂买房" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/02/28/千万别说你懂买房/" class="article-date">
-  <time datetime="2018-02-28T14:18:35.000Z" itemprop="datePublished">2018-02-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/28/千万别说你懂买房/">千万别说你懂买房</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="千万别说你懂买房-徐斌"><a href="#千万别说你懂买房-徐斌" class="headerlink" title="千万别说你懂买房 -徐斌"></a>千万别说你懂买房 -徐斌</h1><h2 id="买房准备之资格认定"><a href="#买房准备之资格认定" class="headerlink" title="买房准备之资格认定"></a>买房准备之资格认定</h2><p>买房的第一步，是要有购买资格。<br>认房，就是看包括你、你的丈夫（妻子）、未成年子女在内的家庭，在打算买房的这个城市里，有没有房屋登记系统或者合同网上备案系统里面的记录。所以在“认房”的情况下，在其他城市有房子是不会影响购房资格的。<br>认贷，就是看你在银行有没有贷款买房的记录。<br>房子的共有权人无论拥有多少份额，都视为有一套房，比如你和其他6个兄弟共同继承了一套房子，也算你有一套房。<br>•连续缴纳社保“或”个税，满足一项就可以。<br>•共有权人之间转让共有住房产权份额的，不需要购房资格核验。<br>赠与住房时，受赠方须具有购房资格才能接受赠与。<br>•继承住房时，继承人不需要进行购房资格核验。</p>
-<h2 id="买房准备之资金"><a href="#买房准备之资金" class="headerlink" title="买房准备之资金"></a>买房准备之资金</h2><p>定金是买房交的第一笔钱，是购房人支付给业主的。<br>法律规定定金的数额是有上限的，上限是总房款的20%。<br>不管是贷款买房还是全款买房，<br>过户前购房人都不用支付全部房款。首套房一般是首付30%，付50%、80%也都没问题。<br>银行贷款的还款方式有两种。<br>一种是等额本息还款：把住房抵押贷款的本金总额与利息总额相加，然后平均分摊到还款期限的每个月中。还款人每个月还给银行固定金额，但每月还款额中的本金比重逐月递增，利息比重逐月递减。<br>另一种是等额本金还款：将本金<br>分摊到每个月内，同时付清上一交易日至本次还款日之间的利息。这种还款方式与等额本息还款相比，总的利息支出较低，但是前期支付的本金和利息较多，还款负担逐月递减。<br>房屋租赁的中介费是半个月到一个月的房租；房屋买卖的中介费是总房款的2.5%，最高不超过3%。<br>二手房交易的税费，主要有三种：个人所得税、契税、增值税（营业税）。<br>除了这三种，还有城建税、印花税、土地增值税、教育费附加、综合地价款、土地出让金、土地收<br>益。其中，法律规定由购房人承担的只有契税、印花税和土地出让金。三个比较大的税种都有各自的免税政策。<br>二手房交易税费是必须在过户之前缴纳的。购房人根据网签合同的价格到地税缴税之后才能办理过户手续（地税缴税和过户是在两个地方），通常在过户当天（前一天）办理缴税。<br>契税通常是网签交易价格的1%—3%，<br>二手房交易环节也开始“营改增”。过去的营业税是<br>成交价的5.5%，增值税则是房屋增值部分——合同成交价和取得房屋的交易价格的价差的5%（具体征收标准见表4–3，表4–4）。<br>我们在买房的时候经常看到满五唯一、满二唯一、满五不唯一等描述，这其实是说这个房子是不是符合个人所得税、增值税的免税条件。<br>“满”，就是房产证下来了几年。“唯一”，就是业主只有这一套房子（一般是本省市内）。<br>增值税的免税条件就是满两年。<br>这个满几年是看房产证或契税完税凭证的时间，哪个早就按哪个算。如果中间重新办理过房产证——比如因为房主去世发生了继承、换发了新的产权证，就可能按照新的房产证重新计算时间。<br>个人所得税的免税政策原先是满五唯一，意思是房子要满五年，而且业主只有这一套房子，才能免税。所以满二免增值税，满五唯一免个人所得税。如果满二不满五，就算房子唯一也没有什么用。<br>个人所得税有两种计算方式，一种是合同成交价的1%（有的城市可能<br>比例不同），另外一种是交易差价的20%（如表4–5所示）。<br>实杨先生在签合同的时候加一句话就可以规避这个问题：过户时产生的税费由买方杨先生承担，但是以2万元为上限，超出部分由业主承担。</p>
-<h2 id="选房三步走"><a href="#选房三步走" class="headerlink" title="选房三步走"></a>选房三步走</h2><p>选房的第一步就是明确房子的性质，决定哪些类型的房子可以考虑，哪些坚决不碰。<br>法律上对房子的分类很简单，只有商品房和存量房两种，商品房就是一手房，存量房就是二手房。商品房采用期房预售制，购房人从开发商手里买房，存量房是购房人从业主手里买房。<br>房产证上面其实也有一些关于土地权利的内容，比如土地性质是划拨（白给）还是出让（买来的）。买二手房的时候需要注意这一点，因为不是说你买了房子，这个房子的产权就重新往后推70年。只有当房子原来的土地性质是划拨时，你买房之后补缴土地出让金，土地性质变成出让，房子才会从0开始用70年。如果你买房的时候土地性质就是出让，土地的70年产权是不会重新计算的。所以如果业主已经住了69年（实际上北京还没有这么老的房子），你再住1年就到期了。<br>房改房因为土地性质一般都是划拨，<br>这种房子的性质并不体现在法律里，也不体现在房产证上，而是体现在一些政策中，<br>央产房过户的前提条件是组织同意这套房子“上市”，而同意的标志是这套房子在位于蓝岛大厦的央产房管理中心备案。只有“蓝岛”给备案了，央产房才可以上市。<br>。房改房的土地性质都是划拨，也就是说当时并没有出钱买这块地，而是国家基于政策无偿供应了土地。这个土地性质会写在房产证里。<br>房产证上写着划拨，那么假设这房子要过户给你，你就要补缴土地出让金<br>法律上并没有小产权这个说法，它指代的一般是集体土地上的房子。<br>我们国家的土地分为国有土地和集体土地两种性质：国有土地就是由国家所有；集体土地就是由村集体所有。<br>集体土地只能在本集体成员内部流转，不可对外出售。用通俗的话说就是，农民的土地上盖的房子，居民（外村人）不能买。不能买包括以下三层意思。<br>买了房子不能过户。•双方签的买卖合同一般被认为是无效的。•卖家打个官司就可以把房子要回去。<br>一旦小产权房“转正”，引起的房价暴跌风险也不是闹着玩儿的。对政府来说，村集体手里这些集体土地是政府的土地储备，一旦让它们自由进入市场，不仅会影响现在的政府规划，也会间接导致城市的房价受到大量低价土地的冲击，无论是政府还是开发商都不愿意见到这种情况。另外，由于便宜的房子已经存在大量业主，强硬的拆违又容易引起社会问题，触犯另一批人的利益，所以目前这个问题可以说陷入了僵局。<br>经济适用房又分为经济适用房和按照经济适用房管理的商品房，后者多是体制内分房的产物。买房的时候你看一下房产证，是经济适用房的房子，房产证就写着经济适用房。经济适用房有的可以过户，有的不能过户。<br>我只能建议对这类房子感兴趣的读者，最好到政府过户大厅咨询一下自己考虑买的房子是不是“能过户的经济适用房”或“5年内（5年后）能过户的经济适用房”。如果不是，那么你买这个房子业主也是可以毁约的，依据是违反了《北京市经济适用房管理办法》。<br>也就是说，你买的房子到底是什么性质，要以房管局或者国土局的不动产登记簿的记载为准，也可以根据业主的房产证来确定。<br>如果是商品房，就可以直接交易过户。<br>如果是经济适用房，分成两种情况，一种是交易受到限制的，比如满5年才可以过户。一种是交易不受限制的，叫作按照经济适用房管理的住房，实际上就是商品房<br>抵债房，也叫顶账房，就是开发商资金链条断裂后，被债主拿在手里用于抵偿债务的房子。<br>虽然是抵债房，债主却不一定取得了房屋的产权。虽然开发商默认这个房子已经属于债主，但债主只是控制了这个房子，在法律上叫作占有。占有虽然也受到法律保护，但是和所有权比起来，要差一个档次。<br>计划经济时期，各单位分配的房子，由单位进行管理，叫作自管公房。城市里有不少老房子名义上被政府管理，实际上是由房管局管理的，叫作直管公房。公房被认为是一种属于承租人的财产——只不过难以流通。<br>这时就会涉及公房转为私房，叫作房改。或者公房改变承租人，叫作承租人变更。<br>公房的产权单位——房管局或者其他单位，作为房子的产权人，把原来和张三的租赁关系变更到李四名下，这就是公房的“过户手续”。看着和过户差不多，其实这并不是法律承认的交易形式。<br>按价格从低到高排序，小区可以分成如下几类：拆迁安置小区、老旧小区、单位小区、商住小区、新建商品房小区、高档商住小区、高档住宅小区、别墅小区。<br>。买房一定要先看房。我一般是先<br>用一天时间把所有的目标小区转一遍，然后再联系中介看房子。用两天时间走完问完，我在一个区域基本就是专家了，能确定我喜欢哪个小区。<br>一个住了10年的干净小区，一定比一个房龄只有1年的小区靠谱<br>怎么才能看出来小区物业好不好呢？有如下5个办法：•看小区有没有业委会•看小区楼道干净不干净•看小区电梯好用不好用（适用于房龄8年以上的小区）•看小区是不是谁都能进（安保是否严密）•去逛逛业主论坛，看有没有业主正在维权<br>地震的时候最先垮塌的都是形状奇怪的地方，比如飘窗，比如特别大的客厅。<br>房子结构分为砖混、钢混两种。<br>噪声和通风问题比较容易看出来，就是你把所有窗户都打开，听、感受，把窗户都关上，再听，要在每个房间尤其是卧室听。卖房的时候没有业主会跟你说房子通风不好、噪声太大、采光不好的，问他们没用，只有自己的感受最重要。有的人对噪声不敏感，有的人则对声音特别敏感。如果房子买了以后还有别人要住，或者你现在还不知道未来的对象是否对噪声敏感，那么你就尽量买个安静的房子。噪声问题是可以通过安装比较好的窗户来解决的。取暖问题也是一个考虑因素。屋子里头不暖和，到了冬天就不舒适。如果你买房的时候不是冬天，就只能靠这个小区其他邻居给你情报，看房子是看不出来的。楼层<br>没有产权证的房子尽量不要买，房产证上的名字必须和合同上的名字以及卖家身份证对得上。<br>解决办法就是拉产调（产权调查）。<br>购房人如果想要求稳妥，就把签约环节拆开，第一次只签一个定金合同支付定金，然后拉产调，之后第二次去签正式合同。<br>还有一个方案就是在签了正<br>式合同之后先交定金，拉产调，然后再支付首付，这是比较通行的做法。<br>来自微信读书</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/28/千万别说你懂买房/" data-id="cjjb45g6f000ursuq9220me4t" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-信息系统项目管理师" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/02/26/信息系统项目管理师/" class="article-date">
-  <time datetime="2018-02-26T07:30:28.000Z" itemprop="datePublished">2018-02-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/26/信息系统项目管理师/">信息系统项目管理师知识点</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="每日一练总结"><a href="#每日一练总结" class="headerlink" title="每日一练总结"></a>每日一练总结</h1><h2 id="RSA算法"><a href="#RSA算法" class="headerlink" title="RSA算法"></a>RSA算法</h2><ul>
-<li><p>一种非对称加密算法</p>
-</li>
-<li><p>算法的运行速度比DES慢</p>
-</li>
-<li><p>可用于某种数字签名方案</p>
-</li>
-<li><p>安全性主要基于素因子分解难度</p>
-</li>
-</ul>
-<h2 id="投资回收期"><a href="#投资回收期" class="headerlink" title="投资回收期"></a>投资回收期</h2><p>指项目投建之日起用项目所得的净收益偿还原始投资所需的年限。</p>
-<ul>
-<li>静态投资回收期</li>
-</ul>
-<p>不考虑资金占用成本(时间价值)回收其全部投资所需的时间。</p>
-<ul>
-<li>动态投资回收期 </li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/26/信息系统项目管理师/" data-id="cjjb45g6h000vrsuqsp38z7rb" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-VSCode" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/02/25/VSCode/" class="article-date">
-  <time datetime="2018-02-25T09:09:06.000Z" itemprop="datePublished">2018-02-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/25/VSCode/">VSCode</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-在VSCode中编辑MarkDown"><a href="#1-在VSCode中编辑MarkDown" class="headerlink" title="1. 在VSCode中编辑MarkDown"></a>1. 在VSCode中编辑MarkDown</h1><h2 id="1-1-使用命令"><a href="#1-1-使用命令" class="headerlink" title="1.1. 使用命令"></a>1.1. 使用命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl+shit+p</span><br></pre></td></tr></table></figure>
-<h2 id="1-2-标题自动编号"><a href="#1-2-标题自动编号" class="headerlink" title="1.2. 标题自动编号"></a>1.2. 标题自动编号</h2><ul>
-<li><p>安装markdown_index.</p>
-</li>
-<li><p>运行 &gt; markdown add index，即可自动添加序号</p>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/25/VSCode/" data-id="cjjb45g66000nrsuqhbx1ogd2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/04/设计模式/" data-id="cjjwkdfp60017hsuq0k4audud" class="article-share-link">Share</a>
       
       
     </footer>
@@ -768,23 +848,23 @@
       <ul>
         
           <li>
-            <a href="/2018/07/05/CLR via C#学习笔记/">(no title)</a>
+            <a href="/2018/07/22/打造自己的linqProvider/">打造自己的linqProvider</a>
           </li>
         
           <li>
-            <a href="/2018/03/16/济宁项目/">项目总结</a>
+            <a href="/2018/07/21/CSS入门及提高/">CSS入门及提高</a>
           </li>
         
           <li>
-            <a href="/2018/03/12/达意房产测绘软件/">项目总结</a>
+            <a href="/2018/07/18/从零做一个前端开源项目学习笔记/">从零做一个前端开源项目学习笔记</a>
           </li>
         
           <li>
-            <a href="/2018/03/08/ModelUI for WPF/">ModelUI for WPF</a>
+            <a href="/2018/07/09/SQL Server编程入门经典/">SQL Server编程入门经典</a>
           </li>
         
           <li>
-            <a href="/2018/03/04/设计模式/">设计模式</a>
+            <a href="/2018/07/07/EasyUI TreeGrid使用总结/">EasyUI TreeGrid使用总结</a>
           </li>
         
       </ul>
