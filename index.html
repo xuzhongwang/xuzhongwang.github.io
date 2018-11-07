@@ -62,6 +62,387 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-权限系统" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/30/权限系统/" class="article-date">
+  <time datetime="2018-09-30T07:07:17.000Z" itemprop="datePublished">2018-09-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/30/权限系统/">权限系统</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="RBAC基本概念"><a href="#RBAC基本概念" class="headerlink" title="RBAC基本概念"></a>RBAC基本概念</h1><p>基于角色的权限访问控制（Role-Based Access Control）作为传统访问控制（自主访问，强制访问）的有前景的代替受到广泛的关注。</p>
+<p>RBAC 支持三个著名的安全原则：最小权限原则、责任分离原则和数据抽象原则</p>
+<ul>
+<li>最小权限原则之所以被 RBAC 所支持，是因为 RBAC 可以将其角色配置成其完成任务所需要的最小的权限集。</li>
+<li>责任分离原则可以通过调用相互独立互斥的角色来共同完成敏感的任务而体现，比如要求同一个计账员和财务管理员共同参与同一过账。</li>
+<li>数据抽象可以通过权限的抽象来体现，如账务操作用借款、存款等抽象权限，而不用操作系统提供的典型读、写、执行权限。然而这些原则必须通过 RBAC 各部件的详细配置才能得以体现。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/09/30/权限系统/" data-id="cjo6hnxu40016q8uqvvpolr9t" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-CSS-Web高级程序设计" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/16/CSS-Web高级程序设计/" class="article-date">
+  <time datetime="2018-08-16T02:25:57.000Z" itemprop="datePublished">2018-08-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/16/CSS-Web高级程序设计/">CSS-Web高级程序设计</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-有关-XHTML-和-CSS-的最佳实例"><a href="#1-有关-XHTML-和-CSS-的最佳实例" class="headerlink" title="1. 有关 XHTML 和 CSS 的最佳实例"></a>1. 有关 XHTML 和 CSS 的最佳实例</h1><h2 id="1-1-把结构和表现标记硬挤到一起"><a href="#1-1-把结构和表现标记硬挤到一起" class="headerlink" title="1.1. 把结构和表现标记硬挤到一起"></a>1.1. 把结构和表现标记硬挤到一起</h2><h2 id="1-2-学习并热衷于使用标记"><a href="#1-2-学习并热衷于使用标记" class="headerlink" title="1.2. 学习并热衷于使用标记"></a>1.2. 学习并热衷于使用标记</h2><h3 id="1-2-1-XHTML：新热点"><a href="#1-2-1-XHTML：新热点" class="headerlink" title="1.2.1. XHTML：新热点"></a>1.2.1. XHTML：新热点</h3><p>HTML 有块级元素(如div、p、table等)和内联元素(如a、em、strong等)之分，内联元素永远不能包含块级元素。</p>
+<p>XHTML 特点</p>
+<ul>
+<li>DOCTYPE 声明</li>
+<li>保持标记具有良好的架构</li>
+<li>关闭每一个元素</li>
+<li>把元素和属性值设置为小写</li>
+<li>必须为每个属性指定一个值</li>
+</ul>
+<h3 id="1-2-2-从结构提取样式"><a href="#1-2-2-从结构提取样式" class="headerlink" title="1.2.2. 从结构提取样式"></a>1.2.2. 从结构提取样式</h3><h2 id="1-3-CSS-添加样式层"><a href="#1-3-CSS-添加样式层" class="headerlink" title="1.3. CSS:添加样式层"></a>1.3. CSS:添加样式层</h2><h3 id="1-3-1-更好的了解选择符"><a href="#1-3-1-更好的了解选择符" class="headerlink" title="1.3.1. 更好的了解选择符"></a>1.3.1. 更好的了解选择符</h3><p><img src="/2018/08/16/CSS-Web高级程序设计/简单的样式规则范例.png" alt="简单的样式规则范例"></p>
+<ul>
+<li>1.类型选择符</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line"><span class="attribute">color</span>:<span class="number">#36C</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>2.通配选择符</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* &#123;</span><br><span class="line"><span class="attribute">color</span>:<span class="number">#000</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>3.后代选择符</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ul</span> <span class="selector-tag">em</span> &#123;</span><br><span class="line"><span class="attribute">text-transform</span>:uppercase;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>4.类选择符</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.text</span> &#123;</span><br><span class="line">    <span class="attribute">border</span>:<span class="number">1px</span> solid :<span class="number">#C00</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>5.id选择符</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> <span class="selector-id">#page-title</span> &#123;</span><br><span class="line">    <span class="attribute">text-align</span>:right;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="1-3-2-其他选择符"><a href="#1-3-2-其他选择符" class="headerlink" title="1.3.2. 其他选择符"></a>1.3.2. 其他选择符</h3><ul>
+<li>1.子选择符</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span>&gt;<span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">font-weight</span>:bold;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>大于符号 &gt; 指示用户代理选择子一级的所有 p 元素而不是所有后代。</p>
+<ul>
+<li>2.属性选择符</li>
+</ul>
+<p><img src="/2018/08/16/CSS-Web高级程序设计/属性选择符.png" alt="属性选择符"></p>
+<p><img src="/2018/08/16/CSS-Web高级程序设计/属性选择符进一步说明.png" alt="属性选择符"></p>
+<h3 id="1-3-3-多重声明组合"><a href="#1-3-3-多重声明组合" class="headerlink" title="1.3.3. 多重声明组合"></a>1.3.3. 多重声明组合</h3><h3 id="1-3-4-对选择符进行分组"><a href="#1-3-4-对选择符进行分组" class="headerlink" title="1.3.4. 对选择符进行分组"></a>1.3.4. 对选择符进行分组</h3><h3 id="1-3-5-继承"><a href="#1-3-5-继承" class="headerlink" title="1.3.5. 继承"></a>1.3.5. 继承</h3><p><img src="/2018/08/16/CSS-Web高级程序设计/标记文档树.png" alt="属性选择符"></p>
+<ul>
+<li>1.检查元素的层次</li>
+</ul>
+<p>不是氖属性都可以继承，外边距和内边距就是两个例外。这些属性只能单独应用于某个元素，而不能被其后代继承。</p>
+<ul>
+<li>2.重写继承</li>
+</ul>
+<h3 id="1-3-6-综合应用"><a href="#1-3-6-综合应用" class="headerlink" title="1.3.6. 综合应用"></a>1.3.6. 综合应用</h3><h2 id="1-4-了解层叠"><a href="#1-4-了解层叠" class="headerlink" title="1.4. 了解层叠"></a>1.4. 了解层叠</h2><h3 id="1-4-1-探寻样式来源"><a href="#1-4-1-探寻样式来源" class="headerlink" title="1.4.1. 探寻样式来源"></a>1.4.1. 探寻样式来源</h3><p>样式表三个方面来源</p>
+<ul>
+<li>用户代理</li>
+<li>用户</li>
+<li>作者</li>
+</ul>
+<p><img src="/2018/08/16/CSS-Web高级程序设计/样式重要排序.png" alt="样式重要排序"></p>
+<h3 id="1-4-2-根据优先级排序"><a href="#1-4-2-根据优先级排序" class="headerlink" title="1.4.2. 根据优先级排序"></a>1.4.2. 根据优先级排序</h3><h2 id="把理论应用于实践"><a href="#把理论应用于实践" class="headerlink" title="把理论应用于实践"></a>把理论应用于实践</h2><h3 id="基于可靠浏览器进行构建"><a href="#基于可靠浏览器进行构建" class="headerlink" title="基于可靠浏览器进行构建"></a>基于可靠浏览器进行构建</h3><p>CSS hack：基于不同浏览器写不同CSS代码的过程</p>
+<h3 id="理性对待-hack"><a href="#理性对待-hack" class="headerlink" title="理性对待 hack"></a>理性对待 hack</h3><p><img src="/2018/08/16/CSS-Web高级程序设计/box模型.png" alt="box模型"></p>
+<h1 id="Google-的-blogger-com-翻转器和设计思想"><a href="#Google-的-blogger-com-翻转器和设计思想" class="headerlink" title="Google 的 blogger.com 翻转器和设计思想"></a>Google 的 blogger.com 翻转器和设计思想</h1><h2 id="设计人员访谈"><a href="#设计人员访谈" class="headerlink" title="设计人员访谈"></a>设计人员访谈</h2><h2 id="CSS-驱动的翻转器"><a href="#CSS-驱动的翻转器" class="headerlink" title="CSS 驱动的翻转器"></a>CSS 驱动的翻转器</h2><h3 id="改变链接的颜色和背景色（简单）"><a href="#改变链接的颜色和背景色（简单）" class="headerlink" title="改变链接的颜色和背景色（简单）"></a>改变链接的颜色和背景色（简单）</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">a &#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">border-bottom</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#eee</span>;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">color</span>: <span class="selector-id">#d17e62</span>;</span></span><br><span class="line"><span class="undefined">    text-decoration: none;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css"><span class="selector-tag">a</span><span class="selector-pseudo">:visited</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">border-bottom</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#eee</span>;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">color</span>: <span class="selector-id">#09d604c</span>;</span></span><br><span class="line"><span class="undefined">    text-decoration: none;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">background-color</span>: <span class="selector-id">#ffffda</span>;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">border-bottom</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#ddd</span>;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">color</span>: <span class="selector-id">#c30</span>;</span></span><br><span class="line"><span class="undefined">    text-decoration: none;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>If you're interested then<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span>bung me an email<span class="tag">&lt;/<span class="name">a</span>&gt;</span> and we can talk about what you want<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="改变链接的颜色和背景色（复杂）"><a href="#改变链接的颜色和背景色（复杂）" class="headerlink" title="改变链接的颜色和背景色（复杂）"></a>改变链接的颜色和背景色（复杂）</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/16/CSS-Web高级程序设计/" data-id="cjo6hnxpe0008q8uqs73ki4e2" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Web前端开发环境搭建" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/11/Web前端开发环境搭建/" class="article-date">
+  <time datetime="2018-08-11T07:37:32.000Z" itemprop="datePublished">2018-08-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/11/Web前端开发环境搭建/">Web前端开发环境搭建</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h1><ul>
+<li>Nodejs</li>
+<li>grunt</li>
+<li>bower</li>
+<li>express</li>
+<li>supervisor</li>
+</ul>
+<h2 id="grunt"><a href="#grunt" class="headerlink" title="grunt"></a>grunt</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g grunt cli</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/08/11/Web前端开发环境搭建/grunt安装.png" alt="Web前端开发环境搭建"></p>
+<h2 id="bower"><a href="#bower" class="headerlink" title="bower"></a>bower</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install bower -g</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/08/11/Web前端开发环境搭建/bower安装.png" alt="Web前端开发环境搭建"></p>
+<p>验证是否安装成功</p>
+<p><img src="/2018/08/11/Web前端开发环境搭建/bower安装验证.png" alt="Web前端开发环境搭建"></p>
+<h2 id="express"><a href="#express" class="headerlink" title="express"></a>express</h2><p>安装express，在cmd中输入：npm express -gd;   -g代表安装到NODE_PATH的lib里面，而-d代表把相依性套件也一起安装。如果沒有-g的话会安装目前所在的目录。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/11/Web前端开发环境搭建/" data-id="cjo6hnxtf000zq8uqk8qhubm6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-JQuery源码解读" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/09/JQuery源码解读/" class="article-date">
+  <time datetime="2018-08-09T08:08:08.000Z" itemprop="datePublished">2018-08-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/09/JQuery源码解读/">JQuery源码解读</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="AMD规范"><a href="#AMD规范" class="headerlink" title="AMD规范"></a>AMD规范</h1><h2 id="什么是ADM"><a href="#什么是ADM" class="headerlink" title="什么是ADM"></a>什么是ADM</h2><p>全称是Asynchronous Module Definition，即异步模块加载机制。<br>从它的规范描述页面看，AMD很短也很简单，但它却完整描述了模块的定义，依赖关系，引用关系以及加载机制。从它被requireJS，NodeJs，Dojo，JQuery使用也可以看出它具有很大的价值，没错，JQuery近期也采用了AMD规范。在这篇文章中，我们就将介绍AMD的性质，用法，优势以及应用场景。从AMD中我们也能学习到如何在更高层面去设计自己的前端应用。</p>
+<h2 id="AMD构成"><a href="#AMD构成" class="headerlink" title="AMD构成"></a>AMD构成</h2><p>作为一个规范，只需定义其语法API，而不关心其实现。AMD规范简单到只有一个API，即define函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">define([module-name?],[array-of-dependencies?],[module-factory-or-object])</span><br></pre></td></tr></table></figure>
+<p>其中：</p>
+<ul>
+<li>module-name：模块标识，可以省略。</li>
+<li>array-of-dependencies：所依赖的模块，可以省略。</li>
+<li>module-factory-or-object：模块的实现，或者一个JavaScript对象。</li>
+</ul>
+<p>从这个define函数AMD中的A：Asynchronous，我们也不难想到define函数具有的另外一个性质，异步性。当define函数执行时，它首先会异步的去调用第二个参数中列出的依赖模块，当所有的模块被载入完成之后，如果第三个参数是一个回调函数则执行，然后告诉系统模块可用，也就通知了依赖于自己的模块自己已经可用。</p>
+<h3 id="匿名模块"><a href="#匿名模块" class="headerlink" title="匿名模块"></a>匿名模块</h3><p>define 方法允许你省略第一个参数，这样就定义了一个匿名模块，这时候模块文件的文件名就是模块标识。</p>
+<h1 id="jQuery-对象与-dom-对象转换"><a href="#jQuery-对象与-dom-对象转换" class="headerlink" title="jQuery 对象与 dom 对象转换"></a>jQuery 对象与 dom 对象转换</h1><h2 id="jQuery-转换成-dom-对象"><a href="#jQuery-转换成-dom-对象" class="headerlink" title="jQuery 转换成 dom 对象"></a>jQuery 转换成 dom 对象</h2><ul>
+<li>[index]</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> $j =$(<span class="string">"#j"</span>) ; <span class="comment">//jQuery对象</span></span><br><span class="line"><span class="keyword">var</span> d=$j[<span class="number">0</span>]; <span class="comment">//DOM对象</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>.get(index)</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> $j=$(<span class="string">"#v"</span>); <span class="comment">//jQuery对象</span></span><br><span class="line"><span class="keyword">var</span> d=$j.get(<span class="number">0</span>); <span class="comment">//DOM对象</span></span><br></pre></td></tr></table></figure>
+<h2 id="dom-对象转换成-jQuery"><a href="#dom-对象转换成-jQuery" class="headerlink" title="dom 对象转换成 jQuery"></a>dom 对象转换成 jQuery</h2><p>对于已经是一个DOM对象，只需要用$()把DOM对象包装起来，就可以获得一个jQuery对象了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> v=<span class="built_in">document</span>.getElementById(<span class="string">"v"</span>); <span class="comment">//DOM对象</span></span><br><span class="line"><span class="keyword">var</span> $v=$(v); <span class="comment">//jQuery对象</span></span><br></pre></td></tr></table></figure>
+<h1 id="data"><a href="#data" class="headerlink" title="$.data()"></a>$.data()</h1><p>$.data(dom对象, ‘tree’);</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/09/JQuery源码解读/" data-id="cjo6hnxpq000fq8uqv08oo4q0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Emmet语法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/08/Emmet语法/" class="article-date">
+  <time datetime="2018-08-08T08:02:35.000Z" itemprop="datePublished">2018-08-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/08/Emmet语法/">Emmet语法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-Emmet-Html-语法"><a href="#1-Emmet-Html-语法" class="headerlink" title="1. Emmet Html 语法"></a>1. Emmet Html 语法</h1><h2 id="1-1-元素"><a href="#1-1-元素" class="headerlink" title="1.1. 元素"></a>1.1. 元素</h2><ul>
+<li>输入元素名称，自动生成标签,如 div</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>输入 ! 或 html:5 自动补全基本结构</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-2-嵌套操作"><a href="#1-2-嵌套操作" class="headerlink" title="1.2. 嵌套操作"></a>1.2. 嵌套操作</h2><ul>
+<li>child:使用 “&gt;” 生成子元素</li>
+</ul>
+<p>div&gt;ul&gt;li</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Sibling: 使用符号 “+” 生成兄弟元素</li>
+</ul>
+<p>div+p+bq</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blockquote</span>&gt;</span><span class="tag">&lt;/<span class="name">blockquote</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Climb-up:使用 “^” 生成父元素，与 “&gt;” 相反</li>
+</ul>
+<p>div+div&gt;p&gt;span+em^bq</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">em</span>&gt;</span><span class="tag">&lt;/<span class="name">em</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">blockquote</span>&gt;</span><span class="tag">&lt;/<span class="name">blockquote</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Multiplication:使用 “*” 操作符生成多个元素</li>
+</ul>
+<p>div&gt;ul&gt;li*5</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Grouping:使用 “()” 操作符将元素分组，实现更复杂的简写任务</li>
+</ul>
+<p>div&gt;(header&gt;ul&gt;li*2)+footer&gt;p</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">header</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">footer</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-3-属性操作"><a href="#1-3-属性操作" class="headerlink" title="1.3. 属性操作"></a>1.3. 属性操作</h2><ul>
+<li>id 与 class</li>
+</ul>
+<p>简写时，元素与 id 属性值之间用 “#” 分隔，与 class 属性值之间用 “.” 分隔。</p>
+<p>div#header+div.page+div#footer.class1.class2.class3</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"header"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"page"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"footer"</span> <span class="attr">class</span>=<span class="string">"class1 class2 class3"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>其它属性</li>
+</ul>
+<p>使用 [attr] 标记添加其他属性。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">title</span>=<span class="string">"hello"</span> <span class="attr">colspan</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>注意：</p>
+<pre><code>- 方括号中可添加任意数量的属性
+- 不给定属性值，则属性值为&quot;&quot;。td[colspan title]将得到
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">""</span> <span class="attr">title</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+- 属性值可用单引号或双引号，输出统一为双引号
+- 如果属性值中没有空格，则引号可省略
+</code></pre><ul>
+<li>为条目编号</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">li.item$*3</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item1"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item2"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item3"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>可在 “$” 后添加 “@n” 修改编号的起始值为n。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">li.item$@3*3</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item3"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item4"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item5"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>可在 “$” 后添加 “@-” 修改编号的方向。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">li.item$@-3*3</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item5"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item4"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item3"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-4-添加文本"><a href="#1-4-添加文本" class="headerlink" title="1.4. 添加文本"></a>1.4. 添加文本</h2><p>使用花括号 “{}” 操作符为元素添加文本节点。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// before</span><br><span class="line">a[href=me.htm]&#123;click me&#125;</span><br><span class="line"></span><br><span class="line">// after</span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"me.htm"</span>&gt;</span>click me<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>因为文本也是节点，所以 a[href=me.htm]{click me} 与 a[href=me.htm]&gt;{click me} 等价。</p>
+<p>但有多个元素时则要注意。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// before</span><br><span class="line">a[href=me.htm]&#123;click me&#125;+p&#123;ok&#125;</span><br><span class="line">a[href=me.htm]&gt;&#123;click me&#125;+p&#123;ok&#125;</span><br><span class="line"></span><br><span class="line">// after</span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"me.htm"</span>&gt;</span>click me<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>ok<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"me.htm"</span>&gt;</span>click me</span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>ok<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/08/Emmet语法/" data-id="cjo6hnxpk000bq8uqu8hcnaua" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-理解JavaScript中的异步" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/08/理解JavaScript中的异步/" class="article-date">
+  <time datetime="2018-08-08T01:21:48.000Z" itemprop="datePublished">2018-08-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/08/理解JavaScript中的异步/">理解JavaScript中的异步</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/08/理解JavaScript中的异步/" data-id="cjo6hnxub001cq8uq4vrs0vyx" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-打造自己的linqProvider" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/22/打造自己的linqProvider/" class="article-date">
@@ -160,7 +541,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/22/打造自己的linqProvider/" data-id="cjjwkdfp20015hsuqf8gbvt9o" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/22/打造自己的linqProvider/" data-id="cjo6hnxu9001aq8uqm7h7a6vr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -197,7 +578,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/CSS入门及提高/" data-id="cjjwkdfmc0002hsuq2ek2bqkr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/CSS入门及提高/" data-id="cjo6hnxp10004q8uqc5e0wa1c" class="article-share-link">Share</a>
       
       
     </footer>
@@ -242,7 +623,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/18/从零做一个前端开源项目学习笔记/" data-id="cjjwkdfoq000whsuqxv571p8j" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/18/从零做一个前端开源项目学习笔记/" data-id="cjo6hnxtg0010q8uqdb7e6y20" class="article-share-link">Share</a>
       
       
     </footer>
@@ -318,7 +699,7 @@
 <ol start="3">
 <li>约束</li>
 </ol>
-<h3 id="文件组"><a href="#文件组" class="headerlink" title="文件组"></a>文件组</h3><h3 id="数据库关系图"><a href="#数据库关系图" class="headerlink" title="数据库关系图"></a>数据库关系图</h3><h3 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h3><p>视图仅仅是表中所存储数据的一个预先计划的映射和表示。视图以查询的形式存储在数据库中。</p>
+<h3 id="1-1-4-文件组"><a href="#1-1-4-文件组" class="headerlink" title="1.1.4. 文件组"></a>1.1.4. 文件组</h3><h3 id="1-1-5-数据库关系图"><a href="#1-1-5-数据库关系图" class="headerlink" title="1.1.5. 数据库关系图"></a>1.1.5. 数据库关系图</h3><h3 id="1-1-6-视图"><a href="#1-1-6-视图" class="headerlink" title="1.1.6. 视图"></a>1.1.6. 视图</h3><p>视图仅仅是表中所存储数据的一个预先计划的映射和表示。视图以查询的形式存储在数据库中。</p>
 <p>视图的主要目的是控制视图用户查看的数据。</p>
 <p>索引视图除了可以创建索引外，其它都与视图相同，其对使用性能的影响如下：</p>
 <ul>
@@ -326,469 +707,66 @@
 <li>由于预先计算好视图中执行的聚合(aggregation)，并将其作为索引的一部分存储，因此聚合只要执行一次（在插入或更新时），然后就可从索引信息中直接读取它。</li>
 <li>由于视图上的索引必须及时更新，因此插入和删除索引需要更多的系统开销，如果更新影响到索引的键列或群集键，则更新也需要更多的系统开销。</li>
 </ul>
-<h3 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h3><p>存储过程优点：</p>
+<h3 id="1-1-7-存储过程"><a href="#1-1-7-存储过程" class="headerlink" title="1.1.7. 存储过程"></a>1.1.7. 存储过程</h3><p>存储过程优点：</p>
 <ul>
 <li>不使用长字符中文本而使用短字符串存储过程名，可减少运行存储过程中的代码所需要的网络通信流量。</li>
 <li>预先优化和预编译，节省每次运行存储过程的时间。</li>
 <li>通常考虑安全原因，或仅仅隐藏数据库的复杂性，将过程封装。</li>
 <li>可从其它存储过程调用，使得它们在某些限定意义上重用。</li>
 </ul>
-<h3 id="用户自定义函数"><a href="#用户自定义函数" class="headerlink" title="用户自定义函数"></a>用户自定义函数</h3><p>用户自定义函数（UDF）与存储过程十分相似，不同之处有如下几点：</p>
+<h3 id="1-1-8-用户自定义函数"><a href="#1-1-8-用户自定义函数" class="headerlink" title="1.1.8. 用户自定义函数"></a>1.1.8. 用户自定义函数</h3><p>用户自定义函数（UDF）与存储过程十分相似，不同之处有如下几点：</p>
 <ul>
 <li>返回值的数据类型包括大部分 SQLServer 数据类型。不包括的返回值数据类型有：text,ntext,image,cursor,timestamp</li>
 <li>没有“副作用”。基本上用户自定义函数不能超出函数的作用范围。</li>
 </ul>
 <p>传送到函数中的所有变量都是按值传递的，但可以返回一种特殊的数据类型–表</p>
-<h3 id="序列"><a href="#序列" class="headerlink" title="序列"></a>序列</h3><p>序列的作用是提供任意数量的进程都可以访问的序号源，同时保证任意两个进程不会同时获取相同的下一个值。因为序列是单独存在的对象(没有绑定到任何表),所以它可以有多种用途。</p>
-<h3 id="用户和角色"><a href="#用户和角色" class="headerlink" title="用户和角色"></a>用户和角色</h3><h3 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h3><h3 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h3><p>SQL Server 中有两种类型的默认值，包括对象本身的默认值，以及描述表中特定列的元数据的默认值。</p>
-<h3 id="用户自定义数据类型"><a href="#用户自定义数据类型" class="headerlink" title="用户自定义数据类型"></a>用户自定义数据类型</h3><h3 id="全文目录"><a href="#全文目录" class="headerlink" title="全文目录"></a>全文目录</h3><h2 id="SQL-Server-数据类型"><a href="#SQL-Server-数据类型" class="headerlink" title="SQL Server 数据类型"></a>SQL Server 数据类型</h2>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/09/SQL Server编程入门经典/" data-id="cjjwkdfnc000nhsuqm3w7ne3n" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="easyui-EasyUI TreeGrid使用总结" class="article article-type-easyui" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/07/EasyUI TreeGrid使用总结/" class="article-date">
-  <time datetime="2018-07-07T08:21:51.000Z" itemprop="datePublished">2018-07-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/07/EasyUI TreeGrid使用总结/">EasyUI TreeGrid使用总结</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="对于EasyUI-treegrid-使用方法的总结"><a href="#对于EasyUI-treegrid-使用方法的总结" class="headerlink" title="对于EasyUI treegrid 使用方法的总结"></a>对于EasyUI treegrid 使用方法的总结</h1>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/07/EasyUI TreeGrid使用总结/" data-id="cjjwkdfmh0005hsuqe0duwvpe" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-CLR via C#学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/05/CLR via C#学习笔记/" class="article-date">
-  <time datetime="2018-07-05T00:49:53.470Z" itemprop="datePublished">2018-07-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="什么是CLR"><a href="#什么是CLR" class="headerlink" title="什么是CLR"></a>什么是CLR</h2><p>是一种可由多种编程语言共同使用的运行时。</p>
-<h2 id="CLR的核心功能"><a href="#CLR的核心功能" class="headerlink" title="CLR的核心功能"></a>CLR的核心功能</h2><p>内存管理、程序集加载、安全性、异常处理和线程同步</p>
-<h2 id="程序集"><a href="#程序集" class="headerlink" title="程序集"></a>程序集</h2><p>程序集是一个或多个模块\资源文件的逻辑性分组<br>程序集是重用、安全性以及版本控制的最小单元</p>
-<h2 id="IL的最大优势"><a href="#IL的最大优势" class="headerlink" title="IL的最大优势"></a>IL的最大优势</h2><p>IL的最大优势并不在于它对底层CPU的抽象。而在于其提供的应用程序的健壮性和安全性。</p>
-<h2 id="unsafe关键字"><a href="#unsafe关键字" class="headerlink" title="unsafe关键字"></a>unsafe关键字</h2><p>C#编译器要求包含不安全代码的所有方法都用unsafe关键字标记。</p>
-<h1 id="本地代码生成器：NGen-exe"><a href="#本地代码生成器：NGen-exe" class="headerlink" title="本地代码生成器：NGen.exe"></a>本地代码生成器：NGen.exe</h1>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/05/CLR via C#学习笔记/" data-id="cjjwkdfme0003hsuqq5opz98d" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-济宁项目" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/16/济宁项目/" class="article-date">
-  <time datetime="2018-03-16T07:30:28.000Z" itemprop="datePublished">2018-03-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/16/济宁项目/">项目总结</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="r-dremis数据库表"><a href="#r-dremis数据库表" class="headerlink" title="r_dremis数据库表"></a>r_dremis数据库表</h1><h2 id="income-class-code"><a href="#income-class-code" class="headerlink" title="income_class_code"></a>income_class_code</h2><table>
-<thead>
-<tr>
-<th>字段名</th>
-<th>数据类型</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h2 id="R-Temp-other-info"><a href="#R-Temp-other-info" class="headerlink" title="[R_Temp_other_info]"></a>[R_Temp_other_info]</h2><table>
-<thead>
-<tr>
-<th>字段名</th>
-<th>数据类型</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>[income_id]</td>
-</tr>
-<tr>
-<td>[other_num]</td>
-</tr>
-<tr>
-<td>[income_class]</td>
-</tr>
-<tr>
-<td>[other_man]</td>
-<td>抵押权人</td>
-</tr>
-<tr>
-<td>[other_tel]</td>
-</tr>
-<tr>
-<td>[other_card]</td>
-</tr>
-<tr>
-<td>[other_card_id]</td>
-</tr>
-<tr>
-<td>[other_agent]</td>
-</tr>
-<tr>
-<td>[other_cor]</td>
-</tr>
-<tr>
-<td>[owner_name]</td>
-</tr>
-<tr>
-<td>[owner_tel]</td>
-</tr>
-<tr>
-<td>[owner_card]</td>
-</tr>
-<tr>
-<td>[owner_card_id]</td>
-</tr>
-<tr>
-<td>[owner_agent]</td>
-</tr>
-<tr>
-<td>[owner_cor]</td>
-</tr>
-<tr>
-<td>[debtor_name]</td>
-</tr>
-<tr>
-<td>[debtor_tel]</td>
-</tr>
-<tr>
-<td>[debtor_card]</td>
-</tr>
-<tr>
-<td>[debtor_card_id]</td>
-</tr>
-<tr>
-<td>[debtor_agent]</td>
-</tr>
-<tr>
-<td>[debtor_cor]</td>
-</tr>
-<tr>
-<td>[seat_name]</td>
-</tr>
-<tr>
-<td>[house_price]</td>
-</tr>
-<tr>
-<td>[evaluate_price]</td>
-</tr>
-<tr>
-<td>[right_fact]</td>
-</tr>
-<tr>
-<td>[right_area]</td>
-</tr>
-<tr>
-<td>[right_price]</td>
-</tr>
-<tr>
-<td>[borrow_price]</td>
-</tr>
-<tr>
-<td>[right_class]</td>
-</tr>
-<tr>
-<td>[start_date]</td>
-</tr>
-<tr>
-<td>[end_date]</td>
-</tr>
-<tr>
-<td>[right_id]</td>
-</tr>
-<tr>
-<td>[right_num]</td>
-</tr>
-<tr>
-<td>[tiptop_price]</td>
-</tr>
-<tr>
-<td>[tiptop_remark]</td>
-</tr>
-<tr>
-<td>[remark]</td>
-</tr>
-<tr>
-<td>[is_cart]</td>
-</tr>
-<tr>
-<td>[remove_yy]</td>
-</tr>
-<tr>
-<td>[remove_date]</td>
-</tr>
-<tr>
-<td>[oper_man]</td>
-</tr>
-<tr>
-<td>[oper_date]</td>
-</tr>
-<tr>
-<td>[oper_com]</td>
-</tr>
-<tr>
-<td>[old_income_id]</td>
-</tr>
-<tr>
-<td>[other_add]</td>
-</tr>
-<tr>
-<td>[debtor_add]</td>
-</tr>
-<tr>
-<td>[share_owner_name]</td>
-</tr>
-<tr>
-<td>[share_owner_tel]</td>
-</tr>
-<tr>
-<td>[share_owner_card]</td>
-</tr>
-<tr>
-<td>[share_owner_card_id]</td>
-</tr>
-<tr>
-<td>[share_owner_agent]</td>
-</tr>
-<tr>
-<td>[share_owner_cor]</td>
-</tr>
-<tr>
-<td>[share_debtor_name]</td>
-</tr>
-<tr>
-<td>[share_debtor_tel]</td>
-</tr>
-<tr>
-<td>[share_debtor_card]</td>
-</tr>
-<tr>
-<td>[share_debtor_card_id]</td>
-</tr>
-<tr>
-<td>[share_debtor_agent]</td>
-</tr>
-<tr>
-<td>[share_debtor_cor]</td>
-</tr>
-<tr>
-<td>[record_contract_code]</td>
-</tr>
-<tr>
-<td>[bank_contrack_code]</td>
-</tr>
-<tr>
-<td>[contract_name]</td>
-</tr>
-</tbody>
-</table>
-<h1 id="交易系统"><a href="#交易系统" class="headerlink" title="交易系统"></a>交易系统</h1><h2 id="打印表格"><a href="#打印表格" class="headerlink" title="打印表格"></a>打印表格</h2><h3 id="初始化数据"><a href="#初始化数据" class="headerlink" title="初始化数据"></a>初始化数据</h3><p>问题：加载时一个收件号有多条记录</p>
-<p>R_Code_income_emp 联合主键</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">declare</span> @flow <span class="built_in">char</span>(<span class="number">1</span>),@state <span class="built_in">char</span>(<span class="number">1</span>),@username <span class="built_in">char</span>(<span class="number">10</span>)</span><br><span class="line"> <span class="keyword">set</span> @flow=<span class="string">'1'</span></span><br><span class="line"> <span class="keyword">set</span> @state=<span class="string">'0'</span></span><br><span class="line"> <span class="keyword">set</span> @username=<span class="string">'00002204'</span></span><br><span class="line"><span class="keyword">select</span> a.income_class,i.income_name <span class="keyword">as</span> income_sys,a.owner_name,income_id,contract_code,a.oper_class <span class="keyword">from</span> IncomeListView <span class="keyword">AS</span> a  </span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> </span><br><span class="line">  dbo.R_Code_income_emp <span class="keyword">AS</span> b <span class="keyword">ON</span> a.income_class=b.small_income_code </span><br><span class="line">  <span class="keyword">inner</span> <span class="keyword">join</span> </span><br><span class="line">  dbo.income_class_code <span class="keyword">as</span> i <span class="keyword">on</span> a.income_class=i.income_class  </span><br><span class="line">  <span class="keyword">WHERE</span> flow_flag=@flow <span class="keyword">and</span> state_flag=@state</span><br></pre></td></tr></table></figure>
-<p>1 IncomeListView:</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span>  b.income_id, i.income_sys, b.owner_name, b.seat_name, <span class="keyword">CONVERT</span>(<span class="built_in">varchar</span>(<span class="number">10</span>), b.get_date, <span class="number">120</span>) <span class="keyword">AS</span> get_date, u.name, </span><br><span class="line">        b.get_man, b.flow_flag, b.state_flag, b.income_class, b.contract_code, i.oper_class</span><br><span class="line"><span class="keyword">FROM</span>  dbo.R_Reg_base_info <span class="keyword">AS</span> b </span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span></span><br><span class="line">    dbo.R_View_Income_class <span class="keyword">AS</span> i <span class="keyword">ON</span> b.income_class = i.income_class </span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span></span><br><span class="line">    linkserverW.P_dremis.dbo.Code_users <span class="keyword">AS</span> u <span class="keyword">ON</span> b.get_man = u.code</span><br></pre></td></tr></table></figure>
-<p>R_Reg_base_info:流程基本信息表</p>
-<p>2 R_Code_income_emp</p>
-<p>3 income_class_code</p>
-<p>合同签署：提取房屋信息<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> oi.owner_name,oi.right_id,oi.card_id <span class="keyword">from</span> r_dremis.dbo.R_Register_owner_info oi <span class="keyword">inner</span> <span class="keyword">join</span> r_dremis.dbo.R_Register_house_info hi</span><br><span class="line"><span class="keyword">on</span> oi.house_id=hi.house_id <span class="keyword">and</span> oi.income_id=hi.income_id</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/16/济宁项目/" data-id="cjjwkdfpa001ahsuqykkx4bdy" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-达意房产测绘软件" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/12/达意房产测绘软件/" class="article-date">
-  <time datetime="2018-03-12T07:30:28.000Z" itemprop="datePublished">2018-03-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/12/达意房产测绘软件/">项目总结</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="新建幢图"><a href="#新建幢图" class="headerlink" title="新建幢图"></a>新建幢图</h1><h2 id="任务提取"><a href="#任务提取" class="headerlink" title="任务提取"></a>任务提取</h2><p>按 usercode 查询，查询出 Flow_Flag = ‘3’ AND State_Flag =’0’</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">declare</span> @usercode <span class="built_in">varchar</span>(<span class="number">50</span>)</span><br><span class="line"><span class="keyword">set</span> @usercode = N<span class="string">'00000011'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">RTRIM</span>(T.Income_ID) <span class="keyword">AS</span> Income_ID,Four_Code,Owner_Name,Location,Build_Code,Build_Name,Developer,Ask_Code <span class="keyword">FROM</span> Reg_Mapping_Main M,Reg_Mapping_Task T <span class="keyword">WHERE</span> T.Income_ID =M.Income_ID  <span class="keyword">AND</span> Flow_Flag = <span class="string">'3'</span> <span class="keyword">AND</span> State_Flag =<span class="string">'0'</span> <span class="keyword">AND</span> Ask_Code =<span class="string">'01'</span> <span class="keyword">AND</span> T.Income_ID <span class="keyword">NOT</span> <span class="keyword">IN</span> (<span class="keyword">SELECT</span> Income_ID <span class="keyword">FROM</span> Dwg_Name) <span class="keyword">AND</span> T.User_Code = @usercode <span class="keyword">ORDER</span> <span class="keyword">BY</span> T.Income_ID <span class="keyword">DESC</span></span><br></pre></td></tr></table></figure>
-<h2 id="新建"><a href="#新建" class="headerlink" title="新建"></a>新建</h2><h3 id="Dwg-Name"><a href="#Dwg-Name" class="headerlink" title="Dwg_Name"></a>Dwg_Name</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> Dwg_Name ([Income_Id],[Four_Code],[Build_Class],[Build_Code],[Build_Name],[Total_Floor],[Down_Floor],[Build_Area],[Down_Area],[Same_Floor_Info],[Structure],[Purpose],[Structure_Code],[Purpose_Code],[Finish_Date],[Owner_Name],[Location],[Developer],[State],[User_Code],[Map_Man],[Check_Man]) <span class="keyword">VALUES</span> (<span class="string">'20180226004'</span>,<span class="string">'0101220002'</span>,<span class="string">'00'</span>,<span class="string">'0004'</span>,<span class="string">'4'</span>,<span class="string">'10'</span>,<span class="string">''</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="string">''</span>,<span class="string">'混合'</span>,<span class="string">'测试'</span>,<span class="string">'0004'</span>,<span class="string">'0001'</span>,<span class="string">'2012'</span>,<span class="string">'cad2010'</span>,<span class="string">'cad004'</span>,<span class="string">'河北宏鑫房地产开发有限公司'</span>,<span class="string">'0'</span>,<span class="string">'00000011'</span>,<span class="string">'ceshi'</span>,<span class="string">''</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="Code-Four-Build-Floor"><a href="#Code-Four-Build-Floor" class="headerlink" title="Code_Four_Build_Floor"></a>Code_Four_Build_Floor</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> Code_Four_Build_Floor ([Income_Id],[Four_Code],[Build_Code],[Floor_Num],[Same_Floor],[Purpose_Code],[Purpose_Name]) <span class="keyword">VALUES</span> (<span class="string">'20180226004'</span>,<span class="string">'0101220002'</span>,<span class="string">'0004'</span>,<span class="string">'0'</span>,<span class="string">''</span>,<span class="string">'0001'</span>,<span class="string">'测试'</span>);<span class="keyword">INSERT</span> <span class="keyword">INTO</span> Code_Four_Build_Floor ([Income_Id],[Four_Code],[Build_Code],[Floor_Num],[Same_Floor],[Purpose_Code],[Purpose_Name]) <span class="keyword">VALUES</span> (<span class="string">'20180226004'</span>,<span class="string">'0101220002'</span>,<span class="string">'0004'</span>,<span class="string">'1'</span>,<span class="string">''</span>,<span class="string">'0001'</span>,<span class="string">'测试'</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="创建文件"><a href="#创建文件" class="headerlink" title="创建文件"></a>创建文件</h3><ul>
-<li>数据库文件</li>
-<li>图纸文件</li>
+<h3 id="1-1-9-序列"><a href="#1-1-9-序列" class="headerlink" title="1.1.9. 序列"></a>1.1.9. 序列</h3><p>序列的作用是提供任意数量的进程都可以访问的序号源，同时保证任意两个进程不会同时获取相同的下一个值。因为序列是单独存在的对象(没有绑定到任何表),所以它可以有多种用途。</p>
+<h3 id="1-1-10-用户和角色"><a href="#1-1-10-用户和角色" class="headerlink" title="1.1.10. 用户和角色"></a>1.1.10. 用户和角色</h3><h3 id="1-1-11-规则"><a href="#1-1-11-规则" class="headerlink" title="1.1.11. 规则"></a>1.1.11. 规则</h3><h3 id="1-1-12-默认值"><a href="#1-1-12-默认值" class="headerlink" title="1.1.12. 默认值"></a>1.1.12. 默认值</h3><p>SQL Server 中有两种类型的默认值，包括对象本身的默认值，以及描述表中特定列的元数据的默认值。</p>
+<h3 id="1-1-13-用户自定义数据类型"><a href="#1-1-13-用户自定义数据类型" class="headerlink" title="1.1.13. 用户自定义数据类型"></a>1.1.13. 用户自定义数据类型</h3><h3 id="1-1-14-全文目录"><a href="#1-1-14-全文目录" class="headerlink" title="1.1.14. 全文目录"></a>1.1.14. 全文目录</h3><h2 id="1-2-SQL-Server-数据类型"><a href="#1-2-SQL-Server-数据类型" class="headerlink" title="1.2. SQL Server 数据类型"></a>1.2. SQL Server 数据类型</h2><p><img src="/2018/07/09/SQL Server编程入门经典/SQL_Server编程入门经典/数据类型1.png" alt="数据类型1"><br><img src="/2018/07/09/SQL Server编程入门经典/SQL_Server编程入门经典/数据类型2.png" alt="数据类型2"></p>
+<h1 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h1><p>数据库规范化是指将数据从更大的表分割成几个较小的表，目的是消除重复的数据、节省空间、提高数据库性能，并增加数据完整性。</p>
+<h2 id="内部连接"><a href="#内部连接" class="headerlink" title="内部连接"></a>内部连接</h2><p>INNER JOIN:内部连接是一个排他的连接，即排除在两表————第一个指定的表（即左表）和第二个指定表（即右表）————中没有匹配的所有记录。</p>
+<h3 id="处理更复杂的外部连接"><a href="#处理更复杂的外部连接" class="headerlink" title="处理更复杂的外部连接"></a>处理更复杂的外部连接</h3><p>在所有的查询的语句中，JOIN 左侧或之前的所有表只作为一个表，不论查询语句是要包含或排除表中的数据。同样，所有查询语句中 JOIN 右侧或之后的所有表只作为一个表。</p>
+<p>通常，应首先使用内部连接，然后尽量少地使用外部连接，这样可以减少代码中的错误。</p>
+<h2 id="联合"><a href="#联合" class="headerlink" title="联合"></a>联合</h2><p>JOIN 将信息水平连接（添加更多列），而 UNION 将数据垂直连接（添加更多行）。</p>
+<h1 id="创建和修改数据表"><a href="#创建和修改数据表" class="headerlink" title="创建和修改数据表"></a>创建和修改数据表</h1><h2 id="SQL-SERVER-中的对象名"><a href="#SQL-SERVER-中的对象名" class="headerlink" title="SQL SERVER 中的对象名"></a>SQL SERVER 中的对象名</h2><p>有4层命名约定</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ServerName.[DatabaseName.[SchemaName.]]]ObjectName</span><br></pre></td></tr></table></figure>
+<h1 id="刍和约束"><a href="#刍和约束" class="headerlink" title="刍和约束"></a>刍和约束</h1><p>确保数据完整性不是使用数据库的程序的责任，而是数据库本身的责任。</p>
+<p>有3种不同类型的约束</p>
+<ul>
+<li>实体约束</li>
+<li>域约束</li>
+<li>参照完整笥约束</li>
+</ul>
+<p>约束的方法</p>
+<ul>
+<li>主键约束</li>
+<li>外键约束</li>
+<li>唯一约束(也称替换键)</li>
+<li>CHECK约束</li>
+<li>DEFAULT约束</li>
+<li>规则</li>
+<li>默认值(和DEFAULT约束类似)</li>
+</ul>
+<h2 id="约束的类型"><a href="#约束的类型" class="headerlink" title="约束的类型"></a>约束的类型</h2><h3 id="域约束"><a href="#域约束" class="headerlink" title="域约束"></a>域约束</h3><p>域约束处理一个或多个列</p>
+<h2 id="键约束"><a href="#键约束" class="headerlink" title="键约束"></a>键约束</h2><p>主键、外键、替换键和倒置健</p>
+<h1 id="更复杂的查询"><a href="#更复杂的查询" class="headerlink" title="更复杂的查询"></a>更复杂的查询</h1><h2 id="子查询的概念"><a href="#子查询的概念" class="headerlink" title="子查询的概念"></a>子查询的概念</h2><p>子查询通常用于满足下列某个需求</p>
+<ul>
+<li>将一个查询分解为一系列的逻辑步骤</li>
+<li>提供一个列表作为 WHERE 子句和 [IN|EXIST|ANY|ALL]的目标</li>
+<li>为父查询中的每个记录提供一个查询表</li>
+</ul>
+<h2 id="关联子查询"><a href="#关联子查询" class="headerlink" title="关联子查询"></a>关联子查询</h2><p>关联子查询与嵌套子查询的不同之处在于：信息传递是双向的，而不是单向的。在嵌套子查询中，内部查询只处理一次，然后将信息传递到外部查询，而外部查询也只执行一次————提供和您自己可能输入的完全相同的值或列表。</p>
+<p>关联子查询处理过程</p>
+<ul>
+<li>外部查询获取一个记录，然后将该记录传递到内部查询</li>
+<li>内部查询根据传递的值进行查询</li>
+<li>内部查询将结果值传递回外部查询，而外部查询利用这些值完成处理过程。</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/12/达意房产测绘软件/" data-id="cjjwkdfpd001chsuqfeeowdzh" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-ModelUI for WPF" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/08/ModelUI for WPF/" class="article-date">
-  <time datetime="2018-03-08T00:53:36.000Z" itemprop="datePublished">2018-03-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/08/ModelUI for WPF/">ModelUI for WPF</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="使用ModelUI"><a href="#使用ModelUI" class="headerlink" title="使用ModelUI"></a>使用ModelUI</h1><h2 id="首先获取相关dll"><a href="#首先获取相关dll" class="headerlink" title="首先获取相关dll"></a>首先获取相关dll</h2><p>[github地址]：<a href="https://github.com/firstfloorsoftware/mui" target="_blank" rel="noopener">https://github.com/firstfloorsoftware/mui</a></p>
-<h2 id="在项目中添加引用"><a href="#在项目中添加引用" class="headerlink" title="在项目中添加引用"></a>在项目中添加引用</h2><p>在目录FirstFloor.ModernUI\FirstFloor.ModernUI\bin\Debug下找到FirstFloor.ModernUI.dll,添加到你所需要的wpf项目中</p>
-<p>在项目的App.xaml中添加如下代码</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Application</span> <span class="attr">x:Class</span>=<span class="string">"SuperRecite.App"</span></span></span><br><span class="line"><span class="tag">             <span class="attr">xmlns</span>=<span class="string">"http://schemas.microsoft.com/winfx/2006/xaml/presentation"</span></span></span><br><span class="line"><span class="tag">             <span class="attr">xmlns:x</span>=<span class="string">"http://schemas.microsoft.com/winfx/2006/xaml"</span></span></span><br><span class="line"><span class="tag">             <span class="attr">xmlns:local</span>=<span class="string">"clr-namespace:SuperRecite"</span></span></span><br><span class="line"><span class="tag">             <span class="attr">StartupUri</span>=<span class="string">"MainWindow.xaml"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Application.Resources</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ResourceDictionary</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">ResourceDictionary.MergedDictionaries</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ResourceDictionary</span> <span class="attr">Source</span>=<span class="string">"/FirstFloor.ModernUI;component/Assets/ModernUI.xaml"</span> /&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ResourceDictionary</span> <span class="attr">Source</span>=<span class="string">"/FirstFloor.ModernUI;component/Assets/ModernUI.Light.xaml"</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">ResourceDictionary.MergedDictionaries</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ResourceDictionary</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Application.Resources</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Application</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>在项目的主页面中添加引用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xmlns:mui=&quot;http://firstfloorsoftware.com/ModernUI&quot;</span><br></pre></td></tr></table></figure>
-<p> 主窗体后台改变继承的基类</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public partial class MainWindow : ModernWindow</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/08/ModelUI for WPF/" data-id="cjjwkdfni000rhsuqjvfr39mg" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-设计模式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/04/设计模式/" class="article-date">
-  <time datetime="2018-03-04T15:26:58.000Z" itemprop="datePublished">2018-03-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/04/设计模式/">设计模式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="C-面向对象设计模式纵横谈"><a href="#C-面向对象设计模式纵横谈" class="headerlink" title="C# 面向对象设计模式纵横谈"></a>C# 面向对象设计模式纵横谈</h1><h2 id="设计模式与面向对象"><a href="#设计模式与面向对象" class="headerlink" title="设计模式与面向对象"></a>设计模式与面向对象</h2><p>所谓好的面向对象设计就是那些可以满足“应对变化，提高复用”的设计。</p>
-<p>源代码即设计。</p>
-<h2 id="职责链模式"><a href="#职责链模式" class="headerlink" title="职责链模式"></a>职责链模式</h2>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/04/设计模式/" data-id="cjjwkdfp60017hsuq0k4audud" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/09/SQL Server编程入门经典/" data-id="cjo6hnxsv000rq8uq42evuo54" class="article-share-link">Share</a>
       
       
     </footer>
@@ -835,7 +813,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
   </div>
 
@@ -848,23 +826,23 @@
       <ul>
         
           <li>
-            <a href="/2018/07/22/打造自己的linqProvider/">打造自己的linqProvider</a>
+            <a href="/2018/09/30/权限系统/">权限系统</a>
           </li>
         
           <li>
-            <a href="/2018/07/21/CSS入门及提高/">CSS入门及提高</a>
+            <a href="/2018/08/16/CSS-Web高级程序设计/">CSS-Web高级程序设计</a>
           </li>
         
           <li>
-            <a href="/2018/07/18/从零做一个前端开源项目学习笔记/">从零做一个前端开源项目学习笔记</a>
+            <a href="/2018/08/11/Web前端开发环境搭建/">Web前端开发环境搭建</a>
           </li>
         
           <li>
-            <a href="/2018/07/09/SQL Server编程入门经典/">SQL Server编程入门经典</a>
+            <a href="/2018/08/09/JQuery源码解读/">JQuery源码解读</a>
           </li>
         
           <li>
-            <a href="/2018/07/07/EasyUI TreeGrid使用总结/">EasyUI TreeGrid使用总结</a>
+            <a href="/2018/08/08/Emmet语法/">Emmet语法</a>
           </li>
         
       </ul>

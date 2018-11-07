@@ -14,10 +14,13 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1. RDBMS 基础：SQLServer 数据库的构成1.1. 数据对象的概述数据库对象：  数据库本身 事务日志 表 索引 文件组 数据库关系图 视图 存储过程 用户自定义函数 序列 用户 角色 程序集 报表 全文目录 用户自定义数据类型  1.1.1. 数据库对象存储过程和视图是对存储在数据库表中的数据的特定分组 SQL Server 第一次启动时至少包括4个系统数据库  master：系统">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-18T13:58:41.729Z">
+<meta property="og:image" content="http://yoursite.com/2018/07/09/SQL%20Server编程入门经典/SQL_Server编程入门经典/数据类型1.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/09/SQL%20Server编程入门经典/SQL_Server编程入门经典/数据类型2.png">
+<meta property="og:updated_time" content="2018-08-07T12:32:51.196Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL Server编程入门经典">
 <meta name="twitter:description" content="1. RDBMS 基础：SQLServer 数据库的构成1.1. 数据对象的概述数据库对象：  数据库本身 事务日志 表 索引 文件组 数据库关系图 视图 存储过程 用户自定义函数 序列 用户 角色 程序集 报表 全文目录 用户自定义数据类型  1.1.1. 数据库对象存储过程和视图是对存储在数据库表中的数据的特定分组 SQL Server 第一次启动时至少包括4个系统数据库  master：系统">
+<meta name="twitter:image" content="http://yoursite.com/2018/07/09/SQL%20Server编程入门经典/SQL_Server编程入门经典/数据类型1.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -130,7 +133,7 @@
 <ol start="3">
 <li>约束</li>
 </ol>
-<h3 id="文件组"><a href="#文件组" class="headerlink" title="文件组"></a>文件组</h3><h3 id="数据库关系图"><a href="#数据库关系图" class="headerlink" title="数据库关系图"></a>数据库关系图</h3><h3 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h3><p>视图仅仅是表中所存储数据的一个预先计划的映射和表示。视图以查询的形式存储在数据库中。</p>
+<h3 id="1-1-4-文件组"><a href="#1-1-4-文件组" class="headerlink" title="1.1.4. 文件组"></a>1.1.4. 文件组</h3><h3 id="1-1-5-数据库关系图"><a href="#1-1-5-数据库关系图" class="headerlink" title="1.1.5. 数据库关系图"></a>1.1.5. 数据库关系图</h3><h3 id="1-1-6-视图"><a href="#1-1-6-视图" class="headerlink" title="1.1.6. 视图"></a>1.1.6. 视图</h3><p>视图仅仅是表中所存储数据的一个预先计划的映射和表示。视图以查询的形式存储在数据库中。</p>
 <p>视图的主要目的是控制视图用户查看的数据。</p>
 <p>索引视图除了可以创建索引外，其它都与视图相同，其对使用性能的影响如下：</p>
 <ul>
@@ -138,26 +141,66 @@
 <li>由于预先计算好视图中执行的聚合(aggregation)，并将其作为索引的一部分存储，因此聚合只要执行一次（在插入或更新时），然后就可从索引信息中直接读取它。</li>
 <li>由于视图上的索引必须及时更新，因此插入和删除索引需要更多的系统开销，如果更新影响到索引的键列或群集键，则更新也需要更多的系统开销。</li>
 </ul>
-<h3 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h3><p>存储过程优点：</p>
+<h3 id="1-1-7-存储过程"><a href="#1-1-7-存储过程" class="headerlink" title="1.1.7. 存储过程"></a>1.1.7. 存储过程</h3><p>存储过程优点：</p>
 <ul>
 <li>不使用长字符中文本而使用短字符串存储过程名，可减少运行存储过程中的代码所需要的网络通信流量。</li>
 <li>预先优化和预编译，节省每次运行存储过程的时间。</li>
 <li>通常考虑安全原因，或仅仅隐藏数据库的复杂性，将过程封装。</li>
 <li>可从其它存储过程调用，使得它们在某些限定意义上重用。</li>
 </ul>
-<h3 id="用户自定义函数"><a href="#用户自定义函数" class="headerlink" title="用户自定义函数"></a>用户自定义函数</h3><p>用户自定义函数（UDF）与存储过程十分相似，不同之处有如下几点：</p>
+<h3 id="1-1-8-用户自定义函数"><a href="#1-1-8-用户自定义函数" class="headerlink" title="1.1.8. 用户自定义函数"></a>1.1.8. 用户自定义函数</h3><p>用户自定义函数（UDF）与存储过程十分相似，不同之处有如下几点：</p>
 <ul>
 <li>返回值的数据类型包括大部分 SQLServer 数据类型。不包括的返回值数据类型有：text,ntext,image,cursor,timestamp</li>
 <li>没有“副作用”。基本上用户自定义函数不能超出函数的作用范围。</li>
 </ul>
 <p>传送到函数中的所有变量都是按值传递的，但可以返回一种特殊的数据类型–表</p>
-<h3 id="序列"><a href="#序列" class="headerlink" title="序列"></a>序列</h3><p>序列的作用是提供任意数量的进程都可以访问的序号源，同时保证任意两个进程不会同时获取相同的下一个值。因为序列是单独存在的对象(没有绑定到任何表),所以它可以有多种用途。</p>
-<h3 id="用户和角色"><a href="#用户和角色" class="headerlink" title="用户和角色"></a>用户和角色</h3><h3 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h3><h3 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h3><p>SQL Server 中有两种类型的默认值，包括对象本身的默认值，以及描述表中特定列的元数据的默认值。</p>
-<h3 id="用户自定义数据类型"><a href="#用户自定义数据类型" class="headerlink" title="用户自定义数据类型"></a>用户自定义数据类型</h3><h3 id="全文目录"><a href="#全文目录" class="headerlink" title="全文目录"></a>全文目录</h3><h2 id="SQL-Server-数据类型"><a href="#SQL-Server-数据类型" class="headerlink" title="SQL Server 数据类型"></a>SQL Server 数据类型</h2>
+<h3 id="1-1-9-序列"><a href="#1-1-9-序列" class="headerlink" title="1.1.9. 序列"></a>1.1.9. 序列</h3><p>序列的作用是提供任意数量的进程都可以访问的序号源，同时保证任意两个进程不会同时获取相同的下一个值。因为序列是单独存在的对象(没有绑定到任何表),所以它可以有多种用途。</p>
+<h3 id="1-1-10-用户和角色"><a href="#1-1-10-用户和角色" class="headerlink" title="1.1.10. 用户和角色"></a>1.1.10. 用户和角色</h3><h3 id="1-1-11-规则"><a href="#1-1-11-规则" class="headerlink" title="1.1.11. 规则"></a>1.1.11. 规则</h3><h3 id="1-1-12-默认值"><a href="#1-1-12-默认值" class="headerlink" title="1.1.12. 默认值"></a>1.1.12. 默认值</h3><p>SQL Server 中有两种类型的默认值，包括对象本身的默认值，以及描述表中特定列的元数据的默认值。</p>
+<h3 id="1-1-13-用户自定义数据类型"><a href="#1-1-13-用户自定义数据类型" class="headerlink" title="1.1.13. 用户自定义数据类型"></a>1.1.13. 用户自定义数据类型</h3><h3 id="1-1-14-全文目录"><a href="#1-1-14-全文目录" class="headerlink" title="1.1.14. 全文目录"></a>1.1.14. 全文目录</h3><h2 id="1-2-SQL-Server-数据类型"><a href="#1-2-SQL-Server-数据类型" class="headerlink" title="1.2. SQL Server 数据类型"></a>1.2. SQL Server 数据类型</h2><p><img src="/2018/07/09/SQL Server编程入门经典/SQL_Server编程入门经典/数据类型1.png" alt="数据类型1"><br><img src="/2018/07/09/SQL Server编程入门经典/SQL_Server编程入门经典/数据类型2.png" alt="数据类型2"></p>
+<h1 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h1><p>数据库规范化是指将数据从更大的表分割成几个较小的表，目的是消除重复的数据、节省空间、提高数据库性能，并增加数据完整性。</p>
+<h2 id="内部连接"><a href="#内部连接" class="headerlink" title="内部连接"></a>内部连接</h2><p>INNER JOIN:内部连接是一个排他的连接，即排除在两表————第一个指定的表（即左表）和第二个指定表（即右表）————中没有匹配的所有记录。</p>
+<h3 id="处理更复杂的外部连接"><a href="#处理更复杂的外部连接" class="headerlink" title="处理更复杂的外部连接"></a>处理更复杂的外部连接</h3><p>在所有的查询的语句中，JOIN 左侧或之前的所有表只作为一个表，不论查询语句是要包含或排除表中的数据。同样，所有查询语句中 JOIN 右侧或之后的所有表只作为一个表。</p>
+<p>通常，应首先使用内部连接，然后尽量少地使用外部连接，这样可以减少代码中的错误。</p>
+<h2 id="联合"><a href="#联合" class="headerlink" title="联合"></a>联合</h2><p>JOIN 将信息水平连接（添加更多列），而 UNION 将数据垂直连接（添加更多行）。</p>
+<h1 id="创建和修改数据表"><a href="#创建和修改数据表" class="headerlink" title="创建和修改数据表"></a>创建和修改数据表</h1><h2 id="SQL-SERVER-中的对象名"><a href="#SQL-SERVER-中的对象名" class="headerlink" title="SQL SERVER 中的对象名"></a>SQL SERVER 中的对象名</h2><p>有4层命名约定</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ServerName.[DatabaseName.[SchemaName.]]]ObjectName</span><br></pre></td></tr></table></figure>
+<h1 id="刍和约束"><a href="#刍和约束" class="headerlink" title="刍和约束"></a>刍和约束</h1><p>确保数据完整性不是使用数据库的程序的责任，而是数据库本身的责任。</p>
+<p>有3种不同类型的约束</p>
+<ul>
+<li>实体约束</li>
+<li>域约束</li>
+<li>参照完整笥约束</li>
+</ul>
+<p>约束的方法</p>
+<ul>
+<li>主键约束</li>
+<li>外键约束</li>
+<li>唯一约束(也称替换键)</li>
+<li>CHECK约束</li>
+<li>DEFAULT约束</li>
+<li>规则</li>
+<li>默认值(和DEFAULT约束类似)</li>
+</ul>
+<h2 id="约束的类型"><a href="#约束的类型" class="headerlink" title="约束的类型"></a>约束的类型</h2><h3 id="域约束"><a href="#域约束" class="headerlink" title="域约束"></a>域约束</h3><p>域约束处理一个或多个列</p>
+<h2 id="键约束"><a href="#键约束" class="headerlink" title="键约束"></a>键约束</h2><p>主键、外键、替换键和倒置健</p>
+<h1 id="更复杂的查询"><a href="#更复杂的查询" class="headerlink" title="更复杂的查询"></a>更复杂的查询</h1><h2 id="子查询的概念"><a href="#子查询的概念" class="headerlink" title="子查询的概念"></a>子查询的概念</h2><p>子查询通常用于满足下列某个需求</p>
+<ul>
+<li>将一个查询分解为一系列的逻辑步骤</li>
+<li>提供一个列表作为 WHERE 子句和 [IN|EXIST|ANY|ALL]的目标</li>
+<li>为父查询中的每个记录提供一个查询表</li>
+</ul>
+<h2 id="关联子查询"><a href="#关联子查询" class="headerlink" title="关联子查询"></a>关联子查询</h2><p>关联子查询与嵌套子查询的不同之处在于：信息传递是双向的，而不是单向的。在嵌套子查询中，内部查询只处理一次，然后将信息传递到外部查询，而外部查询也只执行一次————提供和您自己可能输入的完全相同的值或列表。</p>
+<p>关联子查询处理过程</p>
+<ul>
+<li>外部查询获取一个记录，然后将该记录传递到内部查询</li>
+<li>内部查询根据传递的值进行查询</li>
+<li>内部查询将结果值传递回外部查询，而外部查询利用这些值完成处理过程。</li>
+</ul>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/09/SQL Server编程入门经典/" data-id="cjjwkdfnc000nhsuqm3w7ne3n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/09/SQL Server编程入门经典/" data-id="cjo6hnxsv000rq8uq42evuo54" class="article-share-link">Share</a>
       
       
     </footer>
@@ -176,9 +219,9 @@
     </a>
   
   
-    <a href="/2018/07/07/EasyUI TreeGrid使用总结/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/07/05/CLR via C#学习笔记/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">EasyUI TreeGrid使用总结</div>
+      <div class="article-nav-title"></div>
     </a>
   
 </nav>
@@ -216,7 +259,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
   </div>
 
@@ -229,23 +272,23 @@
       <ul>
         
           <li>
-            <a href="/2018/07/22/打造自己的linqProvider/">打造自己的linqProvider</a>
+            <a href="/2018/09/30/权限系统/">权限系统</a>
           </li>
         
           <li>
-            <a href="/2018/07/21/CSS入门及提高/">CSS入门及提高</a>
+            <a href="/2018/08/16/CSS-Web高级程序设计/">CSS-Web高级程序设计</a>
           </li>
         
           <li>
-            <a href="/2018/07/18/从零做一个前端开源项目学习笔记/">从零做一个前端开源项目学习笔记</a>
+            <a href="/2018/08/11/Web前端开发环境搭建/">Web前端开发环境搭建</a>
           </li>
         
           <li>
-            <a href="/2018/07/09/SQL Server编程入门经典/">SQL Server编程入门经典</a>
+            <a href="/2018/08/09/JQuery源码解读/">JQuery源码解读</a>
           </li>
         
           <li>
-            <a href="/2018/07/07/EasyUI TreeGrid使用总结/">EasyUI TreeGrid使用总结</a>
+            <a href="/2018/08/08/Emmet语法/">Emmet语法</a>
           </li>
         
       </ul>

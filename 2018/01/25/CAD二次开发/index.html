@@ -14,16 +14,16 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="最近被公司分配到了做CAD二次开发。也是初次接触这方面的东西，其实是有些无从下手的感觉。因为公司这边也没有人有时间带我，只能是自己看书，然后再写一些Demo，再结合实际的应用来一点点的学习。废话不多说，推荐一本我入门的书籍，就是李冠亿先生的《深居浅出AutoCAD二次开发》,写的非常不错，把这本书中的Demo自己手写一遍大概就能知道CAD二次开发到底是个什么东西了。 1. 开发环境配置1.1. 开">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2018/01/25/CAD二次开发/add%20debug%20cad%20project.png">
-<meta property="og:image" content="http://yoursite.com/2018/01/25/CAD二次开发/find%20acad.png">
-<meta property="og:image" content="http://yoursite.com/2018/01/25/CAD二次开发/set%20startup.png">
-<meta property="og:image" content="http://yoursite.com/2018/01/25/CAD二次开发/set%20property.png">
-<meta property="og:image" content="http://yoursite.com/2018/01/25/CAD二次开发/set%20debugger%20type.png">
-<meta property="og:updated_time" content="2018-07-07T02:02:12.239Z">
+<meta property="og:image" content="http://yoursite.com/2018/01/25/CAD二次开发/add_debug_cad_project.png">
+<meta property="og:image" content="http://yoursite.com/2018/01/25/CAD二次开发/find_acad.png">
+<meta property="og:image" content="http://yoursite.com/2018/01/25/CAD二次开发/set_startup.png">
+<meta property="og:image" content="http://yoursite.com/2018/01/25/CAD二次开发/set_property.png">
+<meta property="og:image" content="http://yoursite.com/2018/01/25/CAD二次开发/set_debugger_type.png">
+<meta property="og:updated_time" content="2018-07-26T12:32:10.220Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C#进行CAD二次开发">
 <meta name="twitter:description" content="最近被公司分配到了做CAD二次开发。也是初次接触这方面的东西，其实是有些无从下手的感觉。因为公司这边也没有人有时间带我，只能是自己看书，然后再写一些Demo，再结合实际的应用来一点点的学习。废话不多说，推荐一本我入门的书籍，就是李冠亿先生的《深居浅出AutoCAD二次开发》,写的非常不错，把这本书中的Demo自己手写一遍大概就能知道CAD二次开发到底是个什么东西了。 1. 开发环境配置1.1. 开">
-<meta name="twitter:image" content="http://yoursite.com/2018/01/25/CAD二次开发/add%20debug%20cad%20project.png">
+<meta name="twitter:image" content="http://yoursite.com/2018/01/25/CAD二次开发/add_debug_cad_project.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -116,7 +116,7 @@
 <li>编译这个程序</li>
 <li>启动CAD在命令行中输入netload,然后在打开的窗口中找到刚编译的程序的dll,加载后在命令行输入Hello，猜猜会出现什么？没错，你的第一个CAD二次开发的程序已经完美运行了。</li>
 </ol>
-<h2 id="2-2-如何调试程序"><a href="#2-2-如何调试程序" class="headerlink" title="2.2. 如何调试程序"></a>2.2. 如何调试程序</h2><p>书中介绍了一种方法，不再赘述，下面来说一下我常用的方法<br>在解决方案资源管理器中右击解决方案，选择“添加”-“现有项目”<br><img src="/2018/01/25/CAD二次开发/add debug cad project.png" alt="add debug cad project"><br>在打开的对话框中找到CAD安装路径下的acad.exe,选择打开<br><img src="/2018/01/25/CAD二次开发/find acad.png" alt="find acad"><br>将刚添加的项目设置为启动项目<br><img src="/2018/01/25/CAD二次开发/set startup.png" alt="set startup"><br>设置项目属性<br><img src="/2018/01/25/CAD二次开发/set property.png" alt="set property"><br>修改调试器类型如下图所示<br><img src="/2018/01/25/CAD二次开发/set debugger type.png" alt="set debugger type"><br>在需要的地方设置断点，启动项目，会发现CAD程序会被找开，netload加载程序集，就可以调试啦</p>
+<h2 id="2-2-如何调试程序"><a href="#2-2-如何调试程序" class="headerlink" title="2.2. 如何调试程序"></a>2.2. 如何调试程序</h2><p>书中介绍了一种方法，不再赘述，下面来说一下我常用的方法<br>在解决方案资源管理器中右击解决方案，选择“添加”-“现有项目”<br><img src="/2018/01/25/CAD二次开发/add_debug_cad_project.png" alt="add_debug_cad_project"><br>在打开的对话框中找到CAD安装路径下的acad.exe,选择打开<br><img src="/2018/01/25/CAD二次开发/find_acad.png" alt="find_acad"><br>将刚添加的项目设置为启动项目<br><img src="/2018/01/25/CAD二次开发/set_startup.png" alt="set startup"><br>设置项目属性<br><img src="/2018/01/25/CAD二次开发/set_property.png" alt="set property"><br>修改调试器类型如下图所示<br><img src="/2018/01/25/CAD二次开发/set_debugger_type.png" alt="set debugger type"><br>在需要的地方设置断点，启动项目，会发现CAD程序会被找开，netload加载程序集，就可以调试啦</p>
 <h1 id="3-错误记录"><a href="#3-错误记录" class="headerlink" title="3. 错误记录"></a>3. 错误记录</h1><p>1、CAD崩溃，错误“unhandled access violation reading”=“未将对象引用设置到对象的实例”。</p>
 <p>2、建模操作错误:指向给定边的指针为空。<br>建模操作错误:访问冲突。<br>acdbmgdeGeneralModelingFailure</p>
 <ul>
@@ -142,7 +142,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/25/CAD二次开发/" data-id="cjjwkdfmj0007hsuqmh84js99" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/25/CAD二次开发/" data-id="cjo6hnxoz0003q8uq6mowur2w" class="article-share-link">Share</a>
       
       
     </footer>
@@ -201,7 +201,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
   </div>
 
@@ -214,23 +214,23 @@
       <ul>
         
           <li>
-            <a href="/2018/07/22/打造自己的linqProvider/">打造自己的linqProvider</a>
+            <a href="/2018/09/30/权限系统/">权限系统</a>
           </li>
         
           <li>
-            <a href="/2018/07/21/CSS入门及提高/">CSS入门及提高</a>
+            <a href="/2018/08/16/CSS-Web高级程序设计/">CSS-Web高级程序设计</a>
           </li>
         
           <li>
-            <a href="/2018/07/18/从零做一个前端开源项目学习笔记/">从零做一个前端开源项目学习笔记</a>
+            <a href="/2018/08/11/Web前端开发环境搭建/">Web前端开发环境搭建</a>
           </li>
         
           <li>
-            <a href="/2018/07/09/SQL Server编程入门经典/">SQL Server编程入门经典</a>
+            <a href="/2018/08/09/JQuery源码解读/">JQuery源码解读</a>
           </li>
         
           <li>
-            <a href="/2018/07/07/EasyUI TreeGrid使用总结/">EasyUI TreeGrid使用总结</a>
+            <a href="/2018/08/08/Emmet语法/">Emmet语法</a>
           </li>
         
       </ul>

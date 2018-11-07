@@ -17,7 +17,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/01/30/javascript高级程序设计/理解原型对象.png">
 <meta property="og:image" content="http://yoursite.com/2018/01/30/javascript高级程序设计/原型对象的动态性.png">
 <meta property="og:image" content="http://yoursite.com/2018/01/30/javascript高级程序设计/原型链继承.png">
-<meta property="og:updated_time" content="2018-07-07T02:23:53.833Z">
+<meta property="og:updated_time" content="2018-08-15T06:53:20.790Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript高级程序设计">
 <meta name="twitter:description" content="1. JavaScript简介1.1. JavaScript简史最初设计的主要目的是为了处理以前由服务器端语言(如Perl)负责的一些输入验证操作。 1.2. JavaScript实现一个完整的JavaScript实现由三部分组成  核心：ECMAScript 文档对象模型：DOM 浏览器对象模型：BOM  2. 在HTML中使用JavaScript2.1. &amp;lt;script&amp;gt;元素带有s">
@@ -241,8 +241,10 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var qs = location.search.substring(1);</span><br><span class="line">var hostName = location.hostName;</span><br><span class="line">var url = location.href;</span><br><span class="line">//使用with</span><br><span class="line">with(location)&#123;</span><br><span class="line">    var qs = search.substring(1);</span><br><span class="line">    var hostName = hostName;</span><br><span class="line">    var url = href;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>严格模式下不允许使用with语句，否则被视为语法错误。<br>with语句不建议使用。</p>
 <h2 id="3-6-函数"><a href="#3-6-函数" class="headerlink" title="3.6. 函数"></a>3.6. 函数</h2><h3 id="3-6-1-理解参数"><a href="#3-6-1-理解参数" class="headerlink" title="3.6.1. 理解参数"></a>3.6.1. 理解参数</h3><p>ECMAScrip函数不介意传进来多少个参数，也不在乎传进来参数是什么类型。原因是ECAMScript中的参数内部是用一个数组来表示。函数接收的始终是这个数组，而不关心数组中包含哪些参数。在函数体内可以通过arguments对象来访问这个参数数组，从而获取传递参数的每一个参数。<br>ECMAScript函数的一个重要特点：命名的参数只提供便利，但不是必需的。</p>
-<h1 id="4-变量、作用域和内存问题"><a href="#4-变量、作用域和内存问题" class="headerlink" title="4. 变量、作用域和内存问题"></a>4. 变量、作用域和内存问题</h1><h2 id="4-1-基本类型和引用类型的值"><a href="#4-1-基本类型和引用类型的值" class="headerlink" title="4.1. 基本类型和引用类型的值"></a>4.1. 基本类型和引用类型的值</h2><h3 id="4-1-1-传递参数"><a href="#4-1-1-传递参数" class="headerlink" title="4.1.1. 传递参数"></a>4.1.1. 传递参数</h3><p>ECMAScript中所有函数的参数都是按值来传递的。<br>例子：</p>
+<h1 id="4-变量、作用域和内存问题"><a href="#4-变量、作用域和内存问题" class="headerlink" title="4. 变量、作用域和内存问题"></a>4. 变量、作用域和内存问题</h1><h2 id="4-1-基本类型和引用类型的值"><a href="#4-1-基本类型和引用类型的值" class="headerlink" title="4.1. 基本类型和引用类型的值"></a>4.1. 基本类型和引用类型的值</h2><h3 id="4-1-1-传递参数"><a href="#4-1-1-传递参数" class="headerlink" title="4.1.1. 传递参数"></a>4.1.1. 传递参数</h3><p>访问变量有按值和按引用两种方式,ECMAScript中所有函数的参数都是按值来传递的。</p>
+<p>例子：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function setName(obj)&#123;</span><br><span class="line">    obj.name = &quot;Nicholas&quot;;</span><br><span class="line">    obj = new Object();</span><br><span class="line">    obj.name = &quot;Greg&quot;;</span><br><span class="line">&#125;</span><br><span class="line">var person = new Object();</span><br><span class="line">setName(person);</span><br><span class="line">alert(person.name);  //&quot;Nicholas&quot;</span><br></pre></td></tr></table></figure>
+<p>在上例中，当函数内部重写 obj 时，这个变量引用的就是一个局部对象了。而这个局部对象会在函数执行完毕后立即被销毁。</p>
 <h3 id="4-1-2-检测类型"><a href="#4-1-2-检测类型" class="headerlink" title="4.1.2. 检测类型"></a>4.1.2. 检测类型</h3><p>typeof操作符是确定一个变量是字符串、数值、布尔值，还是undefined的最佳工具。<br>使用typeof操作符检测函数时，返回”function”<br>检测引用类型的时，提供instanceof.</p>
 <h2 id="4-2-执行环境及作用域"><a href="#4-2-执行环境及作用域" class="headerlink" title="4.2. 执行环境及作用域"></a>4.2. 执行环境及作用域</h2><p>每个执行环境都有一个与之关联变量对象，环境中定义的所有变量和函数都保存在这个对象中。虽然我们编写的代码无法访问这个对象，但解析器在处理数据时会在后台使用它。<br>每个函数都有自己的执行环境。当执行流进入一个函数时，函数的环境会被推入一个环境栈中。而在函数执行之后，栈将其环境弹出，把控制权返回给之前的执行环境。<br>当代码在一个环境中执行时，会创建变量对象的一个作用域链(scope chain)。作用域链的用途，是保证对执行环境有权访问的所有变量和函数的有序访问。作用域链的前端，始终都是当前执行的代码所在环境的变量对象。如果这个环境是函数，由将其活动对象(activation object)作为变量对象。活动对象最开始时只包含一个变量，即arguments对象(这个对象在全局环境中是不存在的)。作用域链中的下一个变量对象来自包含(外部)环境，而再下一个变量对象则来自下一个包含环境。这样一直延续到全局执行环境。全局执行环境的变量对象始终都是作用域链的最后一个对象。<br>标识符解析是沿着作用域链一级一级地搜索标识符的过程。</p>
 <h3 id="4-2-1-没有块级作用域"><a href="#4-2-1-没有块级作用域" class="headerlink" title="4.2.1. 没有块级作用域"></a>4.2.1. 没有块级作用域</h3><p>JavaScript没有块级作用域。</p>
@@ -393,8 +395,8 @@
 <h3 id="5-4-2-RegExp-实例方法"><a href="#5-4-2-RegExp-实例方法" class="headerlink" title="5.4.2. RegExp 实例方法"></a>5.4.2. RegExp 实例方法</h3><ul>
 <li><p>exec(): 该方法是专门为捕获组而设计的。接受一个参数,即要应用模式的字符串。返回包含第一个匹配信息的数组，或者在没有匹配项的情况下返回null。<br>返回的数组是Array的实例，第一项是与整个模式匹配的字符串,其它项是与模式捕获组匹配的字符串(如果没有捕获组，则只包含一项），此外还包含两个额外的属性,index和input：</p>
 <ul>
-<li>index表示匹配项在字符串中的位置.</li>
-<li>inupt表示应用正则表达式的字符串。</li>
+<li>index 表示匹配项在字符串中的位置.</li>
+<li>inupt 表示应用正则表达式的字符串。</li>
 </ul>
 <p>在一个字符串上多次调用exec(),将始终返回第一个匹配项的信息.而在设置全局标志的情况下,每次调用exec()都会在字符串中继续查找新匹配项。</p>
 </li>
@@ -442,7 +444,7 @@
 </tr>
 </tbody>
 </table>
-<p>除了上面的属性外，还有9个用于存储捕获组的构造函数属性。访问语法是 </p>
+<p>除了上面的属性外，还有9个用于存储捕获组的构造函数属性。访问语法是</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">RegExp</span>.$<span class="number">1</span>、<span class="built_in">RegExp</span>.$<span class="number">2</span></span><br></pre></td></tr></table></figure>
 <h2 id="5-5-Function类型"><a href="#5-5-Function类型" class="headerlink" title="5.5. Function类型"></a>5.5. Function类型</h2><p>定义函数的三种方法</p>
 <ul>
@@ -1050,7 +1052,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/30/javascript高级程序设计/" data-id="cjjwkdfpg001ehsuq3gctlv3t" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/30/javascript高级程序设计/" data-id="cjo6hnxui001gq8uqisbabdfe" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1109,7 +1111,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
   </div>
 
@@ -1122,23 +1124,23 @@
       <ul>
         
           <li>
-            <a href="/2018/07/22/打造自己的linqProvider/">打造自己的linqProvider</a>
+            <a href="/2018/09/30/权限系统/">权限系统</a>
           </li>
         
           <li>
-            <a href="/2018/07/21/CSS入门及提高/">CSS入门及提高</a>
+            <a href="/2018/08/16/CSS-Web高级程序设计/">CSS-Web高级程序设计</a>
           </li>
         
           <li>
-            <a href="/2018/07/18/从零做一个前端开源项目学习笔记/">从零做一个前端开源项目学习笔记</a>
+            <a href="/2018/08/11/Web前端开发环境搭建/">Web前端开发环境搭建</a>
           </li>
         
           <li>
-            <a href="/2018/07/09/SQL Server编程入门经典/">SQL Server编程入门经典</a>
+            <a href="/2018/08/09/JQuery源码解读/">JQuery源码解读</a>
           </li>
         
           <li>
-            <a href="/2018/07/07/EasyUI TreeGrid使用总结/">EasyUI TreeGrid使用总结</a>
+            <a href="/2018/08/08/Emmet语法/">Emmet语法</a>
           </li>
         
       </ul>
