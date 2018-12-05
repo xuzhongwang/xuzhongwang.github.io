@@ -17,7 +17,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/01/30/javascript高级程序设计/理解原型对象.png">
 <meta property="og:image" content="http://yoursite.com/2018/01/30/javascript高级程序设计/原型对象的动态性.png">
 <meta property="og:image" content="http://yoursite.com/2018/01/30/javascript高级程序设计/原型链继承.png">
-<meta property="og:updated_time" content="2018-08-15T06:53:20.790Z">
+<meta property="og:updated_time" content="2018-12-05T05:06:04.494Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript高级程序设计">
 <meta name="twitter:description" content="1. JavaScript简介1.1. JavaScript简史最初设计的主要目的是为了处理以前由服务器端语言(如Perl)负责的一些输入验证操作。 1.2. JavaScript实现一个完整的JavaScript实现由三部分组成  核心：ECMAScript 文档对象模型：DOM 浏览器对象模型：BOM  2. 在HTML中使用JavaScript2.1. &amp;lt;script&amp;gt;元素带有s">
@@ -478,6 +478,10 @@
 <li>call():接收两个参数，一个是在其中运行函数的作用域，另一个是参数，必须是一一列举的参数。</li>
 </ul>
 <p>它们真正强大的地方是能扩展函数赖以运行的作用域，扩充作用域的最大好处就是对象不需要与方法有任何耦合关系。</p>
+<p>apply 一些其它巧妙用法</p>
+<p>（1）Math.max 可以实现得到数组中最大的一项：<br>因为Math.max不支持Math.max([param1,param2])也就是数组，但是它支持Math.max(param1,param2…)，所以可以根据apply的特点来解决 var max=Math.max.apply(null,array)，这样就轻易的可以得到一个数组中的最大项（apply会将一个数组转换为一个参数接一个参数的方式传递给方法）<br>这块在调用的时候第一个参数给了null，这是因为没有对象去调用这个方法，我只需要用这个方法帮我运算，得到返回的结果就行，所以直接传递了一个null过去。<br>用这种方法也可以实现得到数组中的最小项：Math.min.apply(null,array)</p>
+<p>（2）Array.prototype.push可以实现两个数组的合并<br>同样push方法没有提供push一个数组，但是它提供了push(param1,param2…paramN)，同样也可以用apply来转换一下这个数组，即：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr1=<span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"1"</span>,<span class="string">"2"</span>,<span class="string">"3"</span>);</span><br><span class="line"><span class="keyword">var</span> arr2=<span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"4"</span>,<span class="string">"5"</span>,<span class="string">"6"</span>);</span><br><span class="line"><span class="keyword">var</span> arrayLength = <span class="built_in">Array</span>.prototype.push.apply(arr1,arr2);    <span class="comment">//得到合并后数组的长度，因为push就是返回一个数组的长度</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"length:"</span> + arrayLength);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"arr1 length:"</span> + arr1.length);<span class="comment">//6</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"arr2 length:"</span> + arr2.length);<span class="comment">//3</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>bind()方法</li>
 </ul>
@@ -821,17 +825,17 @@
 <h2 id="8-2-location-对象"><a href="#8-2-location-对象" class="headerlink" title="8.2. location 对象"></a>8.2. location 对象</h2><p>location 是最有用的 BOM 对象之一，它提供了与当前窗口中加载的文档相关的信息，还提供了一些导航功能。<br>location 既是 window 对象的属性，也是 document 对象的属性。换句话说，window.location 和 document.location 引用的是同一个对象。</p>
 <h3 id="8-2-1-位置操作"><a href="#8-2-1-位置操作" class="headerlink" title="8.2.1. 位置操作"></a>8.2.1. 位置操作</h3><p>assign()方法：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">location.assign(<span class="string">"url"</span>);</span><br></pre></td></tr></table></figure>
-<h1 id="9-客户端检测"><a href="#9-客户端检测" class="headerlink" title="9. 客户端检测"></a>9. 客户端检测</h1><h1 id="10-1DOM"><a href="#10-1DOM" class="headerlink" title="10. 1DOM"></a>10. 1DOM</h1><h1 id="11-1DOM扩展"><a href="#11-1DOM扩展" class="headerlink" title="11. 1DOM扩展"></a>11. 1DOM扩展</h1><h1 id="12-1DOM的DOM"><a href="#12-1DOM的DOM" class="headerlink" title="12. 1DOM的DOM"></a>12. 1DOM的DOM</h1><h1 id="13-1事件"><a href="#13-1事件" class="headerlink" title="13. 1事件"></a>13. 1事件</h1><h2 id="13-1-1事件流"><a href="#13-1-1事件流" class="headerlink" title="13.1. 1事件流"></a>13.1. 1事件流</h2><p>事件流描述的是从页面中接收事件顺序。</p>
-<h3 id="13-1-1-1事件冒泡"><a href="#13-1-1-1事件冒泡" class="headerlink" title="13.1.1. 1事件冒泡"></a>13.1.1. 1事件冒泡</h3><p>IE的事件流叫做事件冒泡，即事件最开始时由最具体的元素（文档中嵌套层次最深的那个节点）接收，然后逐级向上传播到较为不具体的节点(文档).</p>
-<h3 id="13-1-2-1事件捕获"><a href="#13-1-2-1事件捕获" class="headerlink" title="13.1.2. 1事件捕获"></a>13.1.2. 1事件捕获</h3><p>思想是不太具体的节点应该更早接收到事件，而最具体的节点应该最后接收到事件。事件捕获的用意在于在事件到达预定目标前捕获它。</p>
-<h3 id="13-1-3-1DOM事件流"><a href="#13-1-3-1DOM事件流" class="headerlink" title="13.1.3. 1DOM事件流"></a>13.1.3. 1DOM事件流</h3><p>“DOM2 级事件” 规定的事件流包括三个阶段：</p>
+<h1 id="9-客户端检测"><a href="#9-客户端检测" class="headerlink" title="9. 客户端检测"></a>9. 客户端检测</h1><h1 id="10-DOM"><a href="#10-DOM" class="headerlink" title="10. DOM"></a>10. DOM</h1><h1 id="11-DOM扩展"><a href="#11-DOM扩展" class="headerlink" title="11. DOM扩展"></a>11. DOM扩展</h1><h1 id="12-DOM的DOM"><a href="#12-DOM的DOM" class="headerlink" title="12. DOM的DOM"></a>12. DOM的DOM</h1><h1 id="13-事件"><a href="#13-事件" class="headerlink" title="13. 事件"></a>13. 事件</h1><h2 id="13-1-事件流"><a href="#13-1-事件流" class="headerlink" title="13.1. 事件流"></a>13.1. 事件流</h2><p>事件流描述的是从页面中接收事件顺序。</p>
+<h3 id="13-1-1-事件冒泡"><a href="#13-1-1-事件冒泡" class="headerlink" title="13.1.1. 事件冒泡"></a>13.1.1. 事件冒泡</h3><p>IE的事件流叫做事件冒泡，即事件最开始时由最具体的元素（文档中嵌套层次最深的那个节点）接收，然后逐级向上传播到较为不具体的节点(文档).</p>
+<h3 id="13-1-2-事件捕获"><a href="#13-1-2-事件捕获" class="headerlink" title="13.1.2. 事件捕获"></a>13.1.2. 事件捕获</h3><p>思想是不太具体的节点应该更早接收到事件，而最具体的节点应该最后接收到事件。事件捕获的用意在于在事件到达预定目标前捕获它。</p>
+<h3 id="13-1-3-DOM事件流"><a href="#13-1-3-DOM事件流" class="headerlink" title="13.1.3. DOM事件流"></a>13.1.3. DOM事件流</h3><p>“DOM2 级事件” 规定的事件流包括三个阶段：</p>
 <ul>
 <li>事件捕获阶段</li>
 <li>处于目标阶段</li>
 <li>冒泡阶段</li>
 </ul>
-<h2 id="13-2-1事件处理程序"><a href="#13-2-1事件处理程序" class="headerlink" title="13.2. 1事件处理程序"></a>13.2. 1事件处理程序</h2><p>响应某个事件的函数叫做事件处理程序或事件侦听器。</p>
-<h3 id="13-2-1-1HTML-事件处理程序"><a href="#13-2-1-1HTML-事件处理程序" class="headerlink" title="13.2.1. 1HTML 事件处理程序"></a>13.2.1. 1HTML 事件处理程序</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span> = <span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">showMessage</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">        alert(<span class="string">"Hello World"</span>);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span> = <span class="string">"button"</span> <span class="attr">value</span> = <span class="string">"click me"</span> <span class="attr">onclick</span>=<span class="string">"showMessage()"</span> &gt;</span><span class="tag">&lt;/<span class="name">input</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="13-2-事件处理程序"><a href="#13-2-事件处理程序" class="headerlink" title="13.2. 事件处理程序"></a>13.2. 事件处理程序</h2><p>响应某个事件的函数叫做事件处理程序或事件侦听器。</p>
+<h3 id="13-2-1-HTML-事件处理程序"><a href="#13-2-1-HTML-事件处理程序" class="headerlink" title="13.2.1. HTML 事件处理程序"></a>13.2.1. HTML 事件处理程序</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span> = <span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">showMessage</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">        alert(<span class="string">"Hello World"</span>);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span> = <span class="string">"button"</span> <span class="attr">value</span> = <span class="string">"click me"</span> <span class="attr">onclick</span>=<span class="string">"showMessage()"</span> &gt;</span><span class="tag">&lt;/<span class="name">input</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>这样指定处理程序，首先会创建一个封装着元素属性值的函数，这个函数有一个局部变量 event，也就是事件对象。<br>通过 event 对象可以直接访问事件对象。在这个函数内部， this 值等于事件的目标元素。<br>在这个函数内部，可以像访问局部变量一样访问 document 及元素本身成员，这个函数使用 with 像下面这样扩展作用域：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fucntion()&#123;</span><br><span class="line">    <span class="keyword">with</span>(<span class="built_in">document</span>)&#123;</span><br><span class="line">        <span class="keyword">with</span>(<span class="keyword">this</span>)&#123;</span><br><span class="line">            <span class="comment">//元素属性值</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>如果当前元素是一个表单输入元素</p>
@@ -843,8 +847,8 @@
 <li>时差问题：用户可能会在 HTML 元素一出现在页面上就触发相应的事件，但当时的事件处理程序有可能尚未具备执行条件。</li>
 <li>扩展程序的作用域链在不同的浏览器中会导致不同的结果。</li>
 </ul>
-<h3 id="13-2-2-1DOM级事件处理程序"><a href="#13-2-2-1DOM级事件处理程序" class="headerlink" title="13.2.2. 1DOM级事件处理程序"></a>13.2.2. 1DOM级事件处理程序</h3><p>优点：简单，跨浏览器</p>
-<h3 id="13-2-3-1DOM级事件处理程序"><a href="#13-2-3-1DOM级事件处理程序" class="headerlink" title="13.2.3. 1DOM级事件处理程序"></a>13.2.3. 1DOM级事件处理程序</h3><p>DOM2 级事件定义了两个方法，用于指定和删除事件处理程序的操作 addEventListener() 和 removeEventListener()。<br>所有的 DOM 节点中都包含这两个方法，并且都接受3个参数。</p>
+<h3 id="13-2-2-DOM级事件处理程序"><a href="#13-2-2-DOM级事件处理程序" class="headerlink" title="13.2.2. DOM级事件处理程序"></a>13.2.2. DOM级事件处理程序</h3><p>优点：简单，跨浏览器</p>
+<h3 id="13-2-3-DOM级事件处理程序"><a href="#13-2-3-DOM级事件处理程序" class="headerlink" title="13.2.3. DOM级事件处理程序"></a>13.2.3. DOM级事件处理程序</h3><p>DOM2 级事件定义了两个方法，用于指定和删除事件处理程序的操作 addEventListener() 和 removeEventListener()。<br>所有的 DOM 节点中都包含这两个方法，并且都接受3个参数。</p>
 <ul>
 <li>要处理的事件名</li>
 <li>作为事件处理程序的函数</li>
@@ -852,10 +856,10 @@
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">"myBtn"</span>);</span><br><span class="line">btn.addEventListener(<span class="string">"click"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.id);</span><br><span class="line">&#125;,<span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
 <p>使用 DOM2 级方法添加事件处理程序的主要好处是可以添加多个事件处理程序。<br>通过 addEventListner() 添加的事件处理程序只能使用 removeEventListener() 来移除。移除时传入的参数与添加处理程序时使用的参数相同。也就意味着通过 addEventListner() 添加的匿名函数将无法移除。</p>
-<h3 id="13-2-4-1IE-事件处理程序"><a href="#13-2-4-1IE-事件处理程序" class="headerlink" title="13.2.4. 1IE 事件处理程序"></a>13.2.4. 1IE 事件处理程序</h3><p>IE 实现了与 DOM 中类似的两个方法，attachEvent() 和 detachEvent()。这两个方法接收两个参数：事件处理程序名称和事件处理程序函数。<br>在 IE中使用 attachEvent() 与使用 DOM0 级方法的主要区别在于事件处理程序的作用域。使用 DOM0 级方法的情况下，事件处理程序会在其所属元素的作用域内运行。在使用 attachEvent() 方法的情况下，事件处理程序会在全局作用域中运行，因此 this 等于 window。</p>
-<h3 id="13-2-5-1跨浏览器的事件处理程序"><a href="#13-2-5-1跨浏览器的事件处理程序" class="headerlink" title="13.2.5. 1跨浏览器的事件处理程序"></a>13.2.5. 1跨浏览器的事件处理程序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">var EventUtil = &#123;</span><br><span class="line">    addHandler : function(element,type,handler)&#123;</span><br><span class="line">        if(element.addEventListener)&#123;</span><br><span class="line">            element.addEventListener(type,handler,false);</span><br><span class="line">        &#125;else if(element.attachEvent)&#123;</span><br><span class="line">            element.attachEvent(&quot;on&quot; + type,handler);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            element[&quot;on&quot;+type] = handler;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    removeHandler:function(element,type,handler)&#123;</span><br><span class="line">         if(element.removeEventListener)&#123;</span><br><span class="line">            element.removeEventListener(type,handler,false);</span><br><span class="line">        &#125;else if(element.detachEvent)&#123;</span><br><span class="line">            element.detachEvent(&quot;on&quot; + type,handler);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            element[&quot;on&quot;+type] = null;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="13-3-1事件对象"><a href="#13-3-1事件对象" class="headerlink" title="13.3. 1事件对象"></a>13.3. 1事件对象</h2><h3 id="13-3-1-1DOM-中的事件对象"><a href="#13-3-1-1DOM-中的事件对象" class="headerlink" title="13.3.1. 1DOM 中的事件对象"></a>13.3.1. 1DOM 中的事件对象</h3><p>兼容 DOM 的浏览器会将一个 event 对象传入到事件处理程序中。</p>
-<h2 id="13-4-1事件类型"><a href="#13-4-1事件类型" class="headerlink" title="13.4. 1事件类型"></a>13.4. 1事件类型</h2><p>DOM3 级事件</p>
+<h3 id="13-2-4-IE-事件处理程序"><a href="#13-2-4-IE-事件处理程序" class="headerlink" title="13.2.4. IE 事件处理程序"></a>13.2.4. IE 事件处理程序</h3><p>IE 实现了与 DOM 中类似的两个方法，attachEvent() 和 detachEvent()。这两个方法接收两个参数：事件处理程序名称和事件处理程序函数。<br>在 IE中使用 attachEvent() 与使用 DOM0 级方法的主要区别在于事件处理程序的作用域。使用 DOM0 级方法的情况下，事件处理程序会在其所属元素的作用域内运行。在使用 attachEvent() 方法的情况下，事件处理程序会在全局作用域中运行，因此 this 等于 window。</p>
+<h3 id="13-2-5-跨浏览器的事件处理程序"><a href="#13-2-5-跨浏览器的事件处理程序" class="headerlink" title="13.2.5. 跨浏览器的事件处理程序"></a>13.2.5. 跨浏览器的事件处理程序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">var EventUtil = &#123;</span><br><span class="line">    addHandler : function(element,type,handler)&#123;</span><br><span class="line">        if(element.addEventListener)&#123;</span><br><span class="line">            element.addEventListener(type,handler,false);</span><br><span class="line">        &#125;else if(element.attachEvent)&#123;</span><br><span class="line">            element.attachEvent(&quot;on&quot; + type,handler);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            element[&quot;on&quot;+type] = handler;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    removeHandler:function(element,type,handler)&#123;</span><br><span class="line">         if(element.removeEventListener)&#123;</span><br><span class="line">            element.removeEventListener(type,handler,false);</span><br><span class="line">        &#125;else if(element.detachEvent)&#123;</span><br><span class="line">            element.detachEvent(&quot;on&quot; + type,handler);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            element[&quot;on&quot;+type] = null;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="13-3-事件对象"><a href="#13-3-事件对象" class="headerlink" title="13.3. 事件对象"></a>13.3. 事件对象</h2><h3 id="13-3-1-DOM-中的事件对象"><a href="#13-3-1-DOM-中的事件对象" class="headerlink" title="13.3.1. DOM 中的事件对象"></a>13.3.1. DOM 中的事件对象</h3><p>兼容 DOM 的浏览器会将一个 event 对象传入到事件处理程序中。</p>
+<h2 id="13-4-事件类型"><a href="#13-4-事件类型" class="headerlink" title="13.4. 事件类型"></a>13.4. 事件类型</h2><p>DOM3 级事件</p>
 <ul>
 <li>UI事件:当用户与页面上的元素交互时触发。</li>
 <li>焦点事件:当元素获得或失去焦点时触发。</li>
@@ -867,18 +871,18 @@
 <li>变动事件：当底层DOM结构发生变化时触发</li>
 <li>变动名称事件：当元素或属性名变动时触发,此类事件已经被废弃</li>
 </ul>
-<h3 id="13-4-1-1UI-事件"><a href="#13-4-1-1UI-事件" class="headerlink" title="13.4.1. 1UI 事件"></a>13.4.1. 1UI 事件</h3><p>UI 事件事件指的是那些不一定与用户操作有关的事件。</p>
+<h3 id="13-4-1-UI-事件"><a href="#13-4-1-UI-事件" class="headerlink" title="13.4.1. UI 事件"></a>13.4.1. UI 事件</h3><p>UI 事件事件指的是那些不一定与用户操作有关的事件。</p>
 <ul>
 <li>DOMActivate：表示元素已经被用户操作（通过鼠标或键盘）激活。这个事件在 DOM3 级事件中被废弃</li>
 <li>load:当页面完全加载后在 window 上面触发，当所有框架都加载完毕时在框架集上面触发，当图像加载完毕时在 &lt;img&gt;元素上面触发，或者嵌入的内容加载完毕时在&lt;object&gt;元素上面触发。</li>
 <li>unload:当页面完全卸载后在 window 上面触发，当所有框架都卸载后在框架集上面触发，或者当嵌入的内容卸载完毕后在&lt;object&gt;元素上面触发。</li>
 <li>abort:当用户停止下载过程时，如果嵌入的内容没有加载完,则在&lt;object&gt;元素上面触发</li>
 <li>error:当发生 JavaScript错误时在 window 上面触发,当无法加载图像时在&lt;img&gt; 元素上面触发，当无法加载嵌入内容时在&lt;object&gt;元素上面触发,或者当有一个或多个框架无法加载时在框架集上面触发。</li>
-<li>select:当用户选择文本框(<input>或<textarea>)中的一个或多个字符时触发。</textarea></li>
+<li>select:当用户选择文本框(&lt;input&gt;或&lt;textarea&gt;)中的一个或多个字符时触发。</li>
 <li>resize:当窗口或框架的大小变化时在 window 或框架上面触发。</li>
 <li>scroll:当用户滚动带滚动条的元素中的内容时，在该元素上面触发。</li>
 </ul>
-<h3 id="13-4-2-1焦点事件"><a href="#13-4-2-1焦点事件" class="headerlink" title="13.4.2. 1焦点事件"></a>13.4.2. 1焦点事件</h3><p>焦点事件会在页面获得或失去焦点时触发。利用这些事件并与 document.hasFocus() 方法及 document.activeElement 属性配合，可以知晓用户在页面上的行踪。</p>
+<h3 id="13-4-2-焦点事件"><a href="#13-4-2-焦点事件" class="headerlink" title="13.4.2. 焦点事件"></a>13.4.2. 焦点事件</h3><p>焦点事件会在页面获得或失去焦点时触发。利用这些事件并与 document.hasFocus() 方法及 document.activeElement 属性配合，可以知晓用户在页面上的行踪。</p>
 <ul>
 <li>blur：在元素失去焦点时触发。这个事件不会冒泡，所有浏览器都支持它。</li>
 <li>focus:元素获得焦点时触发。这个事件不会冒泡，所有浏览器都支持它。</li>
@@ -897,7 +901,7 @@
 </ul>
 <p>要确定浏览器是否支持这些事件，可以使用如下代码</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> isSupported = <span class="built_in">document</span>.implementation.hasFeature(<span class="string">"FocusEvent"</span>,<span class="string">"3.0"</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="13-4-3-1鼠标与滚轮事件"><a href="#13-4-3-1鼠标与滚轮事件" class="headerlink" title="13.4.3. 1鼠标与滚轮事件"></a>13.4.3. 1鼠标与滚轮事件</h3><p>DOM3 级事件中定义了9个鼠标事件</p>
+<h3 id="13-4-3-鼠标与滚轮事件"><a href="#13-4-3-鼠标与滚轮事件" class="headerlink" title="13.4.3. 鼠标与滚轮事件"></a>13.4.3. 鼠标与滚轮事件</h3><p>DOM3 级事件中定义了9个鼠标事件</p>
 <ul>
 <li>click:在用户单击主鼠标按钮或者按下回车键时触发。</li>
 <li>dblclick:在用户双击主鼠标键时触发。</li>
@@ -937,13 +941,13 @@
 <li>修改键</li>
 </ol>
 <p>DOM 规定了4个属性表示修改键的状态：shiftKey,ctrlKey,alterKey 和 metaKey.<br>这些属性都包含的是布尔值，如果键被按下了，则值为 true，否则为 false.</p>
-<h3 id="13-4-4-1键盘与文本事件"><a href="#13-4-4-1键盘与文本事件" class="headerlink" title="13.4.4. 1键盘与文本事件"></a>13.4.4. 1键盘与文本事件</h3><p>“DOM3 级事件”有3个键盘事件：</p>
+<h3 id="13-4-4-键盘与文本事件"><a href="#13-4-4-键盘与文本事件" class="headerlink" title="13.4.4. 键盘与文本事件"></a>13.4.4. 键盘与文本事件</h3><p>“DOM3 级事件”有3个键盘事件：</p>
 <ul>
 <li>keydown:当用户按下键盘上任意键时触发，如果按下不放的话，会重复触发此事件</li>
 <li>keypress:当用户按下键盘上的字符时触发，如果按下不放的话，会重复触发此事件</li>
 <li>keyup:当用户释放键盘上的键时触发。</li>
 </ul>
-<h1 id="14-1表单脚本"><a href="#14-1表单脚本" class="headerlink" title="14. 1表单脚本"></a>14. 1表单脚本</h1><h2 id="14-1-1表单的基础知识"><a href="#14-1-1表单的基础知识" class="headerlink" title="14.1. 1表单的基础知识"></a>14.1. 1表单的基础知识</h2><p>HTMLFormElement 继承了 HTMLElement。HTMLFormElement 自己独有的属性和方法：</p>
+<h1 id="14-表单脚本"><a href="#14-表单脚本" class="headerlink" title="14. 表单脚本"></a>14. 表单脚本</h1><h2 id="14-1-表单的基础知识"><a href="#14-1-表单的基础知识" class="headerlink" title="14.1. 表单的基础知识"></a>14.1. 表单的基础知识</h2><p>HTMLFormElement 继承了 HTMLElement。HTMLFormElement 自己独有的属性和方法：</p>
 <ul>
 <li>acceptCharset:服务能够处理的字符集，等价于 HTML 中的 accept-charset 特性。</li>
 <li>action:接受请求的 URL;等价于 HTML 中的 action 特性。</li>
@@ -965,7 +969,7 @@
 <li>通过 document.forms 可以取得页面中所有表单</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> firstForm = <span class="built_in">document</span>.forms[<span class="number">0</span>];</span><br></pre></td></tr></table></figure>
-<h3 id="14-1-1-1提交表单"><a href="#14-1-1-1提交表单" class="headerlink" title="14.1.1. 1提交表单"></a>14.1.1. 1提交表单</h3><p>使用 &lt;input&gt;或&lt;button&gt;都可以定义提交按钮，只要将 type 特性的值设置为 “submit” 即可。只要单击以下代码生成的按钮，就可以提交表单。</p>
+<h3 id="14-1-1-提交表单"><a href="#14-1-1-提交表单" class="headerlink" title="14.1.1. 提交表单"></a>14.1.1. 提交表单</h3><p>使用 &lt;input&gt;或&lt;button&gt;都可以定义提交按钮，只要将 type 特性的值设置为 “submit” 即可。只要单击以下代码生成的按钮，就可以提交表单。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 通用提交按钮 --&gt;</span><br><span class="line">&lt;input type = <span class="string">"submit"</span> value = <span class="string">"Submit Form"</span>&gt;</span><br><span class="line">&lt;!-- 自定义提交按钮 --&gt;</span><br><span class="line">&lt;button type = <span class="string">"submit"</span>&gt;Submit Form&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">&lt;!-- 图像按钮 --&gt;</span></span><br><span class="line"><span class="regexp">&lt;input type = "image" src = "graphic.gif"&gt;</span></span><br></pre></td></tr></table></figure>
 <p>阻止表单提交</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> form = <span class="built_in">document</span>.getElementById(<span class="string">"myForm"</span>);</span><br><span class="line">EventUtil.addHandler(form,<span class="string">"submit"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//获取事件对象</span></span><br><span class="line">    event =  EventUtil.getEvent(event);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//阻止默认事件</span></span><br><span class="line">    EventUtil.preventDefault(event);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
@@ -976,13 +980,13 @@
 <li>第一次提交表单后禁止提交按钮</li>
 <li>利用 onsubmit 事件处理程序取消后续的表单提交操作</li>
 </ul>
-<h3 id="14-1-2-1重置表单"><a href="#14-1-2-1重置表单" class="headerlink" title="14.1.2. 1重置表单"></a>14.1.2. 1重置表单</h3><p>使用 type 特性值为”reset”的 &lt;input&gt;&lt;button&gt;都可以创建重置按钮</p>
+<h3 id="14-1-2-重置表单"><a href="#14-1-2-重置表单" class="headerlink" title="14.1.2. 重置表单"></a>14.1.2. 重置表单</h3><p>使用 type 特性值为”reset”的 &lt;input&gt;&lt;button&gt;都可以创建重置按钮</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 通用重置按钮 --&gt;</span><br><span class="line">&lt;input type = <span class="string">"reset"</span> value = <span class="string">"Submit Form"</span>&gt;</span><br><span class="line">&lt;!-- 自定义重置按钮 --&gt;</span><br><span class="line">&lt;button type = <span class="string">"reset"</span>&gt;Submit Form&lt;<span class="regexp">/button&gt;</span></span><br></pre></td></tr></table></figure>
 <p>用户单击重置按钮重置表单时，就会触发 reset 事件。<br>取消重置操作：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> form = <span class="built_in">document</span>.getElementById(<span class="string">"myForm"</span>);</span><br><span class="line">EventUtil.addHandler(form,<span class="string">"reset"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//取得事件对象</span></span><br><span class="line">    event = EventUtil.getEvent(event);</span><br><span class="line">    <span class="comment">//阻止表单重置</span></span><br><span class="line">    EventUtil.preventDefault(event);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>与提交表单一样，也可以通过 JavaScript 来重置表单。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> form = <span class="built_in">document</span>.getElementById(<span class="string">"myForm"</span>);</span><br><span class="line"><span class="comment">//重置表单</span></span><br><span class="line">form.reset();</span><br></pre></td></tr></table></figure>
-<h3 id="14-1-3-1表单字段"><a href="#14-1-3-1表单字段" class="headerlink" title="14.1.3. 1表单字段"></a>14.1.3. 1表单字段</h3><p>每个表单都有 elements 属性，该属性是表单中所有元素的集合。这个 elements 集合是一个有序列表，其中包含着表单中的所有字段。</p>
+<h3 id="14-1-3-表单字段"><a href="#14-1-3-表单字段" class="headerlink" title="14.1.3. 表单字段"></a>14.1.3. 表单字段</h3><p>每个表单都有 elements 属性，该属性是表单中所有元素的集合。这个 elements 集合是一个有序列表，其中包含着表单中的所有字段。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> form = <span class="built_in">document</span>.getElementById(<span class="string">"form1"</span>);</span><br><span class="line"><span class="comment">//取得表单中的第一个字段 </span></span><br><span class="line"><span class="keyword">var</span> field1 = form.elements[<span class="number">0</span>];</span><br><span class="line"><span class="comment">//取得名为"textbox1"的字段 </span></span><br><span class="line"><span class="keyword">var</span> field2 = form.elements[<span class="string">"textbox1"</span>];</span><br><span class="line"><span class="comment">//取得表单中包含的字段的数量 </span></span><br><span class="line"><span class="keyword">var</span> fieldCount = form.elements.length;</span><br></pre></td></tr></table></figure>
 <p>如果有多个表单控件都在使用一个 name(如单选按钮)，那么就会返回以该 name 命名的一个 NOdeList.</p>
 <ol>
@@ -1016,20 +1020,20 @@
 </ul>
 <p>blur 和 focus 事件在所有表单字段中都是相同的.但是,change 事件在不同表单控件中触发的次数会有所不同，对于 &lt;input&gt; 和 &lt;textarea&gt; 元素，当它们从获得焦点到失去焦点且 value 值改变时，才会触发 change 事件.对于 &lt;select&gt;元素，只要用户选择了不同的选项，就会触发 change 事件，换句话说，不失去焦点也会触发 change 事件。</p>
 <p>可以使用 focus 和 blur 事件来以某种方式来改变用户界面，要么是向用户给出视觉提示，要么是向界面中添加额外的功能。而 change 事件则经常用于验证用户在字段中输入的数据。</p>
-<h2 id="14-2-文本框脚本"><a href="#14-2-文本框脚本" class="headerlink" title="14.2. 文本框脚本"></a>14.2. 文本框脚本</h2><h1 id="15-1使用Canvas绘图"><a href="#15-1使用Canvas绘图" class="headerlink" title="15. 1使用Canvas绘图"></a>15. 1使用Canvas绘图</h1><h1 id="16-1HTML脚本编程"><a href="#16-1HTML脚本编程" class="headerlink" title="16. 1HTML脚本编程"></a>16. 1HTML脚本编程</h1><h1 id="17-1错误处理与脚本调试"><a href="#17-1错误处理与脚本调试" class="headerlink" title="17. 1错误处理与脚本调试"></a>17. 1错误处理与脚本调试</h1><h1 id="18-1Javascript与XML"><a href="#18-1Javascript与XML" class="headerlink" title="18. 1Javascript与XML"></a>18. 1Javascript与XML</h1><h1 id="19-1EX"><a href="#19-1EX" class="headerlink" title="19. 1EX"></a>19. 1EX</h1><h1 id="20-2JSON"><a href="#20-2JSON" class="headerlink" title="20. 2JSON"></a>20. 2JSON</h1><p>关于Json，最重要的是理解它是一种数据格式，不是一种编程语言。</p>
-<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>JSON 的语法可以表示以下三种类型的值</p>
+<h2 id="14-2-文本框脚本"><a href="#14-2-文本框脚本" class="headerlink" title="14.2. 文本框脚本"></a>14.2. 文本框脚本</h2><h1 id="15-使用Canvas绘图"><a href="#15-使用Canvas绘图" class="headerlink" title="15. 使用Canvas绘图"></a>15. 使用Canvas绘图</h1><h1 id="16-HTML脚本编程"><a href="#16-HTML脚本编程" class="headerlink" title="16. HTML脚本编程"></a>16. HTML脚本编程</h1><h1 id="17-错误处理与脚本调试"><a href="#17-错误处理与脚本调试" class="headerlink" title="17. 错误处理与脚本调试"></a>17. 错误处理与脚本调试</h1><h1 id="18-Javascript与XML"><a href="#18-Javascript与XML" class="headerlink" title="18. Javascript与XML"></a>18. Javascript与XML</h1><h1 id="19-EX"><a href="#19-EX" class="headerlink" title="19. EX"></a>19. EX</h1><h1 id="20-JSON"><a href="#20-JSON" class="headerlink" title="20. JSON"></a>20. JSON</h1><p>关于Json，最重要的是理解它是一种数据格式，不是一种编程语言。</p>
+<h2 id="20-1-语法"><a href="#20-1-语法" class="headerlink" title="20.1. 语法"></a>20.1. 语法</h2><p>JSON 的语法可以表示以下三种类型的值</p>
 <ul>
 <li>简单值：使用与 JavaScript 相同的语法，可以在JSON中表示字符串、数值、布尔值和null,值 JSON 中不支持JavaScript中的特殊值 undefined</li>
 <li>对象：对象作为一种复杂的数据类型，表示的是一组有序的键值对儿，而每个键值对的值可以是简单值，也可以是复杂数据类型的值</li>
 <li>数组：数组也是一种复杂的数据类型，表示一组有序的值的列表，可以通过数值索引来访问其中的值。数组的值也可以是任意类型———简单值、对象或数组</li>
 </ul>
-<h3 id="简单值"><a href="#简单值" class="headerlink" title="简单值"></a>简单值</h3><p>JavaScript字符串与JSON字符串最大的区别在于，JSON字符串必须使用双引号</p>
-<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><p>与 JavaScript 的对象字面量相比，JSON 对象有两个地方不一样。<br>首先，没有声明变量<br>其次，没有末尾的分号</p>
+<h3 id="20-1-1-简单值"><a href="#20-1-1-简单值" class="headerlink" title="20.1.1. 简单值"></a>20.1.1. 简单值</h3><p>JavaScript字符串与JSON字符串最大的区别在于，JSON字符串必须使用双引号</p>
+<h3 id="20-1-2-对象"><a href="#20-1-2-对象" class="headerlink" title="20.1.2. 对象"></a>20.1.2. 对象</h3><p>与 JavaScript 的对象字面量相比，JSON 对象有两个地方不一样。<br>首先，没有声明变量<br>其次，没有末尾的分号</p>
 <p>与 JavaScript 不同，JSON 中的对象的属性名任何时候都必须加双引号。</p>
-<h2 id="解析与序列化"><a href="#解析与序列化" class="headerlink" title="解析与序列化"></a>解析与序列化</h2><p>JSON 之所以流行，拥有与 JavaScript 类似的语法并不是全部原因。更重要的原因是，可以把 JSON 数据结构解析为有用的 JavaScript 对象。</p>
-<h3 id="JSON-对象"><a href="#JSON-对象" class="headerlink" title="JSON 对象"></a>JSON 对象</h3><p>ECMAScript5 定义了全局对象 JSON</p>
+<h2 id="20-2-解析与序列化"><a href="#20-2-解析与序列化" class="headerlink" title="20.2. 解析与序列化"></a>20.2. 解析与序列化</h2><p>JSON 之所以流行，拥有与 JavaScript 类似的语法并不是全部原因。更重要的原因是，可以把 JSON 数据结构解析为有用的 JavaScript 对象。</p>
+<h3 id="20-2-1-JSON-对象"><a href="#20-2-1-JSON-对象" class="headerlink" title="20.2.1. JSON 对象"></a>20.2.1. JSON 对象</h3><p>ECMAScript5 定义了全局对象 JSON</p>
 <p>有两个方法：stringify() 和 parse()</p>
-<h3 id="序列化选项"><a href="#序列化选项" class="headerlink" title="序列化选项"></a>序列化选项</h3><p>JSON.stringify() 除了要序列化的 JavaScript 对象外，还可以接收另外两个参数，这两个参数用于指定以不同方式序列化 JavaScript对象。<br>第一个参数是过滤器，可以是一个数组，也可以是一个函数。<br>第二个参数是一个选项，表示是否在JSON字符串中保留缩进。</p>
+<h3 id="20-2-2-序列化选项"><a href="#20-2-2-序列化选项" class="headerlink" title="20.2.2. 序列化选项"></a>20.2.2. 序列化选项</h3><p>JSON.stringify() 除了要序列化的 JavaScript 对象外，还可以接收另外两个参数，这两个参数用于指定以不同方式序列化 JavaScript对象。<br>第一个参数是过滤器，可以是一个数组，也可以是一个函数。<br>第二个参数是一个选项，表示是否在JSON字符串中保留缩进。</p>
 <ol>
 <li>过滤结果</li>
 </ol>
@@ -1048,11 +1052,11 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> book = &#123;</span><br><span class="line">    <span class="string">"title"</span>:<span class="string">"Professional JavaScript"</span>,</span><br><span class="line">    <span class="string">"authors"</span>:[<span class="string">"Ni"</span>],</span><br><span class="line">    edition:<span class="number">3</span>,</span><br><span class="line">    year:<span class="number">2011</span>,</span><br><span class="line">    toJSON:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.title;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> jsonText = <span class="built_in">JSON</span>.stringify(book);</span><br></pre></td></tr></table></figure>
 <p>把一个对象传入 JSON.stringify(),序列化该对象的顺序如下：</p>
 <p>(1) 如果存在 toJSON 方法而且能通过它取得有效值，则调用该方法，否则按默认顺序执行序列化。<br>(2) 如果提供了第二个参数，应用这个函数过滤器。传入函数过滤器的值是第(1)步返回的值。<br>(3) 对第(2)步返回的每个值进行相应序列化。<br>(4) 如果提供了第三个参数，执行相应格式化。</p>
-<h3 id="序列化选项-1"><a href="#序列化选项-1" class="headerlink" title="序列化选项"></a>序列化选项</h3><h1 id="21-2Ajax与Comet"><a href="#21-2Ajax与Comet" class="headerlink" title="21. 2Ajax与Comet"></a>21. 2Ajax与Comet</h1><h1 id="22-2高级技巧"><a href="#22-2高级技巧" class="headerlink" title="22. 2高级技巧"></a>22. 2高级技巧</h1><h1 id="23-2离线应用与客户端存储"><a href="#23-2离线应用与客户端存储" class="headerlink" title="23. 2离线应用与客户端存储"></a>23. 2离线应用与客户端存储</h1><h1 id="24-2最佳实践"><a href="#24-2最佳实践" class="headerlink" title="24. 2最佳实践"></a>24. 2最佳实践</h1><h1 id="25-2新兴的API"><a href="#25-2新兴的API" class="headerlink" title="25. 2新兴的API"></a>25. 2新兴的API</h1>
+<h3 id="20-2-3-序列化选项"><a href="#20-2-3-序列化选项" class="headerlink" title="20.2.3. 序列化选项"></a>20.2.3. 序列化选项</h3><h1 id="21-Ajax与Comet"><a href="#21-Ajax与Comet" class="headerlink" title="21. Ajax与Comet"></a>21. Ajax与Comet</h1><h1 id="22-高级技巧"><a href="#22-高级技巧" class="headerlink" title="22. 高级技巧"></a>22. 高级技巧</h1><h1 id="23-离线应用与客户端存储"><a href="#23-离线应用与客户端存储" class="headerlink" title="23. 离线应用与客户端存储"></a>23. 离线应用与客户端存储</h1><h1 id="24-最佳实践"><a href="#24-最佳实践" class="headerlink" title="24. 最佳实践"></a>24. 最佳实践</h1><h1 id="25-新兴的API"><a href="#25-新兴的API" class="headerlink" title="25. 新兴的API"></a>25. 新兴的API</h1>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/30/javascript高级程序设计/" data-id="cjo6hnxui001gq8uqisbabdfe" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/30/javascript高级程序设计/" data-id="cjpayx2i9001gpcuq3un3cpy4" class="article-share-link">Share</a>
       
       
     </footer>

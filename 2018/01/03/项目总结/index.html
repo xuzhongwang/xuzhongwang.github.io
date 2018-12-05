@@ -14,10 +14,12 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1. 远程数据采集系统1.1. 需求 数据采集 实时监控 数据查询  1.2. 难点数据监控的实时性采集数据频率高，导致查询数据量大 2. 污水处理厂数据采集系统2.1. 需求 七个现场数据采集 现场数据实时监控、预警并短信通知相关人员 数据查询  2.2. 难点数据监控的实时性采集数据频率高，导致查询数据量大 3. 变压器厂绕线管理系统4. 国际化5. 机床厂管理系统6. 冷链物流温湿度监测7.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-03-06T09:22:23.363Z">
+<meta property="og:image" content="http://yoursite.com/2018/01/03/项目总结/单点登陆.jpg">
+<meta property="og:updated_time" content="2018-12-03T02:04:03.118Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="项目总结">
 <meta name="twitter:description" content="1. 远程数据采集系统1.1. 需求 数据采集 实时监控 数据查询  1.2. 难点数据监控的实时性采集数据频率高，导致查询数据量大 2. 污水处理厂数据采集系统2.1. 需求 七个现场数据采集 现场数据实时监控、预警并短信通知相关人员 数据查询  2.2. 难点数据监控的实时性采集数据频率高，导致查询数据量大 3. 变压器厂绕线管理系统4. 国际化5. 机床厂管理系统6. 冷链物流温湿度监测7.">
+<meta name="twitter:image" content="http://yoursite.com/2018/01/03/项目总结/单点登陆.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -98,11 +100,21 @@
 <li>数据查询</li>
 </ul>
 <h2 id="2-2-难点"><a href="#2-2-难点" class="headerlink" title="2.2. 难点"></a>2.2. 难点</h2><p>数据监控的实时性<br>采集数据频率高，导致查询数据量大</p>
-<h1 id="3-变压器厂绕线管理系统"><a href="#3-变压器厂绕线管理系统" class="headerlink" title="3. 变压器厂绕线管理系统"></a>3. 变压器厂绕线管理系统</h1><h1 id="4-国际化"><a href="#4-国际化" class="headerlink" title="4. 国际化"></a>4. 国际化</h1><h1 id="5-机床厂管理系统"><a href="#5-机床厂管理系统" class="headerlink" title="5. 机床厂管理系统"></a>5. 机床厂管理系统</h1><h1 id="6-冷链物流温湿度监测"><a href="#6-冷链物流温湿度监测" class="headerlink" title="6. 冷链物流温湿度监测"></a>6. 冷链物流温湿度监测</h1><h1 id="7-电厂数据接口"><a href="#7-电厂数据接口" class="headerlink" title="7. 电厂数据接口"></a>7. 电厂数据接口</h1><h1 id="8-CAD二次开发"><a href="#8-CAD二次开发" class="headerlink" title="8. CAD二次开发"></a>8. CAD二次开发</h1><h1 id="9-三方联网系统"><a href="#9-三方联网系统" class="headerlink" title="9. 三方联网系统"></a>9. 三方联网系统</h1>
+<h1 id="3-变压器厂绕线管理系统"><a href="#3-变压器厂绕线管理系统" class="headerlink" title="3. 变压器厂绕线管理系统"></a>3. 变压器厂绕线管理系统</h1><h1 id="4-国际化"><a href="#4-国际化" class="headerlink" title="4. 国际化"></a>4. 国际化</h1><h1 id="5-机床厂管理系统"><a href="#5-机床厂管理系统" class="headerlink" title="5. 机床厂管理系统"></a>5. 机床厂管理系统</h1><h1 id="6-冷链物流温湿度监测"><a href="#6-冷链物流温湿度监测" class="headerlink" title="6. 冷链物流温湿度监测"></a>6. 冷链物流温湿度监测</h1><h1 id="7-电厂数据接口"><a href="#7-电厂数据接口" class="headerlink" title="7. 电厂数据接口"></a>7. 电厂数据接口</h1><h1 id="8-CAD二次开发"><a href="#8-CAD二次开发" class="headerlink" title="8. CAD二次开发"></a>8. CAD二次开发</h1><h1 id="9-三方联网系统"><a href="#9-三方联网系统" class="headerlink" title="9. 三方联网系统"></a>9. 三方联网系统</h1><h1 id="10-房产交易综合管理平台"><a href="#10-房产交易综合管理平台" class="headerlink" title="10.房产交易综合管理平台"></a>10.房产交易综合管理平台</h1><h1 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h1><p>在计算机专业术语中，Session 是指一个终端用户与交互系统进行通信的时间间隔，通常指从注册进入系统到注销退出系统之间所经过的时间，如果需要的话，可能还有一定的操作空间。<br>一个Session的概念需要包括特定的客户端，特定的服务器端以及不间断的操作时间。</p>
+<h2 id="Session-的工作原理"><a href="#Session-的工作原理" class="headerlink" title="Session 的工作原理"></a>Session 的工作原理</h2><ul>
+<li>当一个 Session 第一次被启用时，一个唯一的标识被存储于本地的 cookie 中。</li>
+<li>首先使用 session_start() 函数，PHP 从 session 仓库中加载已经存储的 session 变量</li>
+<li>当执行 PHP 脚本时，通过 session_register() 函数注册 session 变量。</li>
+<li>当 PHP 脚本执行结束时，未被销毁的 session 变量会被自动保存在本地一定路径下的 session 库中，这个路径可以通过 php.ini 文件中的 session.save_path 指定，下次浏览网页时可以加载使用。</li>
+</ul>
+<h2 id="单点登陆"><a href="#单点登陆" class="headerlink" title="单点登陆"></a>单点登陆</h2><p>单点登陆,(single sign on),简称SSO，是目前比较流行的企业业务整合解决方案之一。SSO的定义是在多个应用体系中，用户只需要登陆一次就可以访问所有相互信任的应用系统。</p>
+<p>技术实现机制：</p>
+<p>当用户第一次访问应用系统的时候，因为还没有登录，会被引导到认证系统中进行登录；根据用户提供的登录信息，认证系统进行身份校验，如果通过校验，应该返回给用户一个认证的凭据－－ticket；用户再访问别的应用的时候，就会将这个ticket带上，作为自己认证的凭据，应用系统接受到请求之后会把ticket送到认证系统进行校验，检查ticket的合法性。如果通过校验，用户就可以在不用再次登录的情况下访问应用系统2和应用系统3了。<br>要实现SSO，需要以下主要的功能：<br>所有应用系统共享一个身份认证系统。<br>　　统一的认证系统是SSO的前提之一。认证系统的主要功能是将用户的登录信息和用户信息库相比较，对用户进行登录认证；认证成功后，认证系统应该生成统一的认证标志（ticket），返还给用户。另外，认证系统还应该对ticket进行效验，判断其有效性。<br>所有应用系统能够识别和提取ticket信息<br>　　要实现SSO的功能，让用户只登录一次，就必须让应用系统能够识别已经登录过的用户。应用系统应该能对ticket进行识别和提取，通过与认证系统的通讯，能自动判断当前用户是否登录过，从而完成单点登录的功能。<br><img src="/2018/01/03/项目总结/单点登陆.jpg" alt="技术实现机制"></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/03/项目总结/" data-id="cjo6hnxue001eq8uqpgg8njav" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/03/项目总结/" data-id="cjpayx2hx001dpcuqpensd7df" class="article-share-link">Share</a>
       
       
     </footer>
