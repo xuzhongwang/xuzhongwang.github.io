@@ -62,51 +62,205 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-OSharp读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/material-teal/window" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/01/04/OSharp读书笔记/" class="article-date">
-  <time datetime="2018-01-04T07:50:42.000Z" itemprop="datePublished">2018-01-04</time>
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/material-teal/window/" class="article-date">
+  <time datetime="2019-03-21T09:22:47.055Z" itemprop="datePublished">2019-03-21</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/04/OSharp读书笔记/">OSharp读书笔记</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="EntityFramework与其它ORM相比有什么优点"><a href="#EntityFramework与其它ORM相比有什么优点" class="headerlink" title="EntityFramework与其它ORM相比有什么优点"></a>EntityFramework与其它ORM相比有什么优点</h1><ul>
-<li>EntityFramework 是微软大力发展的一个开源项目，EF 6 在 codeplex.com 开源，EF 7 在 github.com 随 ASP.NET 5 开源。</li>
-<li>EntityFramework 能轻松支持各大主流数据库，只要引入相应数据库的 DataProvider 即可，能无差异的操作各大主流数据库。</li>
-<li>EntityFramework 支持 linq to entities 语句查询，强类型支持，高效实现查询需求。</li>
-<li>EntityFramework 全面封装了数据库细节，使用了大量的“约定胜于配置”的思想，使开发者不必直接对关系存储架构编程，减少代码量，减轻维护工作，并使项目可维护性更高</li>
-</ul>
-<h1 id="为什么要封装EntityFramework"><a href="#为什么要封装EntityFramework" class="headerlink" title="为什么要封装EntityFramework"></a>为什么要封装EntityFramework</h1><ul>
-<li>不是所有的开发人员都对 EntityFramework 足够熟悉，封装之后能将 EntityFramework 的细节及较敏感的 API 进行包装与隐藏，使 EntityFramework 的使用更加透明易用。</li>
-<li>统一的封装，有利于对业务层提供统一的 API，对业务层的代码规范非常有利。</li>
-<li>封装有利于业务实体与 EntityFramework 的解耦。如果不封装，所有业务实体模型（Model）都要在上下文类中设置一个 DbSet<tentity> 类型的实体集，将与上下文强耦合，当需求发生变化时，都要对原有代码进行修改，很不利于维护。而封装之后，所有的实体模型都是动态加载到上下文类中的，业务实体与 EntityFramework 能够完全解耦，大大增强系统的可维护性。 </tentity></li>
-</ul>
-<h1 id="IEnumerable-与-IQueryable-的区别"><a href="#IEnumerable-与-IQueryable-的区别" class="headerlink" title="IEnumerable 与 IQueryable 的区别"></a>IEnumerable<t> 与 IQueryable<t> 的区别</t></t></h1><p>　　在设计数据访问层的查询API的时候，IEnumerable<t> 和 IQueryable<t> 都可以作为集合类查询结果的返回类型，那么，这两者有什么区别呢？为什么误用的时候会造成致命的性能问题呢？<br>　　IEnumerable<t> 接口的声明为：　</t></t></t></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/// &lt;summary&gt;</span><br><span class="line">/// 公开枚举数，该枚举数支持在指定类型的集合上进行简单迭代。</span><br><span class="line">/// &lt;/summary&gt;</span><br><span class="line">public interface IEnumerable&lt;out T&gt; : IEnumerable</span><br></pre></td></tr></table></figure>
-<p>IQueryable&lt;&lt;T&gt; 接口的声明为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/// &lt;summary&gt;</span><br><span class="line">/// 提供对数据类型已知的特定数据源的查询进行计算的功能。</span><br><span class="line">/// &lt;/summary&gt;</span><br><span class="line">public interface IQueryable&lt;out T&gt; : IEnumerable&lt;T&gt;, IQueryable, IEnumerable</span><br></pre></td></tr></table></figure>
-<p>在进行查询的时候，IEnumerable<t> 接口接受一个 Func&lt;T, bool&gt; 类型的委托参数： public static IEnumerable<tsource> Where<tsource>(this IEnumerable<tsource> source, Func&lt;TSource, bool&gt; predicate); ，而 IQueryable<t> 接口接受一个 Expression&lt;Func&lt;T, bool&gt;&gt; 类型的表达式参数： public static IQueryable<tsource> Where<tsource>(this IQueryable<tsource> source, Expression&lt;Func&lt;TSource, bool&gt;&gt; predicate); 。<br>正因为 IEnumerable<t> 接受的参数 predicate 数据类型是委托类型，所以这个参数在被调用的时候，就会立即执行查询逻辑，然后将查询的结果保存在内存中，后续的查询逻辑是完全在内存中执行的。而 IQueryable<t> 接受的参数 predicate 数据类型是表达式类型，这个参数会一直往下传递，直到被 IQueryable 中的 IQueryableProvider 类型的 Provider 属性解析成真正的查询语句（如 sql 语句），才传到数据源中进行查询动作。<br>所以，如果查询返回的数据集合很大的时候，使用 IEnumerable<t> 作为返回类型，会将这个数据集合立即加载到内存中，比如在设计 IRepository<t> 的 API 时，设计  IEnumerable<t> GetAll(); ， IEnumerable<t> GetByPredicate(Func&lt;T, bool&gt; predicate); 这种 API ，是非常可怕的，如果一个表中有几十上百万的数据，也同样会把所有数据加载到内存中，可能直接就导致服务器宕机了。即使数据量不大，当并发量上来的时候，也同样会造成极大的性能问题。</t></t></t></t></t></t></tsource></tsource></tsource></t></tsource></tsource></tsource></t></p>
-<h1 id="过早地内存化数据"><a href="#过早地内存化数据" class="headerlink" title="过早地内存化数据"></a>过早地内存化数据</h1><p>　　IEnumerable<t> 类型与 IQueryable<t> 类型是支持延迟的，没有真正使用数据之前，不管怎么调用，都不会执行查询，数据还是在数据库内，只有真正使用数据的时候，才会执行查询，把数据本地化到内存中。这样一来，什么时候执行本地化操作（ToArray()，ToList()等操作）就显得非常重要了，如果过早的执行本地化操作，那么就容易造成加载到内存的数据集合过于庞大，记录条数过多，造成性能问题。因此，在进行数据查询的时候，原则上应该按需获取数据，取出的数据集合就尽量的小，字段应尽量少，到数据真正使用的时候，才执行数据内存本地化操作。对于筛选部分字段的需求，linq to entities 的 select 查询匿名结果的查询方式，提供了有力的支持。</t></t></p>
-<h1 id="导航属性的延迟加载与循环"><a href="#导航属性的延迟加载与循环" class="headerlink" title="导航属性的延迟加载与循环"></a>导航属性的延迟加载与循环</h1><p>　　EntityFramework 实体模型的导航属性（即与当前表有外键关系的关联表）通常标记为 virtual，标记为 virtual 之后，相应属性的数据是具有延迟加载的特性的，只有真正用到相应属性的数据时，才会根据外键关系执行相应的查询动作，加载相应的数据。延迟加载的特性，能给系统性能带来优化，因为加载主干实体时只加载主干实体的信息，不会把关联实体的信息都加载进来，关联实体的数据只有用到的时候都会去加载。但也正是因为延迟加载，导航属性的数据是用到一次就执行一次查询动作，加载一次数据，一次还如，如果对于相同实体，需要多次用到同一个导航属性，就会产生多次重复的查询动作来加载导航属性的数据，给系统带来性能问题。例如如下的操作：</p>
+        .window {
+  overflow: hidden;
+  padding: 5px;
+  border-width: 1px;
+  border-style: solid;
+}
+.window .window-header {
+  background: transparent;
+  padding: 0px 0px 6px 0px;
+}
+.window .window-body {
+  border-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+}
+.window .window-body-noheader {
+  border-top-width: 1px;
+}
+.window .panel-body-nobottom {
+  border-bottom-width: 0;
+}
+.window .window-header .panel-icon,
+.window .window-header .panel-tool {
+  top: 50%;
+  margin-top: -11px;
+}
+.window .window-header .panel-icon {
+  left: 1px;
+}
+.window .window-header .panel-tool {
+  right: 1px;
+}
+.window .window-header .panel-with-icon {
+  padding-left: 18px;
+}
+.window-proxy {
+  position: absolute;
+  overflow: hidden;
+}
+.window-proxy-mask {
+  position: absolute;
+  filter: alpha(opacity=5);
+  opacity: 0.05;
+}
+.window-mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  filter: alpha(opacity=40);
+  opacity: 0.40;
+  font-size: 1px;
+  overflow: hidden;
+}
+.window,
+.window-shadow {
+  position: absolute;
+  -moz-border-radius: 4px 4px 4px 4px;
+  -webkit-border-radius: 4px 4px 4px 4px;
+  border-radius: 4px 4px 4px 4px;
+}
+.window-shadow {
+  background: #ccc;
+  -moz-box-shadow: 2px 2px 3px #cccccc;
+  -webkit-box-shadow: 2px 2px 3px #cccccc;
+  box-shadow: 2px 2px 3px #cccccc;
+  filter: progid:DXImageTransform.Microsoft.Blur(pixelRadius=2,MakeShadow=false,ShadowOpacity=0.2);
+}
+.window,
+.window .window-body {
+  border-color: #dfdfdf;
+}
+.window {
+  background-color: #fafafa;
+}
+.window-proxy {
+  border: 1px dashed #dfdfdf;
+}
+.window-proxy-mask,
+.window-mask {
+  background: #eee;
+}
+.window .panel-footer {
+  border: 1px solid #dfdfdf;
+  position: relative;
+  top: -1px;
+}
+.window-thinborder {
+  padding: 0;
+}
+.window-thinborder .window-header {
+  padding: 5px 5px 6px 5px;
+}
+.window-thinborder .window-body {
+  border-width: 0px;
+}
+.window-thinborder .window-footer {
+  border-left: transparent;
+  border-right: transparent;
+  border-bottom: transparent;
+}
+.window-thinborder .window-header .panel-icon,
+.window-thinborder .window-header .panel-tool {
+  margin-top: -9px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.window-noborder {
+  border: 0;
+}
+.window.panel-hleft .window-header {
+  padding: 0 6px 0 0;
+}
+.window.panel-hright .window-header {
+  padding: 0 0 0 6px;
+}
+.window.panel-hleft>.panel-header .panel-title {
+  top: auto;
+  left: 16px;
+}
+.window.panel-hright>.panel-header .panel-title {
+  top: auto;
+  right: 16px;
+}
+.window.panel-hleft>.panel-header .panel-title-up,
+.window.panel-hright>.panel-header .panel-title-up {
+  bottom: 0;
+}
+.window.panel-hleft .window-body {
+  border-width: 1px 1px 1px 0;
+}
+.window.panel-hright .window-body {
+  border-width: 1px 0 1px 1px;
+}
+.window.panel-hleft .window-header .panel-icon {
+  top: 1px;
+  margin-top: 0;
+  left: 0;
+}
+.window.panel-hright .window-header .panel-icon {
+  top: 1px;
+  margin-top: 0;
+  left: auto;
+  right: 1px;
+}
+.window.panel-hleft .window-header .panel-tool,
+.window.panel-hright .window-header .panel-tool {
+  margin-top: 0;
+  top: auto;
+  bottom: 1px;
+  right: auto;
+  margin-right: 0;
+  left: 50%;
+  margin-left: -11px;
+}
+.window.panel-hright .window-header .panel-tool {
+  left: auto;
+  right: 1px;
+}
+.window-thinborder.panel-hleft .window-header {
+  padding: 5px 6px 5px 5px;
+}
+.window-thinborder.panel-hright .window-header {
+  padding: 5px 5px 5px 6px;
+}
+.window-thinborder.panel-hleft>.panel-header .panel-title {
+  left: 21px;
+}
+.window-thinborder.panel-hleft>.panel-header .panel-title-up,
+.window-thinborder.panel-hright>.panel-header .panel-title-up {
+  bottom: 5px;
+}
+.window-thinborder.panel-hleft .window-header .panel-icon,
+.window-thinborder.panel-hright .window-header .panel-icon {
+  margin-top: 5px;
+}
+.window-thinborder.panel-hleft .window-header .panel-tool,
+.window-thinborder.panel-hright .window-header .panel-tool {
+  left: 16px;
+  bottom: 5px;
+}
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/04/OSharp读书笔记/" data-id="cjpayx2g3000npcuqyf0nlng2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/material-teal/window/" data-id="cjtifrbc70076wguq2km2mg8a" class="article-share-link">Share</a>
       
       
     </footer>
@@ -116,34 +270,36 @@
 
 
   
-    <article id="post-FundManage设计" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/material-teal/validatebox" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/01/04/FundManage设计/" class="article-date">
-  <time datetime="2018-01-04T02:49:44.000Z" itemprop="datePublished">2018-01-04</time>
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/material-teal/validatebox/" class="article-date">
+  <time datetime="2019-03-21T09:22:47.052Z" itemprop="datePublished">2019-03-21</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/04/FundManage设计/">设计概要</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="设计概要"><a href="#设计概要" class="headerlink" title="设计概要"></a>设计概要</h1><h2 id="实现功能"><a href="#实现功能" class="headerlink" title="实现功能"></a>实现功能</h2><h3 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h3><p>包含但不限于：<br>编码、中文名称、最新净值、净值日期<br>设置状态：分级：一般、关注、持有</p>
-<h3 id="历史净值"><a href="#历史净值" class="headerlink" title="历史净值"></a>历史净值</h3><h3 id="交易记录"><a href="#交易记录" class="headerlink" title="交易记录"></a>交易记录</h3>
+        .inputbox {
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+}
+.validatebox-invalid {
+  border-color: #ffa8a8;
+  background-color: #fff;
+  color: #404040;
+}
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/04/FundManage设计/" data-id="cjpayx2c20008pcuqsc8f9h6e" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/material-teal/validatebox/" data-id="cjtifrbc60075wguq5cfy7b9a" class="article-share-link">Share</a>
       
       
     </footer>
@@ -153,34 +309,187 @@
 
 
   
-    <article id="post-Dom元素" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/material-teal/tree" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/01/04/Dom元素/" class="article-date">
-  <time datetime="2018-01-04T02:49:44.000Z" itemprop="datePublished">2018-01-04</time>
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/material-teal/tree/" class="article-date">
+  <time datetime="2019-03-21T09:22:47.048Z" itemprop="datePublished">2019-03-21</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/04/Dom元素/">Dom元素</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h1><h2 id="span"><a href="#span" class="headerlink" title="span"></a>span</h2><p>HTML &lt;span&gt; 元素<br>HTML &lt;span&gt; 元素是内联元素，可用作文本的容器<br>&lt;span&gt; 元素也没有特定的含义。<br>当与 CSS 一同使用时，&lt;span&gt; 元素可用于为部分文本设置样式属性。</p>
+        .tree {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.tree li {
+  white-space: nowrap;
+}
+.tree li ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.tree-node {
+  height: 26px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.tree-hit {
+  cursor: pointer;
+}
+.tree-expanded,
+.tree-collapsed,
+.tree-folder,
+.tree-file,
+.tree-checkbox,
+.tree-indent {
+  display: inline-block;
+  width: 16px;
+  height: 18px;
+  margin: 4px 0;
+  vertical-align: middle;
+  overflow: hidden;
+}
+.tree-expanded {
+  background: url('images/tree_icons.png') no-repeat -18px 0px;
+}
+.tree-expanded-hover {
+  background: url('images/tree_icons.png') no-repeat -50px 0px;
+}
+.tree-collapsed {
+  background: url('images/tree_icons.png') no-repeat 0px 0px;
+}
+.tree-collapsed-hover {
+  background: url('images/tree_icons.png') no-repeat -32px 0px;
+}
+.tree-lines .tree-expanded,
+.tree-lines .tree-root-first .tree-expanded {
+  background: url('images/tree_icons.png') no-repeat -144px 0;
+}
+.tree-lines .tree-collapsed,
+.tree-lines .tree-root-first .tree-collapsed {
+  background: url('images/tree_icons.png') no-repeat -128px 0;
+}
+.tree-lines .tree-node-last .tree-expanded,
+.tree-lines .tree-root-one .tree-expanded {
+  background: url('images/tree_icons.png') no-repeat -80px 0;
+}
+.tree-lines .tree-node-last .tree-collapsed,
+.tree-lines .tree-root-one .tree-collapsed {
+  background: url('images/tree_icons.png') no-repeat -64px 0;
+}
+.tree-line {
+  background: url('images/tree_icons.png') no-repeat -176px 0;
+}
+.tree-join {
+  background: url('images/tree_icons.png') no-repeat -192px 0;
+}
+.tree-joinbottom {
+  background: url('images/tree_icons.png') no-repeat -160px 0;
+}
+.tree-folder {
+  background: url('images/tree_icons.png') no-repeat -208px 0;
+}
+.tree-folder-open {
+  background: url('images/tree_icons.png') no-repeat -224px 0;
+}
+.tree-file {
+  background: url('images/tree_icons.png') no-repeat -240px 0;
+}
+.tree-loading {
+  background: url('images/loading.gif') no-repeat center center;
+}
+.tree-checkbox0 {
+  background: url('images/tree_icons.png') no-repeat -208px -18px;
+}
+.tree-checkbox1 {
+  background: url('images/tree_icons.png') no-repeat -224px -18px;
+}
+.tree-checkbox2 {
+  background: url('images/tree_icons.png') no-repeat -240px -18px;
+}
+.tree-title {
+  font-size: 14px;
+  display: inline-block;
+  text-decoration: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  padding: 0 2px;
+  margin: 4px 0;
+  height: 18px;
+  line-height: 18px;
+}
+.tree-node-proxy {
+  font-size: 14px;
+  line-height: 20px;
+  padding: 0 2px 0 20px;
+  border-width: 1px;
+  border-style: solid;
+  z-index: 9900000;
+}
+.tree-dnd-icon {
+  display: inline-block;
+  position: absolute;
+  width: 16px;
+  height: 18px;
+  left: 2px;
+  top: 50%;
+  margin-top: -9px;
+}
+.tree-dnd-yes {
+  background: url('images/tree_icons.png') no-repeat -256px 0;
+}
+.tree-dnd-no {
+  background: url('images/tree_icons.png') no-repeat -256px -18px;
+}
+.tree-node-top {
+  border-top: 1px dotted red;
+}
+.tree-node-bottom {
+  border-bottom: 1px dotted red;
+}
+.tree-node-append .tree-title {
+  border: 1px dotted red;
+}
+.tree-editor {
+  border: 1px solid #dfdfdf;
+  font-size: 14px;
+  height: 26px;
+  line-height: 26px;
+  padding: 0 4px;
+  margin: 0;
+  width: 80px;
+  outline-style: none;
+  vertical-align: middle;
+  position: absolute;
+  top: 0;
+}
+.tree-node-proxy {
+  background-color: #ffffff;
+  color: #404040;
+  border-color: #dfdfdf;
+}
+.tree-node-hover {
+  background: #eee;
+  color: #404040;
+}
+.tree-node-selected {
+  background: #eee;
+  color: #39c;
+}
+.tree-node-hidden {
+  display: none;
+}
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/04/Dom元素/" data-id="cjpayx2bc0005pcuqawppk8wj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/material-teal/tree/" data-id="cjtifrbc50074wguqyl2kiyft" class="article-share-link">Share</a>
       
       
     </footer>
@@ -190,46 +499,126 @@
 
 
   
-    <article id="post-JQuery使用" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/material-teal/tooltip" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/01/04/JQuery使用/" class="article-date">
-  <time datetime="2018-01-04T01:48:44.000Z" itemprop="datePublished">2018-01-04</time>
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/material-teal/tooltip/" class="article-date">
+  <time datetime="2019-03-21T09:22:47.042Z" itemprop="datePublished">2019-03-21</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/04/JQuery使用/">JQuery使用</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="each的用法"><a href="#each的用法" class="headerlink" title="$.each的用法"></a>$.each的用法</h1><h2 id="遍历对象"><a href="#遍历对象" class="headerlink" title="遍历对象"></a>遍历对象</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$.each(parentData,function(index,childData)&#123;</span><br><span class="line">    index ;     //选择器的index位置 </span><br><span class="line">    childData;  //当前元素</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
-<h1 id="checkbox"><a href="#checkbox" class="headerlink" title="checkbox"></a>checkbox</h1><p>1、获取单个checkbox选中项(三种写法)<br>$(“input:checkbox:checked”).val()<br>或者<br>$(“input:[type=’checkbox’]:checked”).val();<br>或者<br>$(“input:[name=’ck’]:checked”).val();</p>
-<p>2、 获取多个checkbox选中项<br>$(‘input:checkbox’).each(function() {<br>        if ($(this).attr(‘checked’) ==true) {<br>                alert($(this).val());<br>        }<br>});</p>
-<p>3、设置第一个checkbox 为选中值<br>$(‘input:checkbox:first’).attr(“checked”,’checked’);<br>或者<br>$(‘input:checkbox’).eq(0).attr(“checked”,’true’);</p>
-<p>4、设置最后一个checkbox为选中值<br>$(‘input:radio:last’).attr(‘checked’, ‘checked’);<br>或者<br>$(‘input:radio:last’).attr(‘checked’, ‘true’);</p>
-<p>5、根据索引值设置任意一个checkbox为选中值<br>$(‘input:checkbox).eq(索引值).attr(‘checked’, ‘true’);索引值=0,1,2….<br>或者<br>$(‘input:radio’).slice(1,2).attr(‘checked’, ‘true’);</p>
-<p>6、选中多个checkbox同时选中第1个和第2个的checkbox<br>$(‘input:radio’).slice(0,2).attr(‘checked’,’true’);</p>
-<p>7、根据Value值设置checkbox为选中值<br>$(“input:checkbox[value=’1’]”).attr(‘checked’,’true’);</p>
-<p>8、删除Value=1的checkbox<br>$(“input:checkbox[value=’1’]”).remove();</p>
-<p>9、删除第几个checkbox<br>$(“input:checkbox”).eq(索引值).remove();索引值=0,1,2….<br>如删除第3个checkbox:<br>$(“input:checkbox”).eq(2).remove();</p>
-<p>10、遍历checkbox<br>$(‘input:checkbox’).each(function (index, domEle) {<br>//写入代码<br>});</p>
-<p>11、全部选中<br>$(‘input:checkbox’).each(function() {<br>        $(this).attr(‘checked’, true);<br>});</p>
-<p>12、全部取消选择<br>$(‘input:checkbox’).each(function () {<br>        $(this).attr(‘checked’,false);<br>});</p>
+        .tooltip {
+  position: absolute;
+  display: none;
+  z-index: 9900000;
+  outline: none;
+  opacity: 1;
+  filter: alpha(opacity=100);
+  padding: 5px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 5px;
+  -moz-border-radius: 4px 4px 4px 4px;
+  -webkit-border-radius: 4px 4px 4px 4px;
+  border-radius: 4px 4px 4px 4px;
+}
+.tooltip-content {
+  font-size: 14px;
+}
+.tooltip-arrow-outer,
+.tooltip-arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  line-height: 0;
+  font-size: 0;
+  border-style: solid;
+  border-width: 6px;
+  border-color: transparent;
+  _border-color: tomato;
+  _filter: chroma(color=tomato);
+}
+.tooltip-arrow {
+  display: none \9;
+}
+.tooltip-right .tooltip-arrow-outer {
+  left: 0;
+  top: 50%;
+  margin: -6px 0 0 -13px;
+}
+.tooltip-right .tooltip-arrow {
+  left: 0;
+  top: 50%;
+  margin: -6px 0 0 -12px;
+}
+.tooltip-left .tooltip-arrow-outer {
+  right: 0;
+  top: 50%;
+  margin: -6px -13px 0 0;
+}
+.tooltip-left .tooltip-arrow {
+  right: 0;
+  top: 50%;
+  margin: -6px -12px 0 0;
+}
+.tooltip-top .tooltip-arrow-outer {
+  bottom: 0;
+  left: 50%;
+  margin: 0 0 -13px -6px;
+}
+.tooltip-top .tooltip-arrow {
+  bottom: 0;
+  left: 50%;
+  margin: 0 0 -12px -6px;
+}
+.tooltip-bottom .tooltip-arrow-outer {
+  top: 0;
+  left: 50%;
+  margin: -13px 0 0 -6px;
+}
+.tooltip-bottom .tooltip-arrow {
+  top: 0;
+  left: 50%;
+  margin: -12px 0 0 -6px;
+}
+.tooltip {
+  background-color: #ffffff;
+  border-color: #dfdfdf;
+  color: #404040;
+}
+.tooltip-right .tooltip-arrow-outer {
+  border-right-color: #dfdfdf;
+}
+.tooltip-right .tooltip-arrow {
+  border-right-color: #ffffff;
+}
+.tooltip-left .tooltip-arrow-outer {
+  border-left-color: #dfdfdf;
+}
+.tooltip-left .tooltip-arrow {
+  border-left-color: #ffffff;
+}
+.tooltip-top .tooltip-arrow-outer {
+  border-top-color: #dfdfdf;
+}
+.tooltip-top .tooltip-arrow {
+  border-top-color: #ffffff;
+}
+.tooltip-bottom .tooltip-arrow-outer {
+  border-bottom-color: #dfdfdf;
+}
+.tooltip-bottom .tooltip-arrow {
+  border-bottom-color: #ffffff;
+}
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/04/JQuery使用/" data-id="cjpayx2fk000gpcuqppudbcbv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/material-teal/tooltip/" data-id="cjtifrbc40073wguqybw79eqi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -239,41 +628,167 @@
 
 
   
-    <article id="post-EasyUI使用" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/material-teal/textbox" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/01/04/EasyUI使用/" class="article-date">
-  <time datetime="2018-01-04T01:48:04.000Z" itemprop="datePublished">2018-01-04</time>
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/material-teal/textbox/" class="article-date">
+  <time datetime="2019-03-21T09:22:47.039Z" itemprop="datePublished">2019-03-21</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/04/EasyUI使用/">EasyUI使用</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-datagrid使用"><a href="#1-datagrid使用" class="headerlink" title="1. datagrid使用"></a>1. datagrid使用</h1><h2 id="1-1-初始化"><a href="#1-1-初始化" class="headerlink" title="1.1. 初始化"></a>1.1. 初始化</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#HouseData'</span>).datagrid(&#123;</span><br><span class="line">    url: <span class="string">'/Ashx/TempHouse.ashx?type=extractinghouseinfo&amp;ownerinfo='</span> + ownerInfo,</span><br><span class="line">    method: <span class="string">'get'</span>,</span><br><span class="line">    idField: <span class="string">'house_id'</span>,</span><br><span class="line">    loadMsg: <span class="string">"数据加载中......"</span>,</span><br><span class="line">    fitColumns: <span class="literal">true</span>,<span class="comment">//自适应宽度</span></span><br><span class="line">    singleSelect: <span class="literal">true</span>,<span class="comment">//是否单选 </span></span><br><span class="line">    pagination: <span class="literal">true</span>,<span class="comment">//分页控件 </span></span><br><span class="line">    pageSize: <span class="number">15</span>,<span class="comment">//每页显示的记录条数，默认为10 </span></span><br><span class="line">    pageList: [<span class="number">5</span>, <span class="number">10</span>, <span class="number">15</span>],<span class="comment">//可以设置每页记录条数的列表 </span></span><br><span class="line">    beforePageText: <span class="string">'第'</span>,<span class="comment">//页数文本框前显示的汉字 </span></span><br><span class="line">    afterPageText: <span class="string">'页    共 &#123;pages&#125; 页'</span>,</span><br><span class="line">    displayMsg: <span class="string">'当前显示 &#123;from&#125; - &#123;to&#125; 条记录   共 &#123;total&#125; 条记录'</span>,</span><br><span class="line">    rownumbers: <span class="literal">true</span>,<span class="comment">//行号 </span></span><br><span class="line">    striped: <span class="literal">true</span>,<span class="comment">//隔行变色</span></span><br><span class="line">    columns: [[</span><br><span class="line">        &#123; <span class="attr">field</span>: <span class="string">'ck'</span>, <span class="attr">checkbox</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">        &#123; <span class="attr">field</span>: <span class="string">'house_id'</span>, <span class="attr">title</span>: <span class="string">'房屋ID'</span>, <span class="attr">width</span>: <span class="number">180</span>, <span class="attr">hidden</span>: <span class="string">'true'</span> &#125;,</span><br><span class="line">        &#123; <span class="attr">field</span>: <span class="string">'income_id'</span>, <span class="attr">title</span>: <span class="string">'业务号'</span>, <span class="attr">width</span>: <span class="number">180</span> &#125;,</span><br><span class="line">        &#123; <span class="attr">field</span>: <span class="string">'right_id'</span>, <span class="attr">title</span>: <span class="string">'房产证号'</span>, <span class="attr">width</span>: <span class="number">180</span> &#125;,</span><br><span class="line">        &#123; <span class="attr">field</span>: <span class="string">'owner_name'</span>, <span class="attr">title</span>: <span class="string">'产权人'</span>, <span class="attr">width</span>: <span class="number">180</span> &#125;,</span><br><span class="line">        &#123; <span class="attr">field</span>: <span class="string">'card_id'</span>, <span class="attr">title</span>: <span class="string">'身份证号'</span>, <span class="attr">width</span>: <span class="number">180</span> &#125;,</span><br><span class="line">        &#123; <span class="attr">field</span>: <span class="string">'seat_name'</span>, <span class="attr">title</span>: <span class="string">'房屋坐落'</span>, <span class="attr">width</span>: <span class="number">180</span> &#125;,</span><br><span class="line">        &#123; <span class="attr">field</span>: <span class="string">'build_name'</span>, <span class="attr">title</span>: <span class="string">"幢名"</span>, <span class="attr">width</span>: <span class="number">180</span> &#125;,</span><br><span class="line">        &#123; <span class="attr">field</span>: <span class="string">'house_name'</span>, <span class="attr">title</span>: <span class="string">"房名"</span>, <span class="attr">width</span>: <span class="number">180</span> &#125;,</span><br><span class="line">        &#123; <span class="attr">field</span>: <span class="string">'current_floor'</span>, <span class="attr">title</span>: <span class="string">"所在层"</span>, <span class="attr">width</span>: <span class="number">180</span> &#125;,</span><br><span class="line">        &#123; <span class="attr">field</span>: <span class="string">'build_area'</span>, <span class="attr">title</span>: <span class="string">"建筑面积"</span>, <span class="attr">width</span>: <span class="number">180</span> &#125;,</span><br><span class="line">        &#123; <span class="attr">field</span>: <span class="string">'from_name'</span>, <span class="attr">title</span>: <span class="string">"产权来源"</span>, <span class="attr">width</span>: <span class="number">180</span> &#125;</span><br><span class="line">    ]],</span><br><span class="line">    enableFilter: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h2 id="load-reload和loadData"><a href="#load-reload和loadData" class="headerlink" title="load,reload和loadData"></a>load,reload和loadData</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(“#grid”).datagrid(“load”,&#123; &#125;); //里面写的是你要传输的参数的键值对，调用这个方法来加载数据的时候，它传给后台的分页信息是从第一页开始的。</span><br><span class="line">$(“#grid”).datagrid(“reload”,&#123; &#125;);//但它传给后台的分布信息是当前的页码，就是实现刷新当前页的功能。</span><br><span class="line">$(“#grid”).datagrid(“loadData”,&#123; “total”:”30″,rows:[] &#125;);//它加载的本地数据，就是不会跟后台什么的有交互，它的使用方式是</span><br></pre></td></tr></table></figure>
-<h2 id="1-2-获取选中行"><a href="#1-2-获取选中行" class="headerlink" title="1.2. 获取选中行"></a>1.2. 获取选中行</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> ($(<span class="string">"#dg_houselist"</span>).datagrid(<span class="string">"getSelections"</span>).length &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> houseids = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">var</span> rows = $(<span class="string">"#dg_houselist"</span>).datagrid(<span class="string">"getSelections"</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; rows.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (rows[i].limit_flag ==<span class="string">"0"</span>) &#123;</span><br><span class="line">            $.messager.alert(<span class="string">"警告"</span>, rows[i].house_name + <span class="string">"不存在纪监查封"</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        houseids += rows[i].house_id + <span class="string">","</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line">    $.messager.alert(<span class="string">"友情提示"</span>, <span class="string">"请您选择要添加限制的房屋"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="2-combobox"><a href="#2-combobox" class="headerlink" title="2. combobox"></a>2. combobox</h1><h2 id="从后台加载数据"><a href="#从后台加载数据" class="headerlink" title="从后台加载数据"></a>从后台加载数据</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#comboid"</span>).combobox(&#123;</span><br><span class="line">    url:<span class="string">"/Ashx/ImpownContract.ashx?type=GetOtherMan"</span>,</span><br><span class="line">    valueField:<span class="string">"code"</span>,</span><br><span class="line">    textField: <span class="string">"name_c"</span>,</span><br><span class="line">    onSelect:<span class="function"><span class="keyword">function</span>(<span class="params">record</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> selectValue = record.value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取json数据格式</span></span><br><span class="line">[</span><br><span class="line">&#123;<span class="string">"code"</span>:<span class="string">"0001"</span>,<span class="string">"name_c"</span>:<span class="string">"中国工商银行股份有限公司兖州支行"</span>&#125;,</span><br><span class="line">&#123;<span class="string">"code"</span>:<span class="string">"0002"</span>,<span class="string">"name_c"</span>:<span class="string">"中国农业银行股份有限公司兖州市支行"</span>&#125;,</span><br><span class="line">&#123;<span class="string">"code"</span>:<span class="string">"0003"</span>,<span class="string">"name_c"</span>:<span class="string">"中国建设银行股份有限公司兖州支行"</span>&#125;,</span><br><span class="line">&#123;<span class="string">"code"</span>:<span class="string">"0004"</span>,<span class="string">"name_c"</span>:<span class="string">"中国银行股份有限公司兖州支行"</span>&#125;,</span><br><span class="line">&#123;<span class="string">"code"</span>:<span class="string">"0005"</span>,<span class="string">"name_c"</span>:<span class="string">"中国建设银行股份有限公司济宁分行"</span>&#125;,</span><br><span class="line">&#123;<span class="string">"code"</span>:<span class="string">"0006"</span>,<span class="string">"name_c"</span>:<span class="string">"山东圣泰农村合作银行草桥口支行"</span>&#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;#xx&quot;).combobox(&#123;disabled: true&#125;);      //设置下拉款为禁用</span><br><span class="line">$(&quot;#xx&quot;).combobox(&apos;setValue&apos;,xlid);  //设置下拉款的默认值  xlid是你下拉款的id属性</span><br><span class="line">$(&quot;#xx&quot;).combobox(&apos;getValue&apos;);      //获取下拉款id值</span><br><span class="line">$(&quot;#xx&quot;).combobox(&apos;getText&apos;);      //获取下拉款name值</span><br></pre></td></tr></table></figure>
-<h1 id="3-判断元素是否隐藏"><a href="#3-判断元素是否隐藏" class="headerlink" title="3. 判断元素是否隐藏"></a>3. 判断元素是否隐藏</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> isHaveHouse =  $(<span class="string">"#HouseDiv"</span>).is(<span class="string">":hidden"</span>);<span class="comment">//是否隐藏</span></span><br><span class="line"><span class="keyword">var</span> temp1=$(<span class="string">"#test"</span>).is(<span class="string">":visible"</span>);<span class="comment">//是否可见</span></span><br></pre></td></tr></table></figure>
-<h1 id="Parser-解析器"><a href="#Parser-解析器" class="headerlink" title="Parser(解析器)"></a>Parser(解析器)</h1><p>解析器是 easy ui 很重要的基础组件，在 easy ui 中我们可以简单的通过 class 定义一个组件，从而渲染出很好的交互效果，就是通过 parser 进行解析的。</p>
-<p>parser 会获取全部在指定内定为 easy ui 组件的 class 定义，而且根据后缀定义把当前节点解析渲染成特定组件。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$.parser.parse();<span class="comment">//不带参数，默认解析该页面中全部定义为 easyui 组件的节点</span></span><br><span class="line">$.parser.onComplete();<span class="comment">//在解析器完成解析操作的时候触发。</span></span><br><span class="line">$.parser.parse(<span class="string">'#cc'</span>);<span class="comment">//带一个jquery 选择器，使用这样的方式能够单独解析局部 easyui 组件节点</span></span><br></pre></td></tr></table></figure>
+        .textbox {
+  position: relative;
+  border: 1px solid #dfdfdf;
+  background-color: #fff;
+  vertical-align: middle;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+  -moz-border-radius: 4px 4px 4px 4px;
+  -webkit-border-radius: 4px 4px 4px 4px;
+  border-radius: 4px 4px 4px 4px;
+}
+.textbox .textbox-text {
+  font-size: 14px;
+  border: 0;
+  margin: 0;
+  padding: 0 4px;
+  white-space: normal;
+  vertical-align: top;
+  outline-style: none;
+  resize: none;
+  -moz-border-radius: 4px 4px 4px 4px;
+  -webkit-border-radius: 4px 4px 4px 4px;
+  border-radius: 4px 4px 4px 4px;
+  height: 28px;
+  line-height: 28px;
+}
+.textbox textarea.textbox-text {
+  line-height: normal;
+}
+.textbox .textbox-text::-ms-clear,
+.textbox .textbox-text::-ms-reveal {
+  display: none;
+}
+.textbox textarea.textbox-text {
+  white-space: pre-wrap;
+}
+.textbox .textbox-prompt {
+  font-size: 14px;
+  color: #aaa;
+}
+.textbox .textbox-bgicon {
+  background-position: 3px center;
+  padding-left: 21px;
+}
+.textbox .textbox-button,
+.textbox .textbox-button:hover {
+  position: absolute;
+  top: 0;
+  padding: 0;
+  vertical-align: top;
+  -moz-border-radius: 0 0 0 0;
+  -webkit-border-radius: 0 0 0 0;
+  border-radius: 0 0 0 0;
+}
+.textbox .textbox-button-right,
+.textbox .textbox-button-right:hover {
+  right: 0;
+  border-width: 0 0 0 1px;
+}
+.textbox .textbox-button-left,
+.textbox .textbox-button-left:hover {
+  left: 0;
+  border-width: 0 1px 0 0;
+}
+.textbox .textbox-button-top,
+.textbox .textbox-button-top:hover {
+  left: 0;
+  border-width: 0 0 1px 0;
+}
+.textbox .textbox-button-bottom,
+.textbox .textbox-button-bottom:hover {
+  top: auto;
+  bottom: 0;
+  left: 0;
+  border-width: 1px 0 0 0;
+}
+.textbox-addon {
+  position: absolute;
+  top: 0;
+}
+.textbox-label {
+  display: inline-block;
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  vertical-align: middle;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0;
+  padding-right: 5px;
+}
+.textbox-label-after {
+  padding-left: 5px;
+  padding-right: 0;
+}
+.textbox-label-top {
+  display: block;
+  width: auto;
+  padding: 0;
+}
+.textbox-disabled,
+.textbox-label-disabled {
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+.textbox-icon {
+  display: inline-block;
+  width: 18px;
+  height: 20px;
+  overflow: hidden;
+  vertical-align: top;
+  background-position: center center;
+  cursor: pointer;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  text-decoration: none;
+  outline-style: none;
+}
+.textbox-icon-disabled,
+.textbox-icon-readonly {
+  cursor: default;
+}
+.textbox-icon:hover {
+  opacity: 1.0;
+  filter: alpha(opacity=100);
+}
+.textbox-icon-disabled:hover {
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+.textbox-focused {
+  border-color: #c6c6c6;
+  -moz-box-shadow: 0 0 3px 0 #dfdfdf;
+  -webkit-box-shadow: 0 0 3px 0 #dfdfdf;
+  box-shadow: 0 0 3px 0 #dfdfdf;
+}
+.textbox-invalid {
+  border-color: #ffa8a8;
+  background-color: #fff;
+}
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/04/EasyUI使用/" data-id="cjpayx2bz0007pcuqsksm9zu9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/material-teal/textbox/" data-id="cjtifrbc20071wguqonen7837" class="article-share-link">Share</a>
       
       
     </footer>
@@ -283,42 +798,67 @@
 
 
   
-    <article id="post-razor语法" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/material-teal/tagbox" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/01/04/razor语法/" class="article-date">
-  <time datetime="2018-01-04T01:38:00.000Z" itemprop="datePublished">2018-01-04</time>
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/material-teal/tagbox/" class="article-date">
+  <time datetime="2019-03-21T09:22:47.035Z" itemprop="datePublished">2019-03-21</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/04/razor语法/">razor语法</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Razor标识符与任务域"><a href="#Razor标识符与任务域" class="headerlink" title="Razor标识符与任务域"></a>Razor标识符与任务域</h1><p>@字符被定义为Razor服务器代码块的标识符，后面的表示的是服务器代码。<br>{}表示Razor的作用域<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@&#123;string userName= &quot;razor test&quot;;&#125;</span><br><span class="line">    &lt;span&gt;@userName&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;@DateTime.Now.ToString(&quot;yyyy-MM-hh&quot;)&lt;/span&gt;</span><br></pre></td></tr></table></figure></p>
-<h1 id="Razor注释"><a href="#Razor注释" class="headerlink" title="Razor注释"></a>Razor注释</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@&#123;</span><br><span class="line">   @*</span><br><span class="line">       多行注释</span><br><span class="line">   *@</span><br><span class="line">   var i = 10;  @* 单行注释 *@</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="Razor类型转换"><a href="#Razor类型转换" class="headerlink" title="Razor类型转换"></a>Razor类型转换</h1><p>  AsInt(), IsInt()<br>　AsBool(),IsBool()<br>  AsFloat(),IsFloat()<br>　AsDecimal(),IsDecimal()<br>　AsDateTime(),IsDateTime()<br>　ToString()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@&#123;</span><br><span class="line">    var i = “10”;</span><br><span class="line">&#125;</span><br><span class="line">&lt;p&gt; i = @i.AsInt() &lt;/p&gt; &lt;!-- 输出 i = 10 --&gt;</span><br></pre></td></tr></table></figure></p>
-<h1 id="布局Layout"><a href="#布局Layout" class="headerlink" title="布局Layout"></a>布局Layout</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;utf-8&quot; /&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot; /&gt;</span><br><span class="line">    &lt;title&gt;@ViewBag.Title&lt;/title&gt;</span><br><span class="line">    @Styles.Render(&quot;~/Content/css&quot;)</span><br><span class="line">    @Scripts.Render(&quot;~/bundles/modernizr&quot;)</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    @RenderBody()</span><br><span class="line"></span><br><span class="line">    @Scripts.Render(&quot;~/bundles/jquery&quot;)</span><br><span class="line">    @RenderSection(&quot;scripts&quot;, required: false)</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>@RenderBody</li>
-<li>@Scripts.Render</li>
-<li>@RenderSection</li>
-</ul>
+        .tagbox {
+  cursor: text;
+}
+.tagbox .textbox-text {
+  float: left;
+}
+.tagbox-label {
+  position: relative;
+  display: block;
+  margin: 4px 0 0 4px;
+  padding: 0 20px 0 4px;
+  float: left;
+  vertical-align: top;
+  text-decoration: none;
+  -moz-border-radius: 4px 4px 4px 4px;
+  -webkit-border-radius: 4px 4px 4px 4px;
+  border-radius: 4px 4px 4px 4px;
+  background: #eee;
+  color: #404040;
+}
+.tagbox-remove {
+  background: url('images/tagbox_icons.png') no-repeat -16px center;
+  position: absolute;
+  display: block;
+  width: 16px;
+  height: 16px;
+  right: 2px;
+  top: 50%;
+  margin-top: -8px;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+.tagbox-remove:hover {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+.textbox-disabled .tagbox-label {
+  cursor: default;
+}
+.textbox-disabled .tagbox-remove:hover {
+  cursor: default;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/04/razor语法/" data-id="cjpayx2hn0017pcuq9tt3y2wv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/material-teal/tagbox/" data-id="cjtifrbc10070wguqe1bp5czk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -328,55 +868,400 @@
 
 
   
-    <article id="post-项目总结" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/material-teal/tabs" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/01/03/项目总结/" class="article-date">
-  <time datetime="2018-01-03T07:30:28.000Z" itemprop="datePublished">2018-01-03</time>
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/material-teal/tabs/" class="article-date">
+  <time datetime="2019-03-21T09:22:47.032Z" itemprop="datePublished">2019-03-21</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/03/项目总结/">项目总结</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-远程数据采集系统"><a href="#1-远程数据采集系统" class="headerlink" title="1. 远程数据采集系统"></a>1. 远程数据采集系统</h1><h2 id="1-1-需求"><a href="#1-1-需求" class="headerlink" title="1.1. 需求"></a>1.1. 需求</h2><ul>
-<li>数据采集</li>
-<li>实时监控</li>
-<li>数据查询</li>
-</ul>
-<h2 id="1-2-难点"><a href="#1-2-难点" class="headerlink" title="1.2. 难点"></a>1.2. 难点</h2><p>数据监控的实时性<br>采集数据频率高，导致查询数据量大</p>
-<h1 id="2-污水处理厂数据采集系统"><a href="#2-污水处理厂数据采集系统" class="headerlink" title="2. 污水处理厂数据采集系统"></a>2. 污水处理厂数据采集系统</h1><h2 id="2-1-需求"><a href="#2-1-需求" class="headerlink" title="2.1. 需求"></a>2.1. 需求</h2><ul>
-<li>七个现场数据采集</li>
-<li>现场数据实时监控、预警并短信通知相关人员</li>
-<li>数据查询</li>
-</ul>
-<h2 id="2-2-难点"><a href="#2-2-难点" class="headerlink" title="2.2. 难点"></a>2.2. 难点</h2><p>数据监控的实时性<br>采集数据频率高，导致查询数据量大</p>
-<h1 id="3-变压器厂绕线管理系统"><a href="#3-变压器厂绕线管理系统" class="headerlink" title="3. 变压器厂绕线管理系统"></a>3. 变压器厂绕线管理系统</h1><h1 id="4-国际化"><a href="#4-国际化" class="headerlink" title="4. 国际化"></a>4. 国际化</h1><h1 id="5-机床厂管理系统"><a href="#5-机床厂管理系统" class="headerlink" title="5. 机床厂管理系统"></a>5. 机床厂管理系统</h1><h1 id="6-冷链物流温湿度监测"><a href="#6-冷链物流温湿度监测" class="headerlink" title="6. 冷链物流温湿度监测"></a>6. 冷链物流温湿度监测</h1><h1 id="7-电厂数据接口"><a href="#7-电厂数据接口" class="headerlink" title="7. 电厂数据接口"></a>7. 电厂数据接口</h1><h1 id="8-CAD二次开发"><a href="#8-CAD二次开发" class="headerlink" title="8. CAD二次开发"></a>8. CAD二次开发</h1><h1 id="9-三方联网系统"><a href="#9-三方联网系统" class="headerlink" title="9. 三方联网系统"></a>9. 三方联网系统</h1><h1 id="10-房产交易综合管理平台"><a href="#10-房产交易综合管理平台" class="headerlink" title="10.房产交易综合管理平台"></a>10.房产交易综合管理平台</h1><h1 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h1><p>在计算机专业术语中，Session 是指一个终端用户与交互系统进行通信的时间间隔，通常指从注册进入系统到注销退出系统之间所经过的时间，如果需要的话，可能还有一定的操作空间。<br>一个Session的概念需要包括特定的客户端，特定的服务器端以及不间断的操作时间。</p>
-<h2 id="Session-的工作原理"><a href="#Session-的工作原理" class="headerlink" title="Session 的工作原理"></a>Session 的工作原理</h2><ul>
-<li>当一个 Session 第一次被启用时，一个唯一的标识被存储于本地的 cookie 中。</li>
-<li>首先使用 session_start() 函数，PHP 从 session 仓库中加载已经存储的 session 变量</li>
-<li>当执行 PHP 脚本时，通过 session_register() 函数注册 session 变量。</li>
-<li>当 PHP 脚本执行结束时，未被销毁的 session 变量会被自动保存在本地一定路径下的 session 库中，这个路径可以通过 php.ini 文件中的 session.save_path 指定，下次浏览网页时可以加载使用。</li>
-</ul>
-<h2 id="单点登陆"><a href="#单点登陆" class="headerlink" title="单点登陆"></a>单点登陆</h2><p>单点登陆,(single sign on),简称SSO，是目前比较流行的企业业务整合解决方案之一。SSO的定义是在多个应用体系中，用户只需要登陆一次就可以访问所有相互信任的应用系统。</p>
-<p>技术实现机制：</p>
-<p>当用户第一次访问应用系统的时候，因为还没有登录，会被引导到认证系统中进行登录；根据用户提供的登录信息，认证系统进行身份校验，如果通过校验，应该返回给用户一个认证的凭据－－ticket；用户再访问别的应用的时候，就会将这个ticket带上，作为自己认证的凭据，应用系统接受到请求之后会把ticket送到认证系统进行校验，检查ticket的合法性。如果通过校验，用户就可以在不用再次登录的情况下访问应用系统2和应用系统3了。<br>要实现SSO，需要以下主要的功能：<br>所有应用系统共享一个身份认证系统。<br>　　统一的认证系统是SSO的前提之一。认证系统的主要功能是将用户的登录信息和用户信息库相比较，对用户进行登录认证；认证成功后，认证系统应该生成统一的认证标志（ticket），返还给用户。另外，认证系统还应该对ticket进行效验，判断其有效性。<br>所有应用系统能够识别和提取ticket信息<br>　　要实现SSO的功能，让用户只登录一次，就必须让应用系统能够识别已经登录过的用户。应用系统应该能对ticket进行识别和提取，通过与认证系统的通讯，能自动判断当前用户是否登录过，从而完成单点登录的功能。<br><img src="/2018/01/03/项目总结/单点登陆.jpg" alt="技术实现机制"></p>
+        .tabs-container {
+  overflow: hidden;
+}
+.tabs-header {
+  border-width: 1px;
+  border-style: solid;
+  border-bottom-width: 0;
+  position: relative;
+  padding: 0;
+  padding-top: 2px;
+  overflow: hidden;
+}
+.tabs-scroller-left,
+.tabs-scroller-right {
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  width: 18px;
+  font-size: 1px;
+  display: none;
+  cursor: pointer;
+  border-width: 1px;
+  border-style: solid;
+}
+.tabs-scroller-left {
+  left: 0;
+}
+.tabs-scroller-right {
+  right: 0;
+}
+.tabs-tool {
+  position: absolute;
+  bottom: 0;
+  padding: 1px;
+  overflow: hidden;
+  border-width: 1px;
+  border-style: solid;
+}
+.tabs-header-plain .tabs-tool {
+  padding: 0 1px;
+}
+.tabs-wrap {
+  position: relative;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.tabs-scrolling {
+  margin-left: 18px;
+  margin-right: 18px;
+}
+.tabs-disabled {
+  opacity: 0.3;
+  filter: alpha(opacity=30);
+}
+.tabs {
+  list-style-type: none;
+  height: 26px;
+  margin: 0px;
+  padding: 0px;
+  padding-left: 4px;
+  width: 50000px;
+  border-style: solid;
+  border-width: 0 0 1px 0;
+}
+.tabs li {
+  float: left;
+  display: inline-block;
+  margin: 0 4px -1px 0;
+  padding: 0;
+  position: relative;
+  border: 0;
+}
+.tabs li a.tabs-inner {
+  display: inline-block;
+  text-decoration: none;
+  margin: 0;
+  padding: 0 10px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  white-space: nowrap;
+  border-width: 1px;
+  border-style: solid;
+  -moz-border-radius: 4px 4px 0 0;
+  -webkit-border-radius: 4px 4px 0 0;
+  border-radius: 4px 4px 0 0;
+}
+.tabs li.tabs-selected a.tabs-inner {
+  font-weight: bold;
+  outline: none;
+}
+.tabs li.tabs-selected a:hover.tabs-inner {
+  cursor: default;
+  pointer: default;
+}
+.tabs li a.tabs-close,
+.tabs-p-tool {
+  position: absolute;
+  font-size: 1px;
+  display: block;
+  height: 12px;
+  padding: 0;
+  top: 50%;
+  margin-top: -6px;
+  overflow: hidden;
+}
+.tabs li a.tabs-close {
+  width: 12px;
+  right: 5px;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+.tabs-p-tool {
+  right: 16px;
+}
+.tabs-p-tool a {
+  display: inline-block;
+  font-size: 1px;
+  width: 12px;
+  height: 12px;
+  margin: 0;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+.tabs li a:hover.tabs-close,
+.tabs-p-tool a:hover {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  cursor: hand;
+  cursor: pointer;
+}
+.tabs-with-icon {
+  padding-left: 18px;
+}
+.tabs-icon {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 10px;
+  top: 50%;
+  margin-top: -8px;
+}
+.tabs-title {
+  font-size: 14px;
+}
+.tabs-closable {
+  padding-right: 8px;
+}
+.tabs-panels {
+  margin: 0px;
+  padding: 0px;
+  border-width: 1px;
+  border-style: solid;
+  border-top-width: 0;
+  overflow: hidden;
+}
+.tabs-header-bottom {
+  border-width: 0 1px 1px 1px;
+  padding: 0 0 2px 0;
+}
+.tabs-header-bottom .tabs {
+  border-width: 1px 0 0 0;
+}
+.tabs-header-bottom .tabs li {
+  margin: -1px 4px 0 0;
+}
+.tabs-header-bottom .tabs li a.tabs-inner {
+  -moz-border-radius: 0 0 4px 4px;
+  -webkit-border-radius: 0 0 4px 4px;
+  border-radius: 0 0 4px 4px;
+}
+.tabs-header-bottom .tabs-tool {
+  top: 0;
+}
+.tabs-header-bottom .tabs-scroller-left,
+.tabs-header-bottom .tabs-scroller-right {
+  top: 0;
+  bottom: auto;
+}
+.tabs-panels-top {
+  border-width: 1px 1px 0 1px;
+}
+.tabs-header-left {
+  float: left;
+  border-width: 1px 0 1px 1px;
+  padding: 0;
+}
+.tabs-header-right {
+  float: right;
+  border-width: 1px 1px 1px 0;
+  padding: 0;
+}
+.tabs-header-left .tabs-wrap,
+.tabs-header-right .tabs-wrap {
+  height: 100%;
+}
+.tabs-header-left .tabs {
+  height: 100%;
+  padding: 4px 0 0 2px;
+  border-width: 0 1px 0 0;
+}
+.tabs-header-right .tabs {
+  height: 100%;
+  padding: 4px 2px 0 0;
+  border-width: 0 0 0 1px;
+}
+.tabs-header-left .tabs li,
+.tabs-header-right .tabs li {
+  display: block;
+  width: 100%;
+  position: relative;
+}
+.tabs-header-left .tabs li {
+  left: auto;
+  right: 0;
+  margin: 0 -1px 4px 0;
+  float: right;
+}
+.tabs-header-right .tabs li {
+  left: 0;
+  right: auto;
+  margin: 0 0 4px -1px;
+  float: left;
+}
+.tabs-justified li a.tabs-inner {
+  padding-left: 0;
+  padding-right: 0;
+}
+.tabs-header-left .tabs li a.tabs-inner {
+  display: block;
+  text-align: left;
+  padding-left: 10px;
+  padding-right: 10px;
+  -moz-border-radius: 4px 0 0 4px;
+  -webkit-border-radius: 4px 0 0 4px;
+  border-radius: 4px 0 0 4px;
+}
+.tabs-header-right .tabs li a.tabs-inner {
+  display: block;
+  text-align: left;
+  padding-left: 10px;
+  padding-right: 10px;
+  -moz-border-radius: 0 4px 4px 0;
+  -webkit-border-radius: 0 4px 4px 0;
+  border-radius: 0 4px 4px 0;
+}
+.tabs-panels-right {
+  float: right;
+  border-width: 1px 1px 1px 0;
+}
+.tabs-panels-left {
+  float: left;
+  border-width: 1px 0 1px 1px;
+}
+.tabs-header-noborder,
+.tabs-panels-noborder {
+  border: 0px;
+}
+.tabs-header-plain {
+  border: 0px;
+  background: transparent;
+}
+.tabs-pill {
+  padding-bottom: 3px;
+}
+.tabs-header-bottom .tabs-pill {
+  padding-top: 3px;
+  padding-bottom: 0;
+}
+.tabs-header-left .tabs-pill {
+  padding-right: 3px;
+}
+.tabs-header-right .tabs-pill {
+  padding-left: 3px;
+}
+.tabs-header .tabs-pill li a.tabs-inner {
+  -moz-border-radius: 4px 4px 4px 4px;
+  -webkit-border-radius: 4px 4px 4px 4px;
+  border-radius: 4px 4px 4px 4px;
+}
+.tabs-header-narrow,
+.tabs-header-narrow .tabs-narrow {
+  padding: 0;
+}
+.tabs-narrow li,
+.tabs-header-bottom .tabs-narrow li {
+  margin-left: 0;
+  margin-right: -1px;
+}
+.tabs-narrow li.tabs-last,
+.tabs-header-bottom .tabs-narrow li.tabs-last {
+  margin-right: 0;
+}
+.tabs-header-left .tabs-narrow,
+.tabs-header-right .tabs-narrow {
+  padding-top: 0;
+}
+.tabs-header-left .tabs-narrow li {
+  margin-bottom: -1px;
+  margin-right: -1px;
+}
+.tabs-header-left .tabs-narrow li.tabs-last,
+.tabs-header-right .tabs-narrow li.tabs-last {
+  margin-bottom: 0;
+}
+.tabs-header-right .tabs-narrow li {
+  margin-bottom: -1px;
+  margin-left: -1px;
+}
+.tabs-scroller-left {
+  background: #fafafa url('images/tabs_icons.png') no-repeat 1px center;
+}
+.tabs-scroller-right {
+  background: #fafafa url('images/tabs_icons.png') no-repeat -15px center;
+}
+.tabs li a.tabs-close {
+  background: url('images/tabs_icons.png') no-repeat -34px center;
+}
+.tabs li a.tabs-inner:hover {
+  background: #eee;
+  color: #404040;
+  filter: none;
+}
+.tabs li.tabs-selected a.tabs-inner {
+  background-color: #ffffff;
+  color: #404040;
+}
+.tabs li a.tabs-inner {
+  color: #404040;
+  background-color: #fafafa;
+}
+.tabs-header,
+.tabs-tool {
+  background-color: #fafafa;
+}
+.tabs-header-plain {
+  background: transparent;
+}
+.tabs-header,
+.tabs-scroller-left,
+.tabs-scroller-right,
+.tabs-tool,
+.tabs,
+.tabs-panels,
+.tabs li a.tabs-inner,
+.tabs li.tabs-selected a.tabs-inner,
+.tabs-header-bottom .tabs li.tabs-selected a.tabs-inner,
+.tabs-header-left .tabs li.tabs-selected a.tabs-inner,
+.tabs-header-right .tabs li.tabs-selected a.tabs-inner {
+  border-color: #dfdfdf;
+}
+.tabs-p-tool a:hover,
+.tabs li a:hover.tabs-close,
+.tabs-scroller-over {
+  background-color: #eee;
+}
+.tabs li.tabs-selected a.tabs-inner {
+  border-bottom: 1px solid #ffffff;
+}
+.tabs-header-bottom .tabs li.tabs-selected a.tabs-inner {
+  border-top: 1px solid #ffffff;
+}
+.tabs-header-left .tabs li.tabs-selected a.tabs-inner {
+  border-right: 1px solid #ffffff;
+}
+.tabs-header-right .tabs li.tabs-selected a.tabs-inner {
+  border-left: 1px solid #ffffff;
+}
+.tabs-header .tabs-pill li.tabs-selected a.tabs-inner {
+  background: #eee;
+  color: #39c;
+  filter: none;
+  border-color: #dfdfdf;
+}
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/03/项目总结/" data-id="cjpayx2hx001dpcuqpensd7df" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/material-teal/tabs/" data-id="cjtifrbc0006zwguq1j558hmm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -386,61 +1271,278 @@
 
 
   
-    <article id="post-GitHub博客部署" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/material-teal/switchbutton" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/12/27/GitHub博客部署/" class="article-date">
-  <time datetime="2017-12-27T01:35:49.000Z" itemprop="datePublished">2017-12-27</time>
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/material-teal/switchbutton/" class="article-date">
+  <time datetime="2019-03-21T09:22:47.028Z" itemprop="datePublished">2019-03-21</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/27/GitHub博客部署/">GitHub博客部署</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这是我的第一篇博客，我把它献给了提供这个博客的平台，记录一下在GitHub上如何部署自己的博客。<br>用到的工具：</p>
-<ul>
-<li>Nodejs<br>包含npm</li>
-<li>Git<br>  这个不多说，是必需的</li>
-<li>Hexo<br>  一个静态博客框架，只需要几条命令就可以快速创建自己的博客。</li>
-</ul>
-<p>系统环境<br>    Windows7 64bit<br>软件版本<br>    NodeJs<br>    Git 2.15.0.windows.1<br>    Hexo 3.4.4</p>
-<h1 id="1-工具的安装"><a href="#1-工具的安装" class="headerlink" title="1. 工具的安装"></a>1. 工具的安装</h1><h2 id="1-1-NodeJs安装"><a href="#1-1-NodeJs安装" class="headerlink" title="1.1. NodeJs安装"></a>1.1. NodeJs安装</h2><p>   在官网下载最新的安装包，按引导一步步安装。</p>
-<h2 id="1-2-Git安装"><a href="#1-2-Git安装" class="headerlink" title="1.2. Git安装"></a>1.2. Git安装</h2><p>   按引导至安装完成。</p>
-<h2 id="1-3-Hexo安装及配置"><a href="#1-3-Hexo安装及配置" class="headerlink" title="1.3. Hexo安装及配置"></a>1.3. Hexo安装及配置</h2><h3 id="1-3-1-Hexo安装"><a href="#1-3-1-Hexo安装" class="headerlink" title="1.3.1. Hexo安装"></a>1.3.1. Hexo安装</h3><p>   打开命令行，找到刚才NodeJs的安装目录，输入如下指令</p>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
-<p>   <img src="/2017/12/27/GitHub博客部署/install_hexo.png" alt="install hexo"></p>
-<h3 id="1-3-2-Hexo初始化配置"><a href="#1-3-2-Hexo初始化配置" class="headerlink" title="1.3.2. Hexo初始化配置"></a>1.3.2. Hexo初始化配置</h3><ol>
-<li><p>配置博客目录<br> 在命令行中进入你要放置博客的路径，执行如下命令，会创建一个Blog的文件夹，并时行一些组件的安装。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init blog</span><br></pre></td></tr></table></figure>
-<p><img src="/2017/12/27/GitHub博客部署/init_blog.png" alt="init blog"><br>安装完成如下图所示<br><img src="/2017/12/27/GitHub博客部署/init_blog_finish.png" alt="init blog finish"><br>此时执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
-<p><img src="/2017/12/27/GitHub博客部署/hexo_server.png" alt="hexo server"></p>
-</li>
-</ol>
-<h2 id="1-4-发布到github"><a href="#1-4-发布到github" class="headerlink" title="1.4. 发布到github"></a>1.4. 发布到github</h2><h3 id="1-4-1-注册github"><a href="#1-4-1-注册github" class="headerlink" title="1.4.1. 注册github"></a>1.4.1. 注册github</h3><p>注册过程不多说，注册完成后，按照如下页面所示设置GitHub Pages <a href="https://pages.github.com/" target="_blank" rel="noopener">https://pages.github.com/</a></p>
-<h3 id="1-4-2-SSH-key配置"><a href="#1-4-2-SSH-key配置" class="headerlink" title="1.4.2. SSH key配置"></a>1.4.2. SSH key配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd ~/. ssh #检查本机已存在的ssh密钥</span><br></pre></td></tr></table></figure>
-<p>如果提示：No such file or directory 说明你是第一次使用git。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;邮件地址&quot;</span><br></pre></td></tr></table></figure></p>
-<p>然后连续3次回车，最终会生成一个文件在用户目录下，打开用户目录，找到.ssh\id_rsa.pub文件，记事本打开并复制里面的内容，打开你的github主页，进入个人设置 -&gt; SSH and GPG keys -&gt; New SSH key：<br><img src="/2017/12/27/GitHub博客部署/add_ssh_key.png" alt="add ssh key"><br>然后在git bash中配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;liuxianan&quot;// 你的github用户名，非昵称</span><br><span class="line">$ git config --global user.email  &quot;xxx@qq.com&quot;// 填写你的github注册邮箱</span><br></pre></td></tr></table></figure></p>
-<h3 id="1-4-3-上传插件安装"><a href="#1-4-3-上传插件安装" class="headerlink" title="1.4.3. 上传插件安装"></a>1.4.3. 上传插件安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git –save</span><br></pre></td></tr></table></figure>
-<p>   <img src="/2017/12/27/GitHub博客部署/install deployer.png" alt="install deployer"><br>   然后在你博客的目录下找到_config.yml配置deploy部分<br><img src="/2017/12/27/GitHub博客部署/deploy_set.png" alt="deploy set"></p>
-<p>工具都安装完成后，就可以写博客了</p>
-<h2 id="1-5-hexo常用命令"><a href="#1-5-hexo常用命令" class="headerlink" title="1.5. hexo常用命令"></a>1.5. hexo常用命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;postName&quot; #新建文章</span><br><span class="line">hexo new page &quot;pageName&quot; #新建页面</span><br><span class="line">hexo generate #生成静态页面至public目录</span><br><span class="line">hexo server #开启预览访问端口（默认端口4000，&apos;ctrl + c&apos;关闭server）</span><br><span class="line">hexo deploy #部署到GitHub</span><br><span class="line">hexo help  # 查看帮助</span><br><span class="line">hexo version  #查看Hexo的版本</span><br></pre></td></tr></table></figure>
+        .switchbutton {
+  text-decoration: none;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  background: #dfdfdf;
+  border: 1px solid #dfdfdf;
+  -moz-border-radius: 4px 4px 4px 4px;
+  -webkit-border-radius: 4px 4px 4px 4px;
+  border-radius: 4px 4px 4px 4px;
+}
+.switchbutton-inner {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  top: -1px;
+  left: -1px;
+}
+.switchbutton-on,
+.switchbutton-off,
+.switchbutton-handle {
+  display: inline-block;
+  text-align: center;
+  height: 100%;
+  float: left;
+  font-size: 14px;
+  -moz-border-radius: 4px 4px 4px 4px;
+  -webkit-border-radius: 4px 4px 4px 4px;
+  border-radius: 4px 4px 4px 4px;
+}
+.switchbutton-on {
+  background: #eee;
+  color: #39c;
+}
+.switchbutton-off {
+  background-color: #ffffff;
+  color: #404040;
+}
+.switchbutton-on,
+.switchbutton-reversed .switchbutton-off {
+  -moz-border-radius: 4px 0 0 4px;
+  -webkit-border-radius: 4px 0 0 4px;
+  border-radius: 4px 0 0 4px;
+}
+.switchbutton-off,
+.switchbutton-reversed .switchbutton-on {
+  -moz-border-radius: 0 4px 4px 0;
+  -webkit-border-radius: 0 4px 4px 0;
+  border-radius: 0 4px 4px 0;
+}
+.switchbutton-handle {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  background-color: #ffffff;
+  color: #404040;
+  border: 1px solid #dfdfdf;
+  -moz-box-shadow: 0 0 3px 0 #dfdfdf;
+  -webkit-box-shadow: 0 0 3px 0 #dfdfdf;
+  box-shadow: 0 0 3px 0 #dfdfdf;
+}
+.switchbutton-value {
+  position: absolute;
+  top: 0;
+  left: -5000px;
+}
+.switchbutton-disabled {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+.switchbutton-disabled,
+.switchbutton-readonly {
+  cursor: default;
+}
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/27/GitHub博客部署/" data-id="cjpayx2f1000bpcuqfmm0txf6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/material-teal/switchbutton/" data-id="cjtifrbc30072wguq14t9gfwu" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/material-teal/splitbutton" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/material-teal/splitbutton/" class="article-date">
+  <time datetime="2019-03-21T09:22:47.025Z" itemprop="datePublished">2019-03-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        .s-btn:hover .m-btn-line,
+.s-btn-active .m-btn-line,
+.s-btn-plain-active .m-btn-line {
+  display: inline-block;
+}
+.l-btn:hover .s-btn-downarrow,
+.s-btn-active .s-btn-downarrow,
+.s-btn-plain-active .s-btn-downarrow {
+  border-style: solid;
+  border-color: #ccc;
+  border-width: 0 0 0 1px;
+}
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/material-teal/splitbutton/" data-id="cjtifrbbz006ywguq21l2ve2t" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/material-teal/spinner" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/material-teal/spinner/" class="article-date">
+  <time datetime="2019-03-21T09:22:47.021Z" itemprop="datePublished">2019-03-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        .spinner-arrow {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  margin: 0;
+  padding: 0;
+  opacity: 1.0;
+  filter: alpha(opacity=100);
+  width: 18px;
+}
+.spinner-arrow.spinner-button-top,
+.spinner-arrow.spinner-button-bottom,
+.spinner-arrow.spinner-button-left,
+.spinner-arrow.spinner-button-right {
+  background-color: #fafafa;
+}
+.spinner-arrow-up,
+.spinner-arrow-down {
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  display: block;
+  font-size: 1px;
+  width: 18px;
+  height: 10px;
+  width: 100%;
+  height: 50%;
+  color: #404040;
+  outline-style: none;
+  background-color: #fafafa;
+}
+.spinner-button-updown {
+  opacity: 1.0;
+}
+.spinner-button-updown .spinner-button-top,
+.spinner-button-updown .spinner-button-bottom {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 50%;
+}
+.spinner-button-updown .spinner-arrow-up,
+.spinner-button-updown .spinner-arrow-down {
+  opacity: 1.0;
+  filter: alpha(opacity=100);
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  left: 50%;
+  margin-top: -8px;
+  margin-left: -8px;
+  position: absolute;
+}
+.spinner-button-updown .spinner-button-top,
+.spinner-button-updown .spinner-button-bottom {
+  cursor: pointer;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+.spinner-button-updown .spinner-button-top:hover,
+.spinner-button-updown .spinner-button-bottom:hover {
+  opacity: 1.0;
+  filter: alpha(opacity=100);
+}
+.spinner-button-updown .spinner-arrow-up,
+.spinner-button-updown .spinner-arrow-down,
+.spinner-button-updown .spinner-arrow-up:hover,
+.spinner-button-updown .spinner-arrow-down:hover {
+  background-color: transparent;
+}
+.spinner-arrow-hover {
+  background-color: #eee;
+  opacity: 1.0;
+  filter: alpha(opacity=100);
+}
+.spinner-button-top:hover,
+.spinner-button-bottom:hover,
+.spinner-button-left:hover,
+.spinner-button-right:hover,
+.spinner-arrow-up:hover,
+.spinner-arrow-down:hover {
+  opacity: 1.0;
+  filter: alpha(opacity=100);
+  background-color: #eee;
+}
+.textbox-disabled .spinner-button-top:hover,
+.textbox-disabled .spinner-button-bottom:hover,
+.textbox-disabled .spinner-button-left:hover,
+.textbox-disabled .spinner-button-right:hover,
+.textbox-icon-disabled .spinner-arrow-up:hover,
+.textbox-icon-disabled .spinner-arrow-down:hover {
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  background-color: #fafafa;
+  cursor: default;
+}
+.spinner .textbox-icon-disabled {
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+.spinner-arrow-up {
+  background: url('images/spinner_arrows.png') no-repeat 1px center;
+  background-color: #fafafa;
+}
+.spinner-arrow-down {
+  background: url('images/spinner_arrows.png') no-repeat -15px center;
+  background-color: #fafafa;
+}
+.spinner-button-up {
+  background: url('images/spinner_arrows.png') no-repeat -32px center;
+}
+.spinner-button-down {
+  background: url('images/spinner_arrows.png') no-repeat -48px center;
+}
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/material-teal/spinner/" data-id="cjtifrbby006xwguqy5kholc8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -454,7 +1556,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
+    <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/35/">35</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -487,7 +1589,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
   </div>
 
@@ -500,23 +1602,23 @@
       <ul>
         
           <li>
-            <a href="/2018/09/30/权限系统/">权限系统</a>
+            <a href="/2019/03/22/CSS入门及提高/example/25 使用双伪元素清除浮动/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/08/16/CSS-Web高级程序设计/">CSS-Web高级程序设计</a>
+            <a href="/2019/03/22/CSS入门及提高/example/24 通栏平均分布布局/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/08/11/Web前端开发环境搭建/">Web前端开发环境搭建</a>
+            <a href="/2019/03/22/CSS入门及提高/example/23 两列左窄右宽布局/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/08/09/JQuery源码解读/">JQuery源码解读</a>
+            <a href="/2019/03/22/CSS入门及提高/example/22 横向布局/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/08/08/Emmet语法/">Emmet语法</a>
+            <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/window/">(no title)</a>
           </li>
         
       </ul>
@@ -531,7 +1633,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2018 John Doe<br>
+      &copy; 2019 John Doe<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

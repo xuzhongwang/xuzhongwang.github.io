@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="*{ 	box-sizing: border-box; } .m-toolbar{ 	position: relative; 	text-align: center; 	min-height: 34px; } .m-toolbar .m-title{ 	line-height: 34px; 	font-size: 16px; 	font-weight: bold; 	text-align: cen">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/mobile/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="*{ 	box-sizing: border-box; } .m-toolbar{ 	position: relative; 	text-align: center; 	min-height: 34px; } .m-toolbar .m-title{ 	line-height: 34px; 	font-size: 16px; 	font-weight: bold; 	text-align: cen">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-05-21T08:43:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="*{ 	box-sizing: border-box; } .m-toolbar{ 	position: relative; 	text-align: center; 	min-height: 34px; } .m-toolbar .m-title{ 	line-height: 34px; 	font-size: 16px; 	font-weight: bold; 	text-align: cen">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/mobile" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/mobile/" class="article-date">
+  <time datetime="2019-03-21T09:22:45.310Z" itemprop="datePublished">2019-03-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        *{
+	box-sizing: border-box;
+}
+.m-toolbar{
+	position: relative;
+	text-align: center;
+	min-height: 34px;
+}
+.m-toolbar .m-title{
+	line-height: 34px;
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+}
+.m-left{
+	position: absolute;
+	height: 100%;
+	vertical-align: middle;
+	top:0;
+	left:0;
+	z-index: 1;
+}
+.m-right{
+	position: absolute;
+	height: 100%;
+	vertical-align: middle;
+	top:0;
+	right:0;
+	z-index: 1;
+}
+.m-left>.l-btn,.m-right>.l-btn,
+.m-left>.switchbutton,.m-right>.switchbutton{
+	position: relative;
+	vertical-align: top;
+	top: 50%;
+	margin-top: -15px;
+}
+.m-back::before,.m-next::after{
+	display: inline-block;
+	box-sizing: border-box;
+	vertical-align: top;
+	border-style: solid;
+	-webkit-transform:rotate(45deg);
+	transform:rotate(45deg);
+	width: 12px;
+	height: 12px;
+	content: '';
+	position: absolute;
+	top: 50%;
+	margin-top: -6px;
+}
+.m-back::before{
+	border-width: 0 0 1px 1px;
+	left: 8px;
+}
+.m-next::after{
+	border-width: 1px 1px 0 0;
+	right: 8px;
+}
+.m-back .l-btn-text{
+	padding-left: 12px;
+}
+.m-next .l-btn-text{
+	padding-right: 12px;
+}
+.m-buttongroup{
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	vertical-align: middle;
+}
+.m-buttongroup .l-btn{
+	float: left;
+	margin-left: -1px;
+}
+.m-buttongroup .l-btn:last-child::after{
+	content: '';
+	clear: both;
+}
+.m-buttongroup .l-btn:not(:first-child):not(:last-child){
+	border-radius: 0;
+}
+.m-buttongroup .l-btn:first-child{
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	margin-left: 0;
+}
+.m-buttongroup .l-btn:last-child{
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+.m-buttongroup-justified{
+	display: table;
+	table-layout: fixed;
+}
+.m-buttongroup-justified .l-btn{
+	float: none;
+	display: table-cell;
+}
+.m-badge:not(.l-btn),
+.l-btn.m-badge::after{
+	display: inline-block;
+	min-width: 10px;
+	line-height: 1;
+	font-size: 12px;
+	text-align: center;
+	white-space: nowrap;
+	border-radius: 10px;
+	padding: 2px 4px;
+	border-style: solid;
+	border-width: 0px;
+	background-color: #d9534f;
+	color: #fff;
+	z-index: 99999;
+}
+.l-btn.m-badge::after,
+.l-btn .m-badge{
+	position: absolute;
+	top: -10px;
+	right: -10px;
+}
+.tabs-inner .m-badge{
+	position: absolute;
+	top: 1px;
+	right: -10px;
+}
+.tabs-inner>.tabs-title>.m-badge{
+	top: 0;
+	right: 0;
+}
+.tabs-header-bottom .tabs-inner>.tabs-title>.m-badge{
+	top: auto;
+	bottom: 0;
+	right: 0;
+}
+.panel-footer .l-btn .l-btn-icon-top .m-badge,
+.panel-footer .l-btn .l-btn-icon-bottom .m-badge{
+	top: 0;
+	right: -10px;
+}
+.l-btn.m-badge::after{
+	content: attr(data-badge);
+}
+.l-btn,.l-btn-left{
+	overflow: visible;
+	position: relative;
+}
+
+.m-in{
+	-webkit-animation-timing-function: ease-out;
+	-webkit-animation-duration: 250ms;
+}
+.m-out{
+	-webkit-animation-timing-function: ease-in;
+	-webkit-animation-duration: 250ms;
+}
+.m-slide-left.m-in{
+	-webkit-animation-name: slideLeftIn;
+}
+.m-slide-left.m-out{
+	-webkit-animation-name: slideLeftOut;
+}
+.m-slide-right.m-in{
+	-webkit-animation-name: slideRightIn;
+}
+.m-slide-right.m-out{
+	-webkit-animation-name: slideRightOut;
+}
+.m-slide-up.m-in{
+	-webkit-animation-name: slideUpIn;
+}
+.m-slide-up.m-out{
+	-webkit-animation-name: slideUpOut;
+}
+.m-slide-down.m-in{
+	-webkit-animation-name: slideDownIn;
+}
+.m-slide-down.m-out{
+	-webkit-animation-name: slideDownOut;
+}
+
+@-webkit-keyframes slideLeftIn{
+	from {-webkit-transform: translateX(100%);}
+	to {-webkit-transform: translateX(0);}
+}
+@-webkit-keyframes slideLeftOut{
+	from {-webkit-transform: translateX(0);}
+	to {-webkit-transform: translateX(-100%);}
+}
+@-webkit-keyframes slideRightIn{
+	from {-webkit-transform: translateX(-100%);}
+	to {-webkit-transform: translateX(0);}
+}
+@-webkit-keyframes slideRightOut{
+	from {-webkit-transform: translateX(0);}
+	to {-webkit-transform: translateX(100%);}
+}
+@-webkit-keyframes slideUpIn{
+	from {-webkit-transform: translateY(100%);}
+	to {-webkit-transform: translateY(0);}
+}
+@-webkit-keyframes slideUpOut{
+	from {-webkit-transform: translateY(0);}
+	to {-webkit-transform: translateY(-100%);}
+}
+@-webkit-keyframes slideDownIn{
+	from {-webkit-transform: translateY(-100%);}
+	to {-webkit-transform: translateY(0);}
+}
+@-webkit-keyframes slideDownOut{
+	from {-webkit-transform: translateY(0);}
+	to {-webkit-transform: translateY(100%);}
+}
+
+.m-fade.m-in{
+	-webkit-animation-name: fadeIn;
+}
+.m-fade.m-out{
+	-webkit-animation-name: fadeOut;
+}
+
+@-webkit-keyframes fadeIn{
+	from {opacity: 0;}
+	to {opacity: 1}
+}
+@-webkit-keyframes fadeOut{
+	from {opacity: 1;}
+	to {opacity: 0;}
+}
+
+.m-pop.m-in{
+	-webkit-animation-name: popIn;
+}
+.m-pop.m-out{
+	-webkit-animation-name: popOut;
+}
+@-webkit-keyframes popIn{
+	from {
+		opacity: 0;
+		-webkit-transform: scale(.2);
+	}
+	to {
+		opacity: 1;
+		-webkit-transform: scale(1);
+	}
+}
+@-webkit-keyframes popOut{
+	from {
+		opacity: 1;
+		-webkit-transform: scale(1);
+	}
+	to {
+		opacity: 0;
+		-webkit-transform: scale(0);
+	}
+}
+
+.navpanel{
+	position: absolute;
+}
+.textbox .textbox-text{
+	padding: 0 4px;
+	height: 30px;
+	line-height: 30px;
+}
+.calendar-header,.calendar-title{
+	height: 30px;
+}
+.calendar-title span{
+	height: 30px;
+	line-height: 30px
+}
+.datebox-button{
+	height: 24px;
+}
+.datebox-button a{
+	line-height: 24px;
+}
+.tree-node{
+	box-sizing: border-box;
+	height: 32px;
+	padding: 3px 0;
+}
+
+.panel-title{
+	height: 26px;
+	line-height: 26px;
+}
+.window{
+	padding: 5px 0 0 0;
+}
+.window-shadow{
+	-moz-box-shadow: 0 0 30px 0 #D3D3D3;
+	-webkit-box-shadow: 0 0 30px 0 #D3D3D3;
+	box-shadow: 0 0 30px 0 #D3D3D3;	
+}
+.window-header .panel-title{
+	height: 26px;
+	line-height: 26px;
+	text-align: center;
+}
+.window-header .panel-tool{
+	display: none;
+}
+.window .window-body{
+	border: 0;
+}
+.dialog-button{
+	border-color: transparent;
+	overflow: hidden;
+}
+.dialog-button .l-btn{
+	margin: 0;
+}
+
+.tabs-justified,
+.tabs-justified .l-btn,
+.tabs-justified li a.tabs-inner,
+.tabs-justified li.tabs-selected a.tabs-inner,
+.tabs-header-bottom .tabs-justified li.tabs-selected a.tabs-inner,
+.tabs-header-bottom .tabs-justified li a.tabs-inner{
+	-moz-border-radius:0;
+	-webkit-border-radius:0;
+	border-radius:0;
+}
+
+.datagrid-row,.datagrid-header-row{
+	height: 32px;
+}
+.datalist .datagrid-group-title,
+.m-list .m-list-group{
+	padding: 0 10px;
+}
+.datalist .datagrid-cell,
+.m-list li{
+	padding: 10px;
+}
+.m-list li .m-right{
+	right: 10px;
+}
+.datalist .datalist-link,
+.m-list li>a{
+	margin: -10px;
+	padding: 10px;
+	padding-right: 24px;
+}
+.m-list li>a .m-right{
+	right: 24px;
+}
+.datalist .datalist-link::after,
+.m-list li>a::after{
+	right: 12px;
+}
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/mobile/" data-id="cjtifr9vp0027wguqiiko4wo7" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/vue/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/icon/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/03/22/CSS入门及提高/example/25 使用双伪元素清除浮动/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/22/CSS入门及提高/example/24 通栏平均分布布局/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/22/CSS入门及提高/example/23 两列左窄右宽布局/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/22/CSS入门及提高/example/22 横向布局/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/window/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -62,10 +62,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-CLR via C#学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/tabs" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/07/05/CLR via C#学习笔记/" class="article-date">
-  <time datetime="2018-07-05T00:49:53.470Z" itemprop="datePublished">2018-07-05</time>
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/tabs/" class="article-date">
+  <time datetime="2019-03-21T09:22:47.256Z" itemprop="datePublished">2019-03-21</time>
 </a>
     
   </div>
@@ -74,16 +74,388 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="什么是CLR"><a href="#什么是CLR" class="headerlink" title="什么是CLR"></a>什么是CLR</h2><p>是一种可由多种编程语言共同使用的运行时。</p>
-<h2 id="CLR的核心功能"><a href="#CLR的核心功能" class="headerlink" title="CLR的核心功能"></a>CLR的核心功能</h2><p>内存管理、程序集加载、安全性、异常处理和线程同步</p>
-<h2 id="程序集"><a href="#程序集" class="headerlink" title="程序集"></a>程序集</h2><p>程序集是一个或多个模块\资源文件的逻辑性分组<br>程序集是重用、安全性以及版本控制的最小单元</p>
-<h2 id="IL的最大优势"><a href="#IL的最大优势" class="headerlink" title="IL的最大优势"></a>IL的最大优势</h2><p>IL的最大优势并不在于它对底层CPU的抽象。而在于其提供的应用程序的健壮性和安全性。</p>
-<h2 id="unsafe关键字"><a href="#unsafe关键字" class="headerlink" title="unsafe关键字"></a>unsafe关键字</h2><p>C#编译器要求包含不安全代码的所有方法都用unsafe关键字标记。</p>
-<h1 id="本地代码生成器：NGen-exe"><a href="#本地代码生成器：NGen-exe" class="headerlink" title="本地代码生成器：NGen.exe"></a>本地代码生成器：NGen.exe</h1>
+        .tabs-container {
+  overflow: hidden;
+}
+.tabs-header {
+  border-width: 1px;
+  border-style: solid;
+  border-bottom-width: 0;
+  position: relative;
+  padding: 0;
+  padding-top: 2px;
+  overflow: hidden;
+}
+.tabs-scroller-left,
+.tabs-scroller-right {
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  width: 18px;
+  font-size: 1px;
+  display: none;
+  cursor: pointer;
+  border-width: 1px;
+  border-style: solid;
+}
+.tabs-scroller-left {
+  left: 0;
+}
+.tabs-scroller-right {
+  right: 0;
+}
+.tabs-tool {
+  position: absolute;
+  bottom: 0;
+  padding: 1px;
+  overflow: hidden;
+  border-width: 1px;
+  border-style: solid;
+}
+.tabs-header-plain .tabs-tool {
+  padding: 0 1px;
+}
+.tabs-wrap {
+  position: relative;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.tabs-scrolling {
+  margin-left: 18px;
+  margin-right: 18px;
+}
+.tabs-disabled {
+  opacity: 0.3;
+  filter: alpha(opacity=30);
+}
+.tabs {
+  list-style-type: none;
+  height: 26px;
+  margin: 0px;
+  padding: 0px;
+  padding-left: 4px;
+  width: 50000px;
+  border-style: solid;
+  border-width: 0 0 1px 0;
+}
+.tabs li {
+  float: left;
+  display: inline-block;
+  margin: 0 4px -1px 0;
+  padding: 0;
+  position: relative;
+  border: 0;
+}
+.tabs li a.tabs-inner {
+  display: inline-block;
+  text-decoration: none;
+  margin: 0;
+  padding: 0 10px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  white-space: nowrap;
+  border-width: 1px;
+  border-style: solid;
+  -moz-border-radius: 0px 0px 0 0;
+  -webkit-border-radius: 0px 0px 0 0;
+  border-radius: 0px 0px 0 0;
+}
+.tabs li.tabs-selected a.tabs-inner {
+  font-weight: bold;
+  outline: none;
+}
+.tabs li.tabs-selected a:hover.tabs-inner {
+  cursor: default;
+  pointer: default;
+}
+.tabs li a.tabs-close,
+.tabs-p-tool {
+  position: absolute;
+  font-size: 1px;
+  display: block;
+  height: 12px;
+  padding: 0;
+  top: 50%;
+  margin-top: -6px;
+  overflow: hidden;
+}
+.tabs li a.tabs-close {
+  width: 12px;
+  right: 5px;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+.tabs-p-tool {
+  right: 16px;
+}
+.tabs-p-tool a {
+  display: inline-block;
+  font-size: 1px;
+  width: 12px;
+  height: 12px;
+  margin: 0;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+.tabs li a:hover.tabs-close,
+.tabs-p-tool a:hover {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  cursor: hand;
+  cursor: pointer;
+}
+.tabs-with-icon {
+  padding-left: 18px;
+}
+.tabs-icon {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 10px;
+  top: 50%;
+  margin-top: -8px;
+}
+.tabs-title {
+  font-size: 14px;
+}
+.tabs-closable {
+  padding-right: 8px;
+}
+.tabs-panels {
+  margin: 0px;
+  padding: 0px;
+  border-width: 1px;
+  border-style: solid;
+  border-top-width: 0;
+  overflow: hidden;
+}
+.tabs-header-bottom {
+  border-width: 0 1px 1px 1px;
+  padding: 0 0 2px 0;
+}
+.tabs-header-bottom .tabs {
+  border-width: 1px 0 0 0;
+}
+.tabs-header-bottom .tabs li {
+  margin: -1px 4px 0 0;
+}
+.tabs-header-bottom .tabs li a.tabs-inner {
+  -moz-border-radius: 0 0 0px 0px;
+  -webkit-border-radius: 0 0 0px 0px;
+  border-radius: 0 0 0px 0px;
+}
+.tabs-header-bottom .tabs-tool {
+  top: 0;
+}
+.tabs-header-bottom .tabs-scroller-left,
+.tabs-header-bottom .tabs-scroller-right {
+  top: 0;
+  bottom: auto;
+}
+.tabs-panels-top {
+  border-width: 1px 1px 0 1px;
+}
+.tabs-header-left {
+  float: left;
+  border-width: 1px 0 1px 1px;
+  padding: 0;
+}
+.tabs-header-right {
+  float: right;
+  border-width: 1px 1px 1px 0;
+  padding: 0;
+}
+.tabs-header-left .tabs-wrap,
+.tabs-header-right .tabs-wrap {
+  height: 100%;
+}
+.tabs-header-left .tabs {
+  height: 100%;
+  padding: 4px 0 0 2px;
+  border-width: 0 1px 0 0;
+}
+.tabs-header-right .tabs {
+  height: 100%;
+  padding: 4px 2px 0 0;
+  border-width: 0 0 0 1px;
+}
+.tabs-header-left .tabs li,
+.tabs-header-right .tabs li {
+  display: block;
+  width: 100%;
+  position: relative;
+}
+.tabs-header-left .tabs li {
+  left: auto;
+  right: 0;
+  margin: 0 -1px 4px 0;
+  float: right;
+}
+.tabs-header-right .tabs li {
+  left: 0;
+  right: auto;
+  margin: 0 0 4px -1px;
+  float: left;
+}
+.tabs-justified li a.tabs-inner {
+  padding-left: 0;
+  padding-right: 0;
+}
+.tabs-header-left .tabs li a.tabs-inner {
+  display: block;
+  text-align: left;
+  padding-left: 10px;
+  padding-right: 10px;
+  -moz-border-radius: 0px 0 0 0px;
+  -webkit-border-radius: 0px 0 0 0px;
+  border-radius: 0px 0 0 0px;
+}
+.tabs-header-right .tabs li a.tabs-inner {
+  display: block;
+  text-align: left;
+  padding-left: 10px;
+  padding-right: 10px;
+  -moz-border-radius: 0 0px 0px 0;
+  -webkit-border-radius: 0 0px 0px 0;
+  border-radius: 0 0px 0px 0;
+}
+.tabs-panels-right {
+  float: right;
+  border-width: 1px 1px 1px 0;
+}
+.tabs-panels-left {
+  float: left;
+  border-width: 1px 0 1px 1px;
+}
+.tabs-header-noborder,
+.tabs-panels-noborder {
+  border: 0px;
+}
+.tabs-header-plain {
+  border: 0px;
+  background: transparent;
+}
+.tabs-pill {
+  padding-bottom: 3px;
+}
+.tabs-header-bottom .tabs-pill {
+  padding-top: 3px;
+  padding-bottom: 0;
+}
+.tabs-header-left .tabs-pill {
+  padding-right: 3px;
+}
+.tabs-header-right .tabs-pill {
+  padding-left: 3px;
+}
+.tabs-header .tabs-pill li a.tabs-inner {
+  -moz-border-radius: 0px 0px 0px 0px;
+  -webkit-border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px;
+}
+.tabs-header-narrow,
+.tabs-header-narrow .tabs-narrow {
+  padding: 0;
+}
+.tabs-narrow li,
+.tabs-header-bottom .tabs-narrow li {
+  margin-left: 0;
+  margin-right: -1px;
+}
+.tabs-narrow li.tabs-last,
+.tabs-header-bottom .tabs-narrow li.tabs-last {
+  margin-right: 0;
+}
+.tabs-header-left .tabs-narrow,
+.tabs-header-right .tabs-narrow {
+  padding-top: 0;
+}
+.tabs-header-left .tabs-narrow li {
+  margin-bottom: -1px;
+  margin-right: -1px;
+}
+.tabs-header-left .tabs-narrow li.tabs-last,
+.tabs-header-right .tabs-narrow li.tabs-last {
+  margin-bottom: 0;
+}
+.tabs-header-right .tabs-narrow li {
+  margin-bottom: -1px;
+  margin-left: -1px;
+}
+.tabs-scroller-left {
+  background: #ffffff url('images/tabs_icons.png') no-repeat 1px center;
+}
+.tabs-scroller-right {
+  background: #ffffff url('images/tabs_icons.png') no-repeat -15px center;
+}
+.tabs li a.tabs-close {
+  background: url('images/tabs_icons.png') no-repeat -34px center;
+}
+.tabs li a.tabs-inner:hover {
+  background: #E6E6E6;
+  color: #444;
+  filter: none;
+}
+.tabs li.tabs-selected a.tabs-inner {
+  background-color: #fff;
+  color: #777;
+}
+.tabs li a.tabs-inner {
+  color: #777;
+  background-color: #ffffff;
+}
+.tabs-header,
+.tabs-tool {
+  background-color: #ffffff;
+}
+.tabs-header-plain {
+  background: transparent;
+}
+.tabs-header,
+.tabs-scroller-left,
+.tabs-scroller-right,
+.tabs-tool,
+.tabs,
+.tabs-panels,
+.tabs li a.tabs-inner,
+.tabs li.tabs-selected a.tabs-inner,
+.tabs-header-bottom .tabs li.tabs-selected a.tabs-inner,
+.tabs-header-left .tabs li.tabs-selected a.tabs-inner,
+.tabs-header-right .tabs li.tabs-selected a.tabs-inner {
+  border-color: #ddd;
+}
+.tabs-p-tool a:hover,
+.tabs li a:hover.tabs-close,
+.tabs-scroller-over {
+  background-color: #E6E6E6;
+}
+.tabs li.tabs-selected a.tabs-inner {
+  border-bottom: 1px solid #fff;
+}
+.tabs-header-bottom .tabs li.tabs-selected a.tabs-inner {
+  border-top: 1px solid #fff;
+}
+.tabs-header-left .tabs li.tabs-selected a.tabs-inner {
+  border-right: 1px solid #fff;
+}
+.tabs-header-right .tabs li.tabs-selected a.tabs-inner {
+  border-left: 1px solid #fff;
+}
+.tabs-header .tabs-pill li.tabs-selected a.tabs-inner {
+  background: #CCE6FF;
+  color: #000;
+  filter: none;
+  border-color: #ddd;
+}
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/05/CLR via C#学习笔记/" data-id="cjpayx2c70009pcuq2ma064mc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/tabs/" data-id="cjtifrbdp008twguqv4wzhqem" class="article-share-link">Share</a>
       
       
     </footer>
@@ -93,40 +465,100 @@
 
 
   
-    <article id="post-ModelUI for WPF" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/switchbutton" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/03/08/ModelUI for WPF/" class="article-date">
-  <time datetime="2018-03-08T00:53:36.000Z" itemprop="datePublished">2018-03-08</time>
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/switchbutton/" class="article-date">
+  <time datetime="2019-03-21T09:22:47.253Z" itemprop="datePublished">2019-03-21</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/08/ModelUI for WPF/">ModelUI for WPF</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="使用ModelUI"><a href="#使用ModelUI" class="headerlink" title="使用ModelUI"></a>使用ModelUI</h1><h2 id="首先获取相关dll"><a href="#首先获取相关dll" class="headerlink" title="首先获取相关dll"></a>首先获取相关dll</h2><p>[github地址]：<a href="https://github.com/firstfloorsoftware/mui" target="_blank" rel="noopener">https://github.com/firstfloorsoftware/mui</a></p>
-<h2 id="在项目中添加引用"><a href="#在项目中添加引用" class="headerlink" title="在项目中添加引用"></a>在项目中添加引用</h2><p>在目录FirstFloor.ModernUI\FirstFloor.ModernUI\bin\Debug下找到FirstFloor.ModernUI.dll,添加到你所需要的wpf项目中</p>
-<p>在项目的App.xaml中添加如下代码</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Application</span> <span class="attr">x:Class</span>=<span class="string">"SuperRecite.App"</span></span></span><br><span class="line"><span class="tag">             <span class="attr">xmlns</span>=<span class="string">"http://schemas.microsoft.com/winfx/2006/xaml/presentation"</span></span></span><br><span class="line"><span class="tag">             <span class="attr">xmlns:x</span>=<span class="string">"http://schemas.microsoft.com/winfx/2006/xaml"</span></span></span><br><span class="line"><span class="tag">             <span class="attr">xmlns:local</span>=<span class="string">"clr-namespace:SuperRecite"</span></span></span><br><span class="line"><span class="tag">             <span class="attr">StartupUri</span>=<span class="string">"MainWindow.xaml"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Application.Resources</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ResourceDictionary</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">ResourceDictionary.MergedDictionaries</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ResourceDictionary</span> <span class="attr">Source</span>=<span class="string">"/FirstFloor.ModernUI;component/Assets/ModernUI.xaml"</span> /&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ResourceDictionary</span> <span class="attr">Source</span>=<span class="string">"/FirstFloor.ModernUI;component/Assets/ModernUI.Light.xaml"</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">ResourceDictionary.MergedDictionaries</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ResourceDictionary</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Application.Resources</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Application</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>在项目的主页面中添加引用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xmlns:mui=&quot;http://firstfloorsoftware.com/ModernUI&quot;</span><br></pre></td></tr></table></figure>
-<p> 主窗体后台改变继承的基类</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public partial class MainWindow : ModernWindow</span><br></pre></td></tr></table></figure>
+        .switchbutton {
+  text-decoration: none;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  background: #dddddd;
+  border: 1px solid #dddddd;
+  -moz-border-radius: 0px 0px 0px 0px;
+  -webkit-border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px;
+}
+.switchbutton-inner {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  top: -1px;
+  left: -1px;
+}
+.switchbutton-on,
+.switchbutton-off,
+.switchbutton-handle {
+  display: inline-block;
+  text-align: center;
+  height: 100%;
+  float: left;
+  font-size: 14px;
+  -moz-border-radius: 0px 0px 0px 0px;
+  -webkit-border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px;
+}
+.switchbutton-on {
+  background: #CCE6FF;
+  color: #000;
+}
+.switchbutton-off {
+  background-color: #fff;
+  color: #444;
+}
+.switchbutton-on,
+.switchbutton-reversed .switchbutton-off {
+  -moz-border-radius: 0px 0 0 0px;
+  -webkit-border-radius: 0px 0 0 0px;
+  border-radius: 0px 0 0 0px;
+}
+.switchbutton-off,
+.switchbutton-reversed .switchbutton-on {
+  -moz-border-radius: 0 0px 0px 0;
+  -webkit-border-radius: 0 0px 0px 0;
+  border-radius: 0 0px 0px 0;
+}
+.switchbutton-handle {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  background-color: #fff;
+  color: #444;
+  border: 1px solid #dddddd;
+  -moz-box-shadow: 0 0 3px 0 #dddddd;
+  -webkit-box-shadow: 0 0 3px 0 #dddddd;
+  box-shadow: 0 0 3px 0 #dddddd;
+}
+.switchbutton-value {
+  position: absolute;
+  top: 0;
+  left: -5000px;
+}
+.switchbutton-disabled {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+.switchbutton-disabled,
+.switchbutton-readonly {
+  cursor: default;
+}
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/08/ModelUI for WPF/" data-id="cjpayx2gb000spcuqhpft9h9v" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/switchbutton/" data-id="cjtifrbdq008vwguqsk8f5o2w" class="article-share-link">Share</a>
       
       
     </footer>
@@ -136,35 +568,35 @@
 
 
   
-    <article id="post-设计模式" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/splitbutton" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/03/04/设计模式/" class="article-date">
-  <time datetime="2018-03-04T15:26:58.000Z" itemprop="datePublished">2018-03-04</time>
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/splitbutton/" class="article-date">
+  <time datetime="2019-03-21T09:22:47.251Z" itemprop="datePublished">2019-03-21</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/04/设计模式/">设计模式</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="C-面向对象设计模式纵横谈"><a href="#C-面向对象设计模式纵横谈" class="headerlink" title="C# 面向对象设计模式纵横谈"></a>C# 面向对象设计模式纵横谈</h1><h2 id="设计模式与面向对象"><a href="#设计模式与面向对象" class="headerlink" title="设计模式与面向对象"></a>设计模式与面向对象</h2><p>所谓好的面向对象设计就是那些可以满足“应对变化，提高复用”的设计。</p>
-<p>源代码即设计。</p>
-<h2 id="职责链模式"><a href="#职责链模式" class="headerlink" title="职责链模式"></a>职责链模式</h2>
+        .s-btn:hover .m-btn-line,
+.s-btn-active .m-btn-line,
+.s-btn-plain-active .m-btn-line {
+  display: inline-block;
+}
+.l-btn:hover .s-btn-downarrow,
+.s-btn-active .s-btn-downarrow,
+.s-btn-plain-active .s-btn-downarrow {
+  border-style: solid;
+  border-color: #b3b3b3;
+  border-width: 0 0 0 1px;
+}
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/04/设计模式/" data-id="cjpayx2hp001apcuqut1xgrt4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/splitbutton/" data-id="cjtifrbdo008swguqit73ukji" class="article-share-link">Share</a>
       
       
     </footer>
@@ -174,203 +606,137 @@
 
 
   
-    <article id="post-T4模板" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/spinner" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/03/01/T4模板/" class="article-date">
-  <time datetime="2018-03-01T09:19:55.000Z" itemprop="datePublished">2018-03-01</time>
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/spinner/" class="article-date">
+  <time datetime="2019-03-21T09:22:47.247Z" itemprop="datePublished">2019-03-21</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/01/T4模板/">T4模板</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-T4基本语法"><a href="#1-T4基本语法" class="headerlink" title="1. T4基本语法"></a>1. T4基本语法</h1><p>T4语法主要包括三类：1指令 2文本块 3指令块</p>
-<h2 id="1-1-指令"><a href="#1-1-指令" class="headerlink" title="1.1. 指令"></a>1.1. 指令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;# 标准控制块 #&gt; 可以包含语句</span><br><span class="line">&lt;#= 表达式控制块 #&gt; 可以包含表达式</span><br><span class="line">&lt;#+ 类特征控制块 #&gt; 可以包含方法、属性和字段，就像一个类的内部</span><br></pre></td></tr></table></figure>
-<p>指令主要包括template, output, assembly, import, include等类型<br>在这里是指令T4语法以&lt;#开头结尾</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;#@ 指令 属性=“值”#&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="1-1-1-模板指令"><a href="#1-1-1-模板指令" class="headerlink" title="1.1.1. 模板指令"></a>1.1.1. 模板指令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;#@ template debug=&quot;false&quot; hostspecific=&quot;false&quot; language=&quot;C#&quot; #&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>language: 输出语言.</li>
-<li>debug: 是否启用调试.</li>
-<li>hostspecific:有效值true、false，默认为false。如果将此特性的值设置为 true，则会将名为 Host 的属性添加到由文本模板生成的类中。 该属性是对转换引擎的宿主的引用，并声明为Microsoft.VisualStudio.TextTemplating.ITextTemplatingEngineHost。</li>
-<li>inheirits:可以指定模板的程序代码可以继承自另一个类</li>
-</ul>
-<h2 id="1-2-输出指令"><a href="#1-2-输出指令" class="headerlink" title="1.2. 输出指令"></a>1.2. 输出指令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;#@ output extension=&quot;.cs&quot; #&gt;</span><br></pre></td></tr></table></figure>
-<p>生成文件的后缀名.</p>
-<h2 id="1-3-程序集指令"><a href="#1-3-程序集指令" class="headerlink" title="1.3. 程序集指令"></a>1.3. 程序集指令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;#@ assembly name=&apos;System&apos; #&gt;</span><br></pre></td></tr></table></figure>
-<p>告诉T4引擎编译运行时引用System程序集.</p>
-<ul>
-<li>$(SolutionDir):当前项目所在解决方案目录</li>
-<li>$(ProjectDir):当前项目所在目录</li>
-<li>$(TargetPath):当前项目编译输出文件绝对路径</li>
-<li>$(TargetDir):当前项目编译输出目录，即web项目的Bin目录，控制台、类库项目bin目录下的debug或release目录(取决于当前的编译模式)</li>
-</ul>
-<p>举个例子：比如我们在D盘根目录建立了一个控制台项目MyTest，解决方案目录为D:\Feng，项目目录为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">D:\Feng\MyTest，那么此时在Debug编译模式下</span><br><span class="line">$(SolutionDir)的值为D:\Feng</span><br><span class="line">$(ProjectDir)的值为D:\Feng\MyTest</span><br><span class="line">$(TargetPath)值为D:\Feng\MyTest\bin\Debug\MyTest.exe</span><br><span class="line">$(TargetDir)值为D:\Feng\MyTest\bin\Debug\</span><br></pre></td></tr></table></figure>
-<h3 id="1-3-1-导入指令"><a href="#1-3-1-导入指令" class="headerlink" title="1.3.1. 导入指令"></a>1.3.1. 导入指令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;#@ import namespace=&quot;System.Data&quot; #&gt;</span><br></pre></td></tr></table></figure>
-<p>告诉T4引擎编译运行时引用某个名称空间。在 Visual Studio T4 文本模板的代码块中，import 指令允许您在不提供完全限定名称的情况下引用另一个命名空间中的元素。 它等效于 C# 中的 using 或 Visual Basic 中的 imports。默认已经导入了System命名空间的引用。</p>
-<h3 id="1-3-2-包含指令"><a href="#1-3-2-包含指令" class="headerlink" title="1.3.2. 包含指令"></a>1.3.2. 包含指令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;#@ include file=&quot;Base.ttinclude&quot;#&gt;</span><br></pre></td></tr></table></figure>
-<p>运行时引用某个文件，类似于JS的引用。</p>
-<p>包含指令可以提高代码复用率，比如我们可以将一些常用的程序集、命名空间引用放到一个文件里，使用时仅需要引用下即可，省去了每次都要重新引用一遍的烦恼，如我们建立Reference.ttinclude文件，里面包含了我们平时常用的程序集引用。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;#@ assembly name=&quot;System.Core.dll&quot; #&gt;</span><br><span class="line">&lt;#@ assembly name=&quot;System.Data.dll&quot; #&gt;</span><br><span class="line">&lt;#@ assembly name=&quot;System.Data.DataSetExtensions.dll&quot; #&gt;</span><br><span class="line">&lt;#@ assembly name=&quot;System.Xml.dll&quot; #&gt;</span><br><span class="line">&lt;#@ import namespace=&quot;System&quot; #&gt;</span><br><span class="line">&lt;#@ import namespace=&quot;System.Xml&quot; #&gt;</span><br><span class="line">&lt;#@ import namespace=&quot;System.Linq&quot; #&gt;</span><br><span class="line">&lt;#@ import namespace=&quot;System.Data&quot; #&gt;</span><br><span class="line">&lt;#@ import namespace=&quot;System.Data.SqlClient&quot; #&gt;</span><br><span class="line">&lt;#@ import namespace=&quot;System.Collections.Generic&quot; #&gt;</span><br><span class="line">&lt;#@ import namespace=&quot;System.IO&quot; #&gt;</span><br></pre></td></tr></table></figure>
-<p>使用时只需要使用包含指令引用下即可</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;#@ include file=&quot;$(ProjectDir)Reference.ttinclude&quot;  #&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="1-3-3-参数指令"><a href="#1-3-3-参数指令" class="headerlink" title="1.3.3. 参数指令"></a>1.3.3. 参数指令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;#@ parameter type=&quot;string&quot; name=&quot;ParameterName&quot; #&gt;</span><br></pre></td></tr></table></figure>
-<p>顾名思义就是定义一个参数在其他的地方使用。</p>
-<h2 id="1-4-文本块"><a href="#1-4-文本块" class="headerlink" title="1.4. 文本块"></a>1.4. 文本块</h2><p>文本块直接向输出文件插入文本。</p>
-<h2 id="1-5-指令块"><a href="#1-5-指令块" class="headerlink" title="1.5. 指令块"></a>1.5. 指令块</h2><p>主要用于控制文本的输出。在控制块中可以写任意的C#代码</p>
+        .spinner-arrow {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  margin: 0;
+  padding: 0;
+  opacity: 1.0;
+  filter: alpha(opacity=100);
+  width: 18px;
+}
+.spinner-arrow.spinner-button-top,
+.spinner-arrow.spinner-button-bottom,
+.spinner-arrow.spinner-button-left,
+.spinner-arrow.spinner-button-right {
+  background-color: #ffffff;
+}
+.spinner-arrow-up,
+.spinner-arrow-down {
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  display: block;
+  font-size: 1px;
+  width: 18px;
+  height: 10px;
+  width: 100%;
+  height: 50%;
+  color: #777;
+  outline-style: none;
+  background-color: #ffffff;
+}
+.spinner-button-updown {
+  opacity: 1.0;
+}
+.spinner-button-updown .spinner-button-top,
+.spinner-button-updown .spinner-button-bottom {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 50%;
+}
+.spinner-button-updown .spinner-arrow-up,
+.spinner-button-updown .spinner-arrow-down {
+  opacity: 1.0;
+  filter: alpha(opacity=100);
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  left: 50%;
+  margin-top: -8px;
+  margin-left: -8px;
+  position: absolute;
+}
+.spinner-button-updown .spinner-button-top,
+.spinner-button-updown .spinner-button-bottom {
+  cursor: pointer;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+.spinner-button-updown .spinner-button-top:hover,
+.spinner-button-updown .spinner-button-bottom:hover {
+  opacity: 1.0;
+  filter: alpha(opacity=100);
+}
+.spinner-button-updown .spinner-arrow-up,
+.spinner-button-updown .spinner-arrow-down,
+.spinner-button-updown .spinner-arrow-up:hover,
+.spinner-button-updown .spinner-arrow-down:hover {
+  background-color: transparent;
+}
+.spinner-arrow-hover {
+  background-color: #E6E6E6;
+  opacity: 1.0;
+  filter: alpha(opacity=100);
+}
+.spinner-button-top:hover,
+.spinner-button-bottom:hover,
+.spinner-button-left:hover,
+.spinner-button-right:hover,
+.spinner-arrow-up:hover,
+.spinner-arrow-down:hover {
+  opacity: 1.0;
+  filter: alpha(opacity=100);
+  background-color: #E6E6E6;
+}
+.textbox-disabled .spinner-button-top:hover,
+.textbox-disabled .spinner-button-bottom:hover,
+.textbox-disabled .spinner-button-left:hover,
+.textbox-disabled .spinner-button-right:hover,
+.textbox-icon-disabled .spinner-arrow-up:hover,
+.textbox-icon-disabled .spinner-arrow-down:hover {
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  background-color: #ffffff;
+  cursor: default;
+}
+.spinner .textbox-icon-disabled {
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+.spinner-arrow-up {
+  background: url('images/spinner_arrows.png') no-repeat 1px center;
+  background-color: #ffffff;
+}
+.spinner-arrow-down {
+  background: url('images/spinner_arrows.png') no-repeat -15px center;
+  background-color: #ffffff;
+}
+.spinner-button-up {
+  background: url('images/spinner_arrows.png') no-repeat -32px center;
+}
+.spinner-button-down {
+  background: url('images/spinner_arrows.png') no-repeat -48px center;
+}
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/01/T4模板/" data-id="cjpayx2g7000rpcuqp3xgnbt2" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Access数据库" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/01/Access数据库/" class="article-date">
-  <time datetime="2018-03-01T05:28:22.000Z" itemprop="datePublished">2018-03-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/01/Access数据库/">Access总结</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Access字段属性"><a href="#Access字段属性" class="headerlink" title="Access字段属性"></a>Access字段属性</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">OleDbCommand command = new OleDbCommand(sql, Connection);</span><br><span class="line">OleDbDataReader reader = command.ExecuteReader();</span><br><span class="line">DataTable dt = new DataTable();</span><br><span class="line">dt = reader.GetSchemaTable();</span><br></pre></td></tr></table></figure>
-<p>下表是dt所包含的内容<br>| dt列名     | OLE DB 列 ID  | 说明                                                     |<br>| ———- | ————- | ——————————————————– |<br>| ColumnName | DBCOLUMN_NAME | 列的名称；它可能不唯一。如果无法确定该名称，则返回空值。此名称始终反映最近对当前视图或命令文本中的列进行的重命名|<br>|ColumnOrdinal|DBCOLUMN_NUMBER|列的序号。它对于行的书签列（如果有的话）为零。其他列从一开始编号。该列不能包含空值|<br>|ColumnSize|DBCOLUMN_COLUMNSIZE|列中值的最大可能长度。对于采用固定长度数据类型的列，它是该数据类型的大小|<br>|NumericPrecision|DBCOLUMN_PRECISION|如果 DbType 是数值数据类型，则它是列的最大精度。数据类型为 DBTYPE_DECIMAL 或 DBTYPE_NUMERIC 的列的精度取决于该列的定义。如果 DbType 不是数值数据类型，则它为空值|<br>|NumericScale|DBCOLUMN_SCALE|如果 DbType 是 DBTYPE_DECIMAL 或 DBTYPE_NUMERIC，则它是小数点右侧的位数。否则，它为空值|<br>|DataType|无|映射到列的 .NET Framework 类型。<br>|ProviderType|DBCOLUMN_TYPE|列的数据类型的指示符。如果不同行的列数据类型不同，则它必须为 DBTYPE_VARIANT。该列不能包含空值。<br>|IsLong|DBCOLUMNFLAGS_ISLONG|如果列中有包含非常长的数据的二进制长对象 (BLOB)，则提供程序设置 DBCOLUMNFLAGS_ISLONG。非常长的数据的定义针对于提供程序。此标志的设置对应于该数据类型的 PROVIDER_TYPES 行集合中 IS_LONG 列的值。<br>|AllowDBNull|DBCOLUMNFLAGS_ISNULLABLE|如果使用者可将列设置为空值，或者提供程序无法确定使用者是否可将列设置为空值，提供程序就会设置DBCOLUMNFLAGS_ISNULLABLE。即使列无法设置为空值，|它仍可能包含空值。<br>|IsReadOnly|DBCOLUMNFLAGS_WRITE|如果不能修改该列，则为 true；否则为 false。如果提供程序已经设置了 DBCOLUMNFLAGS_WRITE 或DBCOLUMNFLAGS_WRITEUNKNOWN 标志，则认为该列是可写的。<br>|IsRowVersion|DBCOLUMNFLAGS_ISROWID|如果列包含不能写入的持久性行标识符，并且该标识符除了标识行以外没有其他有意义的值，则提供程序设置 DBCOLUMNFLAGS_ISROWID。<br>|IsUnique|DBCOLUMN_ISUNIQUE|VARIANT_TRUE：在该列中，基表（返回到 BaseTableName 中的表）中的任意两行的值都不能相同。如果该列本身表示一个键，或者有一个只应用于该列的 UNIQUE 类型的约束，则 IsUnique保证为 VARIANT_TRUE。VARIANT_FALSE：该列包含基表中的重复值。此列的默认值为 VARIANT_FALSE。<br>|IsKey|DBCOLUMN_KEYCOLUMN|VARIANT_TRUE：该列属于行集中的列集，结合使用列集中的列可唯一标识行。IsKey 设置为 VARIANT_TRUE 的列集必须唯一标识行集中的行。不要求此列集是最小列集。这组列可以从基表主键、唯一约束或唯一索引生成。VARIANT_FALSE：不要求该列唯一标识行。<br>|IsAutoIncrement|DBCOLUMN_ISAUTOINCREMENT|VARIANT_TRUE：该列以固定的增量向新行赋值。VARIANT_FALSE：该列不会以固定增量为新行赋值。此列的默认值为 VARIANT_FALSE。<br>|BaseSchemaName|DBCOLUMN_BASESCHEMANAME|包含列的数据存储区中的架构的名称。如果无法确定基架构名称，则为空值。该列的默认值为空值。<br>|BaseCatalogName|DBCOLUMN_BASECATALOGNAME|包含列的数据存储区中的目录的名称。如果无法确定基目录名称，则为空值。该列的默认值为空值。<br>|BaseTableName|DBCOLUMN_BASETABLENAME|包含列的数据存储区中的表或视图的名称。如果无法确定基表名称，则为空值。该列的默认值为空值。<br>|BaseColumnName|DBCOLUMN_BASECOLUMNNAME|数据存储区中列的名称。如果使用别名，它可能不同于在ColumnName 列中返回的列名称。如果无法确定基列名称，或者如果行集合列从数据存储区中的列导出但不等于该列，则为空值。该列的默认值为空值。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/01/Access数据库/" data-id="cjpayx2ap0002pcuq2v7gdl54" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-千万别说你懂买房" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/02/28/千万别说你懂买房/" class="article-date">
-  <time datetime="2018-02-28T14:18:35.000Z" itemprop="datePublished">2018-02-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/28/千万别说你懂买房/">千万别说你懂买房</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="千万别说你懂买房-徐斌"><a href="#千万别说你懂买房-徐斌" class="headerlink" title="千万别说你懂买房 -徐斌"></a>千万别说你懂买房 -徐斌</h1><h2 id="买房准备之资格认定"><a href="#买房准备之资格认定" class="headerlink" title="买房准备之资格认定"></a>买房准备之资格认定</h2><p>买房的第一步，是要有购买资格。<br>认房，就是看包括你、你的丈夫（妻子）、未成年子女在内的家庭，在打算买房的这个城市里，有没有房屋登记系统或者合同网上备案系统里面的记录。所以在“认房”的情况下，在其他城市有房子是不会影响购房资格的。<br>认贷，就是看你在银行有没有贷款买房的记录。<br>房子的共有权人无论拥有多少份额，都视为有一套房，比如你和其他6个兄弟共同继承了一套房子，也算你有一套房。<br>•连续缴纳社保“或”个税，满足一项就可以。<br>•共有权人之间转让共有住房产权份额的，不需要购房资格核验。<br>赠与住房时，受赠方须具有购房资格才能接受赠与。<br>•继承住房时，继承人不需要进行购房资格核验。</p>
-<h2 id="买房准备之资金"><a href="#买房准备之资金" class="headerlink" title="买房准备之资金"></a>买房准备之资金</h2><p>定金是买房交的第一笔钱，是购房人支付给业主的。<br>法律规定定金的数额是有上限的，上限是总房款的20%。<br>不管是贷款买房还是全款买房，<br>过户前购房人都不用支付全部房款。首套房一般是首付30%，付50%、80%也都没问题。<br>银行贷款的还款方式有两种。<br>一种是等额本息还款：把住房抵押贷款的本金总额与利息总额相加，然后平均分摊到还款期限的每个月中。还款人每个月还给银行固定金额，但每月还款额中的本金比重逐月递增，利息比重逐月递减。<br>另一种是等额本金还款：将本金<br>分摊到每个月内，同时付清上一交易日至本次还款日之间的利息。这种还款方式与等额本息还款相比，总的利息支出较低，但是前期支付的本金和利息较多，还款负担逐月递减。<br>房屋租赁的中介费是半个月到一个月的房租；房屋买卖的中介费是总房款的2.5%，最高不超过3%。<br>二手房交易的税费，主要有三种：个人所得税、契税、增值税（营业税）。<br>除了这三种，还有城建税、印花税、土地增值税、教育费附加、综合地价款、土地出让金、土地收<br>益。其中，法律规定由购房人承担的只有契税、印花税和土地出让金。三个比较大的税种都有各自的免税政策。<br>二手房交易税费是必须在过户之前缴纳的。购房人根据网签合同的价格到地税缴税之后才能办理过户手续（地税缴税和过户是在两个地方），通常在过户当天（前一天）办理缴税。<br>契税通常是网签交易价格的1%—3%，<br>二手房交易环节也开始“营改增”。过去的营业税是<br>成交价的5.5%，增值税则是房屋增值部分——合同成交价和取得房屋的交易价格的价差的5%（具体征收标准见表4–3，表4–4）。<br>我们在买房的时候经常看到满五唯一、满二唯一、满五不唯一等描述，这其实是说这个房子是不是符合个人所得税、增值税的免税条件。<br>“满”，就是房产证下来了几年。“唯一”，就是业主只有这一套房子（一般是本省市内）。<br>增值税的免税条件就是满两年。<br>这个满几年是看房产证或契税完税凭证的时间，哪个早就按哪个算。如果中间重新办理过房产证——比如因为房主去世发生了继承、换发了新的产权证，就可能按照新的房产证重新计算时间。<br>个人所得税的免税政策原先是满五唯一，意思是房子要满五年，而且业主只有这一套房子，才能免税。所以满二免增值税，满五唯一免个人所得税。如果满二不满五，就算房子唯一也没有什么用。<br>个人所得税有两种计算方式，一种是合同成交价的1%（有的城市可能<br>比例不同），另外一种是交易差价的20%（如表4–5所示）。<br>实杨先生在签合同的时候加一句话就可以规避这个问题：过户时产生的税费由买方杨先生承担，但是以2万元为上限，超出部分由业主承担。</p>
-<h2 id="选房三步走"><a href="#选房三步走" class="headerlink" title="选房三步走"></a>选房三步走</h2><p>选房的第一步就是明确房子的性质，决定哪些类型的房子可以考虑，哪些坚决不碰。<br>法律上对房子的分类很简单，只有商品房和存量房两种，商品房就是一手房，存量房就是二手房。商品房采用期房预售制，购房人从开发商手里买房，存量房是购房人从业主手里买房。<br>房产证上面其实也有一些关于土地权利的内容，比如土地性质是划拨（白给）还是出让（买来的）。买二手房的时候需要注意这一点，因为不是说你买了房子，这个房子的产权就重新往后推70年。只有当房子原来的土地性质是划拨时，你买房之后补缴土地出让金，土地性质变成出让，房子才会从0开始用70年。如果你买房的时候土地性质就是出让，土地的70年产权是不会重新计算的。所以如果业主已经住了69年（实际上北京还没有这么老的房子），你再住1年就到期了。<br>房改房因为土地性质一般都是划拨，<br>这种房子的性质并不体现在法律里，也不体现在房产证上，而是体现在一些政策中，<br>央产房过户的前提条件是组织同意这套房子“上市”，而同意的标志是这套房子在位于蓝岛大厦的央产房管理中心备案。只有“蓝岛”给备案了，央产房才可以上市。<br>。房改房的土地性质都是划拨，也就是说当时并没有出钱买这块地，而是国家基于政策无偿供应了土地。这个土地性质会写在房产证里。<br>房产证上写着划拨，那么假设这房子要过户给你，你就要补缴土地出让金<br>法律上并没有小产权这个说法，它指代的一般是集体土地上的房子。<br>我们国家的土地分为国有土地和集体土地两种性质：国有土地就是由国家所有；集体土地就是由村集体所有。<br>集体土地只能在本集体成员内部流转，不可对外出售。用通俗的话说就是，农民的土地上盖的房子，居民（外村人）不能买。不能买包括以下三层意思。<br>买了房子不能过户。•双方签的买卖合同一般被认为是无效的。•卖家打个官司就可以把房子要回去。<br>一旦小产权房“转正”，引起的房价暴跌风险也不是闹着玩儿的。对政府来说，村集体手里这些集体土地是政府的土地储备，一旦让它们自由进入市场，不仅会影响现在的政府规划，也会间接导致城市的房价受到大量低价土地的冲击，无论是政府还是开发商都不愿意见到这种情况。另外，由于便宜的房子已经存在大量业主，强硬的拆违又容易引起社会问题，触犯另一批人的利益，所以目前这个问题可以说陷入了僵局。<br>经济适用房又分为经济适用房和按照经济适用房管理的商品房，后者多是体制内分房的产物。买房的时候你看一下房产证，是经济适用房的房子，房产证就写着经济适用房。经济适用房有的可以过户，有的不能过户。<br>我只能建议对这类房子感兴趣的读者，最好到政府过户大厅咨询一下自己考虑买的房子是不是“能过户的经济适用房”或“5年内（5年后）能过户的经济适用房”。如果不是，那么你买这个房子业主也是可以毁约的，依据是违反了《北京市经济适用房管理办法》。<br>也就是说，你买的房子到底是什么性质，要以房管局或者国土局的不动产登记簿的记载为准，也可以根据业主的房产证来确定。<br>如果是商品房，就可以直接交易过户。<br>如果是经济适用房，分成两种情况，一种是交易受到限制的，比如满5年才可以过户。一种是交易不受限制的，叫作按照经济适用房管理的住房，实际上就是商品房<br>抵债房，也叫顶账房，就是开发商资金链条断裂后，被债主拿在手里用于抵偿债务的房子。<br>虽然是抵债房，债主却不一定取得了房屋的产权。虽然开发商默认这个房子已经属于债主，但债主只是控制了这个房子，在法律上叫作占有。占有虽然也受到法律保护，但是和所有权比起来，要差一个档次。<br>计划经济时期，各单位分配的房子，由单位进行管理，叫作自管公房。城市里有不少老房子名义上被政府管理，实际上是由房管局管理的，叫作直管公房。公房被认为是一种属于承租人的财产——只不过难以流通。<br>这时就会涉及公房转为私房，叫作房改。或者公房改变承租人，叫作承租人变更。<br>公房的产权单位——房管局或者其他单位，作为房子的产权人，把原来和张三的租赁关系变更到李四名下，这就是公房的“过户手续”。看着和过户差不多，其实这并不是法律承认的交易形式。<br>按价格从低到高排序，小区可以分成如下几类：拆迁安置小区、老旧小区、单位小区、商住小区、新建商品房小区、高档商住小区、高档住宅小区、别墅小区。<br>。买房一定要先看房。我一般是先<br>用一天时间把所有的目标小区转一遍，然后再联系中介看房子。用两天时间走完问完，我在一个区域基本就是专家了，能确定我喜欢哪个小区。<br>一个住了10年的干净小区，一定比一个房龄只有1年的小区靠谱<br>怎么才能看出来小区物业好不好呢？有如下5个办法：•看小区有没有业委会•看小区楼道干净不干净•看小区电梯好用不好用（适用于房龄8年以上的小区）•看小区是不是谁都能进（安保是否严密）•去逛逛业主论坛，看有没有业主正在维权<br>地震的时候最先垮塌的都是形状奇怪的地方，比如飘窗，比如特别大的客厅。<br>房子结构分为砖混、钢混两种。<br>噪声和通风问题比较容易看出来，就是你把所有窗户都打开，听、感受，把窗户都关上，再听，要在每个房间尤其是卧室听。卖房的时候没有业主会跟你说房子通风不好、噪声太大、采光不好的，问他们没用，只有自己的感受最重要。有的人对噪声不敏感，有的人则对声音特别敏感。如果房子买了以后还有别人要住，或者你现在还不知道未来的对象是否对噪声敏感，那么你就尽量买个安静的房子。噪声问题是可以通过安装比较好的窗户来解决的。取暖问题也是一个考虑因素。屋子里头不暖和，到了冬天就不舒适。如果你买房的时候不是冬天，就只能靠这个小区其他邻居给你情报，看房子是看不出来的。楼层<br>没有产权证的房子尽量不要买，房产证上的名字必须和合同上的名字以及卖家身份证对得上。<br>解决办法就是拉产调（产权调查）。<br>购房人如果想要求稳妥，就把签约环节拆开，第一次只签一个定金合同支付定金，然后拉产调，之后第二次去签正式合同。<br>还有一个方案就是在签了正<br>式合同之后先交定金，拉产调，然后再支付首付，这是比较通行的做法。<br>来自微信读书</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/28/千万别说你懂买房/" data-id="cjpayx2gr0012pcuq60baf8x7" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-信息系统项目管理师" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/02/26/信息系统项目管理师/" class="article-date">
-  <time datetime="2018-02-26T07:30:28.000Z" itemprop="datePublished">2018-02-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/26/信息系统项目管理师/">信息系统项目管理师知识点</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="每日一练总结"><a href="#每日一练总结" class="headerlink" title="每日一练总结"></a>每日一练总结</h1><h2 id="RSA算法"><a href="#RSA算法" class="headerlink" title="RSA算法"></a>RSA算法</h2><ul>
-<li><p>一种非对称加密算法</p>
-</li>
-<li><p>算法的运行速度比DES慢</p>
-</li>
-<li><p>可用于某种数字签名方案</p>
-</li>
-<li><p>安全性主要基于素因子分解难度</p>
-</li>
-</ul>
-<h2 id="投资回收期"><a href="#投资回收期" class="headerlink" title="投资回收期"></a>投资回收期</h2><p>指项目投建之日起用项目所得的净收益偿还原始投资所需的年限。</p>
-<ul>
-<li>静态投资回收期</li>
-</ul>
-<p>不考虑资金占用成本(时间价值)回收其全部投资所需的时间。</p>
-<ul>
-<li>动态投资回收期 </li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/26/信息系统项目管理师/" data-id="cjpayx2gn0010pcuqaykkd7nx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/spinner/" data-id="cjtifrbdn008rwguqh9pdgc90" class="article-share-link">Share</a>
       
       
     </footer>
@@ -380,45 +746,124 @@
 
 
   
-    <article id="post-VSCode" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/slider" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/02/25/VSCode/" class="article-date">
-  <time datetime="2018-02-25T09:09:06.000Z" itemprop="datePublished">2018-02-25</time>
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/slider/" class="article-date">
+  <time datetime="2019-03-21T09:22:47.243Z" itemprop="datePublished">2019-03-21</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/25/VSCode/">VSCode</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-在VSCode中编辑MarkDown"><a href="#1-在VSCode中编辑MarkDown" class="headerlink" title="1. 在VSCode中编辑MarkDown"></a>1. 在VSCode中编辑MarkDown</h1><h2 id="1-1-使用命令"><a href="#1-1-使用命令" class="headerlink" title="1.1. 使用命令"></a>1.1. 使用命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl+shit+p</span><br></pre></td></tr></table></figure>
-<h2 id="1-2-标题自动编号"><a href="#1-2-标题自动编号" class="headerlink" title="1.2. 标题自动编号"></a>1.2. 标题自动编号</h2><ul>
-<li><p>安装markdown_index.</p>
-</li>
-<li><p>运行 &gt; markdown add index，即可自动添加序号</p>
-</li>
-</ul>
-<h1 id="visual-studio-code-中搭建-javascript-开发环境"><a href="#visual-studio-code-中搭建-javascript-开发环境" class="headerlink" title="visual studio code 中搭建 javascript 开发环境"></a>visual studio code 中搭建 javascript 开发环境</h1><h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><ul>
-<li>Code Runner</li>
-<li>Debugger for Chrome</li>
-</ul>
-<h2 id="添加配置文件"><a href="#添加配置文件" class="headerlink" title="添加配置文件"></a>添加配置文件</h2><p>在 launch.json 中添加配置如下</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"0.2.0"</span>,</span><br><span class="line">  <span class="attr">"configurations"</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">          <span class="attr">"name"</span>: <span class="string">"Launch Chrome and new instance of Chrome"</span>,</span><br><span class="line">          <span class="attr">"type"</span>: <span class="string">"chrome"</span>,</span><br><span class="line">          <span class="attr">"request"</span>: <span class="string">"launch"</span>,</span><br><span class="line">          <span class="attr">"url"</span>: <span class="string">"file:///C:/Users/xz/Desktop/test"</span>,</span><br><span class="line">          <span class="attr">"sourceMaps"</span>: <span class="literal">true</span>,</span><br><span class="line">          <span class="attr">"webRoot"</span>: <span class="string">"E:/apache-tomcat-8.0.21/webapps/Test"</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">          <span class="attr">"name"</span>: <span class="string">"Attach to Chrome"</span>,</span><br><span class="line">          <span class="attr">"type"</span>: <span class="string">"chrome"</span>,</span><br><span class="line">          <span class="attr">"request"</span>: <span class="string">"attach"</span>,</span><br><span class="line">          <span class="attr">"port"</span>: <span class="number">9222</span>,</span><br><span class="line">          <span class="attr">"sourceMaps"</span>: <span class="literal">true</span>,</span><br><span class="line">          <span class="attr">"webRoot"</span>: <span class="string">"$&#123;workspaceRoot&#125;"</span></span><br><span class="line">      &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        .slider-disabled {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+.slider-h {
+  height: 22px;
+}
+.slider-v {
+  width: 22px;
+}
+.slider-inner {
+  position: relative;
+  height: 6px;
+  top: 7px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 0px;
+}
+.slider-handle {
+  position: absolute;
+  display: block;
+  outline: none;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  margin-top: -10px;
+  margin-left: -10px;
+}
+.slider-tip {
+  position: absolute;
+  display: inline-block;
+  line-height: 12px;
+  font-size: 14px;
+  white-space: nowrap;
+  top: -22px;
+}
+.slider-rule {
+  position: relative;
+  top: 15px;
+}
+.slider-rule span {
+  position: absolute;
+  display: inline-block;
+  font-size: 0;
+  height: 5px;
+  border-width: 0 0 0 1px;
+  border-style: solid;
+}
+.slider-rulelabel {
+  position: relative;
+  top: 20px;
+}
+.slider-rulelabel span {
+  position: absolute;
+  display: inline-block;
+  font-size: 14px;
+}
+.slider-v .slider-inner {
+  width: 6px;
+  left: 7px;
+  top: 0;
+  float: left;
+}
+.slider-v .slider-handle {
+  left: 50%;
+  margin-top: -10px;
+}
+.slider-v .slider-tip {
+  left: -10px;
+  margin-top: -6px;
+}
+.slider-v .slider-rule {
+  float: left;
+  top: 0;
+  left: 16px;
+}
+.slider-v .slider-rule span {
+  width: 5px;
+  height: 'auto';
+  border-left: 0;
+  border-width: 1px 0 0 0;
+  border-style: solid;
+}
+.slider-v .slider-rulelabel {
+  float: left;
+  top: 0;
+  left: 23px;
+}
+.slider-handle {
+  background: url('images/slider_handle.png') no-repeat;
+}
+.slider-inner {
+  border-color: #ddd;
+  background: #ffffff;
+}
+.slider-rule span {
+  border-color: #ddd;
+}
+.slider-rulelabel span {
+  color: #444;
+}
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/25/VSCode/" data-id="cjpayx2gb000upcuqkkz176s1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/slider/" data-id="cjtifrbdm008qwguqudswyrlo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -428,101 +873,92 @@
 
 
   
-    <article id="post-Sublime使用" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/sidemenu" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/02/25/Sublime使用/" class="article-date">
-  <time datetime="2018-02-25T08:20:12.000Z" itemprop="datePublished">2018-02-25</time>
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/sidemenu/" class="article-date">
+  <time datetime="2019-03-21T09:22:47.241Z" itemprop="datePublished">2019-03-21</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/25/Sublime使用/">Sublime使用</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h1><p>Ctrl + H进行替换</p>
-<h1 id="安装-Package-Control"><a href="#安装-Package-Control" class="headerlink" title="安装 Package Control"></a>安装 Package Control</h1><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request,os,hashlib; h = '<span class="number">6</span>f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.<span class="built_in">replace</span>(' ', '%<span class="number">20</span>')).read(); dh = hashlib.sha256(by).hexdigest(); <span class="built_in">print</span>('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) <span class="keyword">if</span> dh != h <span class="keyword">else</span> open(os.<span class="built_in">path</span>.join( ipp, pf), 'wb' ).write(by)</span><br></pre></td></tr></table></figure>
-<h2 id="常用插件"><a href="#常用插件" class="headerlink" title="常用插件"></a>常用插件</h2><ul>
-<li>Emmet：前端开发必备，Write less , show more，使用Tab键触发。安装Emmet后，可以输入少量代码后摁Tab键，系统自动补全代码。</li>
-<li>AutoFileName：快速列出你想引用的文件夹里面所有文件的名字，比如想引用test/img/1.png。只需要输入/img,该插件就会自动提示/img下面的所有文件名，如图</li>
-<li>BracketHighlighter：高亮显示[], (), {}, “”, ”, &lt;tag&gt;&lt;/tag&gt;符号，便于查看起始和结束标记。</li>
-<li>ColorPicker:调色板，需要输入颜色时，可直接选取颜色。使用快捷键ctrl+shift+c即可打开调色板。需要注意的是，这个快捷键可能会打不开调色板，原因是该快捷键被占用了，最直接的解决办法是直接在Preferences→Key Bindings-User中配置：“{ “keys”: [“ctrl+shift+c”], “command”: “color_pick”},”</li>
-<li>JsFormat:JsForma可以自动帮助你格式化JavaScript代码，形成一种通用的格式，比如对压缩、空格、换行的js代码进行整理，使得js代码结构清晰，易于观看。在已压缩的JS文件中，右键选择jsFormat或者使用默认快捷键（Ctrl+Alt+F），如果该热键被占用了，可以在Preferences→Key Bindings-User中配置： { “keys”: [“ctrl+shift+alt+j”], “command”: “js_format”,”context”: [{“key”: “selector”, “operator”: “equal”, “operand”: “source.js,source.json”}]},</li>
-<li>DocBlockr:安装该插件后，可以快速生成各种注释格式，当需要生成注释符号时，输入/*、/然后回车系统即帮你自动生成，如果/后面刚好是一个函数的定义，注释格式会根据函数的参数生成。</li>
-<li><p>Sidebar Enhancements:sub侧栏右键文件提供的功能很少，但在实际开发中，文件通常会有各种处理请求，而该插件增强侧栏文件右键功能，比如可以直接右键将文件移入回收站，在浏览器中浏览，将文件复制到剪切板等。详情查看sidebar文档,安装该插件前，文件右键选项很少：安装插件后，文件右键选项大大增强：</p>
-<p>  我常用的两个功能是设置文件使用浏览器打开的快捷键F12和重命名F2，需要自己往Key-Bindings-User里面添加<br>{ “keys”: [“f12”], “command”: “side_bar_open_in_browser”,”args”:{“paths”:[], “type”:”testing”, “browser”:””}},<br>{ “keys”: [“f2”], “command”: “side_bar_rename”},</p>
-<ul>
-<li>Alignment:对定义的变量进行智能对齐,一般是“=”号对齐，默认的快捷键是Ctrl+Alt+A，但这个热键和QQ截屏的热键冲突不能使用，需要自己重新设置，我通常设置成Ctr+Alt+Shift+A，以下粘贴到Key-Bindings-User里面：</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="attr">"keys"</span>: [<span class="string">"ctrl+alt+shift+a"</span>], <span class="attr">"command"</span>: <span class="string">"alignment"</span> &#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>CSS Format:CSS Format可以将任意的 CSS、SASS、SCSS、LESS 代码格式化为展开、紧凑、压缩的形式，选中需要格式化的样式代码，右键选中CSS Format，选择需要形成的格式即可。</li>
-<li>Tag:Tag插件提供各种对Tag标签的操作，具有功能：根据/自动关闭HTML标签，标签自动缩进（或选中ctrl+alt+f），删除标签和里面的内容，插入标签（对光标字符“ctrl+shift+,”生成标签），删除标签里的属性，关闭标签，检查标签等。有些功能是自动执行，有些功能需要手动执行，功能入口 菜单栏Edit→<br>Tag。</li>
-<li><p>Trailing spaces:可以检测和一键删除代码的空格，保存时自动删除多余空格，让你的代码更加紧凑规范。功能入口：Edit→<br>Trailing Spaces→<br>Delete，也可以自己设置快捷键，我通常设置成ctrl+shift+alt+t，以下粘贴到Key-Bindings-User里面：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="attr">"keys"</span>: [<span class="string">"ctrl+shift+alt+t"</span>], <span class="attr">"command"</span>: <span class="string">"delete_trailing_spaces"</span> &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>ConvertToUTF8:通过本插件，您可以编辑并保存目前编码不被 Sublime Text 支持的文件，特别是中日韩用户使用的 GB2312，GBK，BIG5，EUC-KR，EUC-JP 等。可以通过 File→<br>Set File Encoding to 菜单对文件编码进行手工转换。例如，您可以打开一个 UTF-8 编码的文件，指定保存为 GBK，反之亦然。</p>
-</li>
-<li><p>HTML-CSS-JS Prettify:格式化HTML,CSS,javascript和Json代码格式。使用该插件，需要安装nodejs，而且要在Packages-Setting→<br>HTML/CSS/JS Prettify→<br>set node path中设置你node的安装路径。使用过程：Tools→<br>Command Palette(或者Ctrl+Shift+P)，输入选择htmlprettify即可完成整个文档的格式化。也可以设置快捷键：Packages-Setting→HTML/CSS/JS Prettify→set keyboard shortcuts，因为我的ctrl+shift+h已经被占用，所以我改成ctrl+shift+alt+h。</p>
-</li>
-<li><p>Terminal:打开文件的终端，终端默认是CMD。ctrl+shift+t 打开文件所在文件夹，ctrl+shift+alt+t 打开文件所在项目的根目录文件夹，可以自己重新配置快捷键。也可以右键open terminal here打开。</p>
-</li>
-</ul>
-<p>汇总一下前面介绍的插件：</p>
-<ul>
-<li>Alignment</li>
-<li>AutoFileName</li>
-<li>BracketHighlighter</li>
-<li>ColorPicker</li>
-<li>CSS Format</li>
-<li>DocBlockr</li>
-<li>Emmet</li>
-<li>JsFormat</li>
-<li>Sidebar Enhancements</li>
-<li>Tag</li>
-<li>Trailing Spaces</li>
-<li>ConvertToUTF8</li>
-<li>HTML-CSS-JS Prettify</li>
-<li>Terminal</li>
-</ul>
-<p>以及因为这些插件而重新设置的快捷键：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[html] view plain copy </span><br><span class="line">1.&#123; "keys": ["ctrl+alt+shift+a"], "command": "alignment" &#125;,  </span><br><span class="line">2.&#123; "keys": ["ctrl+shift+alt+f"], "command": "show_panel", "args": &#123;"panel": "find_in_files"&#125; &#125;,  </span><br><span class="line">3.&#123; "keys": ["ctrl+alt+u"], "command": "soft_undo" &#125;,  </span><br><span class="line">4.&#123; "keys": ["ctrl+shift+alt+t"], "command": "delete_trailing_spaces" &#125;,  </span><br><span class="line">5.&#123; "keys": ["f12"], "command": "side_bar_open_in_browser","args":&#123;"paths":[], "type":"testing", "browser":""&#125;&#125;,  </span><br><span class="line">6.&#123; "keys": ["alt+f12"], "command": "side_bar_open_in_browser","args":&#123;"paths":[], "type":"production", "browser":""&#125;&#125;,  </span><br><span class="line">7.&#123; "keys": ["ctrl+t"], "command": "side_bar_new_file2"&#125;,  </span><br><span class="line">8.&#123; "keys": ["f2"], "command": "side_bar_rename"&#125;,  </span><br><span class="line">9.&#123; "keys": ["ctrl+shift+c"], "command": "color_pick"&#125;,  </span><br><span class="line">10.&#123; "keys": ["ctrl+shift+alt+j"], "command": "js_format","context": [&#123;"key": "selector", "operator": "equal", "operand": "source.js,source.json"&#125;]&#125;,</span><br></pre></td></tr></table></figure>
-<p>还有很多插件需要根据你使用的库和框架自己去添加，比如jQuery、angular、node.js、less等，只要Ctr+Shift+p输入关键词即可找到你想安装的插件。</p>
-<p>sublimeCodeIntel</p>
-<p>js智能提示，超级好用</p>
-<p>因为快捷键过多，下面仅罗列一下比较常用的快捷键：</p>
-<p>1.操作<br>Ctrl + `： 打开Sublime Text控制台（Esc退出）<br>Ctrl+Shift+P：打开命令面板（Esc退出）<br>Ctrl + K, Ctrl + B： 组合键，显示或隐藏侧栏<br>Alt ：光标调到菜单栏，↑↓←→ 移动光标</p>
-<p>2.编辑<br>Ctr+Shift+D：复制粘贴光标所在行<br>Alt+.：关闭标签<br>Ctrl+/：用//注释当前行。<br>Ctrl+Shift+/：用/**/注释。<br>Ctrl + Enter： 在当前行下面新增一行然后跳至该行<br>Ctrl + Shift + Enter： 在当前行上面增加一行并跳至该行<br>Ctrl + ←/→： 进行逐词移动，<br>Ctrl + Shift + ←/→： 进行逐词选择<br>Ctrl + Shift + ↑/↓： 移动当前行（文件会被修改）<br>Ctrl+KK ：从光标处删除至行尾<br>Ctrl+K Backspace ：从光标处删除至行首<br>Ctrl+Z：撤销<br>Ctrl+Y：恢复撤销<br>Ctrl+J：合并行（已选择需要合并的多行时）<br>Ctrl + [： 选中内容向左缩进<br>Ctrl + ]： 选中内容向右缩进</p>
-<p>3.选择<br>Alt+F3：选中关键词后，选中所有相同的词。可以配合Ctrl+D使用。<br>Ctrl + D Ctrl + K Ctrl + U：Ctrl + D选择当前光标所在的词并高亮该词所有出现的位置，再次Ctrl + D，会选择该词出现的下一个位置。在多重选词的过程中，Ctrl + K会将当前选中的词进行跳过在多重选词的过程中，Ctrl + U进行回退<br>Ctrl+L ：选择光标所在整行<br>Ctrl+X：删除光标所在行<br>Ctrl + J： 把当前选中区域合并为一行<br>Ctrl+Shift+M：选中当前括号内容，重复可选着括号本身</p>
-<p>4.查找<br> （如果有窗口弹出都是Esc退出弹出窗口）<br>Ctr+p：输入@显示容器（css或者js里面）<br>Ctrl + F： 调出搜索框<br>Ctrl + H： 调出替换框进行替换<br>Ctrl + Shift + H： 输入替换内容后，替换当前关键字<br>Ctrl + Alt + Enter： 输入替换内容后，替换所有匹配关键字。(NOTE: 注意此时如果鼠标焦点在编辑窗口中，则替换失败，将鼠标焦点调到替换框中，Ctrl + Alt + Enter才会起作用)<br>Ctrl + Shift + F： 开启多文件搜索&amp;替换<br>Alt + C： 切换大小写敏感（Case-sensitive）模式<br>Alt + W： 切换整字匹配（Whole matching）模式<br>Alt + R： 切换正则匹配模式的开启/关闭</p>
-<p>5.跳转<br>Ctrl + P：列出当前打开的文件（或者是当前文件夹的文件），输入文件名然后 Enter 跳转至该文件，输入@symbol跳转到symbol符号所在的位置，输入#keyword跳转到keyword所在的位置，输入:n跳转到文件的第n行<br>Ctrl + R：列出当前文件中的符号（例如类名和函数名，但无法深入到变量名），输入符号名称 Enter 即可以跳转到该处。<br> 会列出Markdown文件的大纲<br>F12： 快速跳转到当前光标所在符号的定义处（Jump to Definition）。比如当前光标所在为一个函数调用，F12会跳转至该函数的定义处。<br>Ctrl + G： 输入行号以跳转到指定行<br>Ctrl+M：跳转到括号另一半。</p>
-<p>6.窗口和Tab页<br>Ctrl + N： 在当前窗口创建一个新标签<br>Ctrl + Shift + N： 创建一个新窗口（该快捷键 和搜狗输入法快捷键冲突）<br>Ctrl + W： 关闭标签页，如果没有标签页了，则关闭该窗口<br>Ctrl+Shift+W：关闭所有打开文件<br>Ctrl + Shift + T： 恢复刚刚关闭的标签。<br>Ctrl +Tag：移动标签。</p>
-<p>7.屏幕<br>F11： 切换普通全屏<br>Shift + F11： 切换无干扰全屏<br>Alt + Shift + 2： 进行左右分屏<br>Alt + Shift + 8进行上下分屏<br>Alt + Shift + 5进行上下左右分屏（即分为四屏）<br>Ctrl + 数字键： 跳转到指定屏<br>Ctrl + Shift + 数字键： 将当前屏移动到指定屏</p>
-<h1 id="搭建-JavaScript-运行环境"><a href="#搭建-JavaScript-运行环境" class="headerlink" title="搭建 JavaScript 运行环境"></a>搭建 JavaScript 运行环境</h1><h2 id="安装-NodeJs"><a href="#安装-NodeJs" class="headerlink" title="安装 NodeJs"></a>安装 NodeJs</h2><h2 id="配置-sublime"><a href="#配置-sublime" class="headerlink" title="配置 sublime"></a>配置 sublime</h2><p><img src="/2018/02/25/Sublime使用/sbulime配置.png" alt="sbulime配置.png"></p>
-<p>添加如下代码</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   <span class="attr">"cmd"</span>: [<span class="string">"node"</span>,<span class="string">"$file"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/2018/02/25/Sublime使用/settinguser.png" alt="settinguser"></p>
-<p>添加如下配置</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="attr">"build_env"</span>: &#123;</span><br><span class="line">    <span class="attr">"PATH"</span>: <span class="string">"C:/Program Files/nodejs"</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>PATH的值是nodejs的安装路径。 </p>
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>新建一个文件，随便写一段JavaScript代码，按快捷键：<br>Ctrl + B<br>即可看到运行结果。</p>
+        .sidemenu .tree-hit {
+  background-image: none;
+}
+.sidemenu-default-icon {
+  background-image: none;
+  width: 0;
+}
+.sidemenu .accordion .accordion-header,
+.sidemenu .accordion .accordion-body {
+  border-bottom-color: transparent;
+  background: transparent;
+}
+.sidemenu .accordion .accordion-header {
+  color: #777;
+}
+.sidemenu .accordion-header .panel-title {
+  height: 30px;
+  line-height: 30px;
+  color: #777;
+}
+.sidemenu .accordion-header:hover {
+  background: #E6E6E6;
+  color: #777;
+}
+.sidemenu .tree-node-hover {
+  background: #E6E6E6;
+  color: #777;
+}
+.sidemenu .tree-node-selected {
+  border-right: 2px solid #99cdff;
+  color: #000;
+  background: #CCE6FF;
+}
+.sidemenu .tree-node {
+  height: 40px;
+}
+.sidemenu .tree-title {
+  margin: 11px 0;
+}
+.sidemenu .tree-node-nonleaf {
+  position: relative;
+}
+.sidemenu .tree-node-nonleaf::after {
+  display: inline-block;
+  content: '';
+  position: absolute;
+  top: 50%;
+  margin-top: -8px;
+  background: url('images/accordion_arrows.png') no-repeat 0 0;
+  width: 16px;
+  height: 16px;
+  right: 5px;
+}
+.sidemenu .tree-node-nonleaf-collapsed::after {
+  background: url('images/accordion_arrows.png') no-repeat -16px 0;
+}
+.sidemenu-collapsed .panel-icon {
+  left: 50%;
+  margin-left: -8px;
+}
+.sidemenu-tooltip {
+  padding: 0;
+  margin: 0 -12px;
+  border: 0;
+}
+.sidemenu-tooltip .tooltip-arrow-outer,
+.sidemenu-tooltip .tooltip-arrow {
+  display: none;
+}
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/25/Sublime使用/" data-id="cjpayx2gf000wpcuqovw70avq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/sidemenu/" data-id="cjtifrbdk008owguqfpnv2t3a" class="article-share-link">Share</a>
       
       
     </footer>
@@ -532,36 +968,247 @@
 
 
   
-    <article id="post-MarkDown使用" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/searchbox" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/02/25/MarkDown使用/" class="article-date">
-  <time datetime="2018-02-25T08:18:47.000Z" itemprop="datePublished">2018-02-25</time>
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/searchbox/" class="article-date">
+  <time datetime="2019-03-21T09:22:47.238Z" itemprop="datePublished">2019-03-21</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/25/MarkDown使用/">MarkDown使用</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-特殊符号"><a href="#1-特殊符号" class="headerlink" title="1. 特殊符号"></a>1. 特殊符号</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">符号  说明  对应编码(应用时去掉空格)   英文怎么说</span><br><span class="line">&amp;   AND 符号  &amp; amp;  ampersand</span><br><span class="line">&lt;   小于  &amp; lt;   little</span><br><span class="line">&gt;   大于  &amp; gt;   great</span><br><span class="line">空格  &amp; nbsp; number space</span><br><span class="line">¿   倒问号 &amp; iquest;   inverted question</span><br><span class="line">?   问号  &amp; quest;    question</span><br><span class="line">«   左书名号    &amp; laquo;    left angle quote</span><br><span class="line">»   右书名号    &amp; raquo;    right angle quote</span><br><span class="line">&quot;   引号  &amp; quot; quote</span><br><span class="line">‘   左单引号    &amp; lsquo;    left single quote</span><br><span class="line">’   右单引号    &amp; rsquo:    right single quote</span><br><span class="line">“   左双引号    &amp; ldquo:    left double quote</span><br><span class="line">”   右双引号    &amp; rdquo:    right double quote</span><br><span class="line">¶   段落符号    &amp; para; paragraph</span><br><span class="line">§   章节符 &amp; sect; section</span><br><span class="line">×   乘号  &amp; times;    times</span><br><span class="line">÷   除号  &amp; divide;   divide</span><br><span class="line">±   加减号 &amp; plusmn;   plus minus</span><br><span class="line">ƒ   function    &amp; fnof; 还没查到</span><br><span class="line">√   根号  &amp; radic;    radic</span><br><span class="line">∞   无穷大 &amp; infin;    infinite</span><br><span class="line">°   度   &amp; deg;  degree</span><br><span class="line">≠   不等号 &amp; ne;   ne</span><br><span class="line">≡   恒等于 &amp; equiv;    equivalent</span><br><span class="line">≤   小于等于    &amp; le;   less than or equal to</span><br><span class="line">≥   大于等于    &amp; ge;   great than or equal to</span><br><span class="line">⊥   垂直符号    &amp; perp; perpendicular</span><br><span class="line">←   左箭头 &amp; larr; left arrow</span><br><span class="line">→   右箭头 &amp; rarr; right arrow</span><br><span class="line">↑   上箭头 &amp; uarr; up arrow</span><br><span class="line">↓   下箭头 &amp; darr; down arrow</span><br><span class="line">↔   水平箭头    &amp; harr; horizontal arrow</span><br><span class="line">↕   竖直箭头    &amp; varr; vertical arrow</span><br><span class="line">⇐   双线左箭头   &amp; lArr; left arrow</span><br><span class="line">⇒   双线右箭头   &amp; rArr; right arrow</span><br><span class="line">⇑   双线上箭头   &amp; uArr; up arrow</span><br><span class="line">⇓   双线上箭头   &amp; dArr; down arrow</span><br><span class="line">⇔   双线水平双箭头 &amp; hArr; horizontal arrow</span><br><span class="line">⇕   双线竖直箭头  &amp; vArr; vertical arrow</span><br><span class="line">♠   黑桃  &amp; spades;   spades</span><br><span class="line">♥   红桃  &amp; hearts;   hearts</span><br><span class="line">♣   梅花  &amp; clubs;    club</span><br><span class="line">♦   方块  &amp; diams;    diamonds</span><br><span class="line">©   版权  &amp; copy; copy right</span><br><span class="line">®   注册商标    &amp; reg;  registration</span><br><span class="line">™   商标  &amp; trade;    trade</span><br><span class="line">¥   人民币 &amp; yen;</span><br><span class="line">€   欧元  &amp; euro; euro</span><br><span class="line">¢   美分  &amp; cent; cent</span><br><span class="line">£   英磅  &amp; pound;    pound</span><br><span class="line">⊕       &amp; oplus;    </span><br><span class="line">½   二分之一    &amp; frac12;   fraction</span><br><span class="line">¼   四分之一    &amp; frac14;   fraction</span><br><span class="line">‰   千分符号    &amp; permil;   per mille</span><br><span class="line">∴   所以  &amp; there4;   there fore</span><br><span class="line">π   圆周率 &amp; pi;</span><br><span class="line">¹   商标1 &amp; sup1; super 1</span><br><span class="line">α   alpha   &amp; alpha;    alpha</span><br><span class="line">β   beta    &amp; beta; beta</span><br><span class="line">γ   gamma   &amp; gamma;    gamma</span><br><span class="line">δ   delta   &amp; delta;    delta</span><br><span class="line">θ   theta   &amp; theta;    theta</span><br><span class="line">λ   lambda  &amp; lambda;   lambda</span><br><span class="line">σ   sigma   &amp; sigma;    sigma</span><br><span class="line">τ   tau &amp; tau;  tau</span><br></pre></td></tr></table></figure>
-<h1 id="增加链接"><a href="#增加链接" class="headerlink" title="增加链接"></a>增加链接</h1><p>[example link]<a href="https://xuzhongwang.github.io/" target="_blank" rel="noopener">https://xuzhongwang.github.io/</a></p>
-<h1 id="2-在VSCode中自动为markdown标题添加顺序"><a href="#2-在VSCode中自动为markdown标题添加顺序" class="headerlink" title="2. 在VSCode中自动为markdown标题添加顺序"></a>2. 在VSCode中自动为markdown标题添加顺序</h1><p>安装markdown_index，运行 &gt; markdown add index，即可自动添加序号<br>安装方法：<br>在vscode market搜索“markdown-index”即可安装</p>
+        .searchbox-button {
+  width: 18px;
+  height: 20px;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: top;
+  cursor: pointer;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+.searchbox-button-hover {
+  opacity: 1.0;
+  filter: alpha(opacity=100);
+}
+.searchbox .l-btn-plain {
+  border: 0;
+  padding: 0;
+  vertical-align: top;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  -moz-border-radius: 0 0 0 0;
+  -webkit-border-radius: 0 0 0 0;
+  border-radius: 0 0 0 0;
+}
+.searchbox .l-btn-plain:hover {
+  border: 0;
+  padding: 0;
+  opacity: 1.0;
+  filter: alpha(opacity=100);
+  -moz-border-radius: 0 0 0 0;
+  -webkit-border-radius: 0 0 0 0;
+  border-radius: 0 0 0 0;
+}
+.searchbox a.m-btn-plain-active {
+  -moz-border-radius: 0 0 0 0;
+  -webkit-border-radius: 0 0 0 0;
+  border-radius: 0 0 0 0;
+}
+.searchbox .m-btn-active {
+  border-width: 0 1px 0 0;
+  -moz-border-radius: 0 0 0 0;
+  -webkit-border-radius: 0 0 0 0;
+  border-radius: 0 0 0 0;
+}
+.searchbox .textbox-button-right {
+  border-width: 0 0 0 1px;
+}
+.searchbox .textbox-button-left {
+  border-width: 0 1px 0 0;
+}
+.searchbox-button {
+  background: url('images/searchbox_button.png') no-repeat center center;
+}
+.searchbox .l-btn-plain {
+  background: #ffffff;
+}
+.searchbox .l-btn-plain-disabled,
+.searchbox .l-btn-plain-disabled:hover {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/25/MarkDown使用/" data-id="cjpayx2fz000lpcuqszwieq63" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/searchbox/" data-id="cjtifrbdl008pwguq30vb134o" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/radiobutton" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/radiobutton/" class="article-date">
+  <time datetime="2019-03-21T09:22:47.236Z" itemprop="datePublished">2019-03-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        .radiobutton {
+  position: relative;
+  border: 2px solid #99cdff;
+  border-radius: 50%;
+}
+.radiobutton-inner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #99cdff;
+  border-radius: 50%;
+  transform: scale(.6);
+}
+.radiobutton-disabled {
+  opacity: 0.6;
+}
+.radiobutton-value {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  left: -999px;
+}
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/radiobutton/" data-id="cjtifrbdk008nwguqvppodorr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/propertygrid" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/propertygrid/" class="article-date">
+  <time datetime="2019-03-21T09:22:47.233Z" itemprop="datePublished">2019-03-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        .propertygrid .datagrid-view1 .datagrid-body td {
+  padding-bottom: 1px;
+  border-width: 0 1px 0 0;
+}
+.propertygrid .datagrid-group {
+  overflow: hidden;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+}
+.propertygrid .datagrid-group span {
+  font-weight: bold;
+}
+.propertygrid .datagrid-view1 .datagrid-body td {
+  border-color: #ddd;
+}
+.propertygrid .datagrid-view1 .datagrid-group {
+  border-color: #ffffff;
+}
+.propertygrid .datagrid-view2 .datagrid-group {
+  border-color: #ddd;
+}
+.propertygrid .datagrid-group,
+.propertygrid .datagrid-view1 .datagrid-body,
+.propertygrid .datagrid-view1 .datagrid-row-over,
+.propertygrid .datagrid-view1 .datagrid-row-selected {
+  background: #ffffff;
+}
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/propertygrid/" data-id="cjtifrbdj008mwguq6pbg71bn" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/progressbar" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/progressbar/" class="article-date">
+  <time datetime="2019-03-21T09:22:47.229Z" itemprop="datePublished">2019-03-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        .progressbar {
+  border-width: 1px;
+  border-style: solid;
+  -moz-border-radius: 0px 0px 0px 0px;
+  -webkit-border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px;
+  overflow: hidden;
+  position: relative;
+}
+.progressbar-text {
+  text-align: center;
+  position: absolute;
+}
+.progressbar-value {
+  position: relative;
+  overflow: hidden;
+  width: 0;
+  -moz-border-radius: 0px 0 0 0px;
+  -webkit-border-radius: 0px 0 0 0px;
+  border-radius: 0px 0 0 0px;
+}
+.progressbar {
+  border-color: #ddd;
+}
+.progressbar-text {
+  color: #444;
+  font-size: 14px;
+}
+.progressbar-value,
+.progressbar-value .progressbar-text {
+  background-color: #CCE6FF;
+  color: #000;
+}
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/progressbar/" data-id="cjtifrbdt008ywguqupqgsqqa" class="article-share-link">Share</a>
       
       
     </footer>
@@ -575,7 +1222,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/35/">35</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -608,7 +1255,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
   </div>
 
@@ -621,23 +1268,23 @@
       <ul>
         
           <li>
-            <a href="/2018/09/30/权限系统/">权限系统</a>
+            <a href="/2019/03/22/CSS入门及提高/example/25 使用双伪元素清除浮动/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/08/16/CSS-Web高级程序设计/">CSS-Web高级程序设计</a>
+            <a href="/2019/03/22/CSS入门及提高/example/24 通栏平均分布布局/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/08/11/Web前端开发环境搭建/">Web前端开发环境搭建</a>
+            <a href="/2019/03/22/CSS入门及提高/example/23 两列左窄右宽布局/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/08/09/JQuery源码解读/">JQuery源码解读</a>
+            <a href="/2019/03/22/CSS入门及提高/example/22 横向布局/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/08/08/Emmet语法/">Emmet语法</a>
+            <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/window/">(no title)</a>
           </li>
         
       </ul>
@@ -652,7 +1299,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2018 John Doe<br>
+      &copy; 2019 John Doe<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

@@ -62,34 +62,3404 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-通向财务自由" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/easyui" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/01/16/通向财务自由/" class="article-date">
-  <time datetime="2018-01-16T00:55:11.000Z" itemprop="datePublished">2018-01-16</time>
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/easyui/" class="article-date">
+  <time datetime="2019-03-21T09:22:47.191Z" itemprop="datePublished">2019-03-21</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/16/通向财务自由/">通向财务自由</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="第1章-圣杯传奇"><a href="#第1章-圣杯传奇" class="headerlink" title="第1章 圣杯传奇"></a>第1章 圣杯传奇</h1><p>踏着英雄的足迹，在我们以为会发现邪恶的地方，找到了上帝。在以为杀害他人的地方，我们杀害了自己。在以为走出去的地方，我们将回到自己存在的中心。在以为一切都完了的地方，我们却与整个世界在一起。</p>
+        .panel {
+  overflow: hidden;
+  text-align: left;
+  margin: 0;
+  border: 0;
+  -moz-border-radius: 0 0 0 0;
+  -webkit-border-radius: 0 0 0 0;
+  border-radius: 0 0 0 0;
+}
+.panel-header,
+.panel-body {
+  border-width: 1px;
+  border-style: solid;
+}
+.panel-header {
+  padding: 5px;
+  position: relative;
+}
+.panel-title {
+  background: url('images/blank.gif') no-repeat;
+}
+.panel-header-noborder {
+  border-width: 0 0 1px 0;
+}
+.panel-body {
+  overflow: auto;
+  border-top-width: 0;
+  padding: 0;
+}
+.panel-body-noheader {
+  border-top-width: 1px;
+}
+.panel-body-noborder {
+  border-width: 0px;
+}
+.panel-body-nobottom {
+  border-bottom-width: 0;
+}
+.panel-with-icon {
+  padding-left: 18px;
+}
+.panel-icon,
+.panel-tool {
+  position: absolute;
+  top: 50%;
+  margin-top: -8px;
+  height: 16px;
+  overflow: hidden;
+}
+.panel-icon {
+  left: 5px;
+  width: 16px;
+}
+.panel-tool {
+  right: 5px;
+  width: auto;
+}
+.panel-tool a {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  margin: 0 0 0 2px;
+  vertical-align: top;
+}
+.panel-tool a:hover {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  background-color: #E6E6E6;
+  -moz-border-radius: -2px -2px -2px -2px;
+  -webkit-border-radius: -2px -2px -2px -2px;
+  border-radius: -2px -2px -2px -2px;
+}
+.panel-loading {
+  padding: 11px 0px 10px 30px;
+}
+.panel-noscroll {
+  overflow: hidden;
+}
+.panel-fit,
+.panel-fit body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}
+.panel-loading {
+  background: url('images/loading.gif') no-repeat 10px 10px;
+}
+.panel-tool-close {
+  background: url('images/panel_tools.png') no-repeat -16px 0px;
+}
+.panel-tool-min {
+  background: url('images/panel_tools.png') no-repeat 0px 0px;
+}
+.panel-tool-max {
+  background: url('images/panel_tools.png') no-repeat 0px -16px;
+}
+.panel-tool-restore {
+  background: url('images/panel_tools.png') no-repeat -16px -16px;
+}
+.panel-tool-collapse {
+  background: url('images/panel_tools.png') no-repeat -32px 0;
+}
+.panel-tool-expand {
+  background: url('images/panel_tools.png') no-repeat -32px -16px;
+}
+.panel-header,
+.panel-body {
+  border-color: #ddd;
+}
+.panel-header {
+  background-color: #ffffff;
+}
+.panel-body {
+  background-color: #fff;
+  color: #444;
+  font-size: 14px;
+}
+.panel-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #777;
+  height: 20px;
+  line-height: 20px;
+}
+.panel-footer {
+  border: 1px solid #ddd;
+  overflow: hidden;
+  background: #fff;
+}
+.panel-footer-noborder {
+  border-width: 1px 0 0 0;
+}
+.panel-hleft,
+.panel-hright {
+  position: relative;
+}
+.panel-hleft>.panel-body,
+.panel-hright>.panel-body {
+  position: absolute;
+}
+.panel-hleft>.panel-header {
+  float: left;
+}
+.panel-hright>.panel-header {
+  float: right;
+}
+.panel-hleft>.panel-body {
+  border-top-width: 1px;
+  border-left-width: 0;
+}
+.panel-hright>.panel-body {
+  border-top-width: 1px;
+  border-right-width: 0;
+}
+.panel-hleft>.panel-body-nobottom {
+  border-bottom-width: 1px;
+  border-right-width: 0;
+}
+.panel-hright>.panel-body-nobottom {
+  border-bottom-width: 1px;
+  border-left-width: 0;
+}
+.panel-hleft>.panel-footer {
+  position: absolute;
+  right: 0;
+}
+.panel-hright>.panel-footer {
+  position: absolute;
+  left: 0;
+}
+.panel-hleft>.panel-header-noborder {
+  border-width: 0 1px 0 0;
+}
+.panel-hright>.panel-header-noborder {
+  border-width: 0 0 0 1px;
+}
+.panel-hleft>.panel-body-noborder {
+  border-width: 0;
+}
+.panel-hright>.panel-body-noborder {
+  border-width: 0;
+}
+.panel-hleft>.panel-body-noheader {
+  border-left-width: 1px;
+}
+.panel-hright>.panel-body-noheader {
+  border-right-width: 1px;
+}
+.panel-hleft>.panel-footer-noborder {
+  border-width: 0 0 0 1px;
+}
+.panel-hright>.panel-footer-noborder {
+  border-width: 0 1px 0 0;
+}
+.panel-hleft>.panel-header .panel-icon,
+.panel-hright>.panel-header .panel-icon {
+  margin-top: 0;
+  top: 5px;
+  left: 50%;
+  margin-left: -8px;
+}
+.panel-hleft>.panel-header .panel-title,
+.panel-hright>.panel-header .panel-title {
+  position: absolute;
+  min-width: 16px;
+  left: 25px;
+  top: 5px;
+  bottom: auto;
+  white-space: nowrap;
+  word-wrap: normal;
+  -webkit-transform: rotate(90deg);
+  -webkit-transform-origin: 0 0;
+  -moz-transform: rotate(90deg);
+  -moz-transform-origin: 0 0;
+  -o-transform: rotate(90deg);
+  -o-transform-origin: 0 0;
+  transform: rotate(90deg);
+  transform-origin: 0 0;
+}
+.panel-hleft>.panel-header .panel-title-up,
+.panel-hright>.panel-header .panel-title-up {
+  position: absolute;
+  min-width: 16px;
+  left: 21px;
+  top: auto;
+  bottom: 0px;
+  text-align: right;
+  white-space: nowrap;
+  word-wrap: normal;
+  -webkit-transform: rotate(-90deg);
+  -webkit-transform-origin: 0 0;
+  -moz-transform: rotate(-90deg);
+  -moz-transform-origin: 0 0;
+  -o-transform: rotate(-90deg);
+  -o-transform-origin: 0 0;
+  transform: rotate(-90deg);
+  transform-origin: 0 16px;
+}
+.panel-hleft>.panel-header .panel-with-icon.panel-title-up,
+.panel-hright>.panel-header .panel-with-icon.panel-title-up {
+  padding-left: 0;
+  padding-right: 18px;
+}
+.panel-hleft>.panel-header .panel-tool,
+.panel-hright>.panel-header .panel-tool {
+  top: auto;
+  bottom: 5px;
+  width: 16px;
+  height: auto;
+  left: 50%;
+  margin-left: -8px;
+  margin-top: 0;
+}
+.panel-hleft>.panel-header .panel-tool a,
+.panel-hright>.panel-header .panel-tool a {
+  margin: 2px 0 0 0;
+}
+.accordion {
+  overflow: hidden;
+  border-width: 1px;
+  border-style: solid;
+}
+.accordion .accordion-header {
+  border-width: 0 0 1px;
+  cursor: pointer;
+}
+.accordion .accordion-body {
+  border-width: 0 0 1px;
+}
+.accordion-noborder {
+  border-width: 0;
+}
+.accordion-noborder .accordion-header {
+  border-width: 0 0 1px;
+}
+.accordion-noborder .accordion-body {
+  border-width: 0 0 1px;
+}
+.accordion-collapse {
+  background: url('images/accordion_arrows.png') no-repeat 0 0;
+}
+.accordion-expand {
+  background: url('images/accordion_arrows.png') no-repeat -16px 0;
+}
+.accordion {
+  background: #fff;
+  border-color: #ddd;
+}
+.accordion .accordion-header {
+  background: #ffffff;
+  filter: none;
+}
+.accordion .accordion-header-selected {
+  background: #CCE6FF;
+}
+.accordion .accordion-header-selected .panel-title {
+  color: #000;
+}
+.accordion .panel-last > .accordion-header {
+  border-bottom-color: #ffffff;
+}
+.accordion .panel-last > .accordion-body {
+  border-bottom-color: #fff;
+}
+.accordion .panel-last > .accordion-header-selected,
+.accordion .panel-last > .accordion-header-border {
+  border-bottom-color: #ddd;
+}
+.accordion> .panel-hleft {
+  float: left;
+}
+.accordion> .panel-hleft>.panel-header {
+  border-width: 0 1px 0 0;
+}
+.accordion> .panel-hleft> .panel-body {
+  border-width: 0 1px 0 0;
+}
+.accordion> .panel-hleft.panel-last > .accordion-header {
+  border-right-color: #ffffff;
+}
+.accordion> .panel-hleft.panel-last > .accordion-body {
+  border-right-color: #fff;
+}
+.accordion> .panel-hleft.panel-last > .accordion-header-selected,
+.accordion> .panel-hleft.panel-last > .accordion-header-border {
+  border-right-color: #ddd;
+}
+.accordion> .panel-hright {
+  float: right;
+}
+.accordion> .panel-hright>.panel-header {
+  border-width: 0 0 0 1px;
+}
+.accordion> .panel-hright> .panel-body {
+  border-width: 0 0 0 1px;
+}
+.accordion> .panel-hright.panel-last > .accordion-header {
+  border-left-color: #ffffff;
+}
+.accordion> .panel-hright.panel-last > .accordion-body {
+  border-left-color: #fff;
+}
+.accordion> .panel-hright.panel-last > .accordion-header-selected,
+.accordion> .panel-hright.panel-last > .accordion-header-border {
+  border-left-color: #ddd;
+}
+.window {
+  overflow: hidden;
+  padding: 5px;
+  border-width: 1px;
+  border-style: solid;
+}
+.window .window-header {
+  background: transparent;
+  padding: 0px 0px 6px 0px;
+}
+.window .window-body {
+  border-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+}
+.window .window-body-noheader {
+  border-top-width: 1px;
+}
+.window .panel-body-nobottom {
+  border-bottom-width: 0;
+}
+.window .window-header .panel-icon,
+.window .window-header .panel-tool {
+  top: 50%;
+  margin-top: -11px;
+}
+.window .window-header .panel-icon {
+  left: 1px;
+}
+.window .window-header .panel-tool {
+  right: 1px;
+}
+.window .window-header .panel-with-icon {
+  padding-left: 18px;
+}
+.window-proxy {
+  position: absolute;
+  overflow: hidden;
+}
+.window-proxy-mask {
+  position: absolute;
+  filter: alpha(opacity=5);
+  opacity: 0.05;
+}
+.window-mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  filter: alpha(opacity=40);
+  opacity: 0.40;
+  font-size: 1px;
+  overflow: hidden;
+}
+.window,
+.window-shadow {
+  position: absolute;
+  -moz-border-radius: 0px 0px 0px 0px;
+  -webkit-border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px;
+}
+.window-shadow {
+  background: #eee;
+  -moz-box-shadow: 2px 2px 3px #ededed;
+  -webkit-box-shadow: 2px 2px 3px #ededed;
+  box-shadow: 2px 2px 3px #ededed;
+  filter: progid:DXImageTransform.Microsoft.Blur(pixelRadius=2,MakeShadow=false,ShadowOpacity=0.2);
+}
+.window,
+.window .window-body {
+  border-color: #ddd;
+}
+.window {
+  background-color: #ffffff;
+}
+.window-proxy {
+  border: 1px dashed #ddd;
+}
+.window-proxy-mask,
+.window-mask {
+  background: #eee;
+}
+.window .panel-footer {
+  border: 1px solid #ddd;
+  position: relative;
+  top: -1px;
+}
+.window-thinborder {
+  padding: 0;
+}
+.window-thinborder .window-header {
+  padding: 5px 5px 6px 5px;
+}
+.window-thinborder .window-body {
+  border-width: 0px;
+}
+.window-thinborder .window-footer {
+  border-left: transparent;
+  border-right: transparent;
+  border-bottom: transparent;
+}
+.window-thinborder .window-header .panel-icon,
+.window-thinborder .window-header .panel-tool {
+  margin-top: -9px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.window-noborder {
+  border: 0;
+}
+.window.panel-hleft .window-header {
+  padding: 0 6px 0 0;
+}
+.window.panel-hright .window-header {
+  padding: 0 0 0 6px;
+}
+.window.panel-hleft>.panel-header .panel-title {
+  top: auto;
+  left: 16px;
+}
+.window.panel-hright>.panel-header .panel-title {
+  top: auto;
+  right: 16px;
+}
+.window.panel-hleft>.panel-header .panel-title-up,
+.window.panel-hright>.panel-header .panel-title-up {
+  bottom: 0;
+}
+.window.panel-hleft .window-body {
+  border-width: 1px 1px 1px 0;
+}
+.window.panel-hright .window-body {
+  border-width: 1px 0 1px 1px;
+}
+.window.panel-hleft .window-header .panel-icon {
+  top: 1px;
+  margin-top: 0;
+  left: 0;
+}
+.window.panel-hright .window-header .panel-icon {
+  top: 1px;
+  margin-top: 0;
+  left: auto;
+  right: 1px;
+}
+.window.panel-hleft .window-header .panel-tool,
+.window.panel-hright .window-header .panel-tool {
+  margin-top: 0;
+  top: auto;
+  bottom: 1px;
+  right: auto;
+  margin-right: 0;
+  left: 50%;
+  margin-left: -11px;
+}
+.window.panel-hright .window-header .panel-tool {
+  left: auto;
+  right: 1px;
+}
+.window-thinborder.panel-hleft .window-header {
+  padding: 5px 6px 5px 5px;
+}
+.window-thinborder.panel-hright .window-header {
+  padding: 5px 5px 5px 6px;
+}
+.window-thinborder.panel-hleft>.panel-header .panel-title {
+  left: 21px;
+}
+.window-thinborder.panel-hleft>.panel-header .panel-title-up,
+.window-thinborder.panel-hright>.panel-header .panel-title-up {
+  bottom: 5px;
+}
+.window-thinborder.panel-hleft .window-header .panel-icon,
+.window-thinborder.panel-hright .window-header .panel-icon {
+  margin-top: 5px;
+}
+.window-thinborder.panel-hleft .window-header .panel-tool,
+.window-thinborder.panel-hright .window-header .panel-tool {
+  left: 16px;
+  bottom: 5px;
+}
+.dialog-content {
+  overflow: auto;
+}
+.dialog-toolbar {
+  position: relative;
+  padding: 2px 5px;
+}
+.dialog-tool-separator {
+  float: left;
+  height: 24px;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #fff;
+  margin: 2px 1px;
+}
+.dialog-button {
+  position: relative;
+  top: -1px;
+  padding: 5px;
+  text-align: right;
+}
+.dialog-button .l-btn {
+  margin-left: 5px;
+}
+.dialog-toolbar,
+.dialog-button {
+  background: #fff;
+  border-width: 1px;
+  border-style: solid;
+}
+.dialog-toolbar {
+  border-color: #ddd #ddd #ddd #ddd;
+}
+.dialog-button {
+  border-color: #ddd #ddd #ddd #ddd;
+}
+.window-thinborder .dialog-toolbar {
+  border-left: transparent;
+  border-right: transparent;
+  border-top-color: #fff;
+}
+.window-thinborder .dialog-button {
+  top: 0px;
+  padding: 5px 8px 8px 8px;
+  border-left: transparent;
+  border-right: transparent;
+  border-bottom: transparent;
+}
+.l-btn {
+  text-decoration: none;
+  display: inline-block;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  text-align: center;
+  vertical-align: middle;
+  line-height: normal;
+}
+.l-btn-plain {
+  border-width: 0;
+  padding: 1px;
+}
+.l-btn-left {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+}
+.l-btn-text {
+  display: inline-block;
+  vertical-align: top;
+  width: auto;
+  line-height: 28px;
+  font-size: 14px;
+  padding: 0;
+  margin: 0 6px;
+}
+.l-btn-icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  position: absolute;
+  top: 50%;
+  margin-top: -8px;
+  font-size: 1px;
+}
+.l-btn span span .l-btn-empty {
+  display: inline-block;
+  margin: 0;
+  width: 16px;
+  height: 24px;
+  font-size: 1px;
+  vertical-align: top;
+}
+.l-btn span .l-btn-icon-left {
+  padding: 0 0 0 20px;
+  background-position: left center;
+}
+.l-btn span .l-btn-icon-right {
+  padding: 0 20px 0 0;
+  background-position: right center;
+}
+.l-btn-icon-left .l-btn-text {
+  margin: 0 6px 0 26px;
+}
+.l-btn-icon-left .l-btn-icon {
+  left: 6px;
+}
+.l-btn-icon-right .l-btn-text {
+  margin: 0 26px 0 6px;
+}
+.l-btn-icon-right .l-btn-icon {
+  right: 6px;
+}
+.l-btn-icon-top .l-btn-text {
+  margin: 20px 4px 0 4px;
+}
+.l-btn-icon-top .l-btn-icon {
+  top: 4px;
+  left: 50%;
+  margin: 0 0 0 -8px;
+}
+.l-btn-icon-bottom .l-btn-text {
+  margin: 0 4px 20px 4px;
+}
+.l-btn-icon-bottom .l-btn-icon {
+  top: auto;
+  bottom: 4px;
+  left: 50%;
+  margin: 0 0 0 -8px;
+}
+.l-btn-left .l-btn-empty {
+  margin: 0 6px;
+  width: 16px;
+}
+.l-btn-plain:hover {
+  padding: 0;
+}
+.l-btn-focus {
+  outline: #0000FF dotted thin;
+}
+.l-btn-large .l-btn-text {
+  line-height: 44px;
+}
+.l-btn-large .l-btn-icon {
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  margin-top: -16px;
+}
+.l-btn-large .l-btn-icon-left .l-btn-text {
+  margin-left: 40px;
+}
+.l-btn-large .l-btn-icon-right .l-btn-text {
+  margin-right: 40px;
+}
+.l-btn-large .l-btn-icon-top .l-btn-text {
+  margin-top: 36px;
+  line-height: 24px;
+  min-width: 32px;
+}
+.l-btn-large .l-btn-icon-top .l-btn-icon {
+  margin: 0 0 0 -16px;
+}
+.l-btn-large .l-btn-icon-bottom .l-btn-text {
+  margin-bottom: 36px;
+  line-height: 24px;
+  min-width: 32px;
+}
+.l-btn-large .l-btn-icon-bottom .l-btn-icon {
+  margin: 0 0 0 -16px;
+}
+.l-btn-large .l-btn-left .l-btn-empty {
+  margin: 0 6px;
+  width: 32px;
+}
+.l-btn {
+  color: #777;
+  background: #ffffff;
+  background-repeat: repeat-x;
+  border: 1px solid #dddddd;
+  background: -webkit-linear-gradient(top,#ffffff 0,#ffffff 100%);
+  background: -moz-linear-gradient(top,#ffffff 0,#ffffff 100%);
+  background: -o-linear-gradient(top,#ffffff 0,#ffffff 100%);
+  background: linear-gradient(to bottom,#ffffff 0,#ffffff 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff,endColorstr=#ffffff,GradientType=0);
+  -moz-border-radius: 0px 0px 0px 0px;
+  -webkit-border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px;
+}
+.l-btn:hover {
+  background: #E6E6E6;
+  color: #444;
+  border: 1px solid #ddd;
+  filter: none;
+}
+.l-btn-plain {
+  background: transparent;
+  border-width: 0;
+  filter: none;
+}
+.l-btn-outline {
+  border-width: 1px;
+  border-color: #ddd;
+  padding: 0;
+}
+.l-btn-plain:hover {
+  background: #E6E6E6;
+  color: #444;
+  border: 1px solid #ddd;
+  -moz-border-radius: 0px 0px 0px 0px;
+  -webkit-border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px;
+}
+.l-btn-disabled,
+.l-btn-disabled:hover {
+  opacity: 0.5;
+  cursor: default;
+  background: #ffffff;
+  color: #777;
+  background: -webkit-linear-gradient(top,#ffffff 0,#ffffff 100%);
+  background: -moz-linear-gradient(top,#ffffff 0,#ffffff 100%);
+  background: -o-linear-gradient(top,#ffffff 0,#ffffff 100%);
+  background: linear-gradient(to bottom,#ffffff 0,#ffffff 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff,endColorstr=#ffffff,GradientType=0);
+}
+.l-btn-disabled .l-btn-text,
+.l-btn-disabled .l-btn-icon {
+  filter: alpha(opacity=50);
+}
+.l-btn-plain-disabled,
+.l-btn-plain-disabled:hover {
+  background: transparent;
+  filter: alpha(opacity=50);
+}
+.l-btn-selected,
+.l-btn-selected:hover {
+  background: #ddd;
+  filter: none;
+}
+.l-btn-plain-selected,
+.l-btn-plain-selected:hover {
+  background: #ddd;
+}
+.textbox {
+  position: relative;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  vertical-align: middle;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+  -moz-border-radius: 0px 0px 0px 0px;
+  -webkit-border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px;
+}
+.textbox .textbox-text {
+  font-size: 14px;
+  border: 0;
+  margin: 0;
+  padding: 0 4px;
+  white-space: normal;
+  vertical-align: top;
+  outline-style: none;
+  resize: none;
+  -moz-border-radius: 0px 0px 0px 0px;
+  -webkit-border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px;
+  height: 28px;
+  line-height: 28px;
+}
+.textbox textarea.textbox-text {
+  line-height: normal;
+}
+.textbox .textbox-text::-ms-clear,
+.textbox .textbox-text::-ms-reveal {
+  display: none;
+}
+.textbox textarea.textbox-text {
+  white-space: pre-wrap;
+}
+.textbox .textbox-prompt {
+  font-size: 14px;
+  color: #aaa;
+}
+.textbox .textbox-bgicon {
+  background-position: 3px center;
+  padding-left: 21px;
+}
+.textbox .textbox-button,
+.textbox .textbox-button:hover {
+  position: absolute;
+  top: 0;
+  padding: 0;
+  vertical-align: top;
+  -moz-border-radius: 0 0 0 0;
+  -webkit-border-radius: 0 0 0 0;
+  border-radius: 0 0 0 0;
+}
+.textbox .textbox-button-right,
+.textbox .textbox-button-right:hover {
+  right: 0;
+  border-width: 0 0 0 1px;
+}
+.textbox .textbox-button-left,
+.textbox .textbox-button-left:hover {
+  left: 0;
+  border-width: 0 1px 0 0;
+}
+.textbox .textbox-button-top,
+.textbox .textbox-button-top:hover {
+  left: 0;
+  border-width: 0 0 1px 0;
+}
+.textbox .textbox-button-bottom,
+.textbox .textbox-button-bottom:hover {
+  top: auto;
+  bottom: 0;
+  left: 0;
+  border-width: 1px 0 0 0;
+}
+.textbox-addon {
+  position: absolute;
+  top: 0;
+}
+.textbox-label {
+  display: inline-block;
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  vertical-align: middle;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0;
+  padding-right: 5px;
+}
+.textbox-label-after {
+  padding-left: 5px;
+  padding-right: 0;
+}
+.textbox-label-top {
+  display: block;
+  width: auto;
+  padding: 0;
+}
+.textbox-disabled,
+.textbox-label-disabled {
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+.textbox-icon {
+  display: inline-block;
+  width: 18px;
+  height: 20px;
+  overflow: hidden;
+  vertical-align: top;
+  background-position: center center;
+  cursor: pointer;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  text-decoration: none;
+  outline-style: none;
+}
+.textbox-icon-disabled,
+.textbox-icon-readonly {
+  cursor: default;
+}
+.textbox-icon:hover {
+  opacity: 1.0;
+  filter: alpha(opacity=100);
+}
+.textbox-icon-disabled:hover {
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+.textbox-focused {
+  border-color: #c4c4c4;
+  -moz-box-shadow: 0 0 3px 0 #ddd;
+  -webkit-box-shadow: 0 0 3px 0 #ddd;
+  box-shadow: 0 0 3px 0 #ddd;
+}
+.textbox-invalid {
+  border-color: #ffa8a8;
+  background-color: #fff3f3;
+}
+.passwordbox-open {
+  background: url('images/passwordbox_open.png') no-repeat center center;
+}
+.passwordbox-close {
+  background: url('images/passwordbox_close.png') no-repeat center center;
+}
+.filebox .textbox-value {
+  vertical-align: top;
+  position: absolute;
+  top: 0;
+  left: -5000px;
+}
+.filebox-label {
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  background: url('images/blank.gif') no-repeat;
+}
+.l-btn-disabled .filebox-label {
+  cursor: default;
+}
+.combo-arrow {
+  width: 18px;
+  height: 20px;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: top;
+  cursor: pointer;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+.combo-arrow-hover {
+  opacity: 1.0;
+  filter: alpha(opacity=100);
+}
+.combo-panel {
+  overflow: auto;
+}
+.combo-arrow {
+  background: url('images/combo_arrow.png') no-repeat center center;
+}
+.combo-panel {
+  background-color: #fff;
+}
+.combo-arrow {
+  background-color: #ffffff;
+}
+.combo-arrow-hover {
+  background-color: #E6E6E6;
+}
+.combo-arrow:hover {
+  background-color: #E6E6E6;
+}
+.combo .textbox-icon-disabled:hover {
+  cursor: default;
+}
+.combobox-item,
+.combobox-group,
+.combobox-stick {
+  font-size: 14px;
+  padding: 6px 4px;
+  line-height: 20px;
+}
+.combobox-item-disabled {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+.combobox-gitem {
+  padding-left: 10px;
+}
+.combobox-group,
+.combobox-stick {
+  font-weight: bold;
+}
+.combobox-stick {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  right: 1px;
+  background: inherit;
+}
+.combobox-item-hover {
+  background-color: #E6E6E6;
+  color: #444;
+}
+.combobox-item-selected {
+  background-color: #CCE6FF;
+  color: #000;
+}
+.combobox-icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin-right: 2px;
+}
+.tagbox {
+  cursor: text;
+}
+.tagbox .textbox-text {
+  float: left;
+}
+.tagbox-label {
+  position: relative;
+  display: block;
+  margin: 4px 0 0 4px;
+  padding: 0 20px 0 4px;
+  float: left;
+  vertical-align: top;
+  text-decoration: none;
+  -moz-border-radius: 0px 0px 0px 0px;
+  -webkit-border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px;
+  background: #E6E6E6;
+  color: #444;
+}
+.tagbox-remove {
+  background: url('images/tagbox_icons.png') no-repeat -16px center;
+  position: absolute;
+  display: block;
+  width: 16px;
+  height: 16px;
+  right: 2px;
+  top: 50%;
+  margin-top: -8px;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+.tagbox-remove:hover {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+.textbox-disabled .tagbox-label {
+  cursor: default;
+}
+.textbox-disabled .tagbox-remove:hover {
+  cursor: default;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+.layout {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  z-index: 0;
+}
+.layout-panel {
+  position: absolute;
+  overflow: hidden;
+}
+.layout-body {
+  min-width: 1px;
+  min-height: 1px;
+}
+.layout-panel-east,
+.layout-panel-west {
+  z-index: 2;
+}
+.layout-panel-north,
+.layout-panel-south {
+  z-index: 3;
+}
+.layout-expand {
+  position: absolute;
+  padding: 0px;
+  font-size: 1px;
+  cursor: pointer;
+  z-index: 1;
+}
+.layout-expand .panel-header,
+.layout-expand .panel-body {
+  background: transparent;
+  filter: none;
+  overflow: hidden;
+}
+.layout-expand .panel-header {
+  border-bottom-width: 0px;
+}
+.layout-expand .panel-body {
+  position: relative;
+}
+.layout-expand .panel-body .panel-icon {
+  margin-top: 0;
+  top: 0;
+  left: 50%;
+  margin-left: -8px;
+}
+.layout-expand-west .panel-header .panel-icon,
+.layout-expand-east .panel-header .panel-icon {
+  display: none;
+}
+.layout-expand-title {
+  position: absolute;
+  top: 0;
+  left: 21px;
+  white-space: nowrap;
+  word-wrap: normal;
+  -webkit-transform: rotate(90deg);
+  -webkit-transform-origin: 0 0;
+  -moz-transform: rotate(90deg);
+  -moz-transform-origin: 0 0;
+  -o-transform: rotate(90deg);
+  -o-transform-origin: 0 0;
+  transform: rotate(90deg);
+  transform-origin: 0 0;
+}
+.layout-expand-title-up {
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: right;
+  padding-left: 5px;
+  white-space: nowrap;
+  word-wrap: normal;
+  -webkit-transform: rotate(-90deg);
+  -webkit-transform-origin: 0 0;
+  -moz-transform: rotate(-90deg);
+  -moz-transform-origin: 0 0;
+  -o-transform: rotate(-90deg);
+  -o-transform-origin: 0 0;
+  transform: rotate(-90deg);
+  transform-origin: 0 0;
+}
+.layout-expand-with-icon {
+  top: 18px;
+}
+.layout-expand .panel-body-noheader .layout-expand-title,
+.layout-expand .panel-body-noheader .panel-icon {
+  top: 5px;
+}
+.layout-expand .panel-body-noheader .layout-expand-with-icon {
+  top: 23px;
+}
+.layout-split-proxy-h,
+.layout-split-proxy-v {
+  position: absolute;
+  font-size: 1px;
+  display: none;
+  z-index: 5;
+}
+.layout-split-proxy-h {
+  width: 5px;
+  cursor: e-resize;
+}
+.layout-split-proxy-v {
+  height: 5px;
+  cursor: n-resize;
+}
+.layout-mask {
+  position: absolute;
+  background: #fafafa;
+  filter: alpha(opacity=10);
+  opacity: 0.10;
+  z-index: 4;
+}
+.layout-button-up {
+  background: url('images/layout_arrows.png') no-repeat -16px -16px;
+}
+.layout-button-down {
+  background: url('images/layout_arrows.png') no-repeat -16px 0;
+}
+.layout-button-left {
+  background: url('images/layout_arrows.png') no-repeat 0 0;
+}
+.layout-button-right {
+  background: url('images/layout_arrows.png') no-repeat 0 -16px;
+}
+.layout-split-proxy-h,
+.layout-split-proxy-v {
+  background-color: #b3b3b3;
+}
+.layout-split-north {
+  border-bottom: 5px solid #fff;
+}
+.layout-split-south {
+  border-top: 5px solid #fff;
+}
+.layout-split-east {
+  border-left: 5px solid #fff;
+}
+.layout-split-west {
+  border-right: 5px solid #fff;
+}
+.layout-expand {
+  background-color: #ffffff;
+}
+.layout-expand-over {
+  background-color: #ffffff;
+}
+.tabs-container {
+  overflow: hidden;
+}
+.tabs-header {
+  border-width: 1px;
+  border-style: solid;
+  border-bottom-width: 0;
+  position: relative;
+  padding: 0;
+  padding-top: 2px;
+  overflow: hidden;
+}
+.tabs-scroller-left,
+.tabs-scroller-right {
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  width: 18px;
+  font-size: 1px;
+  display: none;
+  cursor: pointer;
+  border-width: 1px;
+  border-style: solid;
+}
+.tabs-scroller-left {
+  left: 0;
+}
+.tabs-scroller-right {
+  right: 0;
+}
+.tabs-tool {
+  position: absolute;
+  bottom: 0;
+  padding: 1px;
+  overflow: hidden;
+  border-width: 1px;
+  border-style: solid;
+}
+.tabs-header-plain .tabs-tool {
+  padding: 0 1px;
+}
+.tabs-wrap {
+  position: relative;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.tabs-scrolling {
+  margin-left: 18px;
+  margin-right: 18px;
+}
+.tabs-disabled {
+  opacity: 0.3;
+  filter: alpha(opacity=30);
+}
+.tabs {
+  list-style-type: none;
+  height: 26px;
+  margin: 0px;
+  padding: 0px;
+  padding-left: 4px;
+  width: 50000px;
+  border-style: solid;
+  border-width: 0 0 1px 0;
+}
+.tabs li {
+  float: left;
+  display: inline-block;
+  margin: 0 4px -1px 0;
+  padding: 0;
+  position: relative;
+  border: 0;
+}
+.tabs li a.tabs-inner {
+  display: inline-block;
+  text-decoration: none;
+  margin: 0;
+  padding: 0 10px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  white-space: nowrap;
+  border-width: 1px;
+  border-style: solid;
+  -moz-border-radius: 0px 0px 0 0;
+  -webkit-border-radius: 0px 0px 0 0;
+  border-radius: 0px 0px 0 0;
+}
+.tabs li.tabs-selected a.tabs-inner {
+  font-weight: bold;
+  outline: none;
+}
+.tabs li.tabs-selected a:hover.tabs-inner {
+  cursor: default;
+  pointer: default;
+}
+.tabs li a.tabs-close,
+.tabs-p-tool {
+  position: absolute;
+  font-size: 1px;
+  display: block;
+  height: 12px;
+  padding: 0;
+  top: 50%;
+  margin-top: -6px;
+  overflow: hidden;
+}
+.tabs li a.tabs-close {
+  width: 12px;
+  right: 5px;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+.tabs-p-tool {
+  right: 16px;
+}
+.tabs-p-tool a {
+  display: inline-block;
+  font-size: 1px;
+  width: 12px;
+  height: 12px;
+  margin: 0;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+.tabs li a:hover.tabs-close,
+.tabs-p-tool a:hover {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  cursor: hand;
+  cursor: pointer;
+}
+.tabs-with-icon {
+  padding-left: 18px;
+}
+.tabs-icon {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 10px;
+  top: 50%;
+  margin-top: -8px;
+}
+.tabs-title {
+  font-size: 14px;
+}
+.tabs-closable {
+  padding-right: 8px;
+}
+.tabs-panels {
+  margin: 0px;
+  padding: 0px;
+  border-width: 1px;
+  border-style: solid;
+  border-top-width: 0;
+  overflow: hidden;
+}
+.tabs-header-bottom {
+  border-width: 0 1px 1px 1px;
+  padding: 0 0 2px 0;
+}
+.tabs-header-bottom .tabs {
+  border-width: 1px 0 0 0;
+}
+.tabs-header-bottom .tabs li {
+  margin: -1px 4px 0 0;
+}
+.tabs-header-bottom .tabs li a.tabs-inner {
+  -moz-border-radius: 0 0 0px 0px;
+  -webkit-border-radius: 0 0 0px 0px;
+  border-radius: 0 0 0px 0px;
+}
+.tabs-header-bottom .tabs-tool {
+  top: 0;
+}
+.tabs-header-bottom .tabs-scroller-left,
+.tabs-header-bottom .tabs-scroller-right {
+  top: 0;
+  bottom: auto;
+}
+.tabs-panels-top {
+  border-width: 1px 1px 0 1px;
+}
+.tabs-header-left {
+  float: left;
+  border-width: 1px 0 1px 1px;
+  padding: 0;
+}
+.tabs-header-right {
+  float: right;
+  border-width: 1px 1px 1px 0;
+  padding: 0;
+}
+.tabs-header-left .tabs-wrap,
+.tabs-header-right .tabs-wrap {
+  height: 100%;
+}
+.tabs-header-left .tabs {
+  height: 100%;
+  padding: 4px 0 0 2px;
+  border-width: 0 1px 0 0;
+}
+.tabs-header-right .tabs {
+  height: 100%;
+  padding: 4px 2px 0 0;
+  border-width: 0 0 0 1px;
+}
+.tabs-header-left .tabs li,
+.tabs-header-right .tabs li {
+  display: block;
+  width: 100%;
+  position: relative;
+}
+.tabs-header-left .tabs li {
+  left: auto;
+  right: 0;
+  margin: 0 -1px 4px 0;
+  float: right;
+}
+.tabs-header-right .tabs li {
+  left: 0;
+  right: auto;
+  margin: 0 0 4px -1px;
+  float: left;
+}
+.tabs-justified li a.tabs-inner {
+  padding-left: 0;
+  padding-right: 0;
+}
+.tabs-header-left .tabs li a.tabs-inner {
+  display: block;
+  text-align: left;
+  padding-left: 10px;
+  padding-right: 10px;
+  -moz-border-radius: 0px 0 0 0px;
+  -webkit-border-radius: 0px 0 0 0px;
+  border-radius: 0px 0 0 0px;
+}
+.tabs-header-right .tabs li a.tabs-inner {
+  display: block;
+  text-align: left;
+  padding-left: 10px;
+  padding-right: 10px;
+  -moz-border-radius: 0 0px 0px 0;
+  -webkit-border-radius: 0 0px 0px 0;
+  border-radius: 0 0px 0px 0;
+}
+.tabs-panels-right {
+  float: right;
+  border-width: 1px 1px 1px 0;
+}
+.tabs-panels-left {
+  float: left;
+  border-width: 1px 0 1px 1px;
+}
+.tabs-header-noborder,
+.tabs-panels-noborder {
+  border: 0px;
+}
+.tabs-header-plain {
+  border: 0px;
+  background: transparent;
+}
+.tabs-pill {
+  padding-bottom: 3px;
+}
+.tabs-header-bottom .tabs-pill {
+  padding-top: 3px;
+  padding-bottom: 0;
+}
+.tabs-header-left .tabs-pill {
+  padding-right: 3px;
+}
+.tabs-header-right .tabs-pill {
+  padding-left: 3px;
+}
+.tabs-header .tabs-pill li a.tabs-inner {
+  -moz-border-radius: 0px 0px 0px 0px;
+  -webkit-border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px;
+}
+.tabs-header-narrow,
+.tabs-header-narrow .tabs-narrow {
+  padding: 0;
+}
+.tabs-narrow li,
+.tabs-header-bottom .tabs-narrow li {
+  margin-left: 0;
+  margin-right: -1px;
+}
+.tabs-narrow li.tabs-last,
+.tabs-header-bottom .tabs-narrow li.tabs-last {
+  margin-right: 0;
+}
+.tabs-header-left .tabs-narrow,
+.tabs-header-right .tabs-narrow {
+  padding-top: 0;
+}
+.tabs-header-left .tabs-narrow li {
+  margin-bottom: -1px;
+  margin-right: -1px;
+}
+.tabs-header-left .tabs-narrow li.tabs-last,
+.tabs-header-right .tabs-narrow li.tabs-last {
+  margin-bottom: 0;
+}
+.tabs-header-right .tabs-narrow li {
+  margin-bottom: -1px;
+  margin-left: -1px;
+}
+.tabs-scroller-left {
+  background: #ffffff url('images/tabs_icons.png') no-repeat 1px center;
+}
+.tabs-scroller-right {
+  background: #ffffff url('images/tabs_icons.png') no-repeat -15px center;
+}
+.tabs li a.tabs-close {
+  background: url('images/tabs_icons.png') no-repeat -34px center;
+}
+.tabs li a.tabs-inner:hover {
+  background: #E6E6E6;
+  color: #444;
+  filter: none;
+}
+.tabs li.tabs-selected a.tabs-inner {
+  background-color: #fff;
+  color: #777;
+}
+.tabs li a.tabs-inner {
+  color: #777;
+  background-color: #ffffff;
+}
+.tabs-header,
+.tabs-tool {
+  background-color: #ffffff;
+}
+.tabs-header-plain {
+  background: transparent;
+}
+.tabs-header,
+.tabs-scroller-left,
+.tabs-scroller-right,
+.tabs-tool,
+.tabs,
+.tabs-panels,
+.tabs li a.tabs-inner,
+.tabs li.tabs-selected a.tabs-inner,
+.tabs-header-bottom .tabs li.tabs-selected a.tabs-inner,
+.tabs-header-left .tabs li.tabs-selected a.tabs-inner,
+.tabs-header-right .tabs li.tabs-selected a.tabs-inner {
+  border-color: #ddd;
+}
+.tabs-p-tool a:hover,
+.tabs li a:hover.tabs-close,
+.tabs-scroller-over {
+  background-color: #E6E6E6;
+}
+.tabs li.tabs-selected a.tabs-inner {
+  border-bottom: 1px solid #fff;
+}
+.tabs-header-bottom .tabs li.tabs-selected a.tabs-inner {
+  border-top: 1px solid #fff;
+}
+.tabs-header-left .tabs li.tabs-selected a.tabs-inner {
+  border-right: 1px solid #fff;
+}
+.tabs-header-right .tabs li.tabs-selected a.tabs-inner {
+  border-left: 1px solid #fff;
+}
+.tabs-header .tabs-pill li.tabs-selected a.tabs-inner {
+  background: #CCE6FF;
+  color: #000;
+  filter: none;
+  border-color: #ddd;
+}
+.datagrid .panel-body {
+  overflow: hidden;
+  position: relative;
+}
+.datagrid-view {
+  position: relative;
+  overflow: hidden;
+}
+.datagrid-view1,
+.datagrid-view2 {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+}
+.datagrid-view1 {
+  left: 0;
+}
+.datagrid-view2 {
+  right: 0;
+}
+.datagrid-mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.3;
+  filter: alpha(opacity=30);
+  display: none;
+}
+.datagrid-mask-msg {
+  position: absolute;
+  top: 50%;
+  margin-top: -20px;
+  padding: 10px 5px 10px 30px;
+  width: auto;
+  height: 16px;
+  border-width: 2px;
+  border-style: solid;
+  display: none;
+}
+.datagrid-empty {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+}
+.datagrid-sort-icon {
+  padding: 0;
+  display: none;
+}
+.datagrid-toolbar {
+  height: auto;
+  padding: 1px 2px;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+}
+.datagrid-btn-separator {
+  float: left;
+  height: 24px;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #fff;
+  margin: 2px 1px;
+}
+.datagrid .datagrid-pager {
+  display: block;
+  margin: 0;
+  border-width: 1px 0 0 0;
+  border-style: solid;
+}
+.datagrid .datagrid-pager-top {
+  border-width: 0 0 1px 0;
+}
+.datagrid-header {
+  overflow: hidden;
+  cursor: default;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+}
+.datagrid-header-inner {
+  float: left;
+  width: 10000px;
+}
+.datagrid-header-row,
+.datagrid-row {
+  height: 32px;
+}
+.datagrid-header td,
+.datagrid-body td,
+.datagrid-footer td {
+  border-width: 0 1px 1px 0;
+  border-style: dotted;
+  margin: 0;
+  padding: 0;
+}
+.datagrid-cell,
+.datagrid-cell-group,
+.datagrid-header-rownumber,
+.datagrid-cell-rownumber {
+  margin: 0;
+  padding: 0 4px;
+  white-space: nowrap;
+  word-wrap: normal;
+  overflow: hidden;
+  height: 18px;
+  line-height: 18px;
+  font-size: 14px;
+}
+.datagrid-header .datagrid-cell {
+  height: auto;
+}
+.datagrid-header .datagrid-cell span {
+  font-size: 14px;
+}
+.datagrid-cell-group {
+  text-align: center;
+  text-overflow: ellipsis;
+}
+.datagrid-header-rownumber,
+.datagrid-cell-rownumber {
+  width: 30px;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+.datagrid-body {
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  zoom: 1;
+}
+.datagrid-view1 .datagrid-body-inner {
+  padding-bottom: 20px;
+}
+.datagrid-view1 .datagrid-body {
+  overflow: hidden;
+}
+.datagrid-footer {
+  overflow: hidden;
+}
+.datagrid-footer-inner {
+  border-width: 1px 0 0 0;
+  border-style: solid;
+  width: 10000px;
+  float: left;
+}
+.datagrid-row-editing .datagrid-cell {
+  height: auto;
+}
+.datagrid-header-check,
+.datagrid-cell-check {
+  padding: 0;
+  width: 27px;
+  height: 18px;
+  font-size: 1px;
+  text-align: center;
+  overflow: hidden;
+}
+.datagrid-header-check input,
+.datagrid-cell-check input {
+  margin: 0;
+  padding: 0;
+  width: 15px;
+  height: 18px;
+}
+.datagrid-resize-proxy {
+  position: absolute;
+  width: 1px;
+  height: 10000px;
+  top: 0;
+  cursor: e-resize;
+  display: none;
+}
+.datagrid-body .datagrid-editable {
+  margin: 0;
+  padding: 0;
+}
+.datagrid-body .datagrid-editable table {
+  width: 100%;
+  height: 100%;
+}
+.datagrid-body .datagrid-editable td {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+.datagrid-view .datagrid-editable-input {
+  margin: 0;
+  padding: 2px 4px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  outline-style: none;
+  -moz-border-radius: 0 0 0 0;
+  -webkit-border-radius: 0 0 0 0;
+  border-radius: 0 0 0 0;
+}
+.datagrid-view .validatebox-invalid {
+  border-color: #ffa8a8;
+}
+.datagrid-sort .datagrid-sort-icon {
+  display: inline;
+  padding: 0 13px 0 0;
+  background: url('images/datagrid_icons.png') no-repeat -64px center;
+}
+.datagrid-sort-desc .datagrid-sort-icon {
+  display: inline;
+  padding: 0 13px 0 0;
+  background: url('images/datagrid_icons.png') no-repeat -16px center;
+}
+.datagrid-sort-asc .datagrid-sort-icon {
+  display: inline;
+  padding: 0 13px 0 0;
+  background: url('images/datagrid_icons.png') no-repeat 0px center;
+}
+.datagrid-row-collapse {
+  background: url('images/datagrid_icons.png') no-repeat -48px center;
+}
+.datagrid-row-expand {
+  background: url('images/datagrid_icons.png') no-repeat -32px center;
+}
+.datagrid-mask-msg {
+  background: #fff url('images/loading.gif') no-repeat scroll 5px center;
+}
+.datagrid-header,
+.datagrid-td-rownumber {
+  background-color: #ffffff;
+}
+.datagrid-cell-rownumber {
+  color: #444;
+}
+.datagrid-resize-proxy {
+  background: #b3b3b3;
+}
+.datagrid-mask {
+  background: #eee;
+}
+.datagrid-mask-msg {
+  border-color: #ddd;
+}
+.datagrid-toolbar,
+.datagrid-pager {
+  background: #fff;
+}
+.datagrid-header,
+.datagrid-toolbar,
+.datagrid-pager,
+.datagrid-footer-inner {
+  border-color: #ddd;
+}
+.datagrid-header td,
+.datagrid-body td,
+.datagrid-footer td {
+  border-color: #ddd;
+}
+.datagrid-htable,
+.datagrid-btable,
+.datagrid-ftable {
+  color: #444;
+  border-collapse: separate;
+}
+.datagrid-row-alt {
+  background: #f5f5f5;
+}
+.datagrid-row-over,
+.datagrid-header td.datagrid-header-over {
+  background: #E6E6E6;
+  color: #444;
+  cursor: default;
+}
+.datagrid-row-selected {
+  background: #CCE6FF;
+  color: #000;
+}
+.datagrid-row-editing .textbox,
+.datagrid-row-editing .textbox-text {
+  -moz-border-radius: 0 0 0 0;
+  -webkit-border-radius: 0 0 0 0;
+  border-radius: 0 0 0 0;
+}
+.datagrid-header .datagrid-filter-row td.datagrid-header-over {
+  background: inherit;
+}
+.propertygrid .datagrid-view1 .datagrid-body td {
+  padding-bottom: 1px;
+  border-width: 0 1px 0 0;
+}
+.propertygrid .datagrid-group {
+  overflow: hidden;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+}
+.propertygrid .datagrid-group span {
+  font-weight: bold;
+}
+.propertygrid .datagrid-view1 .datagrid-body td {
+  border-color: #ddd;
+}
+.propertygrid .datagrid-view1 .datagrid-group {
+  border-color: #ffffff;
+}
+.propertygrid .datagrid-view2 .datagrid-group {
+  border-color: #ddd;
+}
+.propertygrid .datagrid-group,
+.propertygrid .datagrid-view1 .datagrid-body,
+.propertygrid .datagrid-view1 .datagrid-row-over,
+.propertygrid .datagrid-view1 .datagrid-row-selected {
+  background: #ffffff;
+}
+.datalist .datagrid-header {
+  border-width: 0;
+}
+.datalist .datagrid-group,
+.m-list .m-list-group {
+  height: 25px;
+  line-height: 25px;
+  font-weight: bold;
+  overflow: hidden;
+  background-color: #ffffff;
+  border-style: solid;
+  border-width: 0 0 1px 0;
+  border-color: #ddd;
+}
+.datalist .datagrid-group-expander {
+  display: none;
+}
+.datalist .datagrid-group-title {
+  padding: 0 4px;
+}
+.datalist .datagrid-btable {
+  width: 100%;
+  table-layout: fixed;
+}
+.datalist .datagrid-row td {
+  border-style: solid;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-bottom-width: 0;
+}
+.datalist-lines .datagrid-row td {
+  border-bottom-width: 1px;
+}
+.datalist .datagrid-cell,
+.m-list li {
+  width: auto;
+  height: auto;
+  padding: 2px 4px;
+  line-height: 18px;
+  position: relative;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.datalist-link,
+.m-list li>a {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  color: #444;
+  text-decoration: none;
+  overflow: hidden;
+  margin: -2px -4px;
+  padding: 2px 4px;
+  padding-right: 16px;
+  line-height: 18px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.datalist-link::after,
+.m-list li>a::after {
+  position: absolute;
+  display: block;
+  width: 8px;
+  height: 8px;
+  content: '';
+  right: 6px;
+  top: 50%;
+  margin-top: -4px;
+  border-style: solid;
+  border-width: 1px 1px 0 0;
+  -ms-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.m-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.m-list li {
+  border-style: solid;
+  border-width: 0 0 1px 0;
+  border-color: #ddd;
+}
+.m-list li>a:hover {
+  background: #E6E6E6;
+  color: #444;
+}
+.m-list .m-list-group {
+  padding: 0 4px;
+}
+.pagination {
+  zoom: 1;
+  padding: 2px;
+}
+.pagination table {
+  float: left;
+  height: 30px;
+}
+.pagination td {
+  border: 0;
+}
+.pagination-btn-separator {
+  float: left;
+  height: 24px;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #fff;
+  margin: 3px 1px;
+}
+.pagination .pagination-num {
+  border-width: 1px;
+  border-style: solid;
+  margin: 0 2px;
+  padding: 2px;
+  width: 3em;
+  height: auto;
+  text-align: center;
+  font-size: 14px;
+}
+.pagination-page-list {
+  margin: 0px 6px;
+  padding: 1px 2px;
+  width: auto;
+  height: auto;
+  border-width: 1px;
+  border-style: solid;
+}
+.pagination-info {
+  float: right;
+  margin: 0 6px;
+  padding: 0;
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+}
+.pagination span {
+  font-size: 14px;
+}
+.pagination-link .l-btn-text {
+  box-sizing: border-box;
+  text-align: center;
+  margin: 0;
+  padding: 0 .5em;
+  width: auto;
+  min-width: 28px;
+}
+.pagination-first {
+  background: url('images/pagination_icons.png') no-repeat 0 center;
+}
+.pagination-prev {
+  background: url('images/pagination_icons.png') no-repeat -16px center;
+}
+.pagination-next {
+  background: url('images/pagination_icons.png') no-repeat -32px center;
+}
+.pagination-last {
+  background: url('images/pagination_icons.png') no-repeat -48px center;
+}
+.pagination-load {
+  background: url('images/pagination_icons.png') no-repeat -64px center;
+}
+.pagination-loading {
+  background: url('images/loading.gif') no-repeat center center;
+}
+.pagination-page-list,
+.pagination .pagination-num {
+  border-color: #ddd;
+}
+.calendar {
+  border-width: 1px;
+  border-style: solid;
+  padding: 1px;
+  overflow: hidden;
+}
+.calendar table {
+  table-layout: fixed;
+  border-collapse: separate;
+  font-size: 14px;
+  width: 100%;
+  height: 100%;
+}
+.calendar table td,
+.calendar table th {
+  font-size: 14px;
+}
+.calendar-noborder {
+  border: 0;
+}
+.calendar-header {
+  position: relative;
+  height: 28px;
+}
+.calendar-title {
+  text-align: center;
+  height: 28px;
+}
+.calendar-title span {
+  position: relative;
+  display: inline-block;
+  top: 0px;
+  padding: 0 3px;
+  height: 28px;
+  line-height: 28px;
+  font-size: 14px;
+  cursor: pointer;
+  -moz-border-radius: 0px 0px 0px 0px;
+  -webkit-border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px;
+}
+.calendar-prevmonth,
+.calendar-nextmonth,
+.calendar-prevyear,
+.calendar-nextyear {
+  position: absolute;
+  top: 50%;
+  margin-top: -8px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  font-size: 1px;
+  -moz-border-radius: 0px 0px 0px 0px;
+  -webkit-border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px;
+}
+.calendar-prevmonth {
+  left: 20px;
+  background: url('images/calendar_arrows.png') no-repeat -16px 0;
+}
+.calendar-nextmonth {
+  right: 20px;
+  background: url('images/calendar_arrows.png') no-repeat -32px 0;
+}
+.calendar-prevyear {
+  left: 3px;
+  background: url('images/calendar_arrows.png') no-repeat 0px 0;
+}
+.calendar-nextyear {
+  right: 3px;
+  background: url('images/calendar_arrows.png') no-repeat -48px 0;
+}
+.calendar-body {
+  position: relative;
+}
+.calendar-body th,
+.calendar-body td {
+  text-align: center;
+}
+.calendar-day {
+  border: 0;
+  padding: 1px;
+  cursor: pointer;
+  -moz-border-radius: 0px 0px 0px 0px;
+  -webkit-border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px;
+}
+.calendar-other-month {
+  opacity: 0.3;
+  filter: alpha(opacity=30);
+}
+.calendar-disabled {
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  cursor: default;
+}
+.calendar-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 180px;
+  height: 150px;
+  padding: 5px;
+  font-size: 14px;
+  display: none;
+  overflow: hidden;
+}
+.calendar-menu-year-inner {
+  text-align: center;
+  padding-bottom: 5px;
+}
+.calendar-menu-year {
+  width: 80px;
+  line-height: 26px;
+  text-align: center;
+  border-width: 1px;
+  border-style: solid;
+  outline-style: none;
+  resize: none;
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  font-size: 14px;
+  -moz-border-radius: 0px 0px 0px 0px;
+  -webkit-border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px;
+}
+.calendar-menu-prev,
+.calendar-menu-next {
+  display: inline-block;
+  width: 25px;
+  height: 28px;
+  vertical-align: top;
+  cursor: pointer;
+  -moz-border-radius: 0px 0px 0px 0px;
+  -webkit-border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px;
+}
+.calendar-menu-prev {
+  margin-right: 10px;
+  background: url('images/calendar_arrows.png') no-repeat 5px center;
+}
+.calendar-menu-next {
+  margin-left: 10px;
+  background: url('images/calendar_arrows.png') no-repeat -44px center;
+}
+.calendar-menu-month {
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+  -moz-border-radius: 0px 0px 0px 0px;
+  -webkit-border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px;
+}
+.calendar-body th,
+.calendar-menu-month {
+  color: #919191;
+}
+.calendar-day {
+  color: #444;
+}
+.calendar-sunday {
+  color: #CC2222;
+}
+.calendar-saturday {
+  color: #00ee00;
+}
+.calendar-today {
+  color: #0000ff;
+}
+.calendar-menu-year {
+  border-color: #ddd;
+}
+.calendar {
+  border-color: #ddd;
+}
+.calendar-header {
+  background: #ffffff;
+}
+.calendar-body,
+.calendar-menu {
+  background: #fff;
+}
+.calendar-body th {
+  background: #fff;
+  padding: 4px 0;
+}
+.calendar-hover,
+.calendar-nav-hover,
+.calendar-menu-hover {
+  background-color: #E6E6E6;
+  color: #444;
+}
+.calendar-hover {
+  border: 1px solid #ddd;
+  padding: 0;
+}
+.calendar-selected {
+  background-color: #CCE6FF;
+  color: #000;
+  border: 1px solid #99cdff;
+  padding: 0;
+}
+.datebox-calendar-inner {
+  height: 250px;
+}
+.datebox-button {
+  padding: 4px 0;
+  text-align: center;
+}
+.datebox-button a {
+  line-height: 22px;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+.datebox-button a:hover {
+  opacity: 1.0;
+  filter: alpha(opacity=100);
+}
+.datebox-current,
+.datebox-close {
+  float: left;
+}
+.datebox-close {
+  float: right;
+}
+.datebox .combo-arrow {
+  background-image: url('images/datebox_arrow.png');
+  background-position: center center;
+}
+.datebox-button {
+  background-color: #fff;
+}
+.datebox-button a {
+  color: #777;
+}
+.spinner-arrow {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  margin: 0;
+  padding: 0;
+  opacity: 1.0;
+  filter: alpha(opacity=100);
+  width: 18px;
+}
+.spinner-arrow.spinner-button-top,
+.spinner-arrow.spinner-button-bottom,
+.spinner-arrow.spinner-button-left,
+.spinner-arrow.spinner-button-right {
+  background-color: #ffffff;
+}
+.spinner-arrow-up,
+.spinner-arrow-down {
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  display: block;
+  font-size: 1px;
+  width: 18px;
+  height: 10px;
+  width: 100%;
+  height: 50%;
+  color: #777;
+  outline-style: none;
+  background-color: #ffffff;
+}
+.spinner-button-updown {
+  opacity: 1.0;
+}
+.spinner-button-updown .spinner-button-top,
+.spinner-button-updown .spinner-button-bottom {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 50%;
+}
+.spinner-button-updown .spinner-arrow-up,
+.spinner-button-updown .spinner-arrow-down {
+  opacity: 1.0;
+  filter: alpha(opacity=100);
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  left: 50%;
+  margin-top: -8px;
+  margin-left: -8px;
+  position: absolute;
+}
+.spinner-button-updown .spinner-button-top,
+.spinner-button-updown .spinner-button-bottom {
+  cursor: pointer;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+.spinner-button-updown .spinner-button-top:hover,
+.spinner-button-updown .spinner-button-bottom:hover {
+  opacity: 1.0;
+  filter: alpha(opacity=100);
+}
+.spinner-button-updown .spinner-arrow-up,
+.spinner-button-updown .spinner-arrow-down,
+.spinner-button-updown .spinner-arrow-up:hover,
+.spinner-button-updown .spinner-arrow-down:hover {
+  background-color: transparent;
+}
+.spinner-arrow-hover {
+  background-color: #E6E6E6;
+  opacity: 1.0;
+  filter: alpha(opacity=100);
+}
+.spinner-button-top:hover,
+.spinner-button-bottom:hover,
+.spinner-button-left:hover,
+.spinner-button-right:hover,
+.spinner-arrow-up:hover,
+.spinner-arrow-down:hover {
+  opacity: 1.0;
+  filter: alpha(opacity=100);
+  background-color: #E6E6E6;
+}
+.textbox-disabled .spinner-button-top:hover,
+.textbox-disabled .spinner-button-bottom:hover,
+.textbox-disabled .spinner-button-left:hover,
+.textbox-disabled .spinner-button-right:hover,
+.textbox-icon-disabled .spinner-arrow-up:hover,
+.textbox-icon-disabled .spinner-arrow-down:hover {
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  background-color: #ffffff;
+  cursor: default;
+}
+.spinner .textbox-icon-disabled {
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+.spinner-arrow-up {
+  background: url('images/spinner_arrows.png') no-repeat 1px center;
+  background-color: #ffffff;
+}
+.spinner-arrow-down {
+  background: url('images/spinner_arrows.png') no-repeat -15px center;
+  background-color: #ffffff;
+}
+.spinner-button-up {
+  background: url('images/spinner_arrows.png') no-repeat -32px center;
+}
+.spinner-button-down {
+  background: url('images/spinner_arrows.png') no-repeat -48px center;
+}
+.progressbar {
+  border-width: 1px;
+  border-style: solid;
+  -moz-border-radius: 0px 0px 0px 0px;
+  -webkit-border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px;
+  overflow: hidden;
+  position: relative;
+}
+.progressbar-text {
+  text-align: center;
+  position: absolute;
+}
+.progressbar-value {
+  position: relative;
+  overflow: hidden;
+  width: 0;
+  -moz-border-radius: 0px 0 0 0px;
+  -webkit-border-radius: 0px 0 0 0px;
+  border-radius: 0px 0 0 0px;
+}
+.progressbar {
+  border-color: #ddd;
+}
+.progressbar-text {
+  color: #444;
+  font-size: 14px;
+}
+.progressbar-value,
+.progressbar-value .progressbar-text {
+  background-color: #CCE6FF;
+  color: #000;
+}
+.searchbox-button {
+  width: 18px;
+  height: 20px;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: top;
+  cursor: pointer;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+.searchbox-button-hover {
+  opacity: 1.0;
+  filter: alpha(opacity=100);
+}
+.searchbox .l-btn-plain {
+  border: 0;
+  padding: 0;
+  vertical-align: top;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  -moz-border-radius: 0 0 0 0;
+  -webkit-border-radius: 0 0 0 0;
+  border-radius: 0 0 0 0;
+}
+.searchbox .l-btn-plain:hover {
+  border: 0;
+  padding: 0;
+  opacity: 1.0;
+  filter: alpha(opacity=100);
+  -moz-border-radius: 0 0 0 0;
+  -webkit-border-radius: 0 0 0 0;
+  border-radius: 0 0 0 0;
+}
+.searchbox a.m-btn-plain-active {
+  -moz-border-radius: 0 0 0 0;
+  -webkit-border-radius: 0 0 0 0;
+  border-radius: 0 0 0 0;
+}
+.searchbox .m-btn-active {
+  border-width: 0 1px 0 0;
+  -moz-border-radius: 0 0 0 0;
+  -webkit-border-radius: 0 0 0 0;
+  border-radius: 0 0 0 0;
+}
+.searchbox .textbox-button-right {
+  border-width: 0 0 0 1px;
+}
+.searchbox .textbox-button-left {
+  border-width: 0 1px 0 0;
+}
+.searchbox-button {
+  background: url('images/searchbox_button.png') no-repeat center center;
+}
+.searchbox .l-btn-plain {
+  background: #ffffff;
+}
+.searchbox .l-btn-plain-disabled,
+.searchbox .l-btn-plain-disabled:hover {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+.slider-disabled {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+.slider-h {
+  height: 22px;
+}
+.slider-v {
+  width: 22px;
+}
+.slider-inner {
+  position: relative;
+  height: 6px;
+  top: 7px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 0px;
+}
+.slider-handle {
+  position: absolute;
+  display: block;
+  outline: none;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  margin-top: -10px;
+  margin-left: -10px;
+}
+.slider-tip {
+  position: absolute;
+  display: inline-block;
+  line-height: 12px;
+  font-size: 14px;
+  white-space: nowrap;
+  top: -22px;
+}
+.slider-rule {
+  position: relative;
+  top: 15px;
+}
+.slider-rule span {
+  position: absolute;
+  display: inline-block;
+  font-size: 0;
+  height: 5px;
+  border-width: 0 0 0 1px;
+  border-style: solid;
+}
+.slider-rulelabel {
+  position: relative;
+  top: 20px;
+}
+.slider-rulelabel span {
+  position: absolute;
+  display: inline-block;
+  font-size: 14px;
+}
+.slider-v .slider-inner {
+  width: 6px;
+  left: 7px;
+  top: 0;
+  float: left;
+}
+.slider-v .slider-handle {
+  left: 50%;
+  margin-top: -10px;
+}
+.slider-v .slider-tip {
+  left: -10px;
+  margin-top: -6px;
+}
+.slider-v .slider-rule {
+  float: left;
+  top: 0;
+  left: 16px;
+}
+.slider-v .slider-rule span {
+  width: 5px;
+  height: 'auto';
+  border-left: 0;
+  border-width: 1px 0 0 0;
+  border-style: solid;
+}
+.slider-v .slider-rulelabel {
+  float: left;
+  top: 0;
+  left: 23px;
+}
+.slider-handle {
+  background: url('images/slider_handle.png') no-repeat;
+}
+.slider-inner {
+  border-color: #ddd;
+  background: #ffffff;
+}
+.slider-rule span {
+  border-color: #ddd;
+}
+.slider-rulelabel span {
+  color: #444;
+}
+.menu {
+  position: absolute;
+  margin: 0;
+  padding: 2px;
+  border-width: 1px;
+  border-style: solid;
+  overflow: hidden;
+}
+.menu-inline {
+  position: relative;
+}
+.menu-item {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  border-width: 1px;
+  border-style: solid;
+}
+.menu-text {
+  height: 20px;
+  line-height: 20px;
+  float: left;
+  padding-left: 28px;
+}
+.menu-icon {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 2px;
+  top: 50%;
+  margin-top: -8px;
+}
+.menu-rightarrow {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  right: 0;
+  top: 50%;
+  margin-top: -8px;
+}
+.menu-line {
+  position: absolute;
+  left: 26px;
+  top: 0;
+  height: 2000px;
+  font-size: 1px;
+}
+.menu-sep {
+  margin: 3px 0px 3px 25px;
+  font-size: 1px;
+}
+.menu-noline .menu-line {
+  display: none;
+}
+.menu-noline .menu-sep {
+  margin-left: 0;
+  margin-right: 0;
+}
+.menu-active {
+  -moz-border-radius: 0px 0px 0px 0px;
+  -webkit-border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px;
+}
+.menu-item-disabled {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  cursor: default;
+}
+.menu-text,
+.menu-text span {
+  font-size: 14px;
+}
+.menu-shadow {
+  position: absolute;
+  -moz-border-radius: 0px 0px 0px 0px;
+  -webkit-border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px;
+  background: #eee;
+  -moz-box-shadow: 2px 2px 3px #ededed;
+  -webkit-box-shadow: 2px 2px 3px #ededed;
+  box-shadow: 2px 2px 3px #ededed;
+  filter: progid:DXImageTransform.Microsoft.Blur(pixelRadius=2,MakeShadow=false,ShadowOpacity=0.2);
+}
+.menu-rightarrow {
+  background: url('images/menu_arrows.png') no-repeat -32px center;
+}
+.menu-line {
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #fff;
+}
+.menu-sep {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #fff;
+}
+.menu {
+  background-color: #ffffff;
+  border-color: #ddd;
+  color: #444;
+}
+.menu-content {
+  background: #fff;
+}
+.menu-item {
+  border-color: transparent;
+  _border-color: #ffffff;
+}
+.menu-active {
+  border-color: #ddd;
+  color: #444;
+  background: #E6E6E6;
+}
+.menu-active-disabled {
+  border-color: transparent;
+  background: transparent;
+  color: #444;
+}
+.m-btn-downarrow,
+.s-btn-downarrow {
+  display: inline-block;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  font-size: 1px;
+  right: 0;
+  top: 50%;
+  margin-top: -8px;
+}
+.m-btn-active,
+.s-btn-active {
+  background: #E6E6E6;
+  color: #444;
+  border: 1px solid #ddd;
+  filter: none;
+}
+.m-btn-plain-active,
+.s-btn-plain-active {
+  background: transparent;
+  padding: 0;
+  border-width: 1px;
+  border-style: solid;
+  -moz-border-radius: 0px 0px 0px 0px;
+  -webkit-border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px;
+}
+.m-btn .l-btn-left .l-btn-text {
+  margin-right: 20px;
+}
+.m-btn .l-btn-icon-right .l-btn-text {
+  margin-right: 40px;
+}
+.m-btn .l-btn-icon-right .l-btn-icon {
+  right: 20px;
+}
+.m-btn .l-btn-icon-top .l-btn-text {
+  margin-right: 4px;
+  margin-bottom: 14px;
+}
+.m-btn .l-btn-icon-bottom .l-btn-text {
+  margin-right: 4px;
+  margin-bottom: 34px;
+}
+.m-btn .l-btn-icon-bottom .l-btn-icon {
+  top: auto;
+  bottom: 20px;
+}
+.m-btn .l-btn-icon-top .m-btn-downarrow,
+.m-btn .l-btn-icon-bottom .m-btn-downarrow {
+  top: auto;
+  bottom: 0px;
+  left: 50%;
+  margin-left: -8px;
+}
+.m-btn-line {
+  display: inline-block;
+  position: absolute;
+  font-size: 1px;
+  display: none;
+}
+.m-btn .l-btn-left .m-btn-line {
+  right: 0;
+  width: 16px;
+  height: 500px;
+  border-style: solid;
+  border-color: #b3b3b3;
+  border-width: 0 0 0 1px;
+}
+.m-btn .l-btn-icon-top .m-btn-line,
+.m-btn .l-btn-icon-bottom .m-btn-line {
+  left: 0;
+  bottom: 0;
+  width: 500px;
+  height: 16px;
+  border-width: 1px 0 0 0;
+}
+.m-btn-large .l-btn-icon-right .l-btn-text {
+  margin-right: 56px;
+}
+.m-btn-large .l-btn-icon-bottom .l-btn-text {
+  margin-bottom: 50px;
+}
+.m-btn-downarrow,
+.s-btn-downarrow {
+  background: url('images/menu_arrows.png') no-repeat 0 center;
+}
+.m-btn-plain-active,
+.s-btn-plain-active {
+  border-color: #ddd;
+  background-color: #E6E6E6;
+  color: #444;
+}
+.s-btn:hover .m-btn-line,
+.s-btn-active .m-btn-line,
+.s-btn-plain-active .m-btn-line {
+  display: inline-block;
+}
+.l-btn:hover .s-btn-downarrow,
+.s-btn-active .s-btn-downarrow,
+.s-btn-plain-active .s-btn-downarrow {
+  border-style: solid;
+  border-color: #b3b3b3;
+  border-width: 0 0 0 1px;
+}
+.messager-body {
+  padding: 10px 10px 30px 10px;
+  overflow: auto;
+}
+.messager-button {
+  text-align: center;
+  padding: 5px;
+}
+.messager-button .l-btn {
+  width: 70px;
+}
+.messager-icon {
+  float: left;
+  width: 32px;
+  height: 32px;
+  margin: 0 10px 10px 0;
+}
+.messager-error {
+  background: url('images/messager_icons.png') no-repeat scroll -64px 0;
+}
+.messager-info {
+  background: url('images/messager_icons.png') no-repeat scroll 0 0;
+}
+.messager-question {
+  background: url('images/messager_icons.png') no-repeat scroll -32px 0;
+}
+.messager-warning {
+  background: url('images/messager_icons.png') no-repeat scroll -96px 0;
+}
+.messager-progress {
+  padding: 10px;
+}
+.messager-p-msg {
+  margin-bottom: 5px;
+}
+.messager-body .messager-input {
+  width: 100%;
+  padding: 4px 0;
+  outline-style: none;
+  border: 1px solid #ddd;
+}
+.window-thinborder .messager-button {
+  padding-bottom: 8px;
+}
+.tree {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.tree li {
+  white-space: nowrap;
+}
+.tree li ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.tree-node {
+  height: 26px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.tree-hit {
+  cursor: pointer;
+}
+.tree-expanded,
+.tree-collapsed,
+.tree-folder,
+.tree-file,
+.tree-checkbox,
+.tree-indent {
+  display: inline-block;
+  width: 16px;
+  height: 18px;
+  margin: 4px 0;
+  vertical-align: middle;
+  overflow: hidden;
+}
+.tree-expanded {
+  background: url('images/tree_icons.png') no-repeat -18px 0px;
+}
+.tree-expanded-hover {
+  background: url('images/tree_icons.png') no-repeat -50px 0px;
+}
+.tree-collapsed {
+  background: url('images/tree_icons.png') no-repeat 0px 0px;
+}
+.tree-collapsed-hover {
+  background: url('images/tree_icons.png') no-repeat -32px 0px;
+}
+.tree-lines .tree-expanded,
+.tree-lines .tree-root-first .tree-expanded {
+  background: url('images/tree_icons.png') no-repeat -144px 0;
+}
+.tree-lines .tree-collapsed,
+.tree-lines .tree-root-first .tree-collapsed {
+  background: url('images/tree_icons.png') no-repeat -128px 0;
+}
+.tree-lines .tree-node-last .tree-expanded,
+.tree-lines .tree-root-one .tree-expanded {
+  background: url('images/tree_icons.png') no-repeat -80px 0;
+}
+.tree-lines .tree-node-last .tree-collapsed,
+.tree-lines .tree-root-one .tree-collapsed {
+  background: url('images/tree_icons.png') no-repeat -64px 0;
+}
+.tree-line {
+  background: url('images/tree_icons.png') no-repeat -176px 0;
+}
+.tree-join {
+  background: url('images/tree_icons.png') no-repeat -192px 0;
+}
+.tree-joinbottom {
+  background: url('images/tree_icons.png') no-repeat -160px 0;
+}
+.tree-folder {
+  background: url('images/tree_icons.png') no-repeat -208px 0;
+}
+.tree-folder-open {
+  background: url('images/tree_icons.png') no-repeat -224px 0;
+}
+.tree-file {
+  background: url('images/tree_icons.png') no-repeat -240px 0;
+}
+.tree-loading {
+  background: url('images/loading.gif') no-repeat center center;
+}
+.tree-checkbox0 {
+  background: url('images/tree_icons.png') no-repeat -208px -18px;
+}
+.tree-checkbox1 {
+  background: url('images/tree_icons.png') no-repeat -224px -18px;
+}
+.tree-checkbox2 {
+  background: url('images/tree_icons.png') no-repeat -240px -18px;
+}
+.tree-title {
+  font-size: 14px;
+  display: inline-block;
+  text-decoration: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  padding: 0 2px;
+  margin: 4px 0;
+  height: 18px;
+  line-height: 18px;
+}
+.tree-node-proxy {
+  font-size: 14px;
+  line-height: 20px;
+  padding: 0 2px 0 20px;
+  border-width: 1px;
+  border-style: solid;
+  z-index: 9900000;
+}
+.tree-dnd-icon {
+  display: inline-block;
+  position: absolute;
+  width: 16px;
+  height: 18px;
+  left: 2px;
+  top: 50%;
+  margin-top: -9px;
+}
+.tree-dnd-yes {
+  background: url('images/tree_icons.png') no-repeat -256px 0;
+}
+.tree-dnd-no {
+  background: url('images/tree_icons.png') no-repeat -256px -18px;
+}
+.tree-node-top {
+  border-top: 1px dotted red;
+}
+.tree-node-bottom {
+  border-bottom: 1px dotted red;
+}
+.tree-node-append .tree-title {
+  border: 1px dotted red;
+}
+.tree-editor {
+  border: 1px solid #ddd;
+  font-size: 14px;
+  height: 26px;
+  line-height: 26px;
+  padding: 0 4px;
+  margin: 0;
+  width: 80px;
+  outline-style: none;
+  vertical-align: middle;
+  position: absolute;
+  top: 0;
+}
+.tree-node-proxy {
+  background-color: #fff;
+  color: #444;
+  border-color: #ddd;
+}
+.tree-node-hover {
+  background: #E6E6E6;
+  color: #444;
+}
+.tree-node-selected {
+  background: #CCE6FF;
+  color: #000;
+}
+.tree-node-hidden {
+  display: none;
+}
+.inputbox {
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+}
+.validatebox-invalid {
+  border-color: #ffa8a8;
+  background-color: #fff3f3;
+  color: #000;
+}
+.tooltip {
+  position: absolute;
+  display: none;
+  z-index: 9900000;
+  outline: none;
+  opacity: 1;
+  filter: alpha(opacity=100);
+  padding: 5px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 5px;
+  -moz-border-radius: 0px 0px 0px 0px;
+  -webkit-border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px;
+}
+.tooltip-content {
+  font-size: 14px;
+}
+.tooltip-arrow-outer,
+.tooltip-arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  line-height: 0;
+  font-size: 0;
+  border-style: solid;
+  border-width: 6px;
+  border-color: transparent;
+  _border-color: tomato;
+  _filter: chroma(color=tomato);
+}
+.tooltip-arrow {
+  display: none \9;
+}
+.tooltip-right .tooltip-arrow-outer {
+  left: 0;
+  top: 50%;
+  margin: -6px 0 0 -13px;
+}
+.tooltip-right .tooltip-arrow {
+  left: 0;
+  top: 50%;
+  margin: -6px 0 0 -12px;
+}
+.tooltip-left .tooltip-arrow-outer {
+  right: 0;
+  top: 50%;
+  margin: -6px -13px 0 0;
+}
+.tooltip-left .tooltip-arrow {
+  right: 0;
+  top: 50%;
+  margin: -6px -12px 0 0;
+}
+.tooltip-top .tooltip-arrow-outer {
+  bottom: 0;
+  left: 50%;
+  margin: 0 0 -13px -6px;
+}
+.tooltip-top .tooltip-arrow {
+  bottom: 0;
+  left: 50%;
+  margin: 0 0 -12px -6px;
+}
+.tooltip-bottom .tooltip-arrow-outer {
+  top: 0;
+  left: 50%;
+  margin: -13px 0 0 -6px;
+}
+.tooltip-bottom .tooltip-arrow {
+  top: 0;
+  left: 50%;
+  margin: -12px 0 0 -6px;
+}
+.tooltip {
+  background-color: #fff;
+  border-color: #ddd;
+  color: #444;
+}
+.tooltip-right .tooltip-arrow-outer {
+  border-right-color: #ddd;
+}
+.tooltip-right .tooltip-arrow {
+  border-right-color: #fff;
+}
+.tooltip-left .tooltip-arrow-outer {
+  border-left-color: #ddd;
+}
+.tooltip-left .tooltip-arrow {
+  border-left-color: #fff;
+}
+.tooltip-top .tooltip-arrow-outer {
+  border-top-color: #ddd;
+}
+.tooltip-top .tooltip-arrow {
+  border-top-color: #fff;
+}
+.tooltip-bottom .tooltip-arrow-outer {
+  border-bottom-color: #ddd;
+}
+.tooltip-bottom .tooltip-arrow {
+  border-bottom-color: #fff;
+}
+.switchbutton {
+  text-decoration: none;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  background: #dddddd;
+  border: 1px solid #dddddd;
+  -moz-border-radius: 0px 0px 0px 0px;
+  -webkit-border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px;
+}
+.switchbutton-inner {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  top: -1px;
+  left: -1px;
+}
+.switchbutton-on,
+.switchbutton-off,
+.switchbutton-handle {
+  display: inline-block;
+  text-align: center;
+  height: 100%;
+  float: left;
+  font-size: 14px;
+  -moz-border-radius: 0px 0px 0px 0px;
+  -webkit-border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px;
+}
+.switchbutton-on {
+  background: #CCE6FF;
+  color: #000;
+}
+.switchbutton-off {
+  background-color: #fff;
+  color: #444;
+}
+.switchbutton-on,
+.switchbutton-reversed .switchbutton-off {
+  -moz-border-radius: 0px 0 0 0px;
+  -webkit-border-radius: 0px 0 0 0px;
+  border-radius: 0px 0 0 0px;
+}
+.switchbutton-off,
+.switchbutton-reversed .switchbutton-on {
+  -moz-border-radius: 0 0px 0px 0;
+  -webkit-border-radius: 0 0px 0px 0;
+  border-radius: 0 0px 0px 0;
+}
+.switchbutton-handle {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  background-color: #fff;
+  color: #444;
+  border: 1px solid #dddddd;
+  -moz-box-shadow: 0 0 3px 0 #dddddd;
+  -webkit-box-shadow: 0 0 3px 0 #dddddd;
+  box-shadow: 0 0 3px 0 #dddddd;
+}
+.switchbutton-value {
+  position: absolute;
+  top: 0;
+  left: -5000px;
+}
+.switchbutton-disabled {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+.switchbutton-disabled,
+.switchbutton-readonly {
+  cursor: default;
+}
+.radiobutton {
+  position: relative;
+  border: 2px solid #99cdff;
+  border-radius: 50%;
+}
+.radiobutton-inner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #99cdff;
+  border-radius: 50%;
+  transform: scale(.6);
+}
+.radiobutton-disabled {
+  opacity: 0.6;
+}
+.radiobutton-value {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  left: -999px;
+}
+.checkbox {
+  position: relative;
+  border: 2px solid #99cdff;
+  -moz-border-radius: 0px 0px 0px 0px;
+  -webkit-border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px;
+}
+.checkbox-checked {
+  border: 0;
+  background: #99cdff;
+}
+.checkbox-inner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.checkbox path {
+  stroke-width: 2px;
+}
+.checkbox-disabled {
+  opacity: 0.6;
+}
+.checkbox-value {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  left: -999px;
+}
+.sidemenu .tree-hit {
+  background-image: none;
+}
+.sidemenu-default-icon {
+  background-image: none;
+  width: 0;
+}
+.sidemenu .accordion .accordion-header,
+.sidemenu .accordion .accordion-body {
+  border-bottom-color: transparent;
+  background: transparent;
+}
+.sidemenu .accordion .accordion-header {
+  color: #777;
+}
+.sidemenu .accordion-header .panel-title {
+  height: 30px;
+  line-height: 30px;
+  color: #777;
+}
+.sidemenu .accordion-header:hover {
+  background: #E6E6E6;
+  color: #777;
+}
+.sidemenu .tree-node-hover {
+  background: #E6E6E6;
+  color: #777;
+}
+.sidemenu .tree-node-selected {
+  border-right: 2px solid #99cdff;
+  color: #000;
+  background: #CCE6FF;
+}
+.sidemenu .tree-node {
+  height: 40px;
+}
+.sidemenu .tree-title {
+  margin: 11px 0;
+}
+.sidemenu .tree-node-nonleaf {
+  position: relative;
+}
+.sidemenu .tree-node-nonleaf::after {
+  display: inline-block;
+  content: '';
+  position: absolute;
+  top: 50%;
+  margin-top: -8px;
+  background: url('images/accordion_arrows.png') no-repeat 0 0;
+  width: 16px;
+  height: 16px;
+  right: 5px;
+}
+.sidemenu .tree-node-nonleaf-collapsed::after {
+  background: url('images/accordion_arrows.png') no-repeat -16px 0;
+}
+.sidemenu-collapsed .panel-icon {
+  left: 50%;
+  margin-left: -8px;
+}
+.sidemenu-tooltip {
+  padding: 0;
+  margin: 0 -12px;
+  border: 0;
+}
+.sidemenu-tooltip .tooltip-arrow-outer,
+.sidemenu-tooltip .tooltip-arrow {
+  display: none;
+}
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/16/通向财务自由/" data-id="cjpayx2ht001bpcuqqbqzimsp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/easyui/" data-id="cjtifrbfj009awguqaauc2wsl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -99,36 +3469,70 @@
 
 
   
-    <article id="post-常用命令行" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/dialog" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/01/15/常用命令行/" class="article-date">
-  <time datetime="2018-01-15T09:11:46.000Z" itemprop="datePublished">2018-01-15</time>
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/dialog/" class="article-date">
+  <time datetime="2019-03-21T09:22:47.189Z" itemprop="datePublished">2019-03-21</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/15/常用命令行/">常用命令行</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="查看端口占用指令"><a href="#查看端口占用指令" class="headerlink" title="查看端口占用指令"></a>查看端口占用指令</h1><h2 id="查看所有进程占用的端口"><a href="#查看所有进程占用的端口" class="headerlink" title="查看所有进程占用的端口"></a>查看所有进程占用的端口</h2><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat  -ano</span><br></pre></td></tr></table></figure>
-<h2 id="查看指定端口的程序"><a href="#查看指定端口的程序" class="headerlink" title="查看指定端口的程序"></a>查看指定端口的程序</h2><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ano|<span class="built_in">findstr</span> “端口号”</span><br></pre></td></tr></table></figure>
-<h2 id="通过PID查看进程名称"><a href="#通过PID查看进程名称" class="headerlink" title="通过PID查看进程名称"></a>通过PID查看进程名称</h2><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tasklist | <span class="built_in">findstr</span> "端口号"</span><br></pre></td></tr></table></figure>
+        .dialog-content {
+  overflow: auto;
+}
+.dialog-toolbar {
+  position: relative;
+  padding: 2px 5px;
+}
+.dialog-tool-separator {
+  float: left;
+  height: 24px;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #fff;
+  margin: 2px 1px;
+}
+.dialog-button {
+  position: relative;
+  top: -1px;
+  padding: 5px;
+  text-align: right;
+}
+.dialog-button .l-btn {
+  margin-left: 5px;
+}
+.dialog-toolbar,
+.dialog-button {
+  background: #fff;
+  border-width: 1px;
+  border-style: solid;
+}
+.dialog-toolbar {
+  border-color: #ddd #ddd #ddd #ddd;
+}
+.dialog-button {
+  border-color: #ddd #ddd #ddd #ddd;
+}
+.window-thinborder .dialog-toolbar {
+  border-left: transparent;
+  border-right: transparent;
+  border-top-color: #fff;
+}
+.window-thinborder .dialog-button {
+  top: 0px;
+  padding: 5px 8px 8px 8px;
+  border-left: transparent;
+  border-right: transparent;
+  border-bottom: transparent;
+}
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/15/常用命令行/" data-id="cjpayx2hi0015pcuq7beo4psa" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/dialog/" data-id="cjtifrbda008dwguqirs0tbs8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -138,33 +3542,59 @@
 
 
   
-    <article id="post-博客园美化" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/datebox" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/01/13/博客园美化/" class="article-date">
-  <time datetime="2018-01-13T11:17:20.000Z" itemprop="datePublished">2018-01-13</time>
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/datebox/" class="article-date">
+  <time datetime="2019-03-21T09:22:47.186Z" itemprop="datePublished">2019-03-21</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/13/博客园美化/">博客园美化</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        
+        .datebox-calendar-inner {
+  height: 250px;
+}
+.datebox-button {
+  padding: 4px 0;
+  text-align: center;
+}
+.datebox-button a {
+  line-height: 22px;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+.datebox-button a:hover {
+  opacity: 1.0;
+  filter: alpha(opacity=100);
+}
+.datebox-current,
+.datebox-close {
+  float: left;
+}
+.datebox-close {
+  float: right;
+}
+.datebox .combo-arrow {
+  background-image: url('images/datebox_arrow.png');
+  background-position: center center;
+}
+.datebox-button {
+  background-color: #fff;
+}
+.datebox-button a {
+  color: #777;
+}
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/13/博客园美化/" data-id="cjpayx2gv0013pcuqqyw2oapn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/datebox/" data-id="cjtifrbd8008awguq4kmuncwp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -174,42 +3604,118 @@
 
 
   
-    <article id="post-UML类图的基本关系" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/datalist" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/01/08/UML类图的基本关系/" class="article-date">
-  <time datetime="2018-01-08T05:42:53.000Z" itemprop="datePublished">2018-01-08</time>
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/datalist/" class="article-date">
+  <time datetime="2019-03-21T09:22:47.183Z" itemprop="datePublished">2019-03-21</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/08/UML类图的基本关系/">UML类图的基本关系</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <p> 在UML类图中，常见的有以下几种关系: 泛化（Generalization）,  实现（Realization），关联（Association)，聚合（Aggregation），组合(Composition)，依赖(Dependency)</p>
-<h2 id="泛化（Generalization）"><a href="#泛化（Generalization）" class="headerlink" title="泛化（Generalization）"></a>泛化（Generalization）</h2><p>【泛化关系】：是一种继承关系，表示一般与特殊的关系，它指定了子类如何特化父类的所有特征和行为。例如：老虎是动物的一种，即有老虎的特性也有动物的共性。<br>【箭头指向】：带三角箭头的实线，箭头指向父类<br><img src="/2018/01/08/UML类图的基本关系/Generalization.gif" alt="Generalization"></p>
-<h2 id="实现（Realization）"><a href="#实现（Realization）" class="headerlink" title="实现（Realization）"></a>实现（Realization）</h2><p>【实现关系】：是一种类与接口的关系，表示类是接口所有特征和行为的实现.<br>【箭头指向】：带三角箭头的虚线，箭头指向接口<br><img src="/2018/01/08/UML类图的基本关系/Realization.gif" alt="Realization"></p>
-<h2 id="关联（Association"><a href="#关联（Association" class="headerlink" title="关联（Association)"></a>关联（Association)</h2><p>【关联关系】：是一种拥有的关系，它使一个类知道另一个类的属性和方法；如：老师与学生，丈夫与妻子关联可以是双向的，也可以是单向的。双向的关联可以有两个箭头或者没有箭头，单向的关联有一个箭头。<br>【代码体现】：成员变量<br>【箭头及指向】：带普通箭头的实心线，指向被拥有者<br><img src="/2018/01/08/UML类图的基本关系/Association.gif" alt="Association"></p>
-<p>上图中，老师与学生是双向关联，老师有多名学生，学生也可能有多名老师。但学生与某课程间的关系为单向关联，一名学生可能要上多门课程，课程是个抽象的东西他不拥有学生。<br>下图为自身关联：<br><img src="/2018/01/08/UML类图的基本关系/AssociationSelf.gif" alt="AssociationSelf"></p>
-<h2 id="聚合（Aggregation）"><a href="#聚合（Aggregation）" class="headerlink" title="聚合（Aggregation）"></a>聚合（Aggregation）</h2><p>【聚合关系】：是整体与部分的关系，且部分可以离开整体而单独存在。如车和轮胎是整体和部分的关系，轮胎离开车仍然可以存在。<br>聚合关系是关联关系的一种，是强的关联关系；关联和聚合在语法上无法区分，必须考察具体的逻辑关系。<br>【代码体现】：成员变量<br>【箭头及指向】：带空心菱形的实心线，菱形指向整体<br><img src="/2018/01/08/UML类图的基本关系/Aggregation.gif" alt="Aggregation"></p>
-<h2 id="组合-Composition"><a href="#组合-Composition" class="headerlink" title="组合(Composition)"></a>组合(Composition)</h2><p>【组合关系】：是整体与部分的关系，但部分不能离开整体而单独存在。如公司和部门是整体和部分的关系，没有公司就不存在部门。<br>   组合关系是关联关系的一种，是比聚合关系还要强的关系，它要求普通的聚合关系中代表整体的对象负责代表部分的对象的生命周期。<br>【代码体现】：成员变量<br>【箭头及指向】：带实心菱形的实线，菱形指向整体<br><img src="/2018/01/08/UML类图的基本关系/Composition.gif" alt="Composition"></p>
-<h2 id="依赖-Dependency"><a href="#依赖-Dependency" class="headerlink" title="依赖(Dependency)"></a>依赖(Dependency)</h2><p>【依赖关系】：是一种使用的关系，即一个类的实现需要另一个类的协助，所以要尽量不使用双向的互相依赖.<br>【代码表现】：局部变量、方法的参数或者对静态方法的调用<br>【箭头及指向】：带箭头的虚线，指向被使用者<br><img src="/2018/01/08/UML类图的基本关系/Dependency.gif" alt="Dependency"></p>
-<h2 id="各种关系的强弱顺序："><a href="#各种关系的强弱顺序：" class="headerlink" title="各种关系的强弱顺序："></a>各种关系的强弱顺序：</h2><p>泛化 = 实现 &gt; 组合 &gt; 聚合 &gt; 关联 &gt; 依赖<br>下面这张UML图，比较形象地展示了各种类图关系：<br><img src="/2018/01/08/UML类图的基本关系/All.png" alt="All"></p>
+        .datalist .datagrid-header {
+  border-width: 0;
+}
+.datalist .datagrid-group,
+.m-list .m-list-group {
+  height: 25px;
+  line-height: 25px;
+  font-weight: bold;
+  overflow: hidden;
+  background-color: #ffffff;
+  border-style: solid;
+  border-width: 0 0 1px 0;
+  border-color: #ddd;
+}
+.datalist .datagrid-group-expander {
+  display: none;
+}
+.datalist .datagrid-group-title {
+  padding: 0 4px;
+}
+.datalist .datagrid-btable {
+  width: 100%;
+  table-layout: fixed;
+}
+.datalist .datagrid-row td {
+  border-style: solid;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-bottom-width: 0;
+}
+.datalist-lines .datagrid-row td {
+  border-bottom-width: 1px;
+}
+.datalist .datagrid-cell,
+.m-list li {
+  width: auto;
+  height: auto;
+  padding: 2px 4px;
+  line-height: 18px;
+  position: relative;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.datalist-link,
+.m-list li>a {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  color: #444;
+  text-decoration: none;
+  overflow: hidden;
+  margin: -2px -4px;
+  padding: 2px 4px;
+  padding-right: 16px;
+  line-height: 18px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.datalist-link::after,
+.m-list li>a::after {
+  position: absolute;
+  display: block;
+  width: 8px;
+  height: 8px;
+  content: '';
+  right: 6px;
+  top: 50%;
+  margin-top: -4px;
+  border-style: solid;
+  border-width: 1px 1px 0 0;
+  -ms-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.m-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.m-list li {
+  border-style: solid;
+  border-width: 0 0 1px 0;
+  border-color: #ddd;
+}
+.m-list li>a:hover {
+  background: #E6E6E6;
+  color: #444;
+}
+.m-list .m-list-group {
+  padding: 0 4px;
+}
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/08/UML类图的基本关系/" data-id="cjpayx2gf000vpcuqnij4p5jm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/datalist/" data-id="cjtifrbd9008bwguq1fc7pa25" class="article-share-link">Share</a>
       
       
     </footer>
@@ -219,345 +3725,308 @@
 
 
   
-    <article id="post-JavaScript" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/datagrid" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/01/07/JavaScript/" class="article-date">
-  <time datetime="2018-01-07T09:19:55.000Z" itemprop="datePublished">2018-01-07</time>
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/datagrid/" class="article-date">
+  <time datetime="2019-03-21T09:22:47.177Z" itemprop="datePublished">2019-03-21</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/07/JavaScript/">JavaScript</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>原文：<a href="http://www.cnblogs.com/wangfupeng1988/p/3994950.html" target="_blank" rel="noopener">http://www.cnblogs.com/wangfupeng1988/p/3994950.html</a></p>
-<h1 id="JavaScript判断对象是值类型还是引用类型的方法"><a href="#JavaScript判断对象是值类型还是引用类型的方法" class="headerlink" title="JavaScript判断对象是值类型还是引用类型的方法"></a>JavaScript判断对象是值类型还是引用类型的方法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var fn = function () &#123; &#125;;</span><br><span class="line">console.log(fn instanceof Object);  // true</span><br></pre></td></tr></table></figure>
-<h1 id="对象-若干属性和集合"><a href="#对象-若干属性和集合" class="headerlink" title="对象-若干属性和集合"></a>对象-若干属性和集合</h1><ul>
-<li>JavaScript的一切皆是对象</li>
-<li>对象里面一切皆是属性，没有方法，方法是一种表现为键值对的属性。</li>
-</ul>
-<h1 id="对象都是通过函数来创建的"><a href="#对象都是通过函数来创建的" class="headerlink" title="对象都是通过函数来创建的"></a>对象都是通过函数来创建的</h1><h1 id="javascript中的this"><a href="#javascript中的this" class="headerlink" title="javascript中的this"></a>javascript中的this</h1><p>在函数中this到底如何取值，是在函数真正被调用执行时确定的，函数定义的时候确定不了。<br>this的取值，分四种情况：</p>
-<ul>
-<li>构造函数</li>
-<li>函数作为对象的一个属性</li>
-<li>函数用call或者apply调用</li>
-<li>全局&amp;调用普通函数<h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2>如果函数作为构造函数用，this指向它即将new出来的对象。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function Foo()&#123;</span><br><span class="line">    this.name = &quot;aaaa&quot;;</span><br><span class="line">    this.year = &quot;2018&quot;;</span><br><span class="line">    console.log(this);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var f1 = new Foo();</span><br><span class="line">console.log(f1.name);</span><br><span class="line">console.log(f1.year);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>结果：<br><img src="/2018/01/07/JavaScript/构造函数.png" alt="constructor"><br>但是如果不是作为构造函数，也就是不是new Foo(),而是直接调用Foo(),则this指向的是Window<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function Foo()&#123;</span><br><span class="line">    this.name = &quot;aaaa&quot;;</span><br><span class="line">    this.year = &quot;2018&quot;;</span><br><span class="line">    console.log(this);</span><br><span class="line">&#125;</span><br><span class="line">Foo();</span><br></pre></td></tr></table></figure></p>
-<p><img src="/2018/01/07/JavaScript/call direct.png" alt="call direct"></p>
-<h2 id="函数作为对象的一个属性"><a href="#函数作为对象的一个属性" class="headerlink" title="函数作为对象的一个属性"></a>函数作为对象的一个属性</h2><p>如果函数作为对象的一个属性，并且作为一个对象的属性被调用时，函数的this指向该对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">    x:10,</span><br><span class="line">    fn:function()&#123;</span><br><span class="line">        console.log(this);</span><br><span class="line">        console.log(this.x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.fn();</span><br></pre></td></tr></table></figure></p>
-<p>如果不是作为obj的属性被调用，则this指向Window<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">    x:10,</span><br><span class="line">    fn:function()&#123;</span><br><span class="line">        console.log(this);</span><br><span class="line">        console.log(this.x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var fn1 = obj.fn;</span><br><span class="line">fn1();</span><br></pre></td></tr></table></figure></p>
-<p><img src="/2018/01/07/JavaScript/not call for property.png" alt="not call for property"></p>
-<h2 id="函数用call或者apply调用"><a href="#函数用call或者apply调用" class="headerlink" title="函数用call或者apply调用"></a>函数用call或者apply调用</h2><p>当一个函数被call或apply调用时，this的值就取传入对象的值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">    x:10</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var fn = function()&#123;</span><br><span class="line">    console.log(this);</span><br><span class="line">    console.log(this.x);</span><br><span class="line">&#125;</span><br><span class="line">fn.call(obj);</span><br></pre></td></tr></table></figure></p>
-<p><img src="/2018/01/07/JavaScript/call or apply.png" alt="call or apply"></p>
-<h2 id="全局-amp-调用普通函数"><a href="#全局-amp-调用普通函数" class="headerlink" title="全局&amp;调用普通函数"></a>全局&amp;调用普通函数</h2><p>在全局下，this永远是Window<br>普通函数在调用时，其中this就是Window，如上面1与2的第2个例子全是普通函数</p>
-<h1 id="执行上下文"><a href="#执行上下文" class="headerlink" title="执行上下文"></a>执行上下文</h1><p>执行全局代码时，会产生一个执行上下文环境，函数每次调用都会产生一个函数上下文环境，当函数调用完成后，这个上下文环境以及其中的数据就会被消除，重新回到全局上下文环境。处于活动状态的上下文环境只有一个。<br>这都通过一个上下文栈来完成<br><img src="/2018/01/07/JavaScript/context stack.png" alt="context stack"></p>
-<h1 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h1><ul>
-<li>Javascript没有块级作用域，所谓的块就是{}中间的语句。</li>
-<li>Javascript除了全局作用域外，只有函数可以创建的作用域。<br>所以在声明变量时，全局代码要在代码前端声明，函数中要在函数体一开始就声明好。除了这两个地方，其它地方不要出现变量声明，而且建议用”单var”形式。</li>
-</ul>
-<p><img src="/2018/01/07/JavaScript/作用域.png" alt="作用域"><br>作用域的最大作用就是隔离变量，不同作用域下同名变量不会有冲突。<br>作用域在函数定义时就已经确定了，而不是在函数调用时确定。</p>
-<h1 id="自由变量"><a href="#自由变量" class="headerlink" title="自由变量"></a>自由变量</h1><p>自由变量要到创建这个函数那个作用域中取值。</p>
-<h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h1><h2 id="函数作为返回值"><a href="#函数作为返回值" class="headerlink" title="函数作为返回值"></a>函数作为返回值</h2><p><img src="/2018/01/07/JavaScript/函数作为返回值.png" alt="函数作为返回值"><br>如上代码，bar函数作为返回值，赋值给f1变量。执行f1(15)时，用到了fn作用域下的max变量的值</p>
-<h2 id="函数作为参数被传递"><a href="#函数作为参数被传递" class="headerlink" title="函数作为参数被传递"></a>函数作为参数被传递</h2><p><img src="/2018/01/07/JavaScript/函数作为参数被传递.png" alt="函数作为参数被传递"><br>如上代码中，fn函数作为一个参数被传递进入另一个函数，赋值给f参数。执行f(15)时，max变量的取值是10，而不是100。</p>
+        .datagrid .panel-body {
+  overflow: hidden;
+  position: relative;
+}
+.datagrid-view {
+  position: relative;
+  overflow: hidden;
+}
+.datagrid-view1,
+.datagrid-view2 {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+}
+.datagrid-view1 {
+  left: 0;
+}
+.datagrid-view2 {
+  right: 0;
+}
+.datagrid-mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.3;
+  filter: alpha(opacity=30);
+  display: none;
+}
+.datagrid-mask-msg {
+  position: absolute;
+  top: 50%;
+  margin-top: -20px;
+  padding: 10px 5px 10px 30px;
+  width: auto;
+  height: 16px;
+  border-width: 2px;
+  border-style: solid;
+  display: none;
+}
+.datagrid-empty {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+}
+.datagrid-sort-icon {
+  padding: 0;
+  display: none;
+}
+.datagrid-toolbar {
+  height: auto;
+  padding: 1px 2px;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+}
+.datagrid-btn-separator {
+  float: left;
+  height: 24px;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #fff;
+  margin: 2px 1px;
+}
+.datagrid .datagrid-pager {
+  display: block;
+  margin: 0;
+  border-width: 1px 0 0 0;
+  border-style: solid;
+}
+.datagrid .datagrid-pager-top {
+  border-width: 0 0 1px 0;
+}
+.datagrid-header {
+  overflow: hidden;
+  cursor: default;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+}
+.datagrid-header-inner {
+  float: left;
+  width: 10000px;
+}
+.datagrid-header-row,
+.datagrid-row {
+  height: 32px;
+}
+.datagrid-header td,
+.datagrid-body td,
+.datagrid-footer td {
+  border-width: 0 1px 1px 0;
+  border-style: dotted;
+  margin: 0;
+  padding: 0;
+}
+.datagrid-cell,
+.datagrid-cell-group,
+.datagrid-header-rownumber,
+.datagrid-cell-rownumber {
+  margin: 0;
+  padding: 0 4px;
+  white-space: nowrap;
+  word-wrap: normal;
+  overflow: hidden;
+  height: 18px;
+  line-height: 18px;
+  font-size: 14px;
+}
+.datagrid-header .datagrid-cell {
+  height: auto;
+}
+.datagrid-header .datagrid-cell span {
+  font-size: 14px;
+}
+.datagrid-cell-group {
+  text-align: center;
+  text-overflow: ellipsis;
+}
+.datagrid-header-rownumber,
+.datagrid-cell-rownumber {
+  width: 30px;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+.datagrid-body {
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  zoom: 1;
+}
+.datagrid-view1 .datagrid-body-inner {
+  padding-bottom: 20px;
+}
+.datagrid-view1 .datagrid-body {
+  overflow: hidden;
+}
+.datagrid-footer {
+  overflow: hidden;
+}
+.datagrid-footer-inner {
+  border-width: 1px 0 0 0;
+  border-style: solid;
+  width: 10000px;
+  float: left;
+}
+.datagrid-row-editing .datagrid-cell {
+  height: auto;
+}
+.datagrid-header-check,
+.datagrid-cell-check {
+  padding: 0;
+  width: 27px;
+  height: 18px;
+  font-size: 1px;
+  text-align: center;
+  overflow: hidden;
+}
+.datagrid-header-check input,
+.datagrid-cell-check input {
+  margin: 0;
+  padding: 0;
+  width: 15px;
+  height: 18px;
+}
+.datagrid-resize-proxy {
+  position: absolute;
+  width: 1px;
+  height: 10000px;
+  top: 0;
+  cursor: e-resize;
+  display: none;
+}
+.datagrid-body .datagrid-editable {
+  margin: 0;
+  padding: 0;
+}
+.datagrid-body .datagrid-editable table {
+  width: 100%;
+  height: 100%;
+}
+.datagrid-body .datagrid-editable td {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+.datagrid-view .datagrid-editable-input {
+  margin: 0;
+  padding: 2px 4px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  outline-style: none;
+  -moz-border-radius: 0 0 0 0;
+  -webkit-border-radius: 0 0 0 0;
+  border-radius: 0 0 0 0;
+}
+.datagrid-view .validatebox-invalid {
+  border-color: #ffa8a8;
+}
+.datagrid-sort .datagrid-sort-icon {
+  display: inline;
+  padding: 0 13px 0 0;
+  background: url('images/datagrid_icons.png') no-repeat -64px center;
+}
+.datagrid-sort-desc .datagrid-sort-icon {
+  display: inline;
+  padding: 0 13px 0 0;
+  background: url('images/datagrid_icons.png') no-repeat -16px center;
+}
+.datagrid-sort-asc .datagrid-sort-icon {
+  display: inline;
+  padding: 0 13px 0 0;
+  background: url('images/datagrid_icons.png') no-repeat 0px center;
+}
+.datagrid-row-collapse {
+  background: url('images/datagrid_icons.png') no-repeat -48px center;
+}
+.datagrid-row-expand {
+  background: url('images/datagrid_icons.png') no-repeat -32px center;
+}
+.datagrid-mask-msg {
+  background: #fff url('images/loading.gif') no-repeat scroll 5px center;
+}
+.datagrid-header,
+.datagrid-td-rownumber {
+  background-color: #ffffff;
+}
+.datagrid-cell-rownumber {
+  color: #444;
+}
+.datagrid-resize-proxy {
+  background: #b3b3b3;
+}
+.datagrid-mask {
+  background: #eee;
+}
+.datagrid-mask-msg {
+  border-color: #ddd;
+}
+.datagrid-toolbar,
+.datagrid-pager {
+  background: #fff;
+}
+.datagrid-header,
+.datagrid-toolbar,
+.datagrid-pager,
+.datagrid-footer-inner {
+  border-color: #ddd;
+}
+.datagrid-header td,
+.datagrid-body td,
+.datagrid-footer td {
+  border-color: #ddd;
+}
+.datagrid-htable,
+.datagrid-btable,
+.datagrid-ftable {
+  color: #444;
+  border-collapse: separate;
+}
+.datagrid-row-alt {
+  background: #f5f5f5;
+}
+.datagrid-row-over,
+.datagrid-header td.datagrid-header-over {
+  background: #E6E6E6;
+  color: #444;
+  cursor: default;
+}
+.datagrid-row-selected {
+  background: #CCE6FF;
+  color: #000;
+}
+.datagrid-row-editing .textbox,
+.datagrid-row-editing .textbox-text {
+  -moz-border-radius: 0 0 0 0;
+  -webkit-border-radius: 0 0 0 0;
+  border-radius: 0 0 0 0;
+}
+.datagrid-header .datagrid-filter-row td.datagrid-header-over {
+  background: inherit;
+}
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/07/JavaScript/" data-id="cjpayx2f5000dpcuq1eqhpvkr" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-日常代码积累" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/01/07/日常代码积累/" class="article-date">
-  <time datetime="2018-01-07T09:05:56.000Z" itemprop="datePublished">2018-01-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/07/日常代码积累/">日常代码积累</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-字符的全半角转换"><a href="#1-字符的全半角转换" class="headerlink" title="1. 字符的全半角转换"></a>1. 字符的全半角转换</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">/// &lt;summary&gt;</span><br><span class="line">      /// 转全角(SBC case)</span><br><span class="line">      /// &lt;/summary&gt;</span><br><span class="line">      /// &lt;param name=&quot;input&quot;&gt;任意字符串&lt;/param&gt;</span><br><span class="line">      /// &lt;returns&gt;全角字符串&lt;/returns&gt;</span><br><span class="line">      public static string ToSBC(this string input)</span><br><span class="line">      &#123;</span><br><span class="line">          char[] c = input.ToCharArray();</span><br><span class="line">          for (int i = 0; i &lt; c.Length; i++)</span><br><span class="line">          &#123;</span><br><span class="line">              if (c[i] == 32)</span><br><span class="line">              &#123;</span><br><span class="line">                  c[i] = (char)12288;</span><br><span class="line">                  continue;</span><br><span class="line">              &#125;</span><br><span class="line">              if (c[i] &lt; 127)</span><br><span class="line">                  c[i] = (char)(c[i] + 65248);</span><br><span class="line">          &#125;</span><br><span class="line">          return new string(c);</span><br><span class="line">      &#125;</span><br><span class="line">      /// &lt;summary&gt;</span><br><span class="line">      /// 转半角(DBC case)</span><br><span class="line">      /// &lt;/summary&gt;</span><br><span class="line">      /// &lt;param name=&quot;input&quot;&gt;任意字符串&lt;/param&gt;</span><br><span class="line">      /// &lt;returns&gt;半角字符串&lt;/returns&gt;</span><br><span class="line">      public static string ToDBC(this string input)</span><br><span class="line">      &#123;</span><br><span class="line">          char[] c = input.ToCharArray();</span><br><span class="line">          for (int i = 0; i &lt; c.Length; i++)</span><br><span class="line">          &#123;</span><br><span class="line">              if (c[i] == 12288)</span><br><span class="line">              &#123;</span><br><span class="line">                  c[i] = (char)32;</span><br><span class="line">                  continue;</span><br><span class="line">              &#125;</span><br><span class="line">              if (c[i] &gt; 65280 &amp;&amp; c[i] &lt; 65375)</span><br><span class="line">                  c[i] = (char)(c[i] - 65248);</span><br><span class="line">          &#125;</span><br><span class="line">          return new string(c);</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
-<h1 id="2-javascript-大小写转换"><a href="#2-javascript-大小写转换" class="headerlink" title="2. javascript 大小写转换"></a>2. javascript 大小写转换</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//转换成大写人民币</span></span><br><span class="line"><span class="keyword">var</span> digitUppercase = <span class="function"><span class="keyword">function</span> (<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> fraction = [<span class="string">'角'</span>, <span class="string">'分'</span>];</span><br><span class="line">    <span class="keyword">var</span> digit = [</span><br><span class="line">        <span class="string">'零'</span>, <span class="string">'壹'</span>, <span class="string">'贰'</span>, <span class="string">'叁'</span>, <span class="string">'肆'</span>,</span><br><span class="line">        <span class="string">'伍'</span>, <span class="string">'陆'</span>, <span class="string">'柒'</span>, <span class="string">'捌'</span>, <span class="string">'玖'</span></span><br><span class="line">    ];</span><br><span class="line">    <span class="keyword">var</span> unit = [</span><br><span class="line">        [<span class="string">'元'</span>, <span class="string">'万'</span>, <span class="string">'亿'</span>],</span><br><span class="line">        [<span class="string">''</span>, <span class="string">'拾'</span>, <span class="string">'佰'</span>, <span class="string">'仟'</span>]</span><br><span class="line">    ];</span><br><span class="line">    <span class="keyword">var</span> head = n &lt; <span class="number">0</span> ? <span class="string">'欠'</span> : <span class="string">''</span>;</span><br><span class="line">    n = <span class="built_in">Math</span>.abs(n);</span><br><span class="line">    <span class="keyword">var</span> s = <span class="string">''</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; fraction.length; i++) &#123;</span><br><span class="line">        s += (digit[<span class="built_in">Math</span>.floor(n * <span class="number">10</span> * <span class="built_in">Math</span>.pow(<span class="number">10</span>, i)) % <span class="number">10</span>] + fraction[i]).replace(<span class="regexp">/零./</span>, <span class="string">''</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    s = s || <span class="string">'整'</span>;</span><br><span class="line">    n = <span class="built_in">Math</span>.floor(n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; unit[<span class="number">0</span>].length &amp;&amp; n &gt; <span class="number">0</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">var</span> p = <span class="string">''</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; unit[<span class="number">1</span>].length &amp;&amp; n &gt; <span class="number">0</span>; j++) &#123;</span><br><span class="line">            p = digit[n % <span class="number">10</span>] + unit[<span class="number">1</span>][j] + p;</span><br><span class="line">            n = <span class="built_in">Math</span>.floor(n / <span class="number">10</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        s = p.replace(<span class="regexp">/(零.)*零$/</span>, <span class="string">''</span>).replace(<span class="regexp">/^$/</span>, <span class="string">'零'</span>) + unit[<span class="number">0</span>][i] + s;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> head + s.replace(<span class="regexp">/(零.)*零元/</span>, <span class="string">'元'</span>)</span><br><span class="line">        .replace(<span class="regexp">/(零.)+/g</span>, <span class="string">'零'</span>)</span><br><span class="line">        .replace(<span class="regexp">/^整$/</span>, <span class="string">'零元整'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="3-获取两个List或数组的差集与交集"><a href="#3-获取两个List或数组的差集与交集" class="headerlink" title="3. 获取两个List或数组的差集与交集"></a>3. 获取两个List或数组的差集与交集</h1><h2 id="3-1-差集"><a href="#3-1-差集" class="headerlink" title="3.1. 差集"></a>3.1. 差集</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">List&lt;int&gt; list1 = new List&lt;int&gt;();</span><br><span class="line">list1.Add(1);</span><br><span class="line">list1.Add(2);</span><br><span class="line">list1.Add(3);</span><br><span class="line">List&lt;int&gt; list2 = new List&lt;int&gt;();</span><br><span class="line">list2.Add(3);</span><br><span class="line">list2.Add(4);</span><br><span class="line">list2.Add(5);</span><br><span class="line">//得到的结果是4,5 即减去了相同的元素。</span><br><span class="line">List&lt;int&gt; list3 = list2.Except(list1).ToList();</span><br><span class="line">foreach (int i in list3)</span><br><span class="line">&#123;</span><br><span class="line">    MessageBox.Show(i.ToString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="3-2-合并两个数组-并去掉重复元素-然后排序-C"><a href="#3-2-合并两个数组-并去掉重复元素-然后排序-C" class="headerlink" title="3.2. 合并两个数组,并去掉重复元素,然后排序(C#)"></a>3.2. 合并两个数组,并去掉重复元素,然后排序(C#)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">List&lt;int&gt; numbers1 = new List&lt;int&gt;() &#123; 5, 4, 1, 3, 9, 8, 6, 7, 12, 10 &#125;;</span><br><span class="line">List&lt;int&gt; numbers2 = new List&lt;int&gt;() &#123; 15, 14, 11, 13, 19, 18, 16, 17, 12, 10 &#125;;</span><br><span class="line">var newQuerty = numbers1.Concat(</span><br><span class="line">from n in numbers2</span><br><span class="line">where !numbers1.Contains(n)</span><br><span class="line">select n</span><br><span class="line">).OrderBy(n=&gt;n);</span><br></pre></td></tr></table></figure>
-<h2 id="3-3-合并两个数组，并去除合并后的重复数据，-并排序"><a href="#3-3-合并两个数组，并去除合并后的重复数据，-并排序" class="headerlink" title="3.3. 合并两个数组，并去除合并后的重复数据， 并排序"></a>3.3. 合并两个数组，并去除合并后的重复数据， 并排序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int[] A=&#123;1,2,2,3,4,5,6,6,6&#125;;</span><br><span class="line">int[] B=&#123;2,2,2,3,7,8,9,5&#125;;</span><br><span class="line">List&lt;int&gt; list = new List&lt;int&gt;(A);</span><br><span class="line">list.AddRange(B);</span><br></pre></td></tr></table></figure>
-<h1 id="4-List-lt-父类-gt-引用List-lt-子类-gt"><a href="#4-List-lt-父类-gt-引用List-lt-子类-gt" class="headerlink" title="4. List&lt;父类&gt;引用List&lt;子类&gt;"></a>4. List&lt;父类&gt;引用List&lt;子类&gt;</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class Father</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">public class Son:Father</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class Test</span><br><span class="line">&#123;</span><br><span class="line">    public void Test()</span><br><span class="line">    &#123;</span><br><span class="line">        List&lt;Father&gt; fathers = new List&lt;Father&gt;();</span><br><span class="line">        List&lt;Son&gt; sons = new List&lt;Sons&gt;();</span><br><span class="line">        sons = sons.Cast&lt;Father&gt;().ToList();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="List-lt-T-gt-的一些概念"><a href="#List-lt-T-gt-的一些概念" class="headerlink" title="List&lt;T&gt; 的一些概念"></a>List&lt;T&gt; 的一些概念</h2><ul>
-<li>List&lt;T&gt;初始值大小是4，自动扩容是以当前数组元素的两倍或InsertRange目标List的元素个数来扩容（如个大选如个）。如果比较确定的大小可以考虑提前设置，因为每次自动扩容需要重新分配数组和copy元素，性能损耗不小。</li>
-<li>List&lt;T&gt;通过version来跟踪集合是否发生改变，如果在foreach遍历时发生改变则发生异常。</li>
-<li>List&lt;T&gt;并非线程安全，任何使用的时候都要考虑当前环境是否可能有多线程存在，是否需要用锁来保证集合线程安全。</li>
-</ul>
-<h1 id="EasyUI-Dialog"><a href="#EasyUI-Dialog" class="headerlink" title="EasyUI Dialog"></a>EasyUI Dialog</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">DlogOwner</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">    $(<span class="string">"#dlg"</span>).dialog(&#123;</span><br><span class="line">        title: <span class="string">'人员信息'</span>,</span><br><span class="line">        modal: <span class="literal">true</span>,</span><br><span class="line">        closed: <span class="literal">true</span>,</span><br><span class="line">        href: url,</span><br><span class="line">        queryParams: &#123; <span class="attr">type</span>: <span class="string">'add'</span>, <span class="attr">income_id</span>: $(<span class="string">"#income_id3"</span>).val() &#125;,</span><br><span class="line">        buttons: [&#123;</span><br><span class="line">            text: <span class="string">'取消'</span>,</span><br><span class="line">            handler: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                $(<span class="string">'#dlg'</span>).dialog(<span class="string">'close'</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;],</span><br><span class="line">        onClose: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> income_id = $(<span class="string">"#income_id3"</span>).val();</span><br><span class="line">            FillNewOwner(income_id);</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment">//content: "&lt;iframe scrolling='auto' frameborder='0' src='" + url + "' style='width:100%; height:100%; display:block;'&gt;&lt;/iframe&gt;"</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getQueryParam</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> obj = $(<span class="string">'#dd'</span>).dialog(<span class="string">'options'</span>);</span><br><span class="line">            <span class="keyword">var</span> queryParams = obj[<span class="string">"queryParams"</span>];</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> queryParams[name];</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-<h1 id="5-隐藏下拉框"><a href="#5-隐藏下拉框" class="headerlink" title="5. 隐藏下拉框"></a>5. 隐藏下拉框</h1><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">select</span> &#123;  </span><br><span class="line"><span class="comment">/*Chrome和Firefox里面的边框是不一样的，所以复写了一下*/</span>  </span><br><span class="line"><span class="attribute">border</span>: solid <span class="number">1px</span> <span class="number">#000</span>;  </span><br><span class="line">  </span><br><span class="line"><span class="comment">/*很关键：将默认的select选择框样式清除*/</span>  </span><br><span class="line"><span class="attribute">appearance</span>:none;  </span><br><span class="line"><span class="attribute">-moz-appearance</span>:none;  </span><br><span class="line"><span class="attribute">-webkit-appearance</span>:none;  </span><br><span class="line">  </span><br><span class="line"><span class="comment">/*在选择框的最右侧中间显示小箭头图片*/</span>  </span><br><span class="line"><span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">"http://ourjs.github.io/static/2015/arrow.png"</span>) no-repeat scroll right center transparent;  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"><span class="comment">/*为下拉小箭头留出一点位置，避免被文字覆盖*/</span>  </span><br><span class="line"><span class="attribute">padding-right</span>: <span class="number">14px</span>;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"><span class="comment">/*清除ie的默认选择框样式清除，隐藏下拉箭头*/</span>  </span><br><span class="line"><span class="selector-tag">select</span><span class="selector-pseudo">::-ms-expand</span> &#123; <span class="attribute">display</span>: none; &#125;</span><br></pre></td></tr></table></figure>
-<h1 id="6-JavaScript日期转换"><a href="#6-JavaScript日期转换" class="headerlink" title="6. JavaScript日期转换"></a>6. JavaScript日期转换</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Date</span>.prototype.Format = <span class="function"><span class="keyword">function</span> (<span class="params">fmt</span>) </span>&#123; <span class="comment">//author: meizz </span></span><br><span class="line">         <span class="keyword">var</span> o = &#123;</span><br><span class="line">              <span class="string">"M+"</span>: <span class="keyword">this</span>.getMonth() + <span class="number">1</span>, <span class="comment">//月份 </span></span><br><span class="line">              <span class="string">"d+"</span>: <span class="keyword">this</span>.getDate(), <span class="comment">//日 </span></span><br><span class="line">              <span class="string">"h+"</span>: <span class="keyword">this</span>.getHours(), <span class="comment">//小时 </span></span><br><span class="line">              <span class="string">"m+"</span>: <span class="keyword">this</span>.getMinutes(), <span class="comment">//分 </span></span><br><span class="line">              <span class="string">"s+"</span>: <span class="keyword">this</span>.getSeconds(), <span class="comment">//秒 </span></span><br><span class="line">              <span class="string">"q+"</span>: <span class="built_in">Math</span>.floor((<span class="keyword">this</span>.getMonth() + <span class="number">3</span>) / <span class="number">3</span>), <span class="comment">//季度 </span></span><br><span class="line">              <span class="string">"S"</span>: <span class="keyword">this</span>.getMilliseconds() <span class="comment">//毫秒 </span></span><br><span class="line">          &#125;;</span><br><span class="line">          <span class="keyword">if</span> (<span class="regexp">/(y+)/</span>.test(fmt)) fmt = fmt.replace(<span class="built_in">RegExp</span>.$<span class="number">1</span>, (<span class="keyword">this</span>.getFullYear() + <span class="string">""</span>).substr(<span class="number">4</span> - <span class="built_in">RegExp</span>.$<span class="number">1.</span>length));</span><br><span class="line">          <span class="keyword">for</span> (<span class="keyword">var</span> k <span class="keyword">in</span> o)</span><br><span class="line">              <span class="keyword">if</span> (<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"("</span> + k + <span class="string">")"</span>).test(fmt)) fmt = fmt.replace(<span class="built_in">RegExp</span>.$<span class="number">1</span>, (<span class="built_in">RegExp</span>.$<span class="number">1.</span>length == <span class="number">1</span>) ? (o[k]) : ((<span class="string">"00"</span> + o[k]).substr((<span class="string">""</span> + o[k]).length)));</span><br><span class="line"></span><br><span class="line">         <span class="keyword">return</span> fmt;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> maydate = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">" mydate :"</span> + maydate.Format(<span class="string">"yyyy-MM-dd hh:mm:ss"</span>));</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/07/日常代码积累/" data-id="cjpayx2hp0019pcuqol5m8hvb" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Visual-Studio-2017无法添加引用" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/01/07/Visual-Studio-2017无法添加引用/" class="article-date">
-  <time datetime="2018-01-07T07:43:02.000Z" itemprop="datePublished">2018-01-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/07/Visual-Studio-2017无法添加引用/">Visual Studio 2017无法添加引用</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>本机装了Visual Studio2017与2012两个版本，不知道是不是有冲突还是其它的一些原因，在2017项目中添加引用时总是报错，错误信息如下图所示：<br><img src="/2018/01/07/Visual-Studio-2017无法添加引用/Error1.png" alt="Error Image"></p>
-<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><ol>
-<li>用管理员权限打开命令行（不用管理员权限进行下面的操作可能会提示无权限）<br>在命行中打开如下路径:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\PublicAssemblies</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>此路径因安装visaul studio的位置不同而不同，我装在C盘</p>
-<ol start="2">
-<li>添加环境变量<br>在path下添加<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Program Files (x86)\Microsoft SDKs\Windows\v8.0A\bin\NETFX 4.0 Tools\x64</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><img src="/2018/01/07/Visual-Studio-2017无法添加引用/EditPath.png" alt="EditPath"></p>
-<ol start="3">
-<li>执行如下命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gacutil -i Microsoft.VisualStudio.Shell.Interop.11.0.dll</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><img src="/2018/01/07/Visual-Studio-2017无法添加引用/Add Succeed.png" alt="Add Succeed"><br>完成后重启Visual Studio，查看问题是否解决</p>
-<h2 id="resharper"><a href="#resharper" class="headerlink" title="resharper"></a>resharper</h2><p>在线服务器<br><a href="http://idea.iteblog.com/key.php" target="_blank" rel="noopener">http://idea.iteblog.com/key.php</a><br><a href="http://xidea.online" target="_blank" rel="noopener">http://xidea.online</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/07/Visual-Studio-2017无法添加引用/" data-id="cjpayx2gj000ypcuqghnug6nc" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Log4net学习" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/01/06/Log4net学习/" class="article-date">
-  <time datetime="2018-01-06T10:12:28.000Z" itemprop="datePublished">2018-01-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/06/Log4net学习/">Log4net学习</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Log4net的结构"><a href="#Log4net的结构" class="headerlink" title="Log4net的结构"></a>Log4net的结构</h1><p>Log4net有四种主要组件，分别是：</p>
-<ul>
-<li>Logger：记录器</li>
-<li>Repository：库</li>
-<li>Appender：附着器</li>
-<li>Layout：布局<h2 id="Logger"><a href="#Logger" class="headerlink" title="Logger"></a>Logger</h2>Logger是应用程序需要交互的主要组件，它用来产生日志消息。产生的日志消息并不直接显示，还要预先经过Layout的格式化处理后才会输出。<br>Logger提供了多种方式来记录一个日志消息，你可以在你的应用程序里创建多个Logger，每个实例化的Logger对象都被log4net框架作为命名实体(named entity)来维护。这意味着为了重用Logger对象，你不必将它在不同的类或对象间传递，只需要用它的名字为参数调用就可以了。log4net框架使用继承体系，继承体系类似于.NET中的名字空间。也就是说，如果有两个logger,分别被定义为a.b.c和a.b，那么我们说a.b是a.b.c的祖先。每一个logger都继承了祖先的属性。<br>Log4net框架定义了一个ILog接口，所有的logger类都必须实现这个接口。<br>Log4net框架定义了一个叫做LogManager的类，用来管理所有的logger对象。它有一个GetLogger()静态方法，用我们提供的名字参数来检索已经存在的Logger对象。如果框架里不存在该Logger对象，它也会为我们创建一个Logger对象。代码如下所示：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">log4net.ILog log = log4net.LogManager.GetLogger(&quot;logger-name&quot;);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>通常来说，我们会以类（class）的类型（type）为参数来调用GetLogger()，以便跟踪我们正在进行日志记录的类。传递的类(class)的类型(type)可以用typeof(Classname)方法来获得，或者可以用如下的反射方法来获得：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.Reflection.MethodBase.GetCurrentMethod().DeclaringType</span><br></pre></td></tr></table></figure></p>
-<p>尽管符号长了一些，但是后者可以用于一些场合，比如获取调用方法的类(class)的类型(type)。</p>
-<h2 id="日志的级别"><a href="#日志的级别" class="headerlink" title="日志的级别"></a>日志的级别</h2><p>日志的级别作为常量定义在log4net.spi.Level类中。<br>级别由低到高<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">All Debug Info Warn Error Fatal Off</span><br></pre></td></tr></table></figure></p>
-<p>在log4net框架里，通过设置配置文件，每个日志对象都被分配了一个日志优先级别。如果没有给一个日志对象显式地分配一个级别，那么该对象会试图从他的祖先继承一个级别值。<br>举例说明，当你创建了一个日志对象，并且把他的级别设置为INFO。于是框架会设置日志的每个Boolean属性。当你调用相应的日志方法时，框架会检查相应的Boolean属性，以决定该方法能不能执行。如下的代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Logger.Info(&quot;message&quot;);</span><br><span class="line">Logger.Debug(&quot;message&quot;);</span><br><span class="line">Logger.Warn(&quot;message&quot;);</span><br></pre></td></tr></table></figure></p>
-<p>对于第一种方法，Info()的级别等与日志的级别（INFO），因此日志请求会被传递，我们可以得到输出结果”message”。<br>对于第二种方法，Debug()的级别低于日志对象logger的日志级别(INFO)，因此，日志请求被拒绝了，我们得不到任何输出。同样的，针对第三行语句，我们可以很容易得出结论。<br>你也可以显式地检查Logger对象的Boolean属性，如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if (logger.IsDebugEnabled)</span><br><span class="line">&#123;</span><br><span class="line">  Logger.Debug(&quot;message&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="Repository"><a href="#Repository" class="headerlink" title="Repository"></a>Repository</h2><p>Repository主要用于负责日志对象组织结构的维护。在log4net的以前版本中，框架仅支持分等级的组织结构(hierarchical organization)。这种等级结构本质上是库的一个实现，并且定义在log4net.Repository.Hierarchy 名字空间中。要实现一个Repository，需要实现log4net.Repository.ILoggerRepository 接口。但是通常并不是直接实现该接口，而是以log4net.Repository.LoggerRepositorySkeleton为基类继承。体系库 (hierarchical repository )则由log4net.Repository.Hierarchy.Hierarchy类实现。<br>如果你是个log4net框架的使用者，而非扩展者，那么你几乎不会在你的代码里用到Repository的类。相反的，你需要用到LogManager类来自动管理库和日志对象</p>
-<h2 id="Appender"><a href="#Appender" class="headerlink" title="Appender"></a>Appender</h2><p>一个好的日志框架应该能够产生多目的地的输出。比如说输出到控制台或保存到一个日志文件。log4net 能够很好的满足这些要求。它使用一个叫做Appender的组件来定义输出介质。正如名字所示，这些组件把它们附加到Logger日志组件上并将输出传递到输出流中。你可以把多个Appender组件附加到一个日志对象上。 Log4net框架提供了几个Appender组件。关于log4net提供的Appender组件的完整列表可以在log4net框架的帮助手册中找到。有了这些现成的Appender组件，一般来说你没有必要再自己编写了。但是如果你愿意，可以从log4net.Appender.AppenderSkeleton类继承。</p>
-<h2 id="Appender-Filters"><a href="#Appender-Filters" class="headerlink" title="Appender Filters"></a>Appender Filters</h2><p>一个Appender 对象缺省地将所有的日志事件传递到输出流。Appender的过滤器(Appender Filters) 可以按照不同的标准过滤日志事件。在log4net.Filter的名字空间下已经有几个预定义的过滤器。使用这些过滤器，你可以按照日志级别范围过滤日志事件，或者按照某个特殊的字符串进行过滤。你可以在API的帮助文件中发现更多关于过滤器的信息。</p>
-<h2 id="Layout"><a href="#Layout" class="headerlink" title="Layout"></a>Layout</h2><p>Layout 组件用于向用户显示最后经过格式化的输出信息。输出信息可以以多种格式显示，主要依赖于我们采用的Layout组件类型。可以是线性的或一个XML文件。Layout组件和一个Appender组件一起工作。API帮助手册中有关于不同Layout组件的列表。一个Appender对象，只能对应一个Layout对象。要实现你自己的Layout类，你需要从log4net.Layout.LayoutSkeleton类继承，它实现了ILayout接口。</p>
-<h1 id="在程序中使用"><a href="#在程序中使用" class="headerlink" title="在程序中使用"></a>在程序中使用</h1><p>在开始对你的程序进行日志记录前，需要先启动log4net引擎。这意味着你需要先配置前面提到的三种组件。你可以用两种方法来设定配置：在单独的文件中设定配置或在代码中定义配置。<br>因为下面几种原因，推荐在一个单独的文件中定义配置：</p>
-<ul>
-<li>你不需要重新编译源代码就能改变配置；</li>
-<li>你可以在程序正运行的时候就改变配置。这一点在一些WEB程序和远程过程调用的程序中有时很重要；<br>考虑到第一种方法的重要性，我们先看看怎样在文件中设定配置信息。</li>
-</ul>
-<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p>配置信息可以放在如下几种形式文件的一种中。<br>在程序的配置文件里，如AssemblyName.config 或web.config.<br>在你自己的文件里。文件名可以是任何你想要的名字，如AppName.exe.xyz等.<br>log4net框架会在相对于AppDomain.CurrentDomain.BaseDirectory 属性定义的目录路径下查找配置文件。框架在配置文件里要查找的唯一标识是<log4net>标签。一个完整的配置文件的例子如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">  &lt;configSections&gt;</span><br><span class="line">    &lt;section name=&quot;log4net&quot;</span><br><span class="line">      type=&quot;log4net.Config.Log4NetConfigurationSectionHandler,  log4net-net-1.0&quot;/&gt;</span><br><span class="line">  &lt;/configSections&gt;</span><br><span class="line">  &lt;log4net&gt;</span><br><span class="line">    &lt;root&gt;</span><br><span class="line">      &lt;level value=&quot;WARN&quot; /&gt;</span><br><span class="line">      &lt;appender-ref ref=&quot;LogFileAppender&quot; /&gt;</span><br><span class="line">      &lt;appender-ref ref=&quot;ConsoleAppender&quot; /&gt;</span><br><span class="line">    &lt;/root&gt;</span><br><span class="line">    &lt;logger name=&quot;testApp.Logging&quot;&gt;</span><br><span class="line">      &lt;level value=&quot;DEBUG&quot;/&gt;</span><br><span class="line">    &lt;/logger&gt;</span><br><span class="line">    &lt;appender name=&quot;LogFileAppender&quot;</span><br><span class="line">             type=&quot;log4net.Appender.FileAppender&quot; &gt;</span><br><span class="line">      &lt;param name=&quot;File&quot; value=&quot;log-file.txt&quot; /&gt;</span><br><span class="line">      &lt;param name=&quot;AppendToFile&quot; value=&quot;true&quot; /&gt;</span><br><span class="line">      &lt;layout type=&quot;log4net.Layout.PatternLayout&quot;&gt;</span><br><span class="line">        &lt;param name=&quot;Header&quot; value=&quot;[Header]\r\n&quot;/&gt;</span><br><span class="line">        &lt;param name=&quot;Footer&quot; value=&quot;[Footer]\r\n&quot;/&gt;</span><br><span class="line">        &lt;param name=&quot;ConversionPattern&quot;</span><br><span class="line">           value=&quot;%d [%t] %-5p %c [%x]  - %m%n&quot;</span><br><span class="line">         /&gt;</span><br><span class="line">      &lt;/layout&gt;</span><br><span class="line">      &lt;filter type=&quot;log4net.Filter.LevelRangeFilter&quot;&gt;</span><br><span class="line">        &lt;param name=&quot;LevelMin&quot; value=&quot;DEBUG&quot; /&gt;</span><br><span class="line">        &lt;param name=&quot;LevelMax&quot; value=&quot;WARN&quot; /&gt;</span><br><span class="line">      &lt;/filter&gt;</span><br><span class="line">    &lt;/appender&gt;</span><br><span class="line">    &lt;appender name=&quot;ConsoleAppender&quot;</span><br><span class="line">              type=&quot;log4net.Appender.ConsoleAppender&quot; &gt;</span><br><span class="line">      &lt;layout type=&quot;log4net.Layout.PatternLayout&quot;&gt;</span><br><span class="line">        &lt;param name=&quot;ConversionPattern&quot;</span><br><span class="line">           value=&quot;%d [%t] %-5p %c [%x] - %m%n&quot;</span><br><span class="line">        /&gt;</span><br><span class="line">      &lt;/layout&gt;</span><br><span class="line">    &lt;/appender&gt;</span><br><span class="line">  &lt;/log4net&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure></log4net></p>
-<p>你可以直接将上面的文本拷贝到任何程序中使用，但是最好还是能够理解配置文件是怎样构成的。 只有当你需要在应用程序配置文件中使用log4net配置时，才需要在<configsection>标签中加入<section>配置节点入口。对于其他的单独文件，只有<log4net>标签内的文本才是必需的，这些标签的顺序并不是固定的。下面我们依次讲解各个标签内文本的含义：</log4net></section></configsection></p>
-<h3 id=""><a href="#" class="headerlink" title=""></a><root></root></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;root&gt;</span><br><span class="line">  &lt;level value=&quot;WARN&quot; /&gt;</span><br><span class="line">  &lt;appender-ref ref=&quot;LogFileAppender&quot; /&gt;</span><br><span class="line">  &lt;appender-ref ref=&quot;ConsoleAppender&quot; /&gt;</span><br><span class="line">&lt;/root&gt;</span><br></pre></td></tr></table></figure>
-<p>在框架的体系里，所有的日志对象都是根日志(root logger)的后代。 因此如果一个日志对象没有在配置文件里显式定义，则框架使用根日志中定义的属性。在<root>标签里，可以定义level级别值和Appender的列表。如果没有定义LEVEL的值，则缺省为DEBUG。可以通过<appender-ref>标签定义日志对象使用的Appender对象。<appender-ref>声明了在其他地方定义的Appender对象的一个引用。在一个logger对象中的设置会覆盖根日志的设置。而对Appender属性来说，子日志对象则会继承父日志对象的Appender列表。这种缺省的行为方式也可以通过显式地设定<logger>标签的additivity属性为false而改变。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;logger name=&quot;testApp.Logging&quot; additivity=&quot;false&quot;&gt;</span><br><span class="line">&lt;/logger&gt;</span><br></pre></td></tr></table></figure></logger></appender-ref></appender-ref></root></p>
-<p>Additivity的值缺省是true.</p>
-<h3 id="-1"><a href="#-1" class="headerlink" title=""></a><logger></logger></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;logger name=&quot;testApp.Logging&quot;&gt;</span><br><span class="line">  &lt;level value=&quot;DEBUG&quot;/&gt;</span><br><span class="line">&lt;/logger&gt;</span><br></pre></td></tr></table></figure>
-<p><logger> 元素预定义了一个具体日志对象的设置。然后通过调用LogManager.GetLogger(“testAPP.Logging”)函数，你可以检索具有该名字的日志。如果LogManager.GetLogger(…)打开的不是预定义的日志对象，则该日志对象会继承根日志对象的属性。知道了这一点，我们可以说，其实<logger>标签并不是必须的。</logger></logger></p>
-<h3 id="-2"><a href="#-2" class="headerlink" title=""></a><appender></appender></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;appender name=&quot;LogFileAppender&quot;</span><br><span class="line">          type=&quot;log4net.Appender.FileAppender&quot; &gt;</span><br><span class="line">  &lt;param name=&quot;File&quot; value=&quot;log-file.txt&quot; /&gt;</span><br><span class="line">  &lt;param name=&quot;AppendToFile&quot; value=&quot;true&quot; /&gt;</span><br><span class="line">  &lt;layout type=&quot;log4net.Layout.PatternLayout&quot;&gt;</span><br><span class="line">    &lt;param name=&quot;Header&quot; value=&quot;[Header]\r\n&quot; /&gt;</span><br><span class="line">    &lt;param name=&quot;Footer&quot; value=&quot;[Footer]\r\n&quot;/&gt;</span><br><span class="line">    &lt;param name=&quot;ConversionPattern&quot;</span><br><span class="line">      value=&quot;%d [%t] %-5p %c - %m%n&quot;</span><br><span class="line">    /&gt;</span><br><span class="line">  &lt;/layout&gt;</span><br><span class="line">  &lt;filter type=&quot;log4net.Filter.LevelRangeFilter&quot;&gt;</span><br><span class="line">    &lt;param name=&quot;LevelMin&quot; value=&quot;DEBUG&quot; /&gt;</span><br><span class="line">    &lt;param name=&quot;LevelMax&quot; value=&quot;WARN&quot; /&gt;</span><br><span class="line">  &lt;/filter&gt;</span><br><span class="line">&lt;/appender&gt;</span><br></pre></td></tr></table></figure>
-<p>在<root>标签或单个的<logger>标签里的Appender对象可以用<appender>标签定义。<appender>标签的基本形式如上面所示。它定义了appender的名字和类型。 另外比较重要的是<appender>标签内部的其他标签。不同的appender有不同的<param>标签。在这里，为了使用FileAppender,你需要一个文件名作为参数。另外还需要一个在<appender>标签内部定义一个Layout对象。Layout对象定义在它自己的<layout>标签内。<layout>标签的type属性定义了Layout的类型(在本例里是PatternLayout)，同时也确定了需要提供的参数值。Header和Footer标签提供了一个日志会话(logging session)开始和结束时输出的文字。有关每种appender的具体配置的例子，可以在log4net\doc\manual\example-config-appender.html中得到。 </layout></layout></appender></appender></appender></appender></logger></root></p>
-<h3 id="log4net-Layout-PatternLayout中的转换模式-ConversionPattern"><a href="#log4net-Layout-PatternLayout中的转换模式-ConversionPattern" class="headerlink" title="log4net.Layout.PatternLayout中的转换模式(ConversionPattern)"></a>log4net.Layout.PatternLayout中的转换模式(ConversionPattern)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">%m(message):输出的日志消息，如ILog.Debug(…)输出的一条消息</span><br><span class="line">%n(new line):换行</span><br><span class="line">%d(datetime):输出当前语句运行的时刻</span><br><span class="line">%r(run time):输出程序从运行到执行到当前语句时消耗的毫秒数</span><br><span class="line">%t(thread id):当前语句所在的线程ID</span><br><span class="line">%p(priority): 日志的当前优先级别，即DEBUG、INFO、WARN…等</span><br><span class="line">%c(class):当前日志对象的名称，例如：</span><br><span class="line">       模式字符串为：%-10c -%m%n</span><br><span class="line">       代码为：</span><br><span class="line">ILog log=LogManager.GetLogger(“Exam.Log”);</span><br><span class="line">log.Debug(“Hello”);</span><br><span class="line">    则输出为下面的形式：</span><br><span class="line">Exam.Log       - Hello</span><br><span class="line">%L：输出语句所在的行号</span><br><span class="line">%F：输出语句所在的文件名</span><br><span class="line">%-数字：表示该项的最小长度，如果不够，则用空格填充</span><br><span class="line">例如，转换模式为%r [%t]%-5p %c - %m%n 的 PatternLayout 将生成类似于以下内容的输出：</span><br><span class="line">176 [main] INFO  org.foo.Bar - Located nearest gas station.</span><br></pre></td></tr></table></figure>
-<h3 id="-3"><a href="#-3" class="headerlink" title=""></a><filter></filter></h3><p>最后，让我们看看在Appender元素里的<filter>标签。它定义了应用到Appender对象的过滤器。本例中，我们使用了LevelRangeFilter过滤器,它可以只记录LevelMin和LevelMax参数指定的日志级别之间的日志事件。可以在一个Appender上定义多个过滤器（Filter）,这些过滤器将会按照它们定义的顺序对日志事件进行过滤。其他过滤器的有关信息可以在log4net的SDK文档中找到。</filter></p>
-<h2 id="使用配置文件"><a href="#使用配置文件" class="headerlink" title="使用配置文件"></a>使用配置文件</h2><h3 id="关联配置文件"><a href="#关联配置文件" class="headerlink" title="关联配置文件"></a>关联配置文件</h3><p>当我们创建了上面的配置文件后，我们接下来需要把它和我们的应用联系起来。缺省的，每个独立的可执行程序集都会定义它自己的配置。log4net框架使用 log4net.Config.DOMConfiguratorAttribute在程序集的级别上定义配置文件。<br>例如：可以在项目的AssemblyInfo.cs文件里添加以下的语句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[assembly:log4net.Config.DOMConfigurator(ConfigFile=&quot;filename&quot;,</span><br><span class="line">  ConfigFileExtension=&quot;ext&quot;,Watch=true/false)]</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>ConfigFile:指出了我们的配置文件的路径及文件名，包括扩展名。</li>
-<li>ConfigFileExtension:如果我们对被编译程序的程序集使用了不同的文件扩展名，那么我们需要定义这个属性，缺省的，程序集的配置文件扩展名为”config”。</li>
-<li>Watch (Boolean属性): log4net框架用这个属性来确定是否需要在运行时监视文件的改变。如果这个属性为true,那么FileSystemWatcher将会被用来监视文件的改变，重命名，删除等事件。<br>其中：ConfigFile和ConfigFileExtension属性不能同时使用，ConfigFile指出了配置文件的名字，例如，ConfigFile=”Config.txt”<br>ConfigFileExtension则是指明了和可执行程序集同名的配置文件的扩展名，例如，应用程序的名称是”test.exe”,ConfigFileExtension=”txt”,则配置文件就应该是”test.exe.txt”；<br>也可以不带参数应用DOMConfiguratio():<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[assembly: log4net.Config.DOMConfigurator()]</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>也可以在程序代码中用DOMConfigurator类打开配置文件。类的构造函数需要一个FileInfo对象作参数，以指出要打开的配置文件名。 这个方法和前面在程序集里设置属性打开一个配置文件的效果是一样的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">log4net.Config.DOMConfigurator.Configure(</span><br><span class="line">  new FileInfo(&quot;TestLogger.Exe.Config&quot;));</span><br></pre></td></tr></table></figure></p>
-<p>DOMConfigurator 类还有一个方法ConfigureAndWatch(..), 用来配置框架并检测文件的变化。<br>以上的步骤总结了和配置相关的各个方面，下面我们将分两步来使用logger对象。</p>
-<h3 id="创建或获取日志对象"><a href="#创建或获取日志对象" class="headerlink" title="创建或获取日志对象"></a>创建或获取日志对象</h3><p>日志对象会使用在配置文件里定义的属性。如果某个日志对象没有事先在配置文件里定义，那么框架会根据继承结构获取祖先节点的属性，最终的，会从根日志获取属性。如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Log4net.ILog log = Log4net.LogManager.GetLogger(&quot;MyLogger&quot;);</span><br></pre></td></tr></table></figure></p>
-<h3 id="输出日志信息"><a href="#输出日志信息" class="headerlink" title="输出日志信息"></a>输出日志信息</h3><p>可以使用ILog的几种方法输出日志信息。你也可以在调用某方法前先检查IsXXXEnabled布尔变量，再决定是否调用输出日志信息的函数，这样可以提高程序的性能。因为框架在调用如ILog.Debug(…)这样的函数时，也会先判断是否满足Level日志级别条件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if (log.IsDebugEnabled) log.Debug(&quot;message&quot;);</span><br><span class="line">if (log.IsInfoEnabled) log.Info(&quot;message);</span><br></pre></td></tr></table></figure></p>
-<h3 id="在程序中配置log4net"><a href="#在程序中配置log4net" class="headerlink" title="在程序中配置log4net"></a>在程序中配置log4net</h3><p>除了前面讲的用一个配置文件来配置log4net以外，还可以在程序中用代码来配置log4net框架。如下面的例子:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">// 和PatternLayout一起使用FileAppender</span><br><span class="line"></span><br><span class="line">log4net.Config.BasicConfigurator.Configure(</span><br><span class="line"></span><br><span class="line">  new log4net.Appender.FileAppender(</span><br><span class="line"></span><br><span class="line">     new log4net.Layout.PatternLayout(&quot;%d</span><br><span class="line"></span><br><span class="line">       [%t]%-5p %c [%x] - %m%n&quot;),&quot;testfile.log&quot;));</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">// using a FileAppender with an XMLLayout</span><br><span class="line"></span><br><span class="line">log4net.Config.BasicConfigurator.Configure(</span><br><span class="line"></span><br><span class="line">  new log4net.Appender.FileAppender(</span><br><span class="line"></span><br><span class="line">    new log4net.Layout.XMLLayout(),&quot;testfile.xml&quot;));</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">// using a ConsoleAppender with a PatternLayout</span><br><span class="line"></span><br><span class="line">log4net.Config.BasicConfigurator.Configure(</span><br><span class="line"></span><br><span class="line">  new log4net.Appender.ConsoleAppender(</span><br><span class="line"></span><br><span class="line">    new log4net.Layout.PatternLayout(&quot;%d</span><br><span class="line"></span><br><span class="line">      [%t] %-5p %c - %m%n&quot;)));</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">// using a ConsoleAppender with a SimpleLayout</span><br><span class="line"></span><br><span class="line">log4net.Config.BasicConfigurator.Configure(</span><br><span class="line"></span><br><span class="line">  new log4net.Appender.ConsoleAppender(new</span><br><span class="line"></span><br><span class="line">    log4net.Layout.SimpleLayout()));</span><br></pre></td></tr></table></figure></p>
-<p>尽管这里用代码配置log4net也很方便，但是你却不能分别配置每个日志对象。所有的这些配置都是被应用到根日志上的。</p>
-<p>log4net.Config.BasicConfigurator 类使用静态方法Configure 设置一个Appender 对象。而Appender的构造函数又会相应的要求Layout对象。你也可以不带参数直接调用BasicConfigurator.Configure()，它会使用一个缺省的PatternLayout对象，在一个ConsoleAppender中输出信息。如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">log4net.Config.BasicConfigurator.Configure();</span><br></pre></td></tr></table></figure></p>
-<p>在输出时会显示如下格式的信息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0 [1688] DEBUG log1 A B C - Test</span><br><span class="line">20 [1688] INFO log1 A B C - Test</span><br></pre></td></tr></table></figure></p>
-<p>当log4net框架被配置好以后，就可以如前所述使用日志功能了。</p>
-<h1 id="解决log4net独占日志文件的问题以及-log4net的各种输出配置-Appender"><a href="#解决log4net独占日志文件的问题以及-log4net的各种输出配置-Appender" class="headerlink" title="解决log4net独占日志文件的问题以及 log4net的各种输出配置(Appender)"></a>解决log4net独占日志文件的问题以及 log4net的各种输出配置(Appender)</h1><p>由于log4net默认情况下会独占日志文件，该文件不能被File.Open。<br>可以通过增加配置：<lockingmodel type="log4net.Appender.FileAppender+MinimalLock">来使用最小锁定模型（minimal locking model），以允许多个进程可以写入同一个文件。</lockingmodel></p>
-<p>各种appender说明：<br>在log4net的配置中，appender是最重要的部分，一般来说，每一种appender都表示一种日志的输出介质，如日志文件、EvengLog、数据库、控制台、邮件、ASP.NET页面等。</p>
-<p>本文对各种内置的appender的配置提供了示例，但却远称不上详尽。要想了解每一种appender的参数和选项的说明，请参看该appender的SDK文档。 </p>
-<p>以下示例都是.NET 2.0下进行的, log4net的版本为1.2.10。</p>
-<p>AdoNetAppender<br>详情参考 log4net.Appender. AdoNetAppender SDK文档。</p>
-<p>AdoNetAppender的相关配置内容取决于目标数据库的provider。下面仅提供SQL Server 2000的例子。</p>
-<p>首先建立数据表：</p>
-<p>CREATE TABLE [dbo].[Log]<br> (<br>    [Id] [int] IDENTITY (1, 1) NOT NULL,<br>    [Date] [datetime] NOT NULL,<br>    [Thread] [varchar] (255) NOT NULL,<br>    [Level] [varchar] (50) NOT NULL,<br>    [Logger] [varchar] (255) NOT NULL,<br>    [Message] [varchar] (4000) NOT NULL,<br>    [Exception] [varchar] (2000) NULL<br>)</p>
-<p>然后添加配置：</p>
-<appender name="AdoNetAppender" type="log4net.Appender.AdoNetAppender"><br>    <buffersize value="2"><br>    <connectiontype value="System.Data.SqlClient.SqlConnection, System.Data, Version=2.0.0.0, Culture=Neutral, PublicKeyToken=b77a5c561934e089"><br>    <connectionstring value="server=(local);database=TestBase;integrated security=false;persist security info=True;UID=sa;PWD="><br>    <commandtext value="INSERT INTO Log ([Date],[Thread],[Level],[Logger],[Message],[Exception]) VALUES (@log_date, @thread, @log_level, @logger, @message, @exception)"><br>    <parameter><br>        <parametername value="@log_date"><br>        <dbtype value="DateTime"><br>        <layout type="log4net.Layout.RawTimeStampLayout"><br>    </layout></dbtype></parametername></parameter><br>    <parameter><br>        <parametername value="@thread"><br>        <dbtype value="String"><br>        <size value="255"><br>        <layout type="log4net.Layout.PatternLayout"><br>            <conversionpattern value="%thread"><br>        </conversionpattern></layout><br>    </size></dbtype></parametername></parameter><br>    <parameter><br>        <parametername value="@log_level"><br>        <dbtype value="String"><br>        <size value="50"><br>        <layout type="log4net.Layout.PatternLayout"><br>            <conversionpattern value="%level"><br>        </conversionpattern></layout><br>    </size></dbtype></parametername></parameter><br>    <parameter><br>        <parametername value="@logger"><br>        <dbtype value="String"><br>        <size value="255"><br>        <layout type="log4net.Layout.PatternLayout"><br>            <conversionpattern value="%logger"><br>        </conversionpattern></layout><br>    </size></dbtype></parametername></parameter><br>    <parameter><br>        <parametername value="@message"><br>        <dbtype value="String"><br>        <size value="4000"><br>        <layout type="log4net.Layout.PatternLayout"><br>            <conversionpattern value="%message"><br>        </conversionpattern></layout><br>    </size></dbtype></parametername></parameter><br>    <parameter><br>        <parametername value="@exception"><br>        <dbtype value="String"><br>        <size value="2000"><br>        <layout type="log4net.Layout.ExceptionLayout"><br>    </layout></size></dbtype></parametername></parameter><br></commandtext></connectionstring></connectiontype></buffersize></appender>
-
-<p>bufferSize表示批处理的日志事件，可以避免每次日志事件都访问数据库；ConnectionType指定了要使用的IDbConnection的完全限定类型名称；connectionString表示连接字符串；CommandText是SQL语句或存储过程；最后一组parameter节点描述了SQL语句或存储过程需要的参数。 </p>
-<p>AspNetTraceAppender </p>
-<p>详情参考 log4net.Appender.AspNetTraceAppender SDK 文档。  </p>
-<appender name="AspNetTraceAppender" type="log4net.Appender.AspNetTraceAppender"><br>    <layout type="log4net.Layout.PatternLayout"><br>        <conversionpattern value="%date [%thread] %-5level %logger [%property{NDC}] - %message%newline"><br>    </conversionpattern></layout><br></appender>
-
-<p>这段配置可将日志信息输出到页面的Trace上下文环境。如果日志的级别低于WARN，会以System.Web.TraceContext.Write方法输出；如果级别为WARN或WARN以上则会以System.Web.TraceContext.Warn方法输出，下图中的日志信息的不同颜色可以说明这一点。效果图如下：</p>
-<p>这在进行页面调试的时候可是很方便的。<br>BufferingForwardingAppender</p>
-<p>详情参考 log4net.Appender.BufferingForwardingAppender SDK 文档。 </p>
-<appender name="BufferingForwardingAppender" type="log4net.Appender.BufferingForwardingAppender"><br>    <buffersize value="5"><br>    <lossy value="true"><br>    <evaluator type="log4net.Core.LevelEvaluator"><br>        <threshold value="WARN"><br>    </threshold></evaluator><br>    <appender-ref ref="LogFileAppender"><br>    <appender-ref ref="AspNetTraceAppender"><br></appender-ref></appender-ref></lossy></buffersize></appender>
-
-<p>BufferingForwardingAppender的主要作用是将输出到指定类型（这里是LogFileAppender）的Appender的日志信息进行缓存。bufferSize属性指定了缓存的数量，如果value为5，那么将在信息量达到6条的时候，把这些日志批量输出。appender-ref属性指定了缓存的Appender类型，同root节点一样，这里可以指定多个。 </p>
-<p>ColoredConsoleAppender<br>详情参考log4net.Appender.ColoredConsoleAppender SDK 文档。</p>
-<p>ColoredConsoleAppender将日志信息输出到控制台。默认情况下，日志信息被发送到控制台标准输出流。下面这个示例演示了如何高亮显示Error信息。 </p>
-<appender name="ColoredConsoleAppender" type="log4net.Appender.ColoredConsoleAppender"><br>    <mapping><br>        <level value="ERROR"><br>        <forecolor value="White"><br>        <backcolor value="Red, HighIntensity"><br>    </backcolor></forecolor></level></mapping><br>    <layout type="log4net.Layout.PatternLayout"><br>        <conversionpattern value="%date [%thread] %-5level %logger [%property{NDC}] - %message%newline"><br>    </conversionpattern></layout><br></appender>
-
-<p>效果如下：</p>
-<p>还可以为不同的级别指定不同的颜色： </p>
-<appender name="ColoredConsoleAppender" type="log4net.Appender.ColoredConsoleAppender"><br>    <mapping><br>        <level value="ERROR"><br>        <forecolor value="White"><br>        <backcolor value="Red, HighIntensity"><br>    </backcolor></forecolor></level></mapping><br>    <mapping><br>        <level value="DEBUG"><br>        <backcolor value="Green"><br>    </backcolor></level></mapping><br>    <layout type="log4net.Layout.PatternLayout"><br>        <conversionpattern value="%date [%thread] %-5level %logger [%property{NDC}] - %message%newline"><br>    </conversionpattern></layout><br></appender>
-
-<p>效果如下：</p>
-<p>ConsoleAppender<br>详情参考 log4net.Appender.ConsoleAppender SDK 文档。</p>
-<p>ConsoleAppender将日志信息输出到控制台标准输出流。</p>
-<appender name="ConsoleAppender" type="log4net.Appender.ConsoleAppender"><br>    <layout type="log4net.Layout.PatternLayout"><br>        <param name="ConversionPattern" value="%d [%t] %-5p %c [%x] - %m%n"><br>    </layout><br></appender>
-
-<p>EventLogAppender<br>详情参考 log4net.Appender.EventLogAppender SDK 文档。 </p>
-<p>EventLogAppender将日志写入本地机器的应用程序事件日志中。默认情况下，该日志的源（Source）是AppDomain.FriendlyName，也可以手动指定其它名称。 </p>
-<appender name="EventLogAppender" type="log4net.Appender.EventLogAppender"><br>    <layout type="log4net.Layout.PatternLayout"><br>        <param name="ConversionPattern" value="%d [%t] %-5p %c [%x] - %m%n"><br>    </layout><br></appender><br>FileAppender<br><br>详情参考 log4net.Appender.File Appender SDK 文档。<br><br>FileAppender将日志信息输出到指定的日志文件。<br><br><!--[if !vml]--><br><br><appender name="LogFileAppender" type="log4net.Appender.FileAppender"><br>    <param name="File" value="WebUtilClient.log"><br>    <param name="AppendToFile" value="true"><br>    <layout type="log4net.Layout.PatternLayout"><br>        <param name="ConversionPattern" value="%d [%t] %-5p %c [%x] - %m%n"><br>    </layout><br></appender>
-
-<p>File指定了文件名称，可以使用相对路径，此时日志文件的位置取决于项目的类型（如控制台、Windows Forms、ASP.NET等）；也可以使用绝对路径；甚至可以使用环境变量，如<file value="${TMP}/log-file.txt">。<br>AppendToFile指定是追加到还是覆盖掉已有的日志文件。<br>还可以添加如下属性<lockingmodel type="log4net.Appender.FileAppender+MinimalLock">来使用最小锁定模型（minimal locking model），以允许多个进程可以写入同一个文件。<br>ForwardingAppender </lockingmodel></file></p>
-<p>详情参考 log4net.Appender.ForwardingAppender SDK 文档。 </p>
-<p>ForwardingAppender可以用来为一个Appender指定一组约束。看下面这个示例：</p>
-<appender name="ForwardingAppender" type="log4net.Appender.ForwardingAppender"><br>    <threshold value="WARN"><br>    <appender-ref ref="ConsoleAppender"><br></appender-ref></threshold></appender>
-
-<p>在这个示例中，为ConsoleAppender添加了约束，Threshold为WARN。这意味着对于一条日志信息，如果直接使用ConsoleAppender，那么不论它是什么级别，总会进行输出，而如果使用这个ForwardingAppender，则只有那些WARN或WARN以上的日志才会发送到ConsoleAppender。<br>MemoryAppender</p>
-<p>详情参考 log4net.Appender.MemoryAppender SDK 文档。 </p>
-<p>似乎不应该使用配置文件来配置MemoryAppender，但如果你非要这么做，看看这个示例（未验证）：</p>
-<appender name="MemoryAppender" type="log4net.Appender.MemoryAppender"><br>    <onlyfixpartialeventdata value="true"><br></onlyfixpartialeventdata></appender>
-
-<p>NetSendAppender<br>详情参考 log4net.Appender.NetSendAppender SDK 文档。</p>
-<p>NetSendAppender向特定用户的屏幕发送消息（未验证）。</p>
-<appender name="NetSendAppender" type="log4net.Appender.NetSendAppender"><br>    <threshold value="ERROR"><br>    <server value="Anders"><br>    <recipient value="xym"><br>    <layout type="log4net.Layout.PatternLayout"><br>        <conversionpattern value="%date [%thread] %-5level %logger [%property{NDC}] - %message%newline"><br>    </conversionpattern></layout><br></recipient></server></threshold></appender>
-
-<p>OutputDebugStringAppender </p>
-<p>详情参考 log4net.Appender.OutputDebugStringAppender SDK 文档。<br>下面这个例子描述了如何配置该Appender以向OutputDebugString API写入日志（未验证）。 </p>
-<appender name="OutputDebugStringAppender" type="log4net.Appender.OutputDebugStringAppender"><br>    <layout type="log4net.Layout.PatternLayout"><br>        <conversionpattern value="%date [%thread] %-5level %logger [%property{NDC}] - %message%newline"><br>    </conversionpattern></layout><br></appender>
-
-<p>RemotingAppender<br>详情参考 log4net.Appender.RemotingAppender SDK 文档。</p>
-<p>RemotingAppender向特定的Sink发送日志信息（未验证）：</p>
-<!--[if !vml]-->
-<appender name="RemotingAppender" type="log4net.Appender.RemotingAppender"><br>    <sink value="tcp://localhost:8085/LoggingSink"><br>    <lossy value="false"><br>    <buffersize value="95"><br>    <onlyfixpartialeventdata value="true"><br></onlyfixpartialeventdata></buffersize></lossy></sink></appender><br>RollingFileAppender<br><br>详情参考 log4net.Appender.RollingFileAppender SDK 文档。<br><br>RollingFileAppender以FileAppender为基础，与后者有着相同的配置选项。<br><br>下面这个例子演示了如何配置RollingFileAppender以写入log.txt文件。写入的文件名总是为log.txt（StaticLogFileName参数指定为true）；根据文件大小（RollingStyle）来生成新的文件；最多保存有10个文件（MaxSizeRollBackups属性，而且一旦写满10个文件，就不再写入日志了），每个文件最大为10KB。这些文件名称为log.txt.1, log.txt.2…等。<br><br><appender name="RollingFileAppender" type="log4net.Appender.RollingFileAppender"><br>    <param name="File" value="log/Log.txt"><br>    <param name="AppendToFile" value="true"><br>    <param name="MaxSizeRollBackups" value="10"><br>    <param name="MaximumFileSize" value="5MB"><br>    <param name="RollingStyle" value="Size"><br>    <param name="StaticLogFileName" value="true"><br>    <layout type="log4net.Layout.PatternLayout"><br>        <param name="ConversionPattern" value="%d [%t] %-5p %c [%x] - %m%n"><br>    </layout><br></appender>
-
-<p>SmtpAppender </p>
-<p>详情参考 log4net.Appender.SmtpAppender SDK 文档。<br>SmtpAppender通过Smtp邮件服务器发送日志信息：</p>
-<pre><code>&lt;appender name=&quot;SmtpAppender&quot; type=&quot;log4net.Appender.SmtpAppender&quot;&gt;
-    &lt;authentication value=&quot;Basic&quot; /&gt;
-    &lt;to value=&quot;anderscui@tom.com&quot; /&gt;
-    &lt;from value=&quot;anderscui@163.com&quot; /&gt;
-    &lt;username value=&quot;anderscui&quot; /&gt;
-    &lt;password value=&quot;password&quot; /&gt;
-    &lt;subject value=&quot;test logging message&quot; /&gt;
-    &lt;smtpHost value=&quot;smtp.163.com&quot; /&gt;
-    &lt;bufferSize value=&quot;512&quot; /&gt;
-    &lt;lossy value=&quot;true&quot; /&gt;
-    &lt;evaluator type=&quot;log4net.Core.LevelEvaluator&quot;&gt;
-        &lt;threshold value=&quot;WARN&quot;/&gt;
-    &lt;/evaluator&gt;
-    &lt;layout type=&quot;log4net.Layout.PatternLayout&quot;&gt;
-        &lt;conversionPattern value=&quot;%newline%date [%thread] %-5level %logger [%property{NDC}] - %message%newline%newline%newline&quot; /&gt;
-    &lt;/layout&gt;
-&lt;/appender&gt;
-</code></pre><p>将其中的to、from、username、password、subject、smtpHost配置正确才可能发送成功。bufferSize可将多条信息打包在一个邮件中。evaluator可以对日志进行过滤。<br>SmtpPickupDirAppender</p>
-<p>详情参考 log4net.Appender.SmtpPickupDirAppender SDK 文档。</p>
-<p>配置与SmtpAppender类似，但要把SmtpHost换为PickupDir（未验证）。</p>
-<appender name="SmtpPickupDirAppender" type="log4net.Appender.SmtpPickupDirAppender"><br>    <to value="to@domain.com"><br>    <from value="from@domain.com"><br>    <subject value="test logging message"><br>    <pickupdir value="C:/SmtpPickup"><br>    <buffersize value="512"><br>    <lossy value="true"><br>    <evaluator type="log4net.Core.LevelEvaluator"><br>        <threshold value="WARN"><br>    </threshold></evaluator><br>    <layout type="log4net.Layout.PatternLayout"><br>        <conversionpattern value="%newline%date [%thread] %-5level %logger [%property{NDC}] - %message%newline%newline%newline"><br>    </conversionpattern></layout><br></lossy></buffersize></pickupdir></subject></from></to></appender><br>TraceAppender<br><br>详情参考 log4net.Appender.TraceAppender SDK 文档。<br><br>TraceAppender将日志信息写入System.Diagnostics.Trace系统（出现在输出窗口）。<br><br><appender name="TraceAppender" type="log4net.Appender.TraceAppender"><br>    <layout type="log4net.Layout.PatternLayout"><br>        <conversionpattern value="%date [%thread] %-5level %logger [%property{NDC}] - %message%newline"><br>    </conversionpattern></layout><br></appender>
-
-<p>UdpAppender<br>详情参考 log4net.Appender.UdpAppender SDK 文档。</p>
-<p>下例演示了如何配置UdpAppender(未验证)：</p>
-<appender name="UdpAppender" type="log4net.Appender.UdpAppender"><br>    <localport value="8080"><br>    <remoteaddress value="224.0.0.1"><br>    <remoteport value="8080"><br>    <layout type="log4net.Layout.PatternLayout, log4net"><br>        <conversionpattern value="%-5level %logger [%property{NDC}] - %message%newline"><br>    </conversionpattern></layout><br></remoteport></remoteaddress></localport></appender>
-
-<p>上面有若干个Appender标注为”未验证”的，是指这些Appender极少用到，或者在我的机器上没能实现 :(</p>
-<p>希望这些内容能对您有所帮助。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/06/Log4net学习/" data-id="cjpayx2fm000hpcuqknlgpvoc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/datagrid/" data-id="cjtifrbda008cwguqompfmln5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -567,44 +4036,63 @@
 
 
   
-    <article id="post-Hexo的使用" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/combobox" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/01/05/Hexo的使用/" class="article-date">
-  <time datetime="2018-01-05T06:16:22.000Z" itemprop="datePublished">2018-01-05</time>
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/combobox/" class="article-date">
+  <time datetime="2019-03-21T09:22:47.173Z" itemprop="datePublished">2019-03-21</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/05/Hexo的使用/">Hexo的使用</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="使用Hexo生成博文中播入图片"><a href="#使用Hexo生成博文中播入图片" class="headerlink" title="使用Hexo生成博文中播入图片"></a>使用Hexo生成博文中播入图片</h1><ol>
-<li>把主页配置文件_config.yml 里的post_asset_folder:这个选项设置为true</li>
-<li><p>在你的hexo目录下执行如下命令，下载一个可以上传本地图片的插件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-asset-image --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;newblog&quot;</span><br></pre></td></tr></table></figure>
-<p> 生成newblog.md的同时，会生成一个同名的文件在Source目录下，将你要引用的图片放入这个目录下，在文章中引用图片时，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![你想输入的文字](xxxx/图片名.jpg)</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+        .combobox-item,
+.combobox-group,
+.combobox-stick {
+  font-size: 14px;
+  padding: 6px 4px;
+  line-height: 20px;
+}
+.combobox-item-disabled {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+.combobox-gitem {
+  padding-left: 10px;
+}
+.combobox-group,
+.combobox-stick {
+  font-weight: bold;
+}
+.combobox-stick {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  right: 1px;
+  background: inherit;
+}
+.combobox-item-hover {
+  background-color: #E6E6E6;
+  color: #444;
+}
+.combobox-item-selected {
+  background-color: #CCE6FF;
+  color: #000;
+}
+.combobox-icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin-right: 2px;
+}
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/05/Hexo的使用/" data-id="cjpayx2fa000epcuqup7os0rw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/combobox/" data-id="cjtifrbd70089wguqv07iu2q4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -614,35 +4102,459 @@
 
 
   
-    <article id="post-SourceTree使用" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/combo" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/01/05/SourceTree使用/" class="article-date">
-  <time datetime="2018-01-05T04:55:38.000Z" itemprop="datePublished">2018-01-05</time>
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/combo/" class="article-date">
+  <time datetime="2019-03-21T09:22:47.169Z" itemprop="datePublished">2019-03-21</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/05/SourceTree使用/">SourceTree使用</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="SourceTree的安装"><a href="#SourceTree的安装" class="headerlink" title="SourceTree的安装"></a>SourceTree的安装</h1><p>   安装没什么好说，但安装之后需要登陆之后才能使用，这个登陆也不知道怎么搞的，总是失败，在网上查找了一些解决方法，跳过这个初始化步骤。当然如果你人品好，登陆正常，可以跳过此步。</p>
-<h3 id="跳过初始化步骤"><a href="#跳过初始化步骤" class="headerlink" title="跳过初始化步骤"></a>跳过初始化步骤</h3><p>在目录 C:\Users{youruser}\AppData\Local\Atlassian\SourceTree 下创建文件accounts.json<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    &quot;$id&quot;: &quot;1&quot;,</span><br><span class="line">    &quot;$type&quot;: &quot;SourceTree.Api.Host.Identity.Model.IdentityAccount, SourceTree.Api.Host.Identity&quot;,</span><br><span class="line">    &quot;Authenticate&quot;: true,</span><br><span class="line">    &quot;HostInstance&quot;: &#123;</span><br><span class="line">      &quot;$id&quot;: &quot;2&quot;,</span><br><span class="line">      &quot;$type&quot;: &quot;SourceTree.Host.Atlassianaccount.AtlassianAccountInstance, SourceTree.Host.AtlassianAccount&quot;,</span><br><span class="line">      &quot;Host&quot;: &#123;</span><br><span class="line">        &quot;$id&quot;: &quot;3&quot;,</span><br><span class="line">        &quot;$type&quot;: &quot;SourceTree.Host.Atlassianaccount.AtlassianAccountHost, SourceTree.Host.AtlassianAccount&quot;,</span><br><span class="line">        &quot;Id&quot;: &quot;atlassian account&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;BaseUrl&quot;: &quot;https://id.atlassian.com/&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;Credentials&quot;: &#123;</span><br><span class="line">      &quot;$id&quot;: &quot;4&quot;,</span><br><span class="line">      &quot;$type&quot;: &quot;SourceTree.Model.BasicAuthCredentials, SourceTree.Api.Account&quot;,</span><br><span class="line">      &quot;Username&quot;: &quot;&quot;,</span><br><span class="line">      &quot;Email&quot;: null</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;IsDefault&quot;: false</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+        .combo-arrow {
+  width: 18px;
+  height: 20px;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: top;
+  cursor: pointer;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+.combo-arrow-hover {
+  opacity: 1.0;
+  filter: alpha(opacity=100);
+}
+.combo-panel {
+  overflow: auto;
+}
+.combo-arrow {
+  background: url('images/combo_arrow.png') no-repeat center center;
+}
+.combo-panel {
+  background-color: #fff;
+}
+.combo-arrow {
+  background-color: #ffffff;
+}
+.combo-arrow-hover {
+  background-color: #E6E6E6;
+}
+.combo-arrow:hover {
+  background-color: #E6E6E6;
+}
+.combo .textbox-icon-disabled:hover {
+  cursor: default;
+}
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/05/SourceTree使用/" data-id="cjpayx2g7000ppcuqkv7valmk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/combo/" data-id="cjtifrbd60087wguqy7n17azk" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/checkbox" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/checkbox/" class="article-date">
+  <time datetime="2019-03-21T09:22:47.165Z" itemprop="datePublished">2019-03-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        .checkbox {
+  position: relative;
+  border: 2px solid #99cdff;
+  -moz-border-radius: 0px 0px 0px 0px;
+  -webkit-border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px;
+}
+.checkbox-checked {
+  border: 0;
+  background: #99cdff;
+}
+.checkbox-inner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.checkbox path {
+  stroke-width: 2px;
+}
+.checkbox-disabled {
+  opacity: 0.6;
+}
+.checkbox-value {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  left: -999px;
+}
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/checkbox/" data-id="cjtifrbd50086wguqagxbujlv" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/calendar" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/calendar/" class="article-date">
+  <time datetime="2019-03-21T09:22:47.161Z" itemprop="datePublished">2019-03-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        .calendar {
+  border-width: 1px;
+  border-style: solid;
+  padding: 1px;
+  overflow: hidden;
+}
+.calendar table {
+  table-layout: fixed;
+  border-collapse: separate;
+  font-size: 14px;
+  width: 100%;
+  height: 100%;
+}
+.calendar table td,
+.calendar table th {
+  font-size: 14px;
+}
+.calendar-noborder {
+  border: 0;
+}
+.calendar-header {
+  position: relative;
+  height: 28px;
+}
+.calendar-title {
+  text-align: center;
+  height: 28px;
+}
+.calendar-title span {
+  position: relative;
+  display: inline-block;
+  top: 0px;
+  padding: 0 3px;
+  height: 28px;
+  line-height: 28px;
+  font-size: 14px;
+  cursor: pointer;
+  -moz-border-radius: 0px 0px 0px 0px;
+  -webkit-border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px;
+}
+.calendar-prevmonth,
+.calendar-nextmonth,
+.calendar-prevyear,
+.calendar-nextyear {
+  position: absolute;
+  top: 50%;
+  margin-top: -8px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  font-size: 1px;
+  -moz-border-radius: 0px 0px 0px 0px;
+  -webkit-border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px;
+}
+.calendar-prevmonth {
+  left: 20px;
+  background: url('images/calendar_arrows.png') no-repeat -16px 0;
+}
+.calendar-nextmonth {
+  right: 20px;
+  background: url('images/calendar_arrows.png') no-repeat -32px 0;
+}
+.calendar-prevyear {
+  left: 3px;
+  background: url('images/calendar_arrows.png') no-repeat 0px 0;
+}
+.calendar-nextyear {
+  right: 3px;
+  background: url('images/calendar_arrows.png') no-repeat -48px 0;
+}
+.calendar-body {
+  position: relative;
+}
+.calendar-body th,
+.calendar-body td {
+  text-align: center;
+}
+.calendar-day {
+  border: 0;
+  padding: 1px;
+  cursor: pointer;
+  -moz-border-radius: 0px 0px 0px 0px;
+  -webkit-border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px;
+}
+.calendar-other-month {
+  opacity: 0.3;
+  filter: alpha(opacity=30);
+}
+.calendar-disabled {
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  cursor: default;
+}
+.calendar-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 180px;
+  height: 150px;
+  padding: 5px;
+  font-size: 14px;
+  display: none;
+  overflow: hidden;
+}
+.calendar-menu-year-inner {
+  text-align: center;
+  padding-bottom: 5px;
+}
+.calendar-menu-year {
+  width: 80px;
+  line-height: 26px;
+  text-align: center;
+  border-width: 1px;
+  border-style: solid;
+  outline-style: none;
+  resize: none;
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  font-size: 14px;
+  -moz-border-radius: 0px 0px 0px 0px;
+  -webkit-border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px;
+}
+.calendar-menu-prev,
+.calendar-menu-next {
+  display: inline-block;
+  width: 25px;
+  height: 28px;
+  vertical-align: top;
+  cursor: pointer;
+  -moz-border-radius: 0px 0px 0px 0px;
+  -webkit-border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px;
+}
+.calendar-menu-prev {
+  margin-right: 10px;
+  background: url('images/calendar_arrows.png') no-repeat 5px center;
+}
+.calendar-menu-next {
+  margin-left: 10px;
+  background: url('images/calendar_arrows.png') no-repeat -44px center;
+}
+.calendar-menu-month {
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+  -moz-border-radius: 0px 0px 0px 0px;
+  -webkit-border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px;
+}
+.calendar-body th,
+.calendar-menu-month {
+  color: #919191;
+}
+.calendar-day {
+  color: #444;
+}
+.calendar-sunday {
+  color: #CC2222;
+}
+.calendar-saturday {
+  color: #00ee00;
+}
+.calendar-today {
+  color: #0000ff;
+}
+.calendar-menu-year {
+  border-color: #ddd;
+}
+.calendar {
+  border-color: #ddd;
+}
+.calendar-header {
+  background: #ffffff;
+}
+.calendar-body,
+.calendar-menu {
+  background: #fff;
+}
+.calendar-body th {
+  background: #fff;
+  padding: 4px 0;
+}
+.calendar-hover,
+.calendar-nav-hover,
+.calendar-menu-hover {
+  background-color: #E6E6E6;
+  color: #444;
+}
+.calendar-hover {
+  border: 1px solid #ddd;
+  padding: 0;
+}
+.calendar-selected {
+  background-color: #CCE6FF;
+  color: #000;
+  border: 1px solid #99cdff;
+  padding: 0;
+}
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/calendar/" data-id="cjtifrbd40085wguqvksuynx5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/accordion" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/accordion/" class="article-date">
+  <time datetime="2019-03-21T09:22:47.157Z" itemprop="datePublished">2019-03-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        .accordion {
+  overflow: hidden;
+  border-width: 1px;
+  border-style: solid;
+}
+.accordion .accordion-header {
+  border-width: 0 0 1px;
+  cursor: pointer;
+}
+.accordion .accordion-body {
+  border-width: 0 0 1px;
+}
+.accordion-noborder {
+  border-width: 0;
+}
+.accordion-noborder .accordion-header {
+  border-width: 0 0 1px;
+}
+.accordion-noborder .accordion-body {
+  border-width: 0 0 1px;
+}
+.accordion-collapse {
+  background: url('images/accordion_arrows.png') no-repeat 0 0;
+}
+.accordion-expand {
+  background: url('images/accordion_arrows.png') no-repeat -16px 0;
+}
+.accordion {
+  background: #fff;
+  border-color: #ddd;
+}
+.accordion .accordion-header {
+  background: #ffffff;
+  filter: none;
+}
+.accordion .accordion-header-selected {
+  background: #CCE6FF;
+}
+.accordion .accordion-header-selected .panel-title {
+  color: #000;
+}
+.accordion .panel-last > .accordion-header {
+  border-bottom-color: #ffffff;
+}
+.accordion .panel-last > .accordion-body {
+  border-bottom-color: #fff;
+}
+.accordion .panel-last > .accordion-header-selected,
+.accordion .panel-last > .accordion-header-border {
+  border-bottom-color: #ddd;
+}
+.accordion> .panel-hleft {
+  float: left;
+}
+.accordion> .panel-hleft>.panel-header {
+  border-width: 0 1px 0 0;
+}
+.accordion> .panel-hleft> .panel-body {
+  border-width: 0 1px 0 0;
+}
+.accordion> .panel-hleft.panel-last > .accordion-header {
+  border-right-color: #ffffff;
+}
+.accordion> .panel-hleft.panel-last > .accordion-body {
+  border-right-color: #fff;
+}
+.accordion> .panel-hleft.panel-last > .accordion-header-selected,
+.accordion> .panel-hleft.panel-last > .accordion-header-border {
+  border-right-color: #ddd;
+}
+.accordion> .panel-hright {
+  float: right;
+}
+.accordion> .panel-hright>.panel-header {
+  border-width: 0 0 0 1px;
+}
+.accordion> .panel-hright> .panel-body {
+  border-width: 0 0 0 1px;
+}
+.accordion> .panel-hright.panel-last > .accordion-header {
+  border-left-color: #ffffff;
+}
+.accordion> .panel-hright.panel-last > .accordion-body {
+  border-left-color: #fff;
+}
+.accordion> .panel-hright.panel-last > .accordion-header-selected,
+.accordion> .panel-hright.panel-last > .accordion-header-border {
+  border-left-color: #ddd;
+}
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/accordion/" data-id="cjtifrbd70088wguqethomrtc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -656,7 +4568,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/35/">35</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -689,7 +4601,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
   </div>
 
@@ -702,23 +4614,23 @@
       <ul>
         
           <li>
-            <a href="/2018/09/30/权限系统/">权限系统</a>
+            <a href="/2019/03/22/CSS入门及提高/example/25 使用双伪元素清除浮动/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/08/16/CSS-Web高级程序设计/">CSS-Web高级程序设计</a>
+            <a href="/2019/03/22/CSS入门及提高/example/24 通栏平均分布布局/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/08/11/Web前端开发环境搭建/">Web前端开发环境搭建</a>
+            <a href="/2019/03/22/CSS入门及提高/example/23 两列左窄右宽布局/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/08/09/JQuery源码解读/">JQuery源码解读</a>
+            <a href="/2019/03/22/CSS入门及提高/example/22 横向布局/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/08/08/Emmet语法/">Emmet语法</a>
+            <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/window/">(no title)</a>
           </li>
         
       </ul>
@@ -733,7 +4645,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2018 John Doe<br>
+      &copy; 2019 John Doe<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

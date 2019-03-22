@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/page/35/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-Dom元素" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/04/Dom元素/" class="article-date">
+  <time datetime="2018-01-04T02:49:44.000Z" itemprop="datePublished">2018-01-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/04/Dom元素/">Dom元素</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h1><h2 id="span"><a href="#span" class="headerlink" title="span"></a>span</h2><p>HTML &lt;span&gt; 元素<br>HTML &lt;span&gt; 元素是内联元素，可用作文本的容器<br>&lt;span&gt; 元素也没有特定的含义。<br>当与 CSS 一同使用时，&lt;span&gt; 元素可用于为部分文本设置样式属性。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/04/Dom元素/" data-id="cjtifr8xe0009wguq82snijg6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-JQuery使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/04/JQuery使用/" class="article-date">
+  <time datetime="2018-01-04T01:48:44.000Z" itemprop="datePublished">2018-01-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/04/JQuery使用/">JQuery使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="each的用法"><a href="#each的用法" class="headerlink" title="$.each的用法"></a>$.each的用法</h1><h2 id="遍历对象"><a href="#遍历对象" class="headerlink" title="遍历对象"></a>遍历对象</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$.each(parentData,function(index,childData)&#123;</span><br><span class="line">    index ;     //选择器的index位置 </span><br><span class="line">    childData;  //当前元素</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+<h1 id="checkbox"><a href="#checkbox" class="headerlink" title="checkbox"></a>checkbox</h1><p>1、获取单个checkbox选中项(三种写法)<br>$(“input:checkbox:checked”).val()<br>或者<br>$(“input:[type=’checkbox’]:checked”).val();<br>或者<br>$(“input:[name=’ck’]:checked”).val();</p>
+<p>2、 获取多个checkbox选中项<br>$(‘input:checkbox’).each(function() {<br>        if ($(this).attr(‘checked’) ==true) {<br>                alert($(this).val());<br>        }<br>});</p>
+<p>3、设置第一个checkbox 为选中值<br>$(‘input:checkbox:first’).attr(“checked”,’checked’);<br>或者<br>$(‘input:checkbox’).eq(0).attr(“checked”,’true’);</p>
+<p>4、设置最后一个checkbox为选中值<br>$(‘input:radio:last’).attr(‘checked’, ‘checked’);<br>或者<br>$(‘input:radio:last’).attr(‘checked’, ‘true’);</p>
+<p>5、根据索引值设置任意一个checkbox为选中值<br>$(‘input:checkbox).eq(索引值).attr(‘checked’, ‘true’);索引值=0,1,2….<br>或者<br>$(‘input:radio’).slice(1,2).attr(‘checked’, ‘true’);</p>
+<p>6、选中多个checkbox同时选中第1个和第2个的checkbox<br>$(‘input:radio’).slice(0,2).attr(‘checked’,’true’);</p>
+<p>7、根据Value值设置checkbox为选中值<br>$(“input:checkbox[value=’1’]”).attr(‘checked’,’true’);</p>
+<p>8、删除Value=1的checkbox<br>$(“input:checkbox[value=’1’]”).remove();</p>
+<p>9、删除第几个checkbox<br>$(“input:checkbox”).eq(索引值).remove();索引值=0,1,2….<br>如删除第3个checkbox:<br>$(“input:checkbox”).eq(2).remove();</p>
+<p>10、遍历checkbox<br>$(‘input:checkbox’).each(function (index, domEle) {<br>//写入代码<br>});</p>
+<p>11、全部选中<br>$(‘input:checkbox’).each(function() {<br>        $(this).attr(‘checked’, true);<br>});</p>
+<p>12、全部取消选择<br>$(‘input:checkbox’).each(function () {<br>        $(this).attr(‘checked’,false);<br>});</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/04/JQuery使用/" data-id="cjtifr8xn000fwguqc2pmacl9" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-EasyUI使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/04/EasyUI使用/" class="article-date">
+  <time datetime="2018-01-04T01:48:04.000Z" itemprop="datePublished">2018-01-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/04/EasyUI使用/">EasyUI使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-datagrid使用"><a href="#1-datagrid使用" class="headerlink" title="1. datagrid使用"></a>1. datagrid使用</h1><h2 id="1-1-初始化"><a href="#1-1-初始化" class="headerlink" title="1.1. 初始化"></a>1.1. 初始化</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#HouseData'</span>).datagrid(&#123;</span><br><span class="line">    url: <span class="string">'/Ashx/TempHouse.ashx?type=extractinghouseinfo&amp;ownerinfo='</span> + ownerInfo,</span><br><span class="line">    method: <span class="string">'get'</span>,</span><br><span class="line">    idField: <span class="string">'house_id'</span>,</span><br><span class="line">    loadMsg: <span class="string">"数据加载中......"</span>,</span><br><span class="line">    fitColumns: <span class="literal">true</span>,<span class="comment">//自适应宽度</span></span><br><span class="line">    singleSelect: <span class="literal">true</span>,<span class="comment">//是否单选 </span></span><br><span class="line">    pagination: <span class="literal">true</span>,<span class="comment">//分页控件 </span></span><br><span class="line">    pageSize: <span class="number">15</span>,<span class="comment">//每页显示的记录条数，默认为10 </span></span><br><span class="line">    pageList: [<span class="number">5</span>, <span class="number">10</span>, <span class="number">15</span>],<span class="comment">//可以设置每页记录条数的列表 </span></span><br><span class="line">    beforePageText: <span class="string">'第'</span>,<span class="comment">//页数文本框前显示的汉字 </span></span><br><span class="line">    afterPageText: <span class="string">'页    共 &#123;pages&#125; 页'</span>,</span><br><span class="line">    displayMsg: <span class="string">'当前显示 &#123;from&#125; - &#123;to&#125; 条记录   共 &#123;total&#125; 条记录'</span>,</span><br><span class="line">    rownumbers: <span class="literal">true</span>,<span class="comment">//行号 </span></span><br><span class="line">    striped: <span class="literal">true</span>,<span class="comment">//隔行变色</span></span><br><span class="line">    columns: [[</span><br><span class="line">        &#123; <span class="attr">field</span>: <span class="string">'ck'</span>, <span class="attr">checkbox</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">        &#123; <span class="attr">field</span>: <span class="string">'house_id'</span>, <span class="attr">title</span>: <span class="string">'房屋ID'</span>, <span class="attr">width</span>: <span class="number">180</span>, <span class="attr">hidden</span>: <span class="string">'true'</span> &#125;,</span><br><span class="line">        &#123; <span class="attr">field</span>: <span class="string">'income_id'</span>, <span class="attr">title</span>: <span class="string">'业务号'</span>, <span class="attr">width</span>: <span class="number">180</span> &#125;,</span><br><span class="line">        &#123; <span class="attr">field</span>: <span class="string">'right_id'</span>, <span class="attr">title</span>: <span class="string">'房产证号'</span>, <span class="attr">width</span>: <span class="number">180</span> &#125;,</span><br><span class="line">        &#123; <span class="attr">field</span>: <span class="string">'owner_name'</span>, <span class="attr">title</span>: <span class="string">'产权人'</span>, <span class="attr">width</span>: <span class="number">180</span> &#125;,</span><br><span class="line">        &#123; <span class="attr">field</span>: <span class="string">'card_id'</span>, <span class="attr">title</span>: <span class="string">'身份证号'</span>, <span class="attr">width</span>: <span class="number">180</span> &#125;,</span><br><span class="line">        &#123; <span class="attr">field</span>: <span class="string">'seat_name'</span>, <span class="attr">title</span>: <span class="string">'房屋坐落'</span>, <span class="attr">width</span>: <span class="number">180</span> &#125;,</span><br><span class="line">        &#123; <span class="attr">field</span>: <span class="string">'build_name'</span>, <span class="attr">title</span>: <span class="string">"幢名"</span>, <span class="attr">width</span>: <span class="number">180</span> &#125;,</span><br><span class="line">        &#123; <span class="attr">field</span>: <span class="string">'house_name'</span>, <span class="attr">title</span>: <span class="string">"房名"</span>, <span class="attr">width</span>: <span class="number">180</span> &#125;,</span><br><span class="line">        &#123; <span class="attr">field</span>: <span class="string">'current_floor'</span>, <span class="attr">title</span>: <span class="string">"所在层"</span>, <span class="attr">width</span>: <span class="number">180</span> &#125;,</span><br><span class="line">        &#123; <span class="attr">field</span>: <span class="string">'build_area'</span>, <span class="attr">title</span>: <span class="string">"建筑面积"</span>, <span class="attr">width</span>: <span class="number">180</span> &#125;,</span><br><span class="line">        &#123; <span class="attr">field</span>: <span class="string">'from_name'</span>, <span class="attr">title</span>: <span class="string">"产权来源"</span>, <span class="attr">width</span>: <span class="number">180</span> &#125;</span><br><span class="line">    ]],</span><br><span class="line">    enableFilter: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="1-2-load-reload和loadData"><a href="#1-2-load-reload和loadData" class="headerlink" title="1.2. load,reload和loadData"></a>1.2. load,reload和loadData</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(“#grid”).datagrid(“load”,&#123; &#125;); //里面写的是你要传输的参数的键值对，调用这个方法来加载数据的时候，它传给后台的分页信息是从第一页开始的。</span><br><span class="line">$(“#grid”).datagrid(“reload”,&#123; &#125;);//但它传给后台的分布信息是当前的页码，就是实现刷新当前页的功能。</span><br><span class="line">$(“#grid”).datagrid(“loadData”,&#123; “total”:”30″,rows:[] &#125;);//它加载的本地数据，就是不会跟后台什么的有交互，它的使用方式是</span><br></pre></td></tr></table></figure>
+<h2 id="1-3-获取选中行"><a href="#1-3-获取选中行" class="headerlink" title="1.3. 获取选中行"></a>1.3. 获取选中行</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> ($(<span class="string">"#dg_houselist"</span>).datagrid(<span class="string">"getSelections"</span>).length &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> houseids = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">var</span> rows = $(<span class="string">"#dg_houselist"</span>).datagrid(<span class="string">"getSelections"</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; rows.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (rows[i].limit_flag ==<span class="string">"0"</span>) &#123;</span><br><span class="line">            $.messager.alert(<span class="string">"警告"</span>, rows[i].house_name + <span class="string">"不存在纪监查封"</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        houseids += rows[i].house_id + <span class="string">","</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line">    $.messager.alert(<span class="string">"友情提示"</span>, <span class="string">"请您选择要添加限制的房屋"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="2-combobox"><a href="#2-combobox" class="headerlink" title="2. combobox"></a>2. combobox</h1><h2 id="2-1-从后台加载数据"><a href="#2-1-从后台加载数据" class="headerlink" title="2.1. 从后台加载数据"></a>2.1. 从后台加载数据</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#comboid"</span>).combobox(&#123;</span><br><span class="line">    url:<span class="string">"/Ashx/ImpownContract.ashx?type=GetOtherMan"</span>,</span><br><span class="line">    valueField:<span class="string">"code"</span>,</span><br><span class="line">    textField: <span class="string">"name_c"</span>,</span><br><span class="line">    onSelect:<span class="function"><span class="keyword">function</span>(<span class="params">record</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> selectValue = record.value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取json数据格式</span></span><br><span class="line">[</span><br><span class="line">&#123;<span class="string">"code"</span>:<span class="string">"0001"</span>,<span class="string">"name_c"</span>:<span class="string">"中国工商银行股份有限公司兖州支行"</span>&#125;,</span><br><span class="line">&#123;<span class="string">"code"</span>:<span class="string">"0002"</span>,<span class="string">"name_c"</span>:<span class="string">"中国农业银行股份有限公司兖州市支行"</span>&#125;,</span><br><span class="line">&#123;<span class="string">"code"</span>:<span class="string">"0003"</span>,<span class="string">"name_c"</span>:<span class="string">"中国建设银行股份有限公司兖州支行"</span>&#125;,</span><br><span class="line">&#123;<span class="string">"code"</span>:<span class="string">"0004"</span>,<span class="string">"name_c"</span>:<span class="string">"中国银行股份有限公司兖州支行"</span>&#125;,</span><br><span class="line">&#123;<span class="string">"code"</span>:<span class="string">"0005"</span>,<span class="string">"name_c"</span>:<span class="string">"中国建设银行股份有限公司济宁分行"</span>&#125;,</span><br><span class="line">&#123;<span class="string">"code"</span>:<span class="string">"0006"</span>,<span class="string">"name_c"</span>:<span class="string">"山东圣泰农村合作银行草桥口支行"</span>&#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h2 id="2-2-常用方法"><a href="#2-2-常用方法" class="headerlink" title="2.2. 常用方法"></a>2.2. 常用方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;#xx&quot;).combobox(&#123;disabled: true&#125;);      //设置下拉款为禁用</span><br><span class="line">$(&quot;#xx&quot;).combobox(&apos;setValue&apos;,xlid);  //设置下拉款的默认值  xlid是你下拉款的id属性</span><br><span class="line">$(&quot;#xx&quot;).combobox(&apos;getValue&apos;);      //获取下拉款id值</span><br><span class="line">$(&quot;#xx&quot;).combobox(&apos;getText&apos;);      //获取下拉款name值</span><br></pre></td></tr></table></figure>
+<h1 id="3-判断元素是否隐藏"><a href="#3-判断元素是否隐藏" class="headerlink" title="3. 判断元素是否隐藏"></a>3. 判断元素是否隐藏</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> isHaveHouse =  $(<span class="string">"#HouseDiv"</span>).is(<span class="string">":hidden"</span>);<span class="comment">//是否隐藏</span></span><br><span class="line"><span class="keyword">var</span> temp1=$(<span class="string">"#test"</span>).is(<span class="string">":visible"</span>);<span class="comment">//是否可见</span></span><br></pre></td></tr></table></figure>
+<h1 id="4-Parser-解析器"><a href="#4-Parser-解析器" class="headerlink" title="4. Parser(解析器)"></a>4. Parser(解析器)</h1><p>解析器是 easy ui 很重要的基础组件，在 easy ui 中我们可以简单的通过 class 定义一个组件，从而渲染出很好的交互效果，就是通过 parser 进行解析的。</p>
+<p>parser 会获取全部在指定内定为 easy ui 组件的 class 定义，而且根据后缀定义把当前节点解析渲染成特定组件。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$.parser.parse();<span class="comment">//不带参数，默认解析该页面中全部定义为 easyui 组件的节点</span></span><br><span class="line">$.parser.onComplete();<span class="comment">//在解析器完成解析操作的时候触发。</span></span><br><span class="line">$.parser.parse(<span class="string">'#cc'</span>);<span class="comment">//带一个jquery 选择器，使用这样的方式能够单独解析局部 easyui 组件节点</span></span><br></pre></td></tr></table></figure>
+<h1 id="5-checkbox"><a href="#5-checkbox" class="headerlink" title="5. checkbox"></a>5. checkbox</h1><h2 id="5-1-获取元素下所有checkbox被选中的元素"><a href="#5-1-获取元素下所有checkbox被选中的元素" class="headerlink" title="5.1. 获取元素下所有checkbox被选中的元素"></a>5.1. 获取元素下所有checkbox被选中的元素</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> systemCodes = [];</span><br><span class="line">$(<span class="string">"#Flags input[type='checkbox']:checked"</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params">index, ele</span>) </span>&#123;</span><br><span class="line">    systemCodes.push(ele.value);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="5-2-将指定value值的checkobx选中"><a href="#5-2-将指定value值的checkobx选中" class="headerlink" title="5.2. 将指定value值的checkobx选中"></a>5.2. 将指定value值的checkobx选中</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (res.Data != <span class="literal">null</span>) &#123;</span><br><span class="line">    $(<span class="string">"#Flags input:checkbox"</span>).each(<span class="function"><span class="keyword">function</span> (<span class="params">index, ele</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> value = ele.value;</span><br><span class="line">        <span class="keyword">if</span> (res.Data.indexOf(value) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            $(<span class="keyword">this</span>).attr(<span class="string">"checked"</span>, <span class="string">'true'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/04/EasyUI使用/" data-id="cjtifr8xi000cwguqfnp9jq9a" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-razor语法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/04/razor语法/" class="article-date">
+  <time datetime="2018-01-04T01:38:00.000Z" itemprop="datePublished">2018-01-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/04/razor语法/">razor语法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Razor标识符与任务域"><a href="#Razor标识符与任务域" class="headerlink" title="Razor标识符与任务域"></a>Razor标识符与任务域</h1><p>@字符被定义为Razor服务器代码块的标识符，后面的表示的是服务器代码。<br>{}表示Razor的作用域<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@&#123;string userName= &quot;razor test&quot;;&#125;</span><br><span class="line">    &lt;span&gt;@userName&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;@DateTime.Now.ToString(&quot;yyyy-MM-hh&quot;)&lt;/span&gt;</span><br></pre></td></tr></table></figure></p>
+<h1 id="Razor注释"><a href="#Razor注释" class="headerlink" title="Razor注释"></a>Razor注释</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@&#123;</span><br><span class="line">   @*</span><br><span class="line">       多行注释</span><br><span class="line">   *@</span><br><span class="line">   var i = 10;  @* 单行注释 *@</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Razor类型转换"><a href="#Razor类型转换" class="headerlink" title="Razor类型转换"></a>Razor类型转换</h1><p>  AsInt(), IsInt()<br>　AsBool(),IsBool()<br>  AsFloat(),IsFloat()<br>　AsDecimal(),IsDecimal()<br>　AsDateTime(),IsDateTime()<br>　ToString()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@&#123;</span><br><span class="line">    var i = “10”;</span><br><span class="line">&#125;</span><br><span class="line">&lt;p&gt; i = @i.AsInt() &lt;/p&gt; &lt;!-- 输出 i = 10 --&gt;</span><br></pre></td></tr></table></figure></p>
+<h1 id="布局Layout"><a href="#布局Layout" class="headerlink" title="布局Layout"></a>布局Layout</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;utf-8&quot; /&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot; /&gt;</span><br><span class="line">    &lt;title&gt;@ViewBag.Title&lt;/title&gt;</span><br><span class="line">    @Styles.Render(&quot;~/Content/css&quot;)</span><br><span class="line">    @Scripts.Render(&quot;~/bundles/modernizr&quot;)</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    @RenderBody()</span><br><span class="line"></span><br><span class="line">    @Scripts.Render(&quot;~/bundles/jquery&quot;)</span><br><span class="line">    @RenderSection(&quot;scripts&quot;, required: false)</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>@RenderBody</li>
+<li>@Scripts.Render</li>
+<li>@RenderSection</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/04/razor语法/" data-id="cjtifr8z00018wguq7tqn9wsc" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-项目总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/03/项目总结/" class="article-date">
+  <time datetime="2018-01-03T07:30:28.000Z" itemprop="datePublished">2018-01-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/03/项目总结/">项目总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-远程数据采集系统"><a href="#1-远程数据采集系统" class="headerlink" title="1. 远程数据采集系统"></a>1. 远程数据采集系统</h1><h2 id="1-1-需求"><a href="#1-1-需求" class="headerlink" title="1.1. 需求"></a>1.1. 需求</h2><ul>
+<li>数据采集</li>
+<li>实时监控</li>
+<li>数据查询</li>
+</ul>
+<h2 id="1-2-难点"><a href="#1-2-难点" class="headerlink" title="1.2. 难点"></a>1.2. 难点</h2><p>数据监控的实时性<br>采集数据频率高，导致查询数据量大</p>
+<h1 id="2-污水处理厂数据采集系统"><a href="#2-污水处理厂数据采集系统" class="headerlink" title="2. 污水处理厂数据采集系统"></a>2. 污水处理厂数据采集系统</h1><h2 id="2-1-需求"><a href="#2-1-需求" class="headerlink" title="2.1. 需求"></a>2.1. 需求</h2><ul>
+<li>七个现场数据采集</li>
+<li>现场数据实时监控、预警并短信通知相关人员</li>
+<li>数据查询</li>
+</ul>
+<h2 id="2-2-难点"><a href="#2-2-难点" class="headerlink" title="2.2. 难点"></a>2.2. 难点</h2><p>数据监控的实时性<br>采集数据频率高，导致查询数据量大</p>
+<h1 id="3-变压器厂绕线管理系统"><a href="#3-变压器厂绕线管理系统" class="headerlink" title="3. 变压器厂绕线管理系统"></a>3. 变压器厂绕线管理系统</h1><h1 id="4-国际化"><a href="#4-国际化" class="headerlink" title="4. 国际化"></a>4. 国际化</h1><h1 id="5-机床厂管理系统"><a href="#5-机床厂管理系统" class="headerlink" title="5. 机床厂管理系统"></a>5. 机床厂管理系统</h1><h1 id="6-冷链物流温湿度监测"><a href="#6-冷链物流温湿度监测" class="headerlink" title="6. 冷链物流温湿度监测"></a>6. 冷链物流温湿度监测</h1><h1 id="7-电厂数据接口"><a href="#7-电厂数据接口" class="headerlink" title="7. 电厂数据接口"></a>7. 电厂数据接口</h1><h2 id="任务调配系统"><a href="#任务调配系统" class="headerlink" title="任务调配系统"></a>任务调配系统</h2><h2 id="数据采集系统"><a href="#数据采集系统" class="headerlink" title="数据采集系统"></a>数据采集系统</h2><h1 id="8-CAD二次开发"><a href="#8-CAD二次开发" class="headerlink" title="8. CAD二次开发"></a>8. CAD二次开发</h1><h2 id="菜单改造"><a href="#菜单改造" class="headerlink" title="菜单改造"></a>菜单改造</h2><h1 id="9-维修资金"><a href="#9-维修资金" class="headerlink" title="9. 维修资金"></a>9. 维修资金</h1><h2 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h2><ul>
+<li>ORM</li>
+<li>WCF</li>
+<li>MVC</li>
+<li>AutoMapper</li>
+<li>AutoFact</li>
+<li></li>
+</ul>
+<h2 id="三方联网"><a href="#三方联网" class="headerlink" title="三方联网"></a>三方联网</h2><h1 id="10-房产交易综合管理平台"><a href="#10-房产交易综合管理平台" class="headerlink" title="10.房产交易综合管理平台"></a>10.房产交易综合管理平台</h1><h1 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h1><p>在计算机专业术语中，Session 是指一个终端用户与交互系统进行通信的时间间隔，通常指从注册进入系统到注销退出系统之间所经过的时间，如果需要的话，可能还有一定的操作空间。<br>一个Session的概念需要包括特定的客户端，特定的服务器端以及不间断的操作时间。</p>
+<h2 id="Session-的工作原理"><a href="#Session-的工作原理" class="headerlink" title="Session 的工作原理"></a>Session 的工作原理</h2><ul>
+<li>当一个 Session 第一次被启用时，一个唯一的标识被存储于本地的 cookie 中。</li>
+<li>首先使用 session_start() 函数，PHP 从 session 仓库中加载已经存储的 session 变量</li>
+<li>当执行 PHP 脚本时，通过 session_register() 函数注册 session 变量。</li>
+<li>当 PHP 脚本执行结束时，未被销毁的 session 变量会被自动保存在本地一定路径下的 session 库中，这个路径可以通过 php.ini 文件中的 session.save_path 指定，下次浏览网页时可以加载使用。</li>
+</ul>
+<h2 id="单点登陆"><a href="#单点登陆" class="headerlink" title="单点登陆"></a>单点登陆</h2><p>单点登陆,(single sign on),简称SSO，是目前比较流行的企业业务整合解决方案之一。SSO的定义是在多个应用体系中，用户只需要登陆一次就可以访问所有相互信任的应用系统。</p>
+<p>技术实现机制：</p>
+<p>当用户第一次访问应用系统的时候，因为还没有登录，会被引导到认证系统中进行登录；根据用户提供的登录信息，认证系统进行身份校验，如果通过校验，应该返回给用户一个认证的凭据－－ticket；用户再访问别的应用的时候，就会将这个ticket带上，作为自己认证的凭据，应用系统接受到请求之后会把ticket送到认证系统进行校验，检查ticket的合法性。如果通过校验，用户就可以在不用再次登录的情况下访问应用系统2和应用系统3了。<br>要实现SSO，需要以下主要的功能：<br>所有应用系统共享一个身份认证系统。<br>　　统一的认证系统是SSO的前提之一。认证系统的主要功能是将用户的登录信息和用户信息库相比较，对用户进行登录认证；认证成功后，认证系统应该生成统一的认证标志（ticket），返还给用户。另外，认证系统还应该对ticket进行效验，判断其有效性。<br>所有应用系统能够识别和提取ticket信息<br>　　要实现SSO的功能，让用户只登录一次，就必须让应用系统能够识别已经登录过的用户。应用系统应该能对ticket进行识别和提取，通过与认证系统的通讯，能自动判断当前用户是否登录过，从而完成单点登录的功能。<br><img src="/2018/01/03/项目总结/单点登陆.jpg" alt="技术实现机制"></p>
+<h2 id="技术-1"><a href="#技术-1" class="headerlink" title="技术"></a>技术</h2><ul>
+<li>三层架构</li>
+<li>sql</li>
+<li>EasyUI</li>
+<li>Jquery</li>
+<li>HighChart</li>
+</ul>
+<h2 id="完成的工作"><a href="#完成的工作" class="headerlink" title="完成的工作"></a>完成的工作</h2><h3 id="合同管理模块"><a href="#合同管理模块" class="headerlink" title="合同管理模块"></a>合同管理模块</h3><h3 id="资金托管"><a href="#资金托管" class="headerlink" title="资金托管"></a>资金托管</h3><h3 id="楼盘管理"><a href="#楼盘管理" class="headerlink" title="楼盘管理"></a>楼盘管理</h3><h3 id="统计平台"><a href="#统计平台" class="headerlink" title="统计平台"></a>统计平台</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/03/项目总结/" data-id="cjtifr8z7001ewguqr2646xyv" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-GitHub博客部署" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/27/GitHub博客部署/" class="article-date">
+  <time datetime="2017-12-27T01:35:49.000Z" itemprop="datePublished">2017-12-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/27/GitHub博客部署/">GitHub博客部署</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这是我的第一篇博客，我把它献给了提供这个博客的平台，记录一下在GitHub上如何部署自己的博客。<br>用到的工具：</p>
+<ul>
+<li>Nodejs<br>包含npm</li>
+<li>Git<br>  这个不多说，是必需的</li>
+<li>Hexo<br>  一个静态博客框架，只需要几条命令就可以快速创建自己的博客。</li>
+</ul>
+<p>系统环境<br>    Windows7 64bit<br>软件版本<br>    NodeJs<br>    Git 2.15.0.windows.1<br>    Hexo 3.4.4</p>
+<h1 id="1-工具的安装"><a href="#1-工具的安装" class="headerlink" title="1. 工具的安装"></a>1. 工具的安装</h1><h2 id="1-1-NodeJs安装"><a href="#1-1-NodeJs安装" class="headerlink" title="1.1. NodeJs安装"></a>1.1. NodeJs安装</h2><p>   在官网下载最新的安装包，按引导一步步安装。</p>
+<h2 id="1-2-Git安装"><a href="#1-2-Git安装" class="headerlink" title="1.2. Git安装"></a>1.2. Git安装</h2><p>   按引导至安装完成。</p>
+<h2 id="1-3-Hexo安装及配置"><a href="#1-3-Hexo安装及配置" class="headerlink" title="1.3. Hexo安装及配置"></a>1.3. Hexo安装及配置</h2><h3 id="1-3-1-Hexo安装"><a href="#1-3-1-Hexo安装" class="headerlink" title="1.3.1. Hexo安装"></a>1.3.1. Hexo安装</h3><p>   打开命令行，找到刚才NodeJs的安装目录，输入如下指令</p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+<p>   <img src="/2017/12/27/GitHub博客部署/install_hexo.png" alt="install hexo"></p>
+<h3 id="1-3-2-Hexo初始化配置"><a href="#1-3-2-Hexo初始化配置" class="headerlink" title="1.3.2. Hexo初始化配置"></a>1.3.2. Hexo初始化配置</h3><ol>
+<li><p>配置博客目录<br> 在命令行中进入你要放置博客的路径，执行如下命令，会创建一个Blog的文件夹，并时行一些组件的安装。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init blog</span><br></pre></td></tr></table></figure>
+<p><img src="/2017/12/27/GitHub博客部署/init_blog.png" alt="init blog"><br>安装完成如下图所示<br><img src="/2017/12/27/GitHub博客部署/init_blog_finish.png" alt="init blog finish"><br>此时执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+<p><img src="/2017/12/27/GitHub博客部署/hexo_server.png" alt="hexo server"></p>
+</li>
+</ol>
+<h2 id="1-4-发布到github"><a href="#1-4-发布到github" class="headerlink" title="1.4. 发布到github"></a>1.4. 发布到github</h2><h3 id="1-4-1-注册github"><a href="#1-4-1-注册github" class="headerlink" title="1.4.1. 注册github"></a>1.4.1. 注册github</h3><p>注册过程不多说，注册完成后，按照如下页面所示设置GitHub Pages <a href="https://pages.github.com/" target="_blank" rel="noopener">https://pages.github.com/</a></p>
+<h3 id="1-4-2-SSH-key配置"><a href="#1-4-2-SSH-key配置" class="headerlink" title="1.4.2. SSH key配置"></a>1.4.2. SSH key配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd ~/. ssh #检查本机已存在的ssh密钥</span><br></pre></td></tr></table></figure>
+<p>如果提示：No such file or directory 说明你是第一次使用git。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;邮件地址&quot;</span><br></pre></td></tr></table></figure></p>
+<p>然后连续3次回车，最终会生成一个文件在用户目录下，打开用户目录，找到.ssh\id_rsa.pub文件，记事本打开并复制里面的内容，打开你的github主页，进入个人设置 -&gt; SSH and GPG keys -&gt; New SSH key：<br><img src="/2017/12/27/GitHub博客部署/add_ssh_key.png" alt="add ssh key"><br>然后在git bash中配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;liuxianan&quot;// 你的github用户名，非昵称</span><br><span class="line">$ git config --global user.email  &quot;xxx@qq.com&quot;// 填写你的github注册邮箱</span><br></pre></td></tr></table></figure></p>
+<h3 id="1-4-3-上传插件安装"><a href="#1-4-3-上传插件安装" class="headerlink" title="1.4.3. 上传插件安装"></a>1.4.3. 上传插件安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git –save</span><br></pre></td></tr></table></figure>
+<p>   <img src="/2017/12/27/GitHub博客部署/install deployer.png" alt="install deployer"><br>   然后在你博客的目录下找到_config.yml配置deploy部分<br><img src="/2017/12/27/GitHub博客部署/deploy_set.png" alt="deploy set"></p>
+<p>工具都安装完成后，就可以写博客了</p>
+<h2 id="1-5-hexo常用命令"><a href="#1-5-hexo常用命令" class="headerlink" title="1.5. hexo常用命令"></a>1.5. hexo常用命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;postName&quot; #新建文章</span><br><span class="line">hexo new page &quot;pageName&quot; #新建页面</span><br><span class="line">hexo generate #生成静态页面至public目录</span><br><span class="line">hexo server #开启预览访问端口（默认端口4000，&apos;ctrl + c&apos;关闭server）</span><br><span class="line">hexo deploy #部署到GitHub</span><br><span class="line">hexo help  # 查看帮助</span><br><span class="line">hexo version  #查看Hexo的版本</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/27/GitHub博客部署/" data-id="cjtifr8xr000iwguql3p9xr13" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/34/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><a class="page-number" href="/page/34/">34</a><span class="page-number current">35</span>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/03/22/CSS入门及提高/example/25 使用双伪元素清除浮动/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/22/CSS入门及提高/example/24 通栏平均分布布局/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/22/CSS入门及提高/example/23 两列左窄右宽布局/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/22/CSS入门及提高/example/22 横向布局/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/window/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

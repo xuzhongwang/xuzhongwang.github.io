@@ -16,7 +16,8 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2018/02/25/Sublime使用/sbulime配置.png">
 <meta property="og:image" content="http://yoursite.com/2018/02/25/Sublime使用/settinguser.png">
-<meta property="og:updated_time" content="2018-08-08T02:26:35.402Z">
+<meta property="og:image" content="http://yoursite.com/2018/02/25/Sublime使用/设置默认浏览器.png">
+<meta property="og:updated_time" content="2019-03-22T00:22:01.027Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sublime使用">
 <meta name="twitter:description" content="替换Ctrl + H进行替换 安装 Package Control1import urllib.request,os,hashlib; h = &apos;6f4c264a24d933ce70df5dedcf1dcaee&apos; + &apos;ebe013ee18cced0ef93d5f746d80ef60&apos;; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.i">
@@ -157,11 +158,22 @@
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="attr">"build_env"</span>: &#123;</span><br><span class="line">    <span class="attr">"PATH"</span>: <span class="string">"C:/Program Files/nodejs"</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>PATH的值是nodejs的安装路径。 </p>
 <h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>新建一个文件，随便写一段JavaScript代码，按快捷键：<br>Ctrl + B<br>即可看到运行结果。</p>
+<h1 id="解决PackageControl无法使用的问题"><a href="#解决PackageControl无法使用的问题" class="headerlink" title="解决PackageControl无法使用的问题"></a>解决PackageControl无法使用的问题</h1><p>1.下载 JSON文件：“<a href="https://packagecontrol.io/channel_v3.json”；" target="_blank" rel="noopener">https://packagecontrol.io/channel_v3.json”；</a></p>
+<p>2.修改 JSON文件中的版本号“schema_version”，将“3.0.0”修改为 “2.0”；</p>
+<p>3.打开 首选项 –》插件设置 –》Package Control –》 设置-用户  （或者“设置-默认”）</p>
+<p>4.修改第3步设置文件中的 channels 属性的值，<br>在 channels[……]的最前面添加 JSON文件 的 地址（步骤1下载的文件）<br>注意：英文逗号分割  和  斜线方向</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">"channels":</span><br><span class="line">[</span><br><span class="line">	<span class="string">"D:/Program Files/Sublime Text 3.3126x64/Data/ChannelJson_download/channel_v3.json"</span>,</span><br><span class="line">	<span class="string">"https://packagecontrol.io/channel_v3.json"</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>5.保存上述打开的文件。</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ctrl+<span class="built_in">Shift</span>+P 输入“pc:ip”（package control:install package），回车。</span><br></pre></td></tr></table></figure>
+<h1 id="设置默认浏览器"><a href="#设置默认浏览器" class="headerlink" title="设置默认浏览器"></a>设置默认浏览器</h1><p><img src="/2018/02/25/Sublime使用/设置默认浏览器.png" alt="设置默认浏览器"></p>
+<p>在配置文件中添加如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	&quot;cmd&quot;:[&quot;C:/Program Files/Mozilla Firefox/firefox.exe&quot;,&quot;$file&quot;],</span><br><span class="line">	&quot;selector&quot;:[&quot;text.html&quot;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>ctrl+B 预览</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/25/Sublime使用/" data-id="cjpayx2gf000wpcuqovw70avq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/25/Sublime使用/" data-id="cjtifr8ym000ywguqu00xo425" class="article-share-link">Share</a>
       
       
     </footer>
@@ -220,7 +232,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
   </div>
 
@@ -233,23 +245,23 @@
       <ul>
         
           <li>
-            <a href="/2018/09/30/权限系统/">权限系统</a>
+            <a href="/2019/03/22/CSS入门及提高/example/25 使用双伪元素清除浮动/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/08/16/CSS-Web高级程序设计/">CSS-Web高级程序设计</a>
+            <a href="/2019/03/22/CSS入门及提高/example/24 通栏平均分布布局/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/08/11/Web前端开发环境搭建/">Web前端开发环境搭建</a>
+            <a href="/2019/03/22/CSS入门及提高/example/23 两列左窄右宽布局/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/08/09/JQuery源码解读/">JQuery源码解读</a>
+            <a href="/2019/03/22/CSS入门及提高/example/22 横向布局/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/08/08/Emmet语法/">Emmet语法</a>
+            <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/window/">(no title)</a>
           </li>
         
       </ul>
@@ -264,7 +276,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2018 John Doe<br>
+      &copy; 2019 John Doe<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

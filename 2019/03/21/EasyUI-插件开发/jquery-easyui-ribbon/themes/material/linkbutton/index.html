@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content=".l-btn {   text-decoration: none;   display: inline-block;   overflow: hidden;   margin: 0;   padding: 0;   cursor: pointer;   outline: none;   text-align: center;   vertical-align: middle;   line-hei">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/material/linkbutton/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content=".l-btn {   text-decoration: none;   display: inline-block;   overflow: hidden;   margin: 0;   padding: 0;   cursor: pointer;   outline: none;   text-align: center;   vertical-align: middle;   line-hei">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-08T08:24:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content=".l-btn {   text-decoration: none;   display: inline-block;   overflow: hidden;   margin: 0;   padding: 0;   cursor: pointer;   outline: none;   text-align: center;   vertical-align: middle;   line-hei">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/material/linkbutton" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/material/linkbutton/" class="article-date">
+  <time datetime="2019-03-21T09:22:46.661Z" itemprop="datePublished">2019-03-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        .l-btn {
+  text-decoration: none;
+  display: inline-block;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  text-align: center;
+  vertical-align: middle;
+  line-height: normal;
+}
+.l-btn-plain {
+  border-width: 0;
+  padding: 1px;
+}
+.l-btn-left {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+}
+.l-btn-text {
+  display: inline-block;
+  vertical-align: top;
+  width: auto;
+  line-height: 28px;
+  font-size: 14px;
+  padding: 0;
+  margin: 0 6px;
+}
+.l-btn-icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  position: absolute;
+  top: 50%;
+  margin-top: -8px;
+  font-size: 1px;
+}
+.l-btn span span .l-btn-empty {
+  display: inline-block;
+  margin: 0;
+  width: 16px;
+  height: 24px;
+  font-size: 1px;
+  vertical-align: top;
+}
+.l-btn span .l-btn-icon-left {
+  padding: 0 0 0 20px;
+  background-position: left center;
+}
+.l-btn span .l-btn-icon-right {
+  padding: 0 20px 0 0;
+  background-position: right center;
+}
+.l-btn-icon-left .l-btn-text {
+  margin: 0 6px 0 26px;
+}
+.l-btn-icon-left .l-btn-icon {
+  left: 6px;
+}
+.l-btn-icon-right .l-btn-text {
+  margin: 0 26px 0 6px;
+}
+.l-btn-icon-right .l-btn-icon {
+  right: 6px;
+}
+.l-btn-icon-top .l-btn-text {
+  margin: 20px 4px 0 4px;
+}
+.l-btn-icon-top .l-btn-icon {
+  top: 4px;
+  left: 50%;
+  margin: 0 0 0 -8px;
+}
+.l-btn-icon-bottom .l-btn-text {
+  margin: 0 4px 20px 4px;
+}
+.l-btn-icon-bottom .l-btn-icon {
+  top: auto;
+  bottom: 4px;
+  left: 50%;
+  margin: 0 0 0 -8px;
+}
+.l-btn-left .l-btn-empty {
+  margin: 0 6px;
+  width: 16px;
+}
+.l-btn-plain:hover {
+  padding: 0;
+}
+.l-btn-focus {
+  outline: #0000FF dotted thin;
+}
+.l-btn-large .l-btn-text {
+  line-height: 44px;
+}
+.l-btn-large .l-btn-icon {
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  margin-top: -16px;
+}
+.l-btn-large .l-btn-icon-left .l-btn-text {
+  margin-left: 40px;
+}
+.l-btn-large .l-btn-icon-right .l-btn-text {
+  margin-right: 40px;
+}
+.l-btn-large .l-btn-icon-top .l-btn-text {
+  margin-top: 36px;
+  line-height: 24px;
+  min-width: 32px;
+}
+.l-btn-large .l-btn-icon-top .l-btn-icon {
+  margin: 0 0 0 -16px;
+}
+.l-btn-large .l-btn-icon-bottom .l-btn-text {
+  margin-bottom: 36px;
+  line-height: 24px;
+  min-width: 32px;
+}
+.l-btn-large .l-btn-icon-bottom .l-btn-icon {
+  margin: 0 0 0 -16px;
+}
+.l-btn-large .l-btn-left .l-btn-empty {
+  margin: 0 6px;
+  width: 32px;
+}
+.l-btn {
+  color: #404040;
+  background: #fafafa;
+  background-repeat: repeat-x;
+  border: 1px solid #d9d9d9;
+  -moz-border-radius: 4px 4px 4px 4px;
+  -webkit-border-radius: 4px 4px 4px 4px;
+  border-radius: 4px 4px 4px 4px;
+}
+.l-btn:hover {
+  background: #eee;
+  color: #404040;
+  border: 1px solid #ccc;
+  filter: none;
+}
+.l-btn-plain {
+  background: transparent;
+  border-width: 0;
+  filter: none;
+}
+.l-btn-outline {
+  border-width: 1px;
+  border-color: #ccc;
+  padding: 0;
+}
+.l-btn-plain:hover {
+  background: #eee;
+  color: #404040;
+  border: 1px solid #ccc;
+  -moz-border-radius: 4px 4px 4px 4px;
+  -webkit-border-radius: 4px 4px 4px 4px;
+  border-radius: 4px 4px 4px 4px;
+}
+.l-btn-disabled,
+.l-btn-disabled:hover {
+  opacity: 0.5;
+  cursor: default;
+  background: #fafafa;
+  color: #404040;
+}
+.l-btn-disabled .l-btn-text,
+.l-btn-disabled .l-btn-icon {
+  filter: alpha(opacity=50);
+}
+.l-btn-plain-disabled,
+.l-btn-plain-disabled:hover {
+  background: transparent;
+  filter: alpha(opacity=50);
+}
+.l-btn-selected,
+.l-btn-selected:hover {
+  background: #00bbee;
+  filter: none;
+}
+.l-btn-plain-selected,
+.l-btn-plain-selected:hover {
+  background: #00bbee;
+}
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/material/linkbutton/" data-id="cjtifrbam005lwguqlxbs3m4p" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/material/menu/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/material/layout/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/03/22/CSS入门及提高/example/25 使用双伪元素清除浮动/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/22/CSS入门及提高/example/24 通栏平均分布布局/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/22/CSS入门及提高/example/23 两列左窄右宽布局/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/22/CSS入门及提高/example/22 横向布局/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/window/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

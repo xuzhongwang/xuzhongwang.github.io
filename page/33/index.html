@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/page/33/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-WCF学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/30/WCF学习笔记/" class="article-date">
+  <time datetime="2018-01-30T08:46:21.000Z" itemprop="datePublished">2018-01-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/30/WCF学习笔记/">WCF学习笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Webservice"><a href="#Webservice" class="headerlink" title="Webservice"></a>Webservice</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>通过SOAP在web上提供的软件服务，使用WSDL文件进行说明，并通过UDDI进行注册。</p>
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
+<li>跨防火墙的通信</li>
+<li>应用程序集成</li>
+<li>B2B的集成</li>
+<li>软件和数据的重用</li>
+</ul>
+<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><ul>
+<li>单机应用程序</li>
+<li>局域网的一些程序</li>
+</ul>
+<h1 id="WCF配置文件"><a href="#WCF配置文件" class="headerlink" title="WCF配置文件"></a>WCF配置文件</h1><p>WCF配置文件分为两部分：服务端配置和客户端配置</p>
+<h1 id="服务端配置"><a href="#服务端配置" class="headerlink" title="服务端配置"></a>服务端配置</h1><p>服务端的配置文件主要包括endpoint、binding、behavior的配置。一个标准的服务端配置文件所包含的主要xml配置节如下所示：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">system.ServiceModel</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">services</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">service</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">endpoint</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">service</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">services</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">bindings</span>&gt;</span></span><br><span class="line">   &lt;!—定义一个或多个系统提供的binding元素，例如&lt;basicHttpBinding&gt; --&gt; </span><br><span class="line">   &lt;!—也可以是自定义的binding元素，如&lt;customBinding&gt;. --&gt;</span><br><span class="line">      <span class="tag">&lt;<span class="name">binding</span>&gt;</span></span><br><span class="line">      &lt;!—例如&lt;BasicHttpBinding&gt;元素. --&gt;</span><br><span class="line">      <span class="tag">&lt;/<span class="name">binding</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">bindings</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">behaviors</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">!—一个或多个系统提供的behavior元素.</span> <span class="attr">--</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">behavior</span>&gt;</span></span><br><span class="line">      &lt;!—例如&lt;throttling&gt;元素. --&gt;</span><br><span class="line">      <span class="tag">&lt;/<span class="name">behavior</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">behaviors</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">system.ServiceModel</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="lt-service-gt-配置节"><a href="#lt-service-gt-配置节" class="headerlink" title="&lt;service&gt;配置节"></a>&lt;service&gt;配置节</h2><p>在&lt;services&gt;配置节中可以定义多个服务，每一个服务都被放到&lt;service&gt;配置节中，WCF的宿主程序可以通过配置文件找到这些定义的服务并发布这些服务。<br>&lt;service&gt;置节包含name和behaviorConfiguration属性。其中，name配置了实现Service Contract的类型名。类型名必须是完整地包含了命名空间和类型名。而behaviorConfiguration的配置值则与其后的&lt;behaviors&gt;配置节的内容有关。&lt;endpoint&gt;是&lt;service&gt;配置节的主体，其中，&lt;endpoint&gt;配置节包含了endpoint的三个组成部分：Address、Binding和Contract。由于具体的binding配置是在&lt;bindings&gt;配置节中完成，因而，在&lt;endpoint&gt;中配置了bindingConfiguration属性，指向具体的binding配置。如下所示：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">services</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">service</span> <span class="attr">name</span>=<span class="string">"BruceZhang.MyService"</span> <span class="attr">behaviorConfiguration</span>=<span class="string">"MyBehavior"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">endpoint</span> <span class="attr">address</span>=<span class="string">""</span></span></span><br><span class="line"><span class="tag">             <span class="attr">binding</span>=<span class="string">"netTcpBinding"</span></span></span><br><span class="line"><span class="tag">             <span class="attr">bindingConfiguration</span>=<span class="string">"DuplexBinding"</span></span></span><br><span class="line"><span class="tag">             <span class="attr">contract</span>=<span class="string">"BruceZhang.IHello"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">service</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">services</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>我们也可以定义多个endpoint，例如：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">services</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">service</span>&gt;</span></span><br><span class="line">      name="Microsoft.ServiceModel.Samples.CalculatorService"</span><br><span class="line">      behaviorConfiguration="CalculatorServiceBehavior"&gt;</span><br><span class="line">    <span class="tag">&lt;<span class="name">endpoint</span> <span class="attr">address</span>=<span class="string">""</span></span></span><br><span class="line"><span class="tag">             <span class="attr">binding</span>=<span class="string">"wsHttpBinding"</span></span></span><br><span class="line"><span class="tag">             <span class="attr">contract</span>=<span class="string">"Microsoft.ServiceModel.Samples.ICalculator"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">endpoint</span> <span class="attr">address</span>=<span class="string">"mex"</span></span></span><br><span class="line"><span class="tag">             <span class="attr">binding</span>=<span class="string">"mexHttpBinding"</span></span></span><br><span class="line"><span class="tag">             <span class="attr">contract</span>=<span class="string">" Microsoft.ServiceModel.Samples.IMetadataExchange"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">service</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">services</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如果address值为空，那么endpoint的地址就是默认的基地址（Base Address）。例如ICalculator服务的地址就是<br><a href="http://localhost/servicemodelsamples/service.svc" target="_blank" rel="noopener">http://localhost/servicemodelsamples/service.svc</a><br>而IMetadataExchange 服务的地址则为<a href="http://localhost/servicemodelsamples/service.svc/mex" target="_blank" rel="noopener">http://localhost/servicemodelsamples/service.svc/mex</a><br>这里所谓的基地址可以在&lt;service&gt;中通过配置&lt;host&gt;来定义：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">service</span> </span></span><br><span class="line"><span class="tag">      <span class="attr">name</span>=<span class="string">"Microsoft.ServiceModel.Samples.CalculatorService"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">behaviorConfiguration</span>=<span class="string">"CalculatorServiceBehavior"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">host</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">baseAddresses</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">add</span> <span class="attr">baseAddress</span>=</span></span><br><span class="line"><span class="tag">"<span class="attr">http:</span>//<span class="attr">localhost</span>/<span class="attr">ServiceModelSamples</span>/<span class="attr">service.svc</span>"/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">baseAddresses</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">host</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">endpoint</span> … /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">service</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="lt-behaviors-gt-配置节"><a href="#lt-behaviors-gt-配置节" class="headerlink" title="&lt;behaviors&gt;配置节"></a>&lt;behaviors&gt;配置节</h2><p>当我们在定义一个实现了Service Contract的类时， binding和address信息是客户端必须知道的，否则无法调用该服务。然而，如果需要指定服务在执行方面的相关特性时，就必须定义服务的behavior。在WCF中，定义behavior就可以设置服务的运行时属性，甚至于通过自定义behavior插入一些自定义类型。例如通过指定ServiceMetadataBehavior，可以使WCF服务对外公布Metadata。配置如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">behaviors</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">serviceBehaviors</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">behavior</span> <span class="attr">name</span>=<span class="string">"metadataSupport"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">serviceMetadata</span> <span class="attr">httpGetEnabled</span>=<span class="string">"true"</span> <span class="attr">httpGetUrl</span>=<span class="string">""</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">behavior</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">serviceBehaviors</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">behaviors</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在WCF中，behavior被定义为Attribute，其中，System.ServiceModel.ServiceBehaviorAttribute和System.ServiceModel.OperationBehaviorAttribute是最常用的behavior。虽然，behavior作为Attribute可以通过编程的方式直接施加到服务上，但出于灵活性的考虑，将behavior定义到配置文件中才是最好的设计方式。 利用ServiceBehavior与OperationBehavior可以控制服务的如下属性： 1、 对象实例的生命周期； 2、 并发与异步处理； 3、 配置行为； 4、 事务行为； 5、 序列化行为； 6、 元数据转换； 7、 会话的生命周期； 8、 地址过滤以及消息头的处理； 9、 模拟（Impersonation）；</p>
+<p>例如，通过ServiceBehavior设置对象实例的生命周期：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">behaviors</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">serviceBehaviors</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">behavior</span> <span class="attr">name</span>=<span class="string">"metadataSupport"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">instanceContextMode</span> <span class="attr">httpGetEnabled</span>=<span class="string">"true"</span> <span class="attr">httpGetUrl</span>=<span class="string">""</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">behavior</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">serviceBehaviors</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">behaviors</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/30/WCF学习笔记/" data-id="cjtifr8ys0013wguqqxs5hdor" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/30/正则表达式/" class="article-date">
+  <time datetime="2018-01-30T08:11:23.000Z" itemprop="datePublished">2018-01-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/30/正则表达式/">正则表达式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-常用正则表达式"><a href="#1-常用正则表达式" class="headerlink" title="1. 常用正则表达式"></a>1. 常用正则表达式</h1><h2 id="1-1-校验数字的表达式"><a href="#1-1-校验数字的表达式" class="headerlink" title="1.1. 校验数字的表达式"></a>1.1. 校验数字的表达式</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 数字 ：^[<span class="number">0</span><span class="number">-9</span>]*$</span><br><span class="line"><span class="number">2.</span> n位的数字：^\d&#123;n&#125;$</span><br><span class="line"><span class="number">3.</span> 至少n位的数字：^\d&#123;n,&#125;$</span><br><span class="line"><span class="number">4.</span> m-n位的数字：^\d&#123;m,n&#125;$</span><br><span class="line"><span class="number">5.</span> 零和非零开头的数字：^(<span class="number">0</span>|[<span class="number">1</span><span class="number">-9</span>][<span class="number">0</span><span class="number">-9</span>]*)$</span><br><span class="line"><span class="number">6.</span> 非零开头的最多带两位小数的数字：^([<span class="number">1</span><span class="number">-9</span>][<span class="number">0</span><span class="number">-9</span>]*)+(.[<span class="number">0</span><span class="number">-9</span>]&#123;<span class="number">1</span>,<span class="number">2</span>&#125;)?$</span><br><span class="line"><span class="number">7.</span> 带<span class="number">1</span><span class="number">-2</span>位小数的正数或负数：^(-)?\d+(.\d&#123;<span class="number">1</span>,<span class="number">2</span>&#125;)?$</span><br><span class="line"><span class="number">8.</span> 正数、负数、和小数：^(-|+)?\d+(.\d+)?$</span><br><span class="line"><span class="number">9.</span> 有两位小数的正实数：^[<span class="number">0</span><span class="number">-9</span>]+(.[<span class="number">0</span><span class="number">-9</span>]&#123;<span class="number">2</span>&#125;)?$</span><br><span class="line"><span class="number">10.</span> 有<span class="number">1</span>~<span class="number">3</span>位小数的正实数：^[<span class="number">0</span><span class="number">-9</span>]+(.[<span class="number">0</span><span class="number">-9</span>]&#123;<span class="number">1</span>,<span class="number">3</span>&#125;)?$</span><br><span class="line"><span class="number">11.</span> 非零的正整数：^[<span class="number">1</span><span class="number">-9</span>]\d$ 或 ^([<span class="number">1</span><span class="number">-9</span>][<span class="number">0</span><span class="number">-9</span>])&#123;<span class="number">1</span>,<span class="number">3</span>&#125;$ 或 ^+?[<span class="number">1</span><span class="number">-9</span>][<span class="number">0</span><span class="number">-9</span>]*$</span><br><span class="line"><span class="number">12.</span> 非零的负整数：^-[<span class="number">1</span><span class="number">-9</span>][]<span class="number">0</span><span class="number">-9</span><span class="string">"$ 或 ^-[1-9]\d$</span></span><br><span class="line"><span class="string">13. 非负整数：^\d+$ 或 ^[1-9]\d*|0$</span></span><br><span class="line"><span class="string">14. 非正整数：^-[1-9]\d*|0$ 或 ^((-\d+)|(0+))$</span></span><br><span class="line"><span class="string">15. 非负浮点数：^\d+(.\d+)?$ 或 ^[1-9]\d.\d|0.\d[1-9]\d|0?.0+|0$</span></span><br><span class="line"><span class="string">16. 非正浮点数：^((-\d+(.\d+)?)|(0+(.0+)?))$ 或 ^(-([1-9]\d.\d|0.\d[1-9]\d))|0?.0+|0$</span></span><br><span class="line"><span class="string">17. 正浮点数：^[1-9]\d.\d|0.\d[1-9]\d$ 或 ^(([0-9]+.[0-9][1-9][0-9])|([0-9][1-9][0-9].[0-9]+)|([0-9][1-9][0-9]))$</span></span><br><span class="line"><span class="string">18. 负浮点数：^-([1-9]\d.\d|0.\d[1-9]\d)$ 或 ^(-(([0-9]+.[0-9][1-9][0-9])|([0-9][1-9][0-9].[0-9]+)|([0-9][1-9][0-9])))$</span></span><br><span class="line"><span class="string">19. 浮点数：^(-?\d+)(.\d+)?$ 或 ^-?([1-9]\d.\d|0.\d[1-9]\d|0?.0+|0)$</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-2-校验字符的表达式"><a href="#1-2-校验字符的表达式" class="headerlink" title="1.2. 校验字符的表达式"></a>1.2. 校验字符的表达式</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 汉字：^[\u4e00-\u9fa5]&#123;<span class="number">0</span>,&#125;$</span><br><span class="line"><span class="number">2.</span> 英文和数字：^[A-Za-z0<span class="number">-9</span>]+$ 或 ^[A-Za-z0<span class="number">-9</span>]&#123;<span class="number">4</span>,<span class="number">40</span>&#125;$</span><br><span class="line"><span class="number">3.</span> 长度为<span class="number">3</span><span class="number">-20</span>的所有字符：^.&#123;<span class="number">3</span>,<span class="number">20</span>&#125;$</span><br><span class="line"><span class="number">4.</span> 由<span class="number">26</span>个英文字母组成的字符串：^[A-Za-z]+$</span><br><span class="line"><span class="number">5.</span> 由<span class="number">26</span>个大写英文字母组成的字符串：^[A-Z]+$</span><br><span class="line"><span class="number">6.</span> 由<span class="number">26</span>个小写英文字母组成的字符串：^[a-z]+$</span><br><span class="line"><span class="number">7.</span> 由数字和<span class="number">26</span>个英文字母组成的字符串：^[A-Za-z0<span class="number">-9</span>]+$</span><br><span class="line"><span class="number">8.</span> 由数字、<span class="number">26</span>个英文字母或者下划线组成的字符串：^\w+$ 或 ^\w&#123;<span class="number">3</span>,<span class="number">20</span>&#125;$</span><br><span class="line"><span class="number">9.</span> 中文、英文、数字包括下划线：^[\u4E00-\u9FA5A-Za-z0<span class="number">-9</span>_]+$</span><br><span class="line"><span class="number">10.</span> 中文、英文、数字但不包括下划线等符号：^[\u4E00-\u9FA5A-Za-z0<span class="number">-9</span>]+$ 或 ^[\u4E00-\u9FA5A-Za-z0<span class="number">-9</span>]&#123;<span class="number">2</span>,<span class="number">20</span>&#125;$</span><br><span class="line"><span class="number">11.</span> 可以输入含有^%&amp;<span class="string">',;=?$\"等字符：[^%&amp;'</span>,;=?$\x22]+</span><br><span class="line"><span class="number">12.</span> 禁止输入含有~的字符：[^~\x22]+</span><br></pre></td></tr></table></figure>
+<h2 id="1-3-特殊需求表达式"><a href="#1-3-特殊需求表达式" class="headerlink" title="1.3. 特殊需求表达式"></a>1.3. 特殊需求表达式</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> Email地址：^\w+([-+.]\w+)@\w+([-.]\w+).\w+([-.]\w+)*$</span><br><span class="line"><span class="number">2.</span> 域名：[a-zA-Z0<span class="number">-9</span>][-a-zA-Z0<span class="number">-9</span>]&#123;<span class="number">0</span>,<span class="number">62</span>&#125;(<span class="regexp">/.[a-zA-Z0-9][-a-zA-Z0-9]&#123;0,62&#125;)+/</span>.?</span><br><span class="line"><span class="number">3.</span> InternetURL：[a-zA-z]+:<span class="comment">//[^\s] 或 ^http://([\w-]+\.)+[\w-]+(/[\w-./?%&amp;=])?$</span></span><br><span class="line"><span class="number">4.</span> 手机号码：^(<span class="number">13</span>[<span class="number">0</span><span class="number">-9</span>]|<span class="number">14</span>[<span class="number">5</span>|<span class="number">7</span>]|<span class="number">15</span>[<span class="number">0</span>|<span class="number">1</span>|<span class="number">2</span>|<span class="number">3</span>|<span class="number">5</span>|<span class="number">6</span>|<span class="number">7</span>|<span class="number">8</span>|<span class="number">9</span>]|<span class="number">18</span>[<span class="number">0</span>|<span class="number">1</span>|<span class="number">2</span>|<span class="number">3</span>|<span class="number">5</span>|<span class="number">6</span>|<span class="number">7</span>|<span class="number">8</span>|<span class="number">9</span>])\d&#123;<span class="number">8</span>&#125;$</span><br><span class="line"><span class="number">5.</span> 电话号码(<span class="string">"XXX-XXXXXXX"</span>、<span class="string">"XXXX-XXXXXXXX"</span>、<span class="string">"XXX-XXXXXXX"</span>、<span class="string">"XXX-XXXXXXXX"</span>、<span class="string">"XXXXXXX"</span>和<span class="string">"XXXXXXXX)：^((\d&#123;3,4&#125;-)|\d&#123;3.4&#125;-)?\d&#123;7,8&#125;$</span></span><br><span class="line"><span class="string">6. 国内电话号码(0511-4405222、021-87888822)：\d&#123;3&#125;-\d&#123;8&#125;|\d&#123;4&#125;-\d&#123;7&#125;</span></span><br><span class="line"><span class="string">7. 身份证号(15位、18位数字)：^\d&#123;15&#125;|\d&#123;18&#125;$</span></span><br><span class="line"><span class="string">8. 短身份证号码(数字、字母x结尾)：^([0-9])&#123;7,18&#125;(x|X)?$ 或 ^\d&#123;8,18&#125;|[0-9x]&#123;8,18&#125;|[0-9X]&#123;8,18&#125;?$</span></span><br><span class="line"><span class="string">9. 帐号是否合法(字母开头，允许5-16字节，允许字母数字下划线)：^[a-zA-Z][a-zA-Z0-9_]&#123;4,15&#125;$</span></span><br><span class="line"><span class="string">10. 密码(以字母开头，长度在6~18之间，只能包含字母、数字和下划线)：^[a-zA-Z]\w&#123;5,17&#125;$</span></span><br><span class="line"><span class="string">11. 强密码(必须包含大小写字母和数字的组合，不能使用特殊字符，长度在8-10之间)：^(?=.\d)(?=.[a-z])(?=.*[A-Z]).&#123;8,10&#125;$</span></span><br><span class="line"><span class="string">12. 日期格式：^\d&#123;4&#125;-\d&#123;1,2&#125;-\d&#123;1,2&#125;</span></span><br><span class="line"><span class="string">13. 一年的12个月(01～09和1～12)：^(0?[1-9]|1[0-2])$</span></span><br><span class="line"><span class="string">14. 一个月的31天(01～09和1～31)：^((0?[1-9])|((1|2)[0-9])|30|31)$</span></span><br><span class="line"><span class="string">15. 钱的输入格式：有四种钱的表示形式我们可以接受:</span></span><br><span class="line"><span class="string">- "</span><span class="number">10000.00</span><span class="string">" 和 "</span><span class="number">10</span>,<span class="number">000.00</span><span class="string">", 和没有 "</span>分<span class="string">" 的 "</span><span class="number">10000</span><span class="string">" 和 "</span><span class="number">10</span>,<span class="number">000</span><span class="string">"：^[1-9][0-9]*$</span></span><br><span class="line"><span class="string">- 这表示任意一个不以0开头的数字,但是,这也意味着一个字符"</span><span class="number">0</span><span class="string">"不通过,所以我们采用下面的形式：^(0|[1-9][0-9]*)$</span></span><br><span class="line"><span class="string">- 一个0或者一个不以0开头的数字.我们还可以允许开头有一个负号：^(0|-?[1-9][0-9]*)$</span></span><br><span class="line"><span class="string">- 这表示一个0或者一个可能为负的开头不为0的数字.让用户以0开头好了.把负号的也去掉,因为钱总不能是负的吧.下面我们要加的是说明可能的小数部分：^[0-9]+(.[0-9]+)?$</span></span><br><span class="line"><span class="string">- 必须说明的是,小数点后面至少应该有1位数,所以"</span><span class="number">10.</span><span class="string">"是不通过的,但是 "</span><span class="number">10</span><span class="string">" 和 "</span><span class="number">10.2</span><span class="string">" 是通过的：^[0-9]+(.[0-9]&#123;2&#125;)?$</span></span><br><span class="line"><span class="string">- 这样我们规定小数点后面必须有两位,如果你认为太苛刻了,可以这样：^[0-9]+(.[0-9]&#123;1,2&#125;)?$</span></span><br><span class="line"><span class="string">- 这样就允许用户只写一位小数.下面我们该考虑数字中的逗号了,我们可以这样：^[0-9]&#123;1,3&#125;(,[0-9]&#123;3&#125;)*(.[0-9]&#123;1,2&#125;)?$</span></span><br><span class="line"><span class="string">- 1到3个数字,后面跟着任意个 逗号+3个数字,逗号成为可选,而不是必须：^([0-9]+|[0-9]&#123;1,3&#125;(,[0-9]&#123;3&#125;)*)(.[0-9]&#123;1,2&#125;)?$</span></span><br><span class="line"><span class="string">备注：这就是最终结果了,别忘了"</span>+<span class="string">"可以用"</span>*<span class="string">"替代如果你觉得空字符串也可以接受的话(奇怪,为什么?)最后,别忘了在用函数时去掉去掉那个反斜杠,一般的错误都在这里</span></span><br><span class="line"><span class="string">25. xml文件：^([a-zA-Z]+-?)+[a-zA-Z0-9]+\.[x|X][m|M][l|L]$</span></span><br><span class="line"><span class="string">26. 中文字符的正则表达式：[\u4e00-\u9fa5]</span></span><br><span class="line"><span class="string">27. 双字节字符：[^\x00-\xff] (包括汉字在内，可以用来计算字符串的长度(一个双字节字符长度计2，ASCII字符计1))</span></span><br><span class="line"><span class="string">28. 空白行的正则表达式：\n\s*\r (可以用来删除空白行)</span></span><br><span class="line"><span class="string">29. HTML标记的正则表达式：&lt;(\S?)[^&gt;]&gt;.?&lt;/\1&gt;|&lt;.? /&gt; (网上流传的版本太糟糕，上面这个也仅仅能部分，对于复杂的嵌套标记依旧无能为力)</span></span><br><span class="line"><span class="string">30. 首尾空白字符的正则表达式：^\s|\s$或(^\s)|(\s$) (可以用来删除行首行尾的空白字符(包括空格、制表符、换页符等等)，非常有用的表达式)</span></span><br><span class="line"><span class="string">31. 腾讯QQ号：[1-9][0-9]&#123;4,&#125; (腾讯QQ号从10000开始)</span></span><br><span class="line"><span class="string">32. 中国邮政编码：[1-9]\d&#123;5&#125;(?!\d) (中国邮政编码为6位数字)</span></span><br><span class="line"><span class="string">33. IP地址：\d+.\d+.\d+.\d+ (提取IP地址时有用)</span></span><br><span class="line"><span class="string">34. IP地址：((?:(?:25[0-5]|2[0-4]\d|[01]?\d?\d)\.)&#123;3&#125;(?:25[0-5]|2[0-4]\d|[01]?\d?\d))</span></span><br></pre></td></tr></table></figure>
+<h1 id="2-正则表达式捕获组"><a href="#2-正则表达式捕获组" class="headerlink" title="2. 正则表达式捕获组"></a>2. 正则表达式捕获组</h1><h2 id="2-1-什么是捕获组"><a href="#2-1-什么是捕获组" class="headerlink" title="2.1. 什么是捕获组"></a>2.1. 什么是捕获组</h2><p>捕获组就是把正则表达式中子表达式匹配的内容，保存到内存中以数字编号或显式命名的组里，方便后面引用。当然，这种引用既可以是在正则表达式内部，也可以是在正则表达式外部。</p>
+<h2 id="2-2-捕获组的种形式"><a href="#2-2-捕获组的种形式" class="headerlink" title="2.2. 捕获组的种形式"></a>2.2. 捕获组的种形式</h2><p>普通捕获组：(Expression)<br>命名捕获组：(?&lt;name&gt;Expression)，注：.NET中使用(?’name’Expression)与使用(?&lt;name&gt;Expression)是等价的</p>
+<h2 id="2-3-捕获组编号规则"><a href="#2-3-捕获组编号规则" class="headerlink" title="2.3. 捕获组编号规则"></a>2.3. 捕获组编号规则</h2><ul>
+<li>普通捕获组编号规则</li>
+</ul>
+<p><img src="/2018/01/30/正则表达式/捕获组编号规则.jpg" alt="捕获组编号规则"></p>
+<ul>
+<li>命名捕获组编号规则</li>
+</ul>
+<p><img src="/2018/01/30/正则表达式/命名捕获组编号规则.jpg" alt="命名捕获组编号规则"></p>
+<ul>
+<li>普通与命名混合</li>
+</ul>
+<p><img src="/2018/01/30/正则表达式/普通与命名混合捕获组编号规则.jpg" alt="普通与命名混合捕获组编号规则"></p>
+<h2 id="2-4-捕获组的引用"><a href="#2-4-捕获组的引用" class="headerlink" title="2.4. 捕获组的引用"></a>2.4. 捕获组的引用</h2><h3 id="2-4-1-反向引用"><a href="#2-4-1-反向引用" class="headerlink" title="2.4.1. 反向引用"></a>2.4.1. 反向引用</h3><p>正则表达式中，对前面捕获组捕获的内容进行引用，称为反向引用；</p>
+<h3 id="2-4-2-在程序中引用"><a href="#2-4-2-在程序中引用" class="headerlink" title="2.4.2. 在程序中引用"></a>2.4.2. 在程序中引用</h3><h4 id="2-4-2-1-在javascript中的引用"><a href="#2-4-2-1-在javascript中的引用" class="headerlink" title="2.4.2.1. 在javascript中的引用"></a>2.4.2.1. 在javascript中的引用</h4><p>1 由于JavaScript中不支持命名捕获组，所以对于捕获组的引用就只支持普通捕获组的反向引用和$number方式的引用。程序中的引用一般在替换和匹配时使用。<br>举例：替换掉html标签中的属性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;textarea id=<span class="string">"result"</span> rows=<span class="string">"10"</span> cols=<span class="string">"100"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span> </span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt; </span><br><span class="line"><span class="keyword">var</span> data = <span class="string">"&lt;table id=\"test\"&gt;&lt;tr class=\"light\"&gt;&lt;td&gt; test &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;"</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/&lt;([a-z]+)[^&gt;]*&gt;/ig</span>;</span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">"result"</span>).value = data.replace(reg, <span class="string">"&lt;$1&gt;"</span>);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<p>//输出</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;table&gt;<span class="xml"><span class="tag">&lt;<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span> test <span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>2 在匹配时的引用，通常通过RegExp.$number方式引用。</p>
+<p>举例：同时获取&lt;img…&gt;中的src和name属性值，属性的顺序不固定。参考 一条正则能不能同时取出一个img标记的src和name?</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">id</span>=<span class="string">"result"</span> <span class="attr">rows</span>=<span class="string">"10"</span> <span class="attr">cols</span>=<span class="string">"100"</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="xml">var data = [' <span class="tag">&lt;<span class="name">img</span> <span class="attr">alt</span>=<span class="string">""</span> <span class="attr">border</span>=<span class="string">"0"</span> <span class="attr">name</span>=<span class="string">"g6-o44-1"</span> <span class="attr">onload</span>=<span class="string">"DrawImage"</span> <span class="attr">src</span>=<span class="string">"/bmp/foo1.jpg"</span> /&gt;</span>', ' <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"/bmp/foo2.jpg"</span> <span class="attr">alt</span>=<span class="string">""</span> <span class="attr">border</span>=<span class="string">"0"</span> <span class="attr">name</span>=<span class="string">"g6-o44-2"</span> <span class="attr">onload</span>=<span class="string">"DrawImage"</span> /&gt;</span>'] ;  </span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> reg = <span class="regexp">/&lt;img\b(?=(?:(?!name=).)*name=(['"]?)([^'"\s&gt;]+)\1)(?:(?!src=).)*src=(['"]?)([^'"\s&gt;]+)\3[^&gt;]*&gt;/i</span>;</span></span><br><span class="line"><span class="javascript"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;data.length;i++)</span></span><br><span class="line"><span class="undefined">&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> s = data[i];</span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.getElementById(<span class="string">"result"</span>).value += <span class="string">"源字符串："</span> + s + <span class="string">"\n"</span>;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.write(<span class="string">"&lt;br /&gt;"</span>);</span></span><br><span class="line"><span class="javascript">    <span class="keyword">if</span>(reg.test(s))</span></span><br><span class="line"><span class="undefined">    &#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.getElementById(<span class="string">"result"</span>).value += <span class="string">"name: "</span> + <span class="built_in">RegExp</span>.$<span class="number">2</span> + <span class="string">"\n"</span>;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.getElementById(<span class="string">"result"</span>).value += <span class="string">"src: "</span> + <span class="built_in">RegExp</span>.$<span class="number">4</span> + <span class="string">"\n"</span>;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-4-2-2-在-net中的引用"><a href="#2-4-2-2-在-net中的引用" class="headerlink" title="2.4.2.2. 在.net中的引用"></a>2.4.2.2. 在.net中的引用</h4><p>由于.NET支持命名捕获组，所以在.NET中的引用方式会多一些。通常也是在两种场景下应用，一是替换，一是匹配。</p>
+<p>1 替换中的引用<br>普通捕获组：$number<br>命名捕获组：${name}<br>替换中应用，仍是上面的例子。<br>举例：替换掉html标签中的属性。使用普通捕获组。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">string data = &quot;&lt;table id=\&quot;test\&quot;&gt;&lt;tr class=\&quot;light\&quot;&gt;&lt;td&gt; test &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&quot;;</span><br><span class="line">richTextBox2.Text = Regex.Replace(data, @&quot;(?i)&lt;([a-z]+)[^&gt;]*&gt;&quot;, &quot;&lt;$1&gt;&quot;);</span><br><span class="line">//输出  &lt;table&gt;&lt;tr&gt;&lt;td&gt; test &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</span><br><span class="line">使用命名捕获组。</span><br><span class="line">string data = &quot;&lt;table id=\&quot;test\&quot;&gt;&lt;tr class=\&quot;light\&quot;&gt;&lt;td&gt; test &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&quot;;</span><br><span class="line">richTextBox2.Text = Regex.Replace(data, @&quot;(?i)&lt;(?&lt;tag&gt;[a-z]+)[^&gt;]*&gt;&quot;, &quot;&lt;$&#123;tag&#125;&gt;&quot;);</span><br><span class="line">//输出  &lt;table&gt;&lt;tr&gt;&lt;td&gt; test &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
+<p>2 匹配后的引用<br>对于匹配结果中捕获组捕获内容的引用，可以通过Groups和Result对象进行引用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">string test = &quot;&lt;a href=\&quot;http://www.csdn.NET\&quot;&gt;CSDN&lt;/a&gt;&quot;;</span><br><span class="line">Regex reg = new Regex(@&quot;(?is)&lt;a(?:(?!href=).)*href=([&apos;&quot;&quot;]?)(?&lt;url&gt;[^&quot;&quot;&apos;\s&gt;]*)\1[^&gt;]*&gt;(?&lt;text&gt;(?:(?!&lt;/a&gt;).)*)&lt;/a&gt;&quot;);</span><br><span class="line">MatchCollection mc = reg.Matches(test);</span><br><span class="line">foreach (Match m in mc)</span><br><span class="line">&#123;</span><br><span class="line">     richTextBox2.Text += &quot;m.Value：&quot;.PadRight(25) + m.Value + &quot;\n&quot;;</span><br><span class="line">     richTextBox2.Text += &quot;m.Result(\&quot;$0\&quot;)：&quot;.PadRight(25) + m.Result(&quot;$0&quot;) + &quot;\n&quot;;</span><br><span class="line">     richTextBox2.Text += &quot;m.Groups[0].Value：&quot;.PadRight(25) + m.Groups[0].Value + &quot;\n&quot;;</span><br><span class="line">     richTextBox2.Text += &quot;m.Result(\&quot;$2\&quot;)：&quot;.PadRight(25) + m.Result(&quot;$2&quot;) + &quot;\n&quot;;</span><br><span class="line">     richTextBox2.Text += &quot;m.Groups[2].Value：&quot;.PadRight(25) + m.Groups[2].Value + &quot;\n&quot;;</span><br><span class="line">     richTextBox2.Text += &quot;m.Result(\&quot;$&#123;url&#125;\&quot;)：&quot;.PadRight(25) + m.Result(&quot;$&#123;url&#125;&quot;) + &quot;\n&quot;;     richTextBox2.Text += &quot;m.Groups[\&quot;url\&quot;].Value：&quot;.PadRight(25) + m.Groups[&quot;url&quot;].Value + &quot;\n&quot;;</span><br><span class="line">     richTextBox2.Text += &quot;m.Result(\&quot;$3\&quot;)：&quot;.PadRight(25) + m.Result(&quot;$3&quot;) + &quot;\n&quot;;</span><br><span class="line">     richTextBox2.Text += &quot;m.Groups[3].Value：&quot;.PadRight(25) + m.Groups[3].Value + &quot;\n&quot;;</span><br><span class="line">     richTextBox2.Text += &quot;m.Result(\&quot;$&#123;text&#125;\&quot;)：&quot;.PadRight(25) + m.Result(&quot;$&#123;text&#125;&quot;) + &quot;\n&quot;;</span><br><span class="line">     richTextBox2.Text += &quot;m.Groups[\&quot;text\&quot;].Value：&quot;.PadRight(25) + m.Groups[&quot;text&quot;].Value + &quot;\n&quot;;</span><br><span class="line">&#125;</span><br><span class="line">//输出</span><br><span class="line">/*</span><br><span class="line">m.Value：                 &lt;a href=&quot;http://www.csdn.Net&quot;&gt;CSDN&lt;/a&gt;</span><br><span class="line">m.Result(&quot;$0&quot;)：          &lt;a href=&quot;http://www.csdn.net&quot;&gt;CSDN&lt;/a&gt;</span><br><span class="line">m.Groups[0].Value：       &lt;a href=&quot;http://www.csdn.net&quot;&gt;CSDN&lt;/a&gt;</span><br><span class="line">m.Result(&quot;$2&quot;)：          http://www.csdn.net</span><br><span class="line">m.Groups[2].Value：       http://www.csdn.net</span><br><span class="line">m.Result(&quot;$&#123;url&#125;&quot;)：      http://www.csdn.net</span><br><span class="line">m.Groups[&quot;url&quot;].Value：   http://www.csdn.net</span><br><span class="line">m.Result(&quot;$3&quot;)：          CSDN</span><br><span class="line">m.Groups[3].Value：       CSDN</span><br><span class="line">m.Result(&quot;$&#123;text&#125;&quot;)：     CSDN</span><br><span class="line">m.Groups[&quot;text&quot;].Value：  CSDN*/</span><br></pre></td></tr></table></figure>
+<p>对于捕获组0的引用，可以简写作m.Value。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/30/正则表达式/" data-id="cjtifr8z9001fwguq26jwbuph" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Sql语句" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/30/Sql语句/" class="article-date">
+  <time datetime="2018-01-30T00:53:36.000Z" itemprop="datePublished">2018-01-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/30/Sql语句/">常用sql语句</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-分页"><a href="#1-分页" class="headerlink" title="1. 分页"></a>1. 分页</h1><p>变量说明</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@pagesize 每页的容量</span><br><span class="line">@pageindex 页码</span><br><span class="line">@require 本要查询的语句</span><br></pre></td></tr></table></figure>
+<h2 id="1-1-sqlserver"><a href="#1-1-sqlserver" class="headerlink" title="1.1. sqlserver"></a>1.1. sqlserver</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> top @pagesize * <span class="keyword">from</span> (</span><br><span class="line">    <span class="keyword">select</span> Row_Number() <span class="keyword">over</span> (<span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">ID</span>) <span class="keyword">as</span> RowNumber,@require</span><br><span class="line">    ) <span class="keyword">as</span> A <span class="keyword">where</span> A.RowNumber &gt; @pagesize*(@pageindex<span class="number">-1</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="1-2-sqlserver"><a href="#1-2-sqlserver" class="headerlink" title="1.2. sqlserver"></a>1.2. sqlserver</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@require offset @pagesize*(@pageindex-1) rows fetch next @pagesize rows only</span><br></pre></td></tr></table></figure>
+<h1 id="2-ISNULL"><a href="#2-ISNULL" class="headerlink" title="2. ISNULL"></a>2. ISNULL</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ISNULL ( check_expression , replacement_value )</span><br></pre></td></tr></table></figure>
+<p>如果 check_expression 不为 NULL，则返回它的值；否则，在将 replacement_value 隐式转换为 check_expression 的类型（如果这两个类型不同）后，则返回前者。</p>
+<h1 id="3-CAST"><a href="#3-CAST" class="headerlink" title="3. CAST"></a>3. CAST</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CAST (expression AS data_type)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>expression：任何有效的SQServer表达式。</li>
+<li>AS：用于分隔两个参数，在AS之前的是要处理的数据，在AS之后是要转换的数据类型。</li>
+<li>data_type：目标系统所提供的数据类型，包括bigint和sql_variant，不能使用用户定义的数据类型。</li>
+</ul>
+<p>如果试图进行不可能的转换（例如，将含有字母的 char 表达式转换为 int 类型），SQServer 将显示一条错误信息。<br>如果转换时没有指定数据类型的长度，则SQServer自动提供长度为30。</p>
+<h1 id="4-Join"><a href="#4-Join" class="headerlink" title="4. Join"></a>4. Join</h1><ol>
+<li>from A inner join B on A.ID=B.ID:两表都有的记录才列出</li>
+<li>from A left join B on A.ID=B.ID:A表中所有记录列出，B中无法匹配的用Null匹配</li>
+<li>from A right join B on A.ID=B.ID:B表中所有记录列出,A中无法匹配的用Null匹配</li>
+<li>from A full outer join B on A.ID=B.ID.</li>
+</ol>
+<p>其它join查询：</p>
+<ol>
+<li>left outer join,等价于left join.</li>
+<li>right outer join, 等价于right join.</li>
+<li>cross join,    笛卡尔乘积查询</li>
+</ol>
+<h1 id="5-找出数量大于的"><a href="#5-找出数量大于的" class="headerlink" title="5. 找出数量大于的"></a>5. 找出数量大于的</h1><p>SELECT DISTINCT HouseName FROM MainTable GROUP BY HouseName HAVING COUNT(*) &gt; 1</p>
+<h1 id="6-Group-By"><a href="#6-Group-By" class="headerlink" title="6. Group By"></a>6. Group By</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> BusinessCode, [<span class="keyword">values</span>]=<span class="keyword">stuff</span>((<span class="keyword">select</span> <span class="string">','</span>+FlageCode <span class="keyword">from</span> R_SYS_business_logic t <span class="keyword">where</span> BusinessCode=t.BusinessCode <span class="keyword">for</span> <span class="keyword">xml</span> <span class="keyword">path</span>(<span class="string">''</span>)), <span class="number">1</span>, <span class="number">1</span>, <span class="string">''</span>) </span><br><span class="line"><span class="keyword">from</span> R_SYS_business_logic </span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> BusinessCode</span><br></pre></td></tr></table></figure>
+<h2 id="6-1-stuff函数"><a href="#6-1-stuff函数" class="headerlink" title="6.1. stuff函数"></a>6.1. stuff函数</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">STUFF ( character_expression , <span class="keyword">start</span> , <span class="keyword">length</span> ,character_expression )</span><br></pre></td></tr></table></figure>
+<p>参数</p>
+<ul>
+<li>character_expression：一个字符数据表达式。character_expression 可以是常量、变量，也可以是字符列或二进制数据列。</li>
+<li>start：一个整数值，指定删除和插入的开始位置。如果 start 或 length 为负，则返回空字符串。如果 start 比第一个character_expression 长，则返回空字符串。start 可以是 bigint 类型。</li>
+<li>length：一个整数，指定要删除的字符数。如果 length 比第一个 character_expression 长，则最多删除到最后一个character_expression 中的最后一个字符。length 可以是 bigint 类型。</li>
+<li>返回类型：如果 character_expression 是受支持的字符数据类型，则返回字符数据。如果 character_expression 是一个受支持的 binary 数据类型，则返回二进制数据。</li>
+</ul>
+<p>备注：如果开始位置或长度值是负数，或者如果开始位置大于第一个字符串的长度，将返回空字符串。如果要删除的长度大于第一个字符串的长度，将删除到第一个字符串中的第一个字符。<br>如果结果值大于返回类型支持的最大值，则产生错误。</p>
+<p>示例<br>以下示例在第一个字符串 abcdef 中删除从第 2 个位置（字符 b）开始的三个字符，然后在删除的起始位置插入第二个字符串，从而创建并返回一个字符串。</p>
+<p>SELECT STUFF(‘abcdef’, 2, 3, ‘ijklmn’);<br>GO</p>
+<h2 id="下面是结果集："><a href="#下面是结果集：" class="headerlink" title="下面是结果集： "></a>下面是结果集： </h2><p>aijklmnef</p>
+<p>(1 row(s) affected)</p>
+<h2 id="6-2-for-xml-path"><a href="#6-2-for-xml-path" class="headerlink" title="6.2. for xml path"></a>6.2. for xml path</h2><h1 id="7-判断是否相等"><a href="#7-判断是否相等" class="headerlink" title="7. 判断是否相等"></a>7. 判断是否相等</h1><p>  select isnull(nullif(‘1’,’1’),0)</p>
+<h1 id="链接服务器脚本"><a href="#链接服务器脚本" class="headerlink" title="链接服务器脚本"></a>链接服务器脚本</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">USE</span> [<span class="keyword">master</span>]</span><br><span class="line"><span class="keyword">GO</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/****** Object:  LinkedServer [linkserverW]    Script Date: 2018-07-06 08:43:18 ******/</span></span><br><span class="line">EXEC master.dbo.sp_addlinkedserver @<span class="keyword">server</span> = N<span class="string">'linkserverW'</span>, @srvproduct=N<span class="string">''</span>, @provider=N<span class="string">'SQLNCLI'</span>, @datasrc=N<span class="string">'192.168.60.69'</span></span><br><span class="line"> <span class="comment">/* For security reasons the linked server remote logins password is changed with ######## */</span></span><br><span class="line">EXEC master.dbo.sp_addlinkedsrvlogin @rmtsrvname=N<span class="string">'linkserverW'</span>,@useself=N<span class="string">'False'</span>,@locallogin=<span class="literal">NULL</span>,@rmtuser=N<span class="string">'sa'</span>,@rmtpassword=<span class="string">'########'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">GO</span></span><br><span class="line"></span><br><span class="line">EXEC master.dbo.sp_serveroption @<span class="keyword">server</span>=N<span class="string">'linkserverW'</span>, @optname=N<span class="string">'collation compatible'</span>, @optvalue=N<span class="string">'false'</span></span><br><span class="line"><span class="keyword">GO</span></span><br><span class="line"></span><br><span class="line">EXEC master.dbo.sp_serveroption @<span class="keyword">server</span>=N<span class="string">'linkserverW'</span>, @optname=N<span class="string">'data access'</span>, @optvalue=N<span class="string">'true'</span></span><br><span class="line"><span class="keyword">GO</span></span><br><span class="line"></span><br><span class="line">EXEC master.dbo.sp_serveroption @<span class="keyword">server</span>=N<span class="string">'linkserverW'</span>, @optname=N<span class="string">'dist'</span>, @optvalue=N<span class="string">'false'</span></span><br><span class="line"><span class="keyword">GO</span></span><br><span class="line"></span><br><span class="line">EXEC master.dbo.sp_serveroption @<span class="keyword">server</span>=N<span class="string">'linkserverW'</span>, @optname=N<span class="string">'pub'</span>, @optvalue=N<span class="string">'false'</span></span><br><span class="line"><span class="keyword">GO</span></span><br><span class="line"></span><br><span class="line">EXEC master.dbo.sp_serveroption @<span class="keyword">server</span>=N<span class="string">'linkserverW'</span>, @optname=N<span class="string">'rpc'</span>, @optvalue=N<span class="string">'false'</span></span><br><span class="line"><span class="keyword">GO</span></span><br><span class="line"></span><br><span class="line">EXEC master.dbo.sp_serveroption @<span class="keyword">server</span>=N<span class="string">'linkserverW'</span>, @optname=N<span class="string">'rpc out'</span>, @optvalue=N<span class="string">'false'</span></span><br><span class="line"><span class="keyword">GO</span></span><br><span class="line"></span><br><span class="line">EXEC master.dbo.sp_serveroption @<span class="keyword">server</span>=N<span class="string">'linkserverW'</span>, @optname=N<span class="string">'sub'</span>, @optvalue=N<span class="string">'false'</span></span><br><span class="line"><span class="keyword">GO</span></span><br><span class="line"></span><br><span class="line">EXEC master.dbo.sp_serveroption @<span class="keyword">server</span>=N<span class="string">'linkserverW'</span>, @optname=N<span class="string">'connect timeout'</span>, @optvalue=N<span class="string">'0'</span></span><br><span class="line"><span class="keyword">GO</span></span><br><span class="line"></span><br><span class="line">EXEC master.dbo.sp_serveroption @<span class="keyword">server</span>=N<span class="string">'linkserverW'</span>, @optname=N<span class="string">'collation name'</span>, @optvalue=<span class="literal">null</span></span><br><span class="line"><span class="keyword">GO</span></span><br><span class="line"></span><br><span class="line">EXEC master.dbo.sp_serveroption @<span class="keyword">server</span>=N<span class="string">'linkserverW'</span>, @optname=N<span class="string">'lazy schema validation'</span>, @optvalue=N<span class="string">'false'</span></span><br><span class="line"><span class="keyword">GO</span></span><br><span class="line"></span><br><span class="line">EXEC master.dbo.sp_serveroption @<span class="keyword">server</span>=N<span class="string">'linkserverW'</span>, @optname=N<span class="string">'query timeout'</span>, @optvalue=N<span class="string">'0'</span></span><br><span class="line"><span class="keyword">GO</span></span><br><span class="line"></span><br><span class="line">EXEC master.dbo.sp_serveroption @<span class="keyword">server</span>=N<span class="string">'linkserverW'</span>, @optname=N<span class="string">'use remote collation'</span>, @optvalue=N<span class="string">'true'</span></span><br><span class="line"><span class="keyword">GO</span></span><br><span class="line"></span><br><span class="line">EXEC master.dbo.sp_serveroption @<span class="keyword">server</span>=N<span class="string">'linkserverW'</span>, @optname=N<span class="string">'remote proc transaction promotion'</span>, @optvalue=N<span class="string">'true'</span></span><br><span class="line"><span class="keyword">GO</span></span><br></pre></td></tr></table></figure>
+<h1 id="为链接服务器创建同义词"><a href="#为链接服务器创建同义词" class="headerlink" title="为链接服务器创建同义词"></a>为链接服务器创建同义词</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/****** Object:  Synonym [dbo].[Code_menu]    Script Date: 2018-07-06 08:46:26 ******/</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">SYNONYM</span> [dbo].[Code_menu] <span class="keyword">FOR</span> [linkserverP].[p_dremis].[dbo].[Code_menu]</span><br><span class="line"><span class="keyword">GO</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/30/Sql语句/" data-id="cjtifr8yk000wwguqlsf4t0i3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-MVC错误记录" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/27/MVC错误记录/" class="article-date">
+  <time datetime="2018-01-27T08:53:09.000Z" itemprop="datePublished">2018-01-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/27/MVC错误记录/">MVC错误记录</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>使用@Url.Action(“ActionName”)时注意<br>一定要是“@Url.Action(“ActionName”)”，要带引号，如不带引号，可能会加载出问题</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/27/MVC错误记录/" data-id="cjtifr8xt000jwguqcz9p66zi" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-CAD二次开发" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/25/CAD二次开发/" class="article-date">
+  <time datetime="2018-01-25T00:56:47.000Z" itemprop="datePublished">2018-01-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/25/CAD二次开发/">C#进行CAD二次开发</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近被公司分配到了做CAD二次开发。也是初次接触这方面的东西，其实是有些无从下手的感觉。因为公司这边也没有人有时间带我，只能是自己看书，然后再写一些Demo，再结合实际的应用来一点点的学习。废话不多说，推荐一本我入门的书籍，就是李冠亿先生的《深居浅出AutoCAD二次开发》,写的非常不错，把这本书中的Demo自己手写一遍大概就能知道CAD二次开发到底是个什么东西了。</p>
+<h1 id="1-开发环境配置"><a href="#1-开发环境配置" class="headerlink" title="1. 开发环境配置"></a>1. 开发环境配置</h1><h2 id="1-1-开发环境"><a href="#1-1-开发环境" class="headerlink" title="1.1. 开发环境"></a>1.1. 开发环境</h2><ul>
+<li>Win10 x64</li>
+<li>CAD 2010</li>
+<li>Visual Studio 2012</li>
+</ul>
+<h2 id="1-2-环境配置"><a href="#1-2-环境配置" class="headerlink" title="1.2. 环境配置"></a>1.2. 环境配置</h2><ol>
+<li>首先要安装CAD软件</li>
+<li>用Visual Studio新建一个类库项目。</li>
+<li>需要添加常用的引用，在CAD目录下，下面介绍三个主要的DLL文件</li>
+</ol>
+<ul>
+<li>AcDbMgd.dll 当处理图形文件中存储对象时引用。</li>
+<li>AcMgd.dll 当处理AutoCAD应用程序和用户接口时引用。</li>
+<li>AcGui.dll 当处理自定义文件时引用。</li>
+</ul>
+<h1 id="2-程序与调试"><a href="#2-程序与调试" class="headerlink" title="2. 程序与调试"></a>2. 程序与调试</h1><h2 id="2-1-写第一个程序"><a href="#2-1-写第一个程序" class="headerlink" title="2.1. 写第一个程序"></a>2.1. 写第一个程序</h2><ol>
+<li>在刚刚创建的类库中添加一个类</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public class FisrtCADTest</span><br><span class="line">&#123;</span><br><span class="line">    [CommandMethod(&quot;Hello&quot;)]</span><br><span class="line">    public void Hello</span><br><span class="line">    &#123;</span><br><span class="line">        Document acDoc = Application.DocumentManager.MdiActiveDocument;</span><br><span class="line">        Editor ed = acDoc.Editor;</span><br><span class="line">        ed.WriteMessage(&quot;Hello World！&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>编译这个程序</li>
+<li>启动CAD在命令行中输入netload,然后在打开的窗口中找到刚编译的程序的dll,加载后在命令行输入Hello，猜猜会出现什么？没错，你的第一个CAD二次开发的程序已经完美运行了。</li>
+</ol>
+<h2 id="2-2-如何调试程序"><a href="#2-2-如何调试程序" class="headerlink" title="2.2. 如何调试程序"></a>2.2. 如何调试程序</h2><p>书中介绍了一种方法，不再赘述，下面来说一下我常用的方法<br>在解决方案资源管理器中右击解决方案，选择“添加”-“现有项目”<br><img src="/2018/01/25/CAD二次开发/add_debug_cad_project.png" alt="add_debug_cad_project"><br>在打开的对话框中找到CAD安装路径下的acad.exe,选择打开<br><img src="/2018/01/25/CAD二次开发/find_acad.png" alt="find_acad"><br>将刚添加的项目设置为启动项目<br><img src="/2018/01/25/CAD二次开发/set_startup.png" alt="set startup"><br>设置项目属性<br><img src="/2018/01/25/CAD二次开发/set_property.png" alt="set property"><br>修改调试器类型如下图所示<br><img src="/2018/01/25/CAD二次开发/set_debugger_type.png" alt="set debugger type"><br>在需要的地方设置断点，启动项目，会发现CAD程序会被找开，netload加载程序集，就可以调试啦</p>
+<h1 id="3-错误记录"><a href="#3-错误记录" class="headerlink" title="3. 错误记录"></a>3. 错误记录</h1><p>1、CAD崩溃，错误“unhandled access violation reading”=“未将对象引用设置到对象的实例”。</p>
+<p>2、建模操作错误:指向给定边的指针为空。<br>建模操作错误:访问冲突。<br>acdbmgdeGeneralModelingFailure</p>
+<ul>
+<li>情形一</li>
+</ul>
+<p>这类错误是CAD直接在其命令行中输出提示的，有时候会引发CAD崩溃，但有时候又不会引发崩溃。</p>
+<p>我碰到的这种类错误的情况是：频繁对一些Region进行重复炸碎，出现了这类错误。重复时间间隔越短越容易出问题，有时候中间间隔十几秒半分钟，但还会引发这类错误。</p>
+<p>原因可能是炸碎之后对象的释放不及时，CAD内存管理上出了问题；炸碎之后的实体存放在了DBObjectCollection中，虽然这个类的继承了IDisopsable，并且实现了Dispose方法和析构函数，但C#对它的释放时机好像没有把握对，释放的太晚，可能我第一次炸碎之后的得到的对象，在我第二次进行炸碎操作的时候还没有释放掉，或者在炸碎的过程中进行了释放，于是出错误。</p>
+<p>而对于释放不及时的原因，我猜想是因为DBObjectCollection内部有些地方用了GC.KeepAlive，而使得C#对它的释放不够及时。</p>
+<p>解决的办法是尽量手动释放，发现这个问题之后，我刚开始是在使用完炸碎Region得到的DBObjectCollection之后，进行了统一的释放，但是还会出现这类错误。于是在使用DBObjectCollection的循环内部，每次循环结束后，主动调用每个DBObject的Dispose方法，然后在循环结束之后，再对DBObjectCollection进行统一释放，至此，没有再出现这类错误。</p>
+<ul>
+<li>情形二</li>
+</ul>
+<p>注意foreach循环</p>
+<p>3、不会命中断点，源代码与原始版本不同。</p>
+<p>在时候用VS调试代码的时候设的断点无效，断点上会出来一个黄色的三角形，鼠标放上去会提示“不会命中断点，源代码与原始版本不同”，出现这种情况可以把项目中bin文件夹和obj文件夹清空，然后再重新生成解决方案。如果不能解决，可以找到工具-&gt;选项-&gt;调试-&gt;要求源文件与原始版本完成匹配，去掉勾选。</p>
+<p>4、eNonCoplanarGeometry</p>
+<p>当实体不共面时，即有些实体的Z值不为0，则进行想到计算、判断时（如面域的布尔运算），会有此提示，此时把对应实体或所有实体的Z值全部清零即可，或者是在进行计算、判断前先判断每个参与操作的实体的Z值是否为0，如果不为0则跳过不进行运算。</p>
+<p>5、eNotApplicable</p>
+<p>情况1：一个面域是复合面域，是一个回字形面域，但它里面的那一块非常非常小，此时将它炸开时会失败（不管是用接口的炸开还是用CAD命令炸开都会失败）。</p>
+<h1 id="4-CommandFlags"><a href="#4-CommandFlags" class="headerlink" title="4. CommandFlags"></a>4. CommandFlags</h1><p>枚举值|描述<br>ActionMacro|可以用动作录制器录制命令动作；<br>DocReadLock|命令执行时将被只读锁定；<br>Interruptible|提示用户输入时可以中断命令；<br>Modal|别的命令运行时不能运行此命令；<br>NoActionRecording|不能用动作录制器录制命令动作；<br>NoBlockEditor|不能从块编辑器使用该命令；<br>NoHistory|不能将命令添加到repeat-last-command（重复上一个命令）历史列表；<br>NoPaperSpace|不能从图纸空间使用该命令；<br>NoTileMode|当TILEMODE置1时不能使用该命令；<br>NoUndoMarker|命令不支持撤销标记。用于不修改数据库因而也就无需出现在撤销记录中的那些命令；<br>Redraw|不清空取回的先选择后执行设置及对象捕捉设置；<br>Session|命令运行于应用程序上下文，而不是当前图形文档上下文；<br>Transparent|别的命令运行时可以运行此命令；<br>Undefined|只能通过全局名使用命令；<br>UsePickSet|清空取回的先选择后执行设置；</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/25/CAD二次开发/" data-id="cjtifr8x50004wguqqf1zv1yj" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Git使用总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/25/Git使用总结/" class="article-date">
+  <time datetime="2018-01-25T00:56:47.000Z" itemprop="datePublished">2018-01-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/25/Git使用总结/">Git使用总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-Git使用总结"><a href="#1-Git使用总结" class="headerlink" title="1. Git使用总结"></a>1. Git使用总结</h1><h2 id="1-1-SSH的添加与使用"><a href="#1-1-SSH的添加与使用" class="headerlink" title="1.1. SSH的添加与使用"></a>1.1. SSH的添加与使用</h2><ul>
+<li>查看本机是否存在已有的SSH</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -al ~/.ssh</span><br></pre></td></tr></table></figure>
+<ul>
+<li>不存在则新建</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 4096 -C <span class="string">"your_email@example.com"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>添加密钥到SSH-Agent中</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">eval</span> <span class="string">"<span class="variable">$(ssh-agent -s)</span>"</span></span><br><span class="line">ssh-add ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
+<ul>
+<li>验证是否添加成功</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<ul>
+<li>粘贴密钥</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clip &lt; ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+<ul>
+<li>配置用户名密码</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">"liuxianan"</span>// 你的github用户名，非昵称</span><br><span class="line">git config --global user.email  <span class="string">"xxx@qq.com"</span>// 填写你的github注册邮箱</span><br></pre></td></tr></table></figure>
+<h1 id="Git增加dll文件"><a href="#Git增加dll文件" class="headerlink" title="Git增加dll文件"></a>Git增加dll文件</h1><h2 id="单独仓库"><a href="#单独仓库" class="headerlink" title="单独仓库"></a>单独仓库</h2><p>Git默认忽略dll文件，可添加如下代码取消忽略</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## Include .dll files in perfect folder</span></span><br><span class="line"><span class="comment"># User-specific files</span></span><br><span class="line">!*.dll</span><br><span class="line"><span class="comment"># Re-instate the build folder that is excluded in the default .gitignore</span></span><br><span class="line"><span class="comment"># This folder is used by Microsoft.Bcl.Build.* package</span></span><br><span class="line">!build/</span><br></pre></td></tr></table></figure>
+<h2 id="全局"><a href="#全局" class="headerlink" title="全局"></a>全局</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Administrator\Documents\gitignore_global.txt</span><br></pre></td></tr></table></figure>
+<p>的配置文件中删除*.dll</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/25/Git使用总结/" data-id="cjtifr8xm000ewguqe75bl76g" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-AutoMapper" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/19/AutoMapper/" class="article-date">
+  <time datetime="2018-01-19T01:40:01.000Z" itemprop="datePublished">2018-01-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/19/AutoMapper/">AutoMapper</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="DTO"><a href="#DTO" class="headerlink" title="DTO"></a>DTO</h1><h2 id="什么是DTO"><a href="#什么是DTO" class="headerlink" title="什么是DTO"></a>什么是DTO</h2><p>DTO(Data Transfer Object)就是数据传输对象。<br>表现层与应用层通过DTO进行交互，数据传输对象是没有行为的POCO对象，它的目的只是为了对领域对象进行数据的封装，实现层与层之间的数据传递。</p>
+<h2 id="为什么要用DTO"><a href="#为什么要用DTO" class="headerlink" title="为什么要用DTO"></a>为什么要用DTO</h2><ul>
+<li>领域对象更注重领域，而DTO更注重数据，是对领域模型的合理封装，从而不会将领域对象的行为过分暴露给表现层。</li>
+</ul>
+<h1 id="AutoMapper"><a href="#AutoMapper" class="headerlink" title="AutoMapper"></a>AutoMapper</h1><p><a href="https://github.com/xuzhongwang/BlogCode/tree/master/AutoMapperDemo" target="_blank" rel="noopener">源码地址</a>.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/19/AutoMapper/" data-id="cjtifr8wy0002wguq1af95uev" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Code-First学习" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/17/Code-First学习/" class="article-date">
+  <time datetime="2018-01-17T05:54:21.000Z" itemprop="datePublished">2018-01-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/17/Code-First学习/">Code First学习</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-CodeFirst学习笔记"><a href="#1-CodeFirst学习笔记" class="headerlink" title="1. CodeFirst学习笔记"></a>1. CodeFirst学习笔记</h1><h2 id="1-1-EntityTypeConfiguration-lt-T-gt"><a href="#1-1-EntityTypeConfiguration-lt-T-gt" class="headerlink" title="1.1. EntityTypeConfiguration&lt;T&gt;"></a>1.1. EntityTypeConfiguration&lt;T&gt;</h2><h2 id="1-2-SetInitializer"><a href="#1-2-SetInitializer" class="headerlink" title="1.2. SetInitializer"></a>1.2. SetInitializer</h2><p>1 CreateDatabaseIfNotExists&lt;&gt;</p>
+<p>只有在没有数据库的时候才会根据数据库连接配置创建新的数据库。这种配置主要用于production环境，因为你不可能把你现在使用的数据库删除掉，那样会损失重要的数据。你需要让你的实施人员拿着与Fluent API配置对应的数据库脚本去更新数据库。</p>
+<p>2 DropCreateDatabaseIfModelChanges&lt;T&gt;</p>
+<p>只要Fluent API配置的数据库映射发生变化或者domain中的model发生变化了，就把以前的数据库删除掉，根据新的配置重新建立数据库。这种方式比较适合开发数据库，可以减少开发人员的工作量。</p>
+<p>3 DropCreateDatabaseAlways&lt;&gt;<br>不管数据库映射或者model是否发生变化，每次都重新删除并根据配置重建数据库。这种方式可以适用于一些特殊情况的测试，比如说当每次测试结束之后把所有的测试数据都删除掉，并且在测试开始前插入一些基础数据。<br>可以用配置文件配置上述信息</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">appSettings</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">add</span> <span class="attr">key</span>=<span class="string">"DatabaseInitializerForType OrderSystemContext"</span></span></span><br><span class="line"><span class="tag"><span class="attr">value</span>=<span class="string">"System.Data.Entity.DropCreateDatabaseIfModelChanges[[OrderSystemContext]], EntityFramework"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">appSettings</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-3-添加初始数据"><a href="#1-3-添加初始数据" class="headerlink" title="1.3. 添加初始数据"></a>1.3. 添加初始数据</h2><h2 id="1-4-使用Fluent-API-配置属性"><a href="#1-4-使用Fluent-API-配置属性" class="headerlink" title="1.4. 使用Fluent API 配置属性"></a>1.4. 使用Fluent API 配置属性</h2><h3 id="1-4-1-配置Length"><a href="#1-4-1-配置Length" class="headerlink" title="1.4.1. 配置Length"></a>1.4.1. 配置Length</h3><p>Length用来描述数组的长度，当前包括string和Byte数组。<br>默认约定：Code First对string或byte数组的默认长度约定是max。注意：Sql Server Compact中默认最大数组长度是4000。<br>重写约定：使用HasMaxLength(nn)，参数为可空整数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Property(t =&gt; t.Name).HasMaxLength(50);</span><br></pre></td></tr></table></figure>
+<p>另外关于Length的Fluent API还有下面2个：</p>
+<ul>
+<li><p>IsFixedLength()，配置属性为固定长度。</p>
+</li>
+<li><p>IsMaxLength()，配置属性为数据库提供程序允许的最大长度。</p>
+</li>
+</ul>
+<h3 id="1-4-2-配置Data-Type"><a href="#1-4-2-配置Data-Type" class="headerlink" title="1.4.2. 配置Data Type"></a>1.4.2. 配置Data Type</h3><p>Data Type表示将.NET类型映射到的数据库的数据类型。<br>默认约定：列的数据类型由使用的数据库提供程序决定。以SQL Server为例：String-&gt;nvarchar(max),Integer-&gt;int,Byte[]-&gt;varbinary(max),Boolean-&gt;bit。<br>重写约定：使用HasColumnType(“xxx”)，下面列子的Photo是byte[]类型，配置映射到image数据类型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Property(t =&gt; t.Photo).HasColumnType(&quot;image&quot;);</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-3-配置允许为空和不允许为空"><a href="#1-4-3-配置允许为空和不允许为空" class="headerlink" title="1.4.3. 配置允许为空和不允许为空"></a>1.4.3. 配置允许为空和不允许为空</h3><p>默认约定：主键属性不允许为空，引用类型（String,array）允许为空，值类型（所有的数字类型，Datetime,bool,char）不允许为空，可空的值类型Nullable<t>允许为空。<br>重写约定：使用IsRequired()配置不允许为空，使用IsOptional()配置允许为空。下面配置Name属性为不为空：</t></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Property(t =&gt; t.Name).IsRequired();</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-4-配置属性到指定列"><a href="#1-4-4-配置属性到指定列" class="headerlink" title="1.4.4. 配置属性到指定列"></a>1.4.4. 配置属性到指定列</h3><p>默认约定：映射到与属性名相同的列。</p>
+<p>重写约定：使用Property(t=&gt;t.属性名).HasColumnName(“xxx”)。下面配置Name映射到DepartmentName：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Property(t =&gt; t.Name).HasColumnName(&quot;DepartmentName&quot;);</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-5-配置主键"><a href="#1-4-5-配置主键" class="headerlink" title="1.4.5. 配置主键"></a>1.4.5. 配置主键</h3><p>默认约定：<br>(1)属性名为ID或Id的默认为主键<br>(2)类名+ID或类名+Id默认为主键  （其中ID或Id的优先级大于类名+ID或类名+Id）</p>
+<p>重写约定：使用HasKey(t=&gt;t.属性名)。下面将BlogId配置为主键：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HasKey(t =&gt; t.BlogId);</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-6-配置组合主键"><a href="#1-4-6-配置组合主键" class="headerlink" title="1.4.6. 配置组合主键"></a>1.4.6. 配置组合主键</h3><p>下面的例子将DepartmentId和Name属性组合作为Department类型的主键：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HasKey(t =&gt; new &#123; t.DepartmentId, t.Name &#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-7-配置Database-Generated"><a href="#1-4-7-配置Database-Generated" class="headerlink" title="1.4.7. 配置Database-Generated"></a>1.4.7. 配置Database-Generated</h3><p>默认约定：整型键：Identity。</p>
+<p>重写约定：使用Property(t =&gt; t.属性名).HasDatabaseGeneratedOption(DatabaseGeneratedOption)。</p>
+<p>DatabaseGeneratedOption枚举包括三个成员：<br>(1) None：数据库不生成值<br>(2) Identity：当插入行时，数据库生成值<br>(3) Computed：当插入或更新行时，数据库生成值</p>
+<p>整型默认是Identity，数据库生成值，自动增长，如果不想数据库自动生成值，使用DatabaseGeneratedOption.None。</p>
+<p>Guid类型作为主键时，要显示配置为DatabaseGeneratedOption.Identity。</p>
+<h3 id="1-4-8-配置TimeStamp-RowVersion的乐观并发"><a href="#1-4-8-配置TimeStamp-RowVersion的乐观并发" class="headerlink" title="1.4.8. 配置TimeStamp/RowVersion的乐观并发"></a>1.4.8. 配置TimeStamp/RowVersion的乐观并发</h3><p>默认约定：这个没有默认约定。</p>
+<p>配置：使用Property(t=&gt;t.属性名).IsRowVersion()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Property(t =&gt; t.RowVersion).IsRowVersion();</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-9-不配置TimeStamp的乐观并发"><a href="#1-4-9-不配置TimeStamp的乐观并发" class="headerlink" title="1.4.9. 不配置TimeStamp的乐观并发"></a>1.4.9. 不配置TimeStamp的乐观并发</h3><p>有些数据库不支持RowVersion类型，但是又想对数据库的一个或多个字段并发检查，这时可以使用Property(t=&gt;t.属性名).IsConcurrencyToken(),下面的例子将SocialSecurityNumber配置为并发检查。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Property(t =&gt; t.SocialSecurityNumber).IsConcurrencyToken();</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-10-配置String属性是否支持Unicode内容"><a href="#1-4-10-配置String属性是否支持Unicode内容" class="headerlink" title="1.4.10. 配置String属性是否支持Unicode内容"></a>1.4.10. 配置String属性是否支持Unicode内容</h3><p>默认约定：默认string是Unicode（在SQL Server中是nvarchar）的。</p>
+<p>重写约定：下面的例子使用IsUnicode()方法将Name属性配置为varchar类型的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Property(t =&gt; t.Name).IsUnicode(false);</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-11-配置小数的精度和小数位数"><a href="#1-4-11-配置小数的精度和小数位数" class="headerlink" title="1.4.11. 配置小数的精度和小数位数"></a>1.4.11. 配置小数的精度和小数位数</h3><p>默认约定：小数是(18,2)</p>
+<p>配置：使用Property(t=&gt;t.属性名).HasPrecision(n,n)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public decimal MilesFromNearestAirport &#123; get; set; &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-12-复杂类型"><a href="#1-4-12-复杂类型" class="headerlink" title="1.4.12. 复杂类型"></a>1.4.12. 复杂类型</h3><p>默认复杂类型有以下规则：</p>
+<p>(1) 复杂类型没有主键属性<br>(2) 复杂类型只能包含原始属性。<br>(3)在其他类中使用复杂类型时，必须表示为非集合类型。</p>
+<p>使用DbModelBuilder.ComplexType方法显示配置为复杂类型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">modelBuilder.ComplexType&lt;Address&gt;();</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-13-嵌套的复杂类型"><a href="#1-4-13-嵌套的复杂类型" class="headerlink" title="1.4.13. 嵌套的复杂类型"></a>1.4.13. 嵌套的复杂类型</h3><p>嵌套的复杂类型只需显示配置外层，内层自动继承复杂类型的约定。</p>
+<h3 id="1-4-14-配置复杂类型的属性"><a href="#1-4-14-配置复杂类型的属性" class="headerlink" title="1.4.14. 配置复杂类型的属性"></a>1.4.14. 配置复杂类型的属性</h3><p>配置复杂类型的属性和配置实体属性一样，具体参考下面的实例。</p>
+<h3 id="1-4-15-实例"><a href="#1-4-15-实例" class="headerlink" title="1.4.15. 实例"></a>1.4.15. 实例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br></pre></td><td class="code"><pre><span class="line">  //实体</span><br><span class="line">public class Trip</span><br><span class="line">&#123;</span><br><span class="line">    public Guid Identifier &#123; get; set; &#125;</span><br><span class="line">    public DateTime StartDate &#123; get; set; &#125;</span><br><span class="line">    public DateTime EndDate &#123; get; set; &#125;</span><br><span class="line">    public decimal CostUSD &#123; get; set; &#125;</span><br><span class="line">    public string Description &#123; get; set; &#125;</span><br><span class="line">    public byte[] RowVersion &#123; get; set; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//复杂类型</span><br><span class="line">public class Address</span><br><span class="line">&#123;</span><br><span class="line">    public int AddressId &#123; get; set; &#125;</span><br><span class="line">    public string StreetAddress &#123; get; set; &#125;</span><br><span class="line">    public string City &#123; get; set; &#125;</span><br><span class="line">    public string State &#123; get; set; &#125;</span><br><span class="line">    public string ZipCode &#123; get; set; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//复杂类型</span><br><span class="line">public class PersonalInfo</span><br><span class="line">&#123;</span><br><span class="line">    public Measurement Weight &#123; get; set; &#125;</span><br><span class="line">    public Measurement Height &#123; get; set; &#125;</span><br><span class="line">    public string DietryRestrictions &#123; get; set; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//复杂类型</span><br><span class="line">public class Measurement</span><br><span class="line">&#123;</span><br><span class="line">    public decimal Reading &#123; get; set; &#125;</span><br><span class="line">    public string Units &#123; get; set; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//实体</span><br><span class="line">public class Person</span><br><span class="line">&#123;</span><br><span class="line">    public Person()</span><br><span class="line">    &#123;</span><br><span class="line">        Address = new Address();</span><br><span class="line">        Info = new PersonalInfo()</span><br><span class="line">        &#123;</span><br><span class="line">            Weight = new Measurement(),</span><br><span class="line">            Height = new Measurement()</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public int PersonId &#123; get; set; &#125;</span><br><span class="line">    public int SocialSecurityNumber &#123; get; set; &#125;</span><br><span class="line">    public string FirstName &#123; get; set; &#125;</span><br><span class="line">    public string LastName &#123; get; set; &#125;</span><br><span class="line">    public Address Address &#123; get; set; &#125;</span><br><span class="line">    public byte[] Photo &#123; get; set; &#125;</span><br><span class="line">    public PersonalInfo Info &#123; get; set; &#125;</span><br><span class="line">    public byte[] RowVersion &#123; get; set; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//对实体Trip的配置，继承自EntityTypeConfiguration&lt;T&gt;</span><br><span class="line">public class TripConfiguration : EntityTypeConfiguration&lt;Trip&gt;</span><br><span class="line">&#123;</span><br><span class="line">    public TripConfiguration()</span><br><span class="line">    &#123;</span><br><span class="line">        //配置Identifier映射到TripId列，并设为主键，且默认值为newid()</span><br><span class="line">        HasKey(t =&gt; t.Identifier).Property(t =&gt; t.Identifier).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity).HasColumnName(&quot;TripId&quot;);</span><br><span class="line">        //配置CostUSD的精度为20，小数位数为3</span><br><span class="line">        Property(t =&gt; t.CostUSD).HasPrecision(20, 3);</span><br><span class="line">        //配置Description的长度为500</span><br><span class="line">        Property(t =&gt; t.Description).HasMaxLength(500);</span><br><span class="line">        //配置RowVersion乐观并发检查</span><br><span class="line">        Property(t =&gt; t.RowVersion).IsRowVersion();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//对实体Person的配置，继承自EntityTypeConfiguration&lt;T&gt;</span><br><span class="line">public class PersonConfiguration : EntityTypeConfiguration&lt;Person&gt;</span><br><span class="line">&#123;</span><br><span class="line">    public PersonConfiguration()</span><br><span class="line">    &#123;</span><br><span class="line">        //配置SocialSecurityNumber不允许为空且乐观并发检查</span><br><span class="line">        Property(t =&gt; t.SocialSecurityNumber).IsRequired().IsConcurrencyToken();</span><br><span class="line">        //配置FirstName不允许为空</span><br><span class="line">        Property(t =&gt; t.FirstName).IsRequired();</span><br><span class="line">        //配置LastName不允许为空</span><br><span class="line">        Property(t =&gt; t.LastName).IsRequired();</span><br><span class="line">        //配置Photo映射到数据库的数据类型为image</span><br><span class="line">        Property(t =&gt; t.Photo).HasColumnType(&quot;image&quot;);</span><br><span class="line">        //配置RowVersion乐观并发检查</span><br><span class="line">        Property(t =&gt; t.RowVersion).IsRowVersion();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//对复杂类型Address的配置，继承自ComplexTypeConfiguration&lt;T&gt;</span><br><span class="line">public class AddressConfiguration : ComplexTypeConfiguration&lt;Address&gt;</span><br><span class="line">&#123;</span><br><span class="line">    public AddressConfiguration()</span><br><span class="line">    &#123;</span><br><span class="line">        //配置AddressId映射到AddressId列</span><br><span class="line">        Property(t =&gt; t.AddressId).HasColumnName(&quot;AddressId&quot;);</span><br><span class="line">        //配置StreetAddress长度为100并映射到StreetAddrress列</span><br><span class="line">        Property(t =&gt; t.StreetAddress).HasMaxLength(100).HasColumnName(&quot;StreetAddress&quot;);</span><br><span class="line">        //配置State长度为50并映射到State列</span><br><span class="line">        Property(t =&gt; t.State).HasMaxLength(50).HasColumnName(&quot;State&quot;);</span><br><span class="line">        //配置City长度为50并映射到City列</span><br><span class="line">        Property(t =&gt; t.City).HasMaxLength(50).HasColumnName(&quot;City&quot;);</span><br><span class="line">        //配置ZipCode映射到ZipCode列，不支持Unicode内容，并设为固定长度为6</span><br><span class="line">        Property(t =&gt; t.ZipCode).IsUnicode(false).IsFixedLength().HasMaxLength(6).HasColumnName(&quot;ZipCode&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//对复杂类型PersonalInfo的配置，继承自ComplexTypeConfiguration&lt;T&gt;</span><br><span class="line">public class PersonalInfoConfiguration : ComplexTypeConfiguration&lt;PersonalInfo&gt;</span><br><span class="line">&#123;</span><br><span class="line">    public PersonalInfoConfiguration()</span><br><span class="line">    &#123;</span><br><span class="line">        //配置DietryRestrictions长度为100</span><br><span class="line">        Property(t =&gt; t.DietryRestrictions).HasMaxLength(100);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class BreakAwayContext : DbContext</span><br><span class="line">&#123;</span><br><span class="line">    public DbSet&lt;Trip&gt; Trips &#123; get; set; &#125;</span><br><span class="line">    public DbSet&lt;Person&gt; People &#123; get; set; &#125;</span><br><span class="line"></span><br><span class="line">    protected override void OnModelCreating(DbModelBuilder modelBuilder)</span><br><span class="line">    &#123;</span><br><span class="line">        //注册配置</span><br><span class="line">        modelBuilder.Configurations.Add(new TripConfiguration());</span><br><span class="line">        modelBuilder.Configurations.Add(new PersonConfiguration());</span><br><span class="line">        modelBuilder.Configurations.Add(new AddressConfiguration());</span><br><span class="line">        modelBuilder.Configurations.Add(new PersonalInfoConfiguration());</span><br><span class="line">        base.OnModelCreating(modelBuilder);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="异常记录"><a href="#异常记录" class="headerlink" title="异常记录"></a>异常记录</h2><h3 id="从-datetime2-数据类型到-datetime-数据类型的转换产生一个超出范围的值"><a href="#从-datetime2-数据类型到-datetime-数据类型的转换产生一个超出范围的值" class="headerlink" title="从 datetime2 数据类型到 datetime 数据类型的转换产生一个超出范围的值"></a>从 datetime2 数据类型到 datetime 数据类型的转换产生一个超出范围的值</h3><p>触发该错误的条件如下：</p>
+<ul>
+<li>SQL Server数据库版本中的字段类型为datetime2</li>
+<li>数据库中，某个要进行Add或者Edit的字段的数据类型为datetime，比如表A中的today字段，类型为datetime。而后台代码进行数据库操作时，并没有给today（datetime类型）赋值。结果就是VS2015编译的时候默认将其类型编译为datetime2，导致用EF进行add和edit操作的时候出现该异常。 </li>
+</ul>
+<p>解决方案：</p>
+<ul>
+<li>给这些字段一个值（不管它是否在数据库设置了默认值），并且日期要大于1753年1月1日，这是最简单的方法。</li>
+<li>将数据库类型修改为datetime？类型，也就是说允许为空。</li>
+<li>修改数据库字段类型为datetime2类型，前提是数据库要支持该类型。</li>
+<li>在C#中用new DateTime(year,month,day,hour,minute,second)来限制精度，原因之后会在datetime2和datetime的区别中提到。</li>
+<li>这个方法不太推荐，将model的edmx中的providerManifestToken设置成2005，这样ef就默认转化成datetime。</li>
+</ul>
+<p>datetime2和datetime的区别：</p>
+<p>官方MSDN对于datetime2的说明：定义结合了 24 小时制时间的日期。 可将 datetime2 视作现有 datetime 类型的扩展，其数据范围更大，默认的小数精度更高，并具有可选的用户定义的精度。</p>
+<p>这里值的注意的是datetime2的日期范围是”0001-01-01 到 9999-12-31”（公元元年 1 月 1 日到公元 9999 年 12 月 31 日）。</p>
+<p>而datetime的日期范围是：”1753 年 1 月 1 日到 9999 年 12 月 31 日“。这里的日期范围就是造成“从 datetime2 数据类型到 datetime 数据类型的转换产生一个超出范围的值”这个错误的原因。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DateTime字段类型对应的时间格式是yyyy-MM-dd HH:mm:ss.fff，3个f，精确到1毫秒(ms)，示例2014-12-0317:06:15.433.</span><br><span class="line">DateTime2字段类型对应的时间格式是yyyy-MM-dd HH:mm:ss.fffffff，7个f，精确到0.1微秒(μs)，示例2014-12-0317:23:19.2880929. </span><br><span class="line">如果用SQL的日期函数进行赋值，DateTime字段类型要用GETDATE()，DateTime2字段类型要用SYSDATETIME()。</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/17/Code-First学习/" data-id="cjtifr8xx000mwguq82cr5mxn" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-通向财务自由" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/16/通向财务自由/" class="article-date">
+  <time datetime="2018-01-16T00:55:11.000Z" itemprop="datePublished">2018-01-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/16/通向财务自由/">通向财务自由</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="第1章-圣杯传奇"><a href="#第1章-圣杯传奇" class="headerlink" title="第1章 圣杯传奇"></a>第1章 圣杯传奇</h1><p>踏着英雄的足迹，在我们以为会发现邪恶的地方，找到了上帝。在以为杀害他人的地方，我们杀害了自己。在以为走出去的地方，我们将回到自己存在的中心。在以为一切都完了的地方，我们却与整个世界在一起。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/16/通向财务自由/" data-id="cjtifr8z6001dwguq4yoardvu" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-常用命令行" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/15/常用命令行/" class="article-date">
+  <time datetime="2018-01-15T09:11:46.000Z" itemprop="datePublished">2018-01-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/15/常用命令行/">常用命令行</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="查看端口占用指令"><a href="#查看端口占用指令" class="headerlink" title="查看端口占用指令"></a>查看端口占用指令</h1><h2 id="查看所有进程占用的端口"><a href="#查看所有进程占用的端口" class="headerlink" title="查看所有进程占用的端口"></a>查看所有进程占用的端口</h2><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat  -ano</span><br></pre></td></tr></table></figure>
+<h2 id="查看指定端口的程序"><a href="#查看指定端口的程序" class="headerlink" title="查看指定端口的程序"></a>查看指定端口的程序</h2><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ano|<span class="built_in">findstr</span> “端口号”</span><br></pre></td></tr></table></figure>
+<h2 id="通过PID查看进程名称"><a href="#通过PID查看进程名称" class="headerlink" title="通过PID查看进程名称"></a>通过PID查看进程名称</h2><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tasklist | <span class="built_in">findstr</span> "端口号"</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/15/常用命令行/" data-id="cjtifr8yv0015wguqfo9b8jpq" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/32/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/31/">31</a><a class="page-number" href="/page/32/">32</a><span class="page-number current">33</span><a class="page-number" href="/page/34/">34</a><a class="page-number" href="/page/35/">35</a><a class="extend next" rel="next" href="/page/34/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/03/22/CSS入门及提高/example/25 使用双伪元素清除浮动/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/22/CSS入门及提高/example/24 通栏平均分布布局/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/22/CSS入门及提高/example/23 两列左窄右宽布局/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/22/CSS入门及提高/example/22 横向布局/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/window/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

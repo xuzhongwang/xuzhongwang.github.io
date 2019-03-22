@@ -7,18 +7,22 @@
   
   <title>CSS入门及提高 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="CSS 样式规则">
+  <meta name="description" content="1. CSS 样式规则 2. 字体设置2.1. 字体综合设置1选择器 &amp;#123;font: font-style font-weight font-size/line-weight font-family;&amp;#125; 注意：  顺序不能变.  不需要设置的属性可以省略，取默认值，但必须保留 font-size 与 font-family   3. 选择器3.1. 标签选择器（元素选择器）1标签">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS入门及提高">
 <meta property="og:url" content="http://yoursite.com/2018/07/21/CSS入门及提高/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="CSS 样式规则">
+<meta property="og:description" content="1. CSS 样式规则 2. 字体设置2.1. 字体综合设置1选择器 &amp;#123;font: font-style font-weight font-size/line-weight font-family;&amp;#125; 注意：  顺序不能变.  不需要设置的属性可以省略，取默认值，但必须保留 font-size 与 font-family   3. 选择器3.1. 标签选择器（元素选择器）1标签">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2018/07/21/CSS入门及提高/CSS样式规则.png">
-<meta property="og:updated_time" content="2018-07-21T09:18:08.851Z">
+<meta property="og:image" content="http://yoursite.com/2018/07/21/CSS入门及提高/交集选择器.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/21/CSS入门及提高/并集选择器.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/21/CSS入门及提高/后代选择器.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/21/CSS入门及提高/子元素选择器.png">
+<meta property="og:updated_time" content="2019-03-22T08:05:30.559Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS入门及提高">
-<meta name="twitter:description" content="CSS 样式规则">
+<meta name="twitter:description" content="1. CSS 样式规则 2. 字体设置2.1. 字体综合设置1选择器 &amp;#123;font: font-style font-weight font-size/line-weight font-family;&amp;#125; 注意：  顺序不能变.  不需要设置的属性可以省略，取默认值，但必须保留 font-size 与 font-family   3. 选择器3.1. 标签选择器（元素选择器）1标签">
 <meta name="twitter:image" content="http://yoursite.com/2018/07/21/CSS入门及提高/CSS样式规则.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -88,12 +92,294 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="CSS-样式规则"><a href="#CSS-样式规则" class="headerlink" title="CSS 样式规则"></a>CSS 样式规则</h1><p><img src="/2018/07/21/CSS入门及提高/CSS样式规则.png" alt="CSS入门及提高"></p>
+        <h1 id="1-CSS-样式规则"><a href="#1-CSS-样式规则" class="headerlink" title="1. CSS 样式规则"></a>1. CSS 样式规则</h1><p><img src="/2018/07/21/CSS入门及提高/CSS样式规则.png" alt="CSS入门及提高"></p>
+<h1 id="2-字体设置"><a href="#2-字体设置" class="headerlink" title="2. 字体设置"></a>2. 字体设置</h1><h2 id="2-1-字体综合设置"><a href="#2-1-字体综合设置" class="headerlink" title="2.1. 字体综合设置"></a>2.1. 字体综合设置</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">选择器 &#123;<span class="attribute">font</span>: font-style font-weight font-size/line-weight font-family;&#125;</span><br></pre></td></tr></table></figure>
+<p>注意：</p>
+<ul>
+<li><p>顺序不能变.</p>
+</li>
+<li><p>不需要设置的属性可以省略，取默认值，但必须保留 font-size 与 font-family</p>
+</li>
+</ul>
+<h1 id="3-选择器"><a href="#3-选择器" class="headerlink" title="3. 选择器"></a>3. 选择器</h1><h2 id="3-1-标签选择器（元素选择器）"><a href="#3-1-标签选择器（元素选择器）" class="headerlink" title="3.1. 标签选择器（元素选择器）"></a>3.1. 标签选择器（元素选择器）</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">标签名 &#123; 属性1:属性值1;属性2：属性值2&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-2-类选择器"><a href="#3-2-类选择器" class="headerlink" title="3.2. 类选择器"></a>3.2. 类选择器</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.类名 &#123;属性1:属性值1;属性2：属性值2&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-3-id-选择器"><a href="#3-3-id-选择器" class="headerlink" title="3.3. id 选择器"></a>3.3. id 选择器</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#id名 &#123;属性1:属性值1;属性2：属性值2&#125;</span><br></pre></td></tr></table></figure>
+<p>id 选择器与 类选择器的区别：在使用次数上，类选择器可以使用多次，id 选择器只能使用一次</p>
+<h2 id="3-4-通配符选择器"><a href="#3-4-通配符选择器" class="headerlink" title="3.4. 通配符选择器"></a>3.4. 通配符选择器</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* &#123;属性1:属性值1;属性2：属性值2&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-5-伪类选择器"><a href="#3-5-伪类选择器" class="headerlink" title="3.5. 伪类选择器"></a>3.5. 伪类选择器</h2><h3 id="3-5-1-链接伪类选择器"><a href="#3-5-1-链接伪类选择器" class="headerlink" title="3.5.1. 链接伪类选择器"></a>3.5.1. 链接伪类选择器</h3><ul>
+<li>:link  未访问的链接</li>
+<li>:visited 已访问的链接</li>
+<li>:hover 鼠标移动到链接上</li>
+<li>:active 选定的链接，选定不松开时</li>
+</ul>
+<p>注意：顺序不能颠倒</p>
+<h3 id="3-5-2-结构伪类选择器"><a href="#3-5-2-结构伪类选择器" class="headerlink" title="3.5.2. 结构伪类选择器"></a>3.5.2. 结构伪类选择器</h3><ul>
+<li>:first-child 选取属于其父元素的首个子元素的指定选择器</li>
+<li>:last-child 选取属于其父元素的最后一个子元素的指定选择器</li>
+<li>:nth-child(n)  选取第n个,n从0开始,n可以是公式</li>
+<li>:nth-last-child(n) 从最后一个元素开始,</li>
+</ul>
+<h3 id="3-5-3-目标伪类选择器"><a href="#3-5-3-目标伪类选择器" class="headerlink" title="3.5.3. 目标伪类选择器"></a>3.5.3. 目标伪类选择器</h3><p>:target 目标伪类选择器，选择器可用于选取当前活动的目标元素。</p>
+<h1 id="4-文字"><a href="#4-文字" class="headerlink" title="4. 文字"></a>4. 文字</h1><h2 id="4-1-文字阴影"><a href="#4-1-文字阴影" class="headerlink" title="4.1. 文字阴影"></a>4.1. 文字阴影</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">text-shadow</span>: 水平位置，垂直位置，模糊距离，阴影颜色</span><br></pre></td></tr></table></figure>
+<h2 id="4-2-文本的装饰"><a href="#4-2-文本的装饰" class="headerlink" title="4.2. 文本的装饰"></a>4.2. 文本的装饰</h2><table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>none</td>
+<td>默认，定义标准的文本</td>
+</tr>
+<tr>
+<td>underline</td>
+<td>定义文本下的一条线</td>
+</tr>
+<tr>
+<td>overline</td>
+<td>定义文本上的一条线</td>
+</tr>
+<tr>
+<td>line-through</td>
+<td>定义穿过文本下的一条线</td>
+</tr>
+</tbody>
+</table>
+<h1 id="5-css样式表"><a href="#5-css样式表" class="headerlink" title="5. css样式表"></a>5. css样式表</h1><table>
+<thead>
+<tr>
+<th>样式表</th>
+<th>优点</th>
+<th>缺点</th>
+<th>使用情况</th>
+<th>控制范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>内部样式表</td>
+<td>书写方便，权重高</td>
+<td>没有实现样式和结构相分离</td>
+<td>较少</td>
+<td>控制一个标签（少） </td>
+</tr>
+<tr>
+<td>行内样式表</td>
+<td>部分结构与样式分离</td>
+<td>没有彻底分离</td>
+<td>较多</td>
+<td>控制一个页面（中）</td>
+</tr>
+<tr>
+<td>外部样式表</td>
+<td>完全实现结构与样式分离</td>
+<td>需要引入</td>
+<td>最多，强烈推荐</td>
+<td>控制整个站点（多）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-1-标签的显示形式"><a href="#5-1-标签的显示形式" class="headerlink" title="5.1. 标签的显示形式"></a>5.1. 标签的显示形式</h2><p>HTML 标签一般分为块标签和行内标签两种类型，它们也称块元素和行内元素</p>
+<h3 id="5-1-1-块级元素"><a href="#5-1-1-块级元素" class="headerlink" title="5.1.1. 块级元素"></a>5.1.1. 块级元素</h3><p>每个块级元素通常都会独自占据一整行或多行，可以对其设置宽度、高度、对齐等属性，常用于网页布局和网页结构搭建。</p>
+<p>常见的元素有：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">h1</span>&gt;...&lt;<span class="selector-tag">h6</span>&gt;、&lt;<span class="selector-tag">p</span>&gt;、&lt;<span class="selector-tag">div</span>&gt;、&lt;<span class="selector-tag">ul</span>&gt;、&lt;<span class="selector-tag">ol</span>&gt;、&lt;<span class="selector-tag">li</span>&gt;等</span><br></pre></td></tr></table></figure>
+<p>特点：</p>
+<ul>
+<li>总是从新行开始</li>
+<li>宽度、行高、外边距及内边距都可以控制</li>
+<li>宽度默认是容器的100%</li>
+<li>可以容纳其它内联元素和其他块元素</li>
+</ul>
+<h3 id="5-1-2-行内元素"><a href="#5-1-2-行内元素" class="headerlink" title="5.1.2. 行内元素"></a>5.1.2. 行内元素</h3><p>行内元素（内联元素）不占有独立的区域，仅仅靠自身的字体大小和图像尺寸来支撑结构，一般不可以设置宽度、高度、对齐等属性，常用开控制页面中文本的样式。</p>
+<p>常见的行内元素有</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">a</span>&gt; &lt;<span class="selector-tag">strong</span>&gt; &lt;<span class="selector-tag">b</span>&gt; &lt;<span class="selector-tag">em</span>&gt; &lt;<span class="selector-tag">i</span>&gt; &lt;<span class="selector-tag">del</span>&gt; &lt;<span class="selector-tag">ins</span>&gt; &lt;<span class="selector-tag">u</span>&gt; &lt;<span class="selector-tag">span</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>特点：</p>
+<ul>
+<li>和相邻行内元素在一行内显示</li>
+<li>高、宽无效，但水平方向的 padding 和 margin 可以设置，垂直方向的无效。</li>
+<li>默认宽度就是它本身内容的宽度</li>
+<li>行内元素只能容纳文本或者其他行内元素（a特殊)</li>
+</ul>
+<p>注意：</p>
+<ul>
+<li>只有文字能组成段落，因此 p 里面不能放块级元素，同理 h1~h6</li>
+<li>链接里面不能再放链接</li>
+</ul>
+<h3 id="5-1-3-行内块元素-inline-block"><a href="#5-1-3-行内块元素-inline-block" class="headerlink" title="5.1.3. 行内块元素(inline-block)"></a>5.1.3. 行内块元素(inline-block)</h3><p>在行内元素中有几个特殊的标签 &lt;img/&gt;、&lt;input/&gt;、&lt;td&gt; 可以对它们设置宽度和对齐属性</p>
+<p>特点：</p>
+<ul>
+<li>和相邻行内元素（行内块）在一行上，但是之间会有空白缝隙。</li>
+<li>默认宽度就是它本身内容的宽度（宽度由内容决定）</li>
+<li>高度，行高，外边距以及内边距都可以控制。</li>
+</ul>
+<h3 id="5-1-4-显示模式转换"><a href="#5-1-4-显示模式转换" class="headerlink" title="5.1.4. 显示模式转换"></a>5.1.4. 显示模式转换</h3><p>块转行内： display:inline;<br>行内转块： display:block;<br>块、行内元素转行内块： display:inline-block;</p>
+<h1 id="6-复合选择器"><a href="#6-复合选择器" class="headerlink" title="6. 复合选择器"></a>6. 复合选择器</h1><h2 id="6-1-交集选择器"><a href="#6-1-交集选择器" class="headerlink" title="6.1. 交集选择器"></a>6.1. 交集选择器</h2><p><img src="/2018/07/21/CSS入门及提高/交集选择器.png" alt="交集选择器"></p>
+<h2 id="6-2-并集选择器"><a href="#6-2-并集选择器" class="headerlink" title="6.2. 并集选择器"></a>6.2. 并集选择器</h2><p><img src="/2018/07/21/CSS入门及提高/并集选择器.png" alt="并集选择器"></p>
+<h2 id="6-3-后代选择器"><a href="#6-3-后代选择器" class="headerlink" title="6.3. 后代选择器"></a>6.3. 后代选择器</h2><p><img src="/2018/07/21/CSS入门及提高/后代选择器.png" alt="后代选择器"></p>
+<h2 id="6-4-子元素选择器"><a href="#6-4-子元素选择器" class="headerlink" title="6.4. 子元素选择器"></a>6.4. 子元素选择器</h2><p><img src="/2018/07/21/CSS入门及提高/子元素选择器.png" alt="子元素选择器"></p>
+<h2 id="6-5-属性选择器"><a href="#6-5-属性选择器" class="headerlink" title="6.5. 属性选择器"></a>6.5. 属性选择器</h2><p>选取标签带有某些特殊属性的选择器</p>
+<table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E[attr]</td>
+<td>存在 attr 属性即可</td>
+</tr>
+<tr>
+<td>E[attr=val]</td>
+<td>属性值完全等于 val</td>
+</tr>
+<tr>
+<td>E[attr*=val]</td>
+<td>属性值包含 val 字符并且在“任意”位置</td>
+</tr>
+<tr>
+<td>E[attr^=val]</td>
+<td>属性值包含 val 字符并且在“开始”位置</td>
+</tr>
+<tr>
+<td>E[attr$=val]</td>
+<td>属性值包含 val 字符并且在“结束”位置</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6-6-伪元素选择器（CSS3"><a href="#6-6-伪元素选择器（CSS3" class="headerlink" title="6.6. 伪元素选择器（CSS3)"></a>6.6. 伪元素选择器（CSS3)</h2><ul>
+<li>E::first-letter 文本的第一个单词或字</li>
+<li>E::first-line 文本第一行</li>
+<li>E::selection 可改变选中文本的样式</li>
+<li>E::before和 E::after 在E元素内部开始的位置和结束位创建一个元素，该元素为行内元素，且必须结合content属性使用</li>
+</ul>
+<h1 id="7-CSS-书写规范"><a href="#7-CSS-书写规范" class="headerlink" title="7. CSS 书写规范"></a>7. CSS 书写规范</h1><h2 id="7-1-空格规范"><a href="#7-1-空格规范" class="headerlink" title="7.1. 空格规范"></a>7.1. 空格规范</h2><p>【强制】选择器与{}之间必须包含空格<br>【强制】属性名与之后的：之间不允许包含空格，：与属性值之间必须包含空格.<br>示例：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">font-size</span>: 12<span class="selector-tag">px</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="7-2-选择器规范"><a href="#7-2-选择器规范" class="headerlink" title="7.2. 选择器规范"></a>7.2. 选择器规范</h2><p>【强制】当一个 rule 包含多个 selector 时，每个选择器声明必须独占一行。<br>【建议】选择器嵌套层级不大于3级，位置靠后的限定条件应尽可能精确。</p>
+<h2 id="7-3-属性规范"><a href="#7-3-属性规范" class="headerlink" title="7.3. 属性规范"></a>7.3. 属性规范</h2><p>【强制】属性定义必须另起一行<br>【强制】属性定义后必须以分号结尾</p>
+<h1 id="8-CSS-背景"><a href="#8-CSS-背景" class="headerlink" title="8. CSS 背景"></a>8. CSS 背景</h1><h2 id="8-1-多背景"><a href="#8-1-多背景" class="headerlink" title="8.1. 多背景"></a>8.1. 多背景</h2><ul>
+<li>一个元素可以设置多重背景图像</li>
+<li>每组属性之间使用逗号隔开</li>
+<li>如果设置的多重背景之间存在着交集（即存在着重叠关系），前面的背景图片会覆盖在后面的背景图片上。</li>
+<li>为了避免背景色将图像盖住，背景色通常定义在最后一组上。</li>
+</ul>
+<h1 id="9-CSS-三大特性"><a href="#9-CSS-三大特性" class="headerlink" title="9. CSS 三大特性"></a>9. CSS 三大特性</h1><h2 id="9-1-层叠性"><a href="#9-1-层叠性" class="headerlink" title="9.1. 层叠性"></a>9.1. 层叠性</h2><p>样式冲突遵循的原则是就近原则，哪个样式离着结构近就执行哪个样式。</p>
+<h2 id="9-2-继承性"><a href="#9-2-继承性" class="headerlink" title="9.2. 继承性"></a>9.2. 继承性</h2><p>子元素可以继承父元素的样式，如 text- font- line- 以及 color属性</p>
+<h2 id="9-3-优先性"><a href="#9-3-优先性" class="headerlink" title="9.3. 优先性"></a>9.3. 优先性</h2><p>权重表</p>
+<table>
+<thead>
+<tr>
+<th>继承或者*的贡献值</th>
+<th>0,0,0,0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>每个元素（标签）贡献值为</td>
+<td>0,0,0,1</td>
+</tr>
+<tr>
+<td>每个类、伪类贡献值为</td>
+<td>0,0,1,0</td>
+</tr>
+<tr>
+<td>每个ID贡献值为</td>
+<td>0,１,0,0</td>
+</tr>
+<tr>
+<td>每个行内样式贡献值为</td>
+<td>1,0,0,0</td>
+</tr>
+<tr>
+<td>每个!important贡献值为</td>
+<td>无穷大</td>
+</tr>
+</tbody>
+</table>
+<p>继承的权重为0</p>
+<h1 id="10-盒子模型"><a href="#10-盒子模型" class="headerlink" title="10. 盒子模型"></a>10. 盒子模型</h1><h2 id="10-1-外边距合并"><a href="#10-1-外边距合并" class="headerlink" title="10.1. 外边距合并"></a>10.1. 外边距合并</h2><h3 id="10-1-1-相邻元素块垂直外边距合并"><a href="#10-1-1-相邻元素块垂直外边距合并" class="headerlink" title="10.1.1. 相邻元素块垂直外边距合并"></a>10.1.1. 相邻元素块垂直外边距合并</h3><p>不是两者相加的和，而是取两者中的较大者。</p>
+<h3 id="10-1-2-嵌套元素垂直外边距合并"><a href="#10-1-2-嵌套元素垂直外边距合并" class="headerlink" title="10.1.2. 嵌套元素垂直外边距合并"></a>10.1.2. 嵌套元素垂直外边距合并</h3><p>对于两个嵌套关系的块元素，如果父元素没有上边距及边框，则父元素的上边距会与子元素的上边距发生合并，合并后的外边距为两者中的较大者。</p>
+<p>解决方案：</p>
+<ul>
+<li>可以为父元素定义1像素的上边框或上内边距。</li>
+<li>可以为父元素添加overflow:hidden</li>
+</ul>
+<h2 id="10-2-盒子的计算尺寸"><a href="#10-2-盒子的计算尺寸" class="headerlink" title="10.2. 盒子的计算尺寸"></a>10.2. 盒子的计算尺寸</h2><p>注意：</p>
+<ul>
+<li>宽度属性和高度属性仅适用于块级元素，对行内元素无效（img标签和input除外）</li>
+<li>计算盒子模型的总高度时，还应考虑上下两个盒子垂直外边距合并的情况</li>
+<li>如果一个盒子没有给定宽度/高度或者继承父亲的宽度/高度,则padding不会影响本盒子大小。</li>
+</ul>
+<h2 id="10-3-盒子模型与布局稳定性"><a href="#10-3-盒子模型与布局稳定性" class="headerlink" title="10.3. 盒子模型与布局稳定性"></a>10.3. 盒子模型与布局稳定性</h2><p>稳定性<br>width &gt; padding &gt; margin</p>
+<h2 id="10-4-CSS3-盒模型"><a href="#10-4-CSS3-盒模型" class="headerlink" title="10.4. CSS3 盒模型"></a>10.4. CSS3 盒模型</h2><ol>
+<li>box-sizing:content-box 盒子大小为 width + padding + border ,此值为默认值，W2C标准的Box Mode</li>
+<li>box-sizing:border-box 盒子大小为 width</li>
+</ol>
+<h2 id="10-5-盒子阴影"><a href="#10-5-盒子阴影" class="headerlink" title="10.5. 盒子阴影"></a>10.5. 盒子阴影</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">box-shadow</span> 水平位置 垂直位置 模糊距离 阴影尺寸 阴影颜色  内外阴影</span><br></pre></td></tr></table></figure>
+<h2 id="10-6-浮动"><a href="#10-6-浮动" class="headerlink" title="10.6. 浮动"></a>10.6. 浮动</h2><p>CSS 定位机制有3种：普通流（标准流）、浮动和定位</p>
+<ul>
+<li>普通流(normal flow) ：自上而下，自左而右</li>
+<li>浮动：最开始用来做文字环绕效果</li>
+</ul>
+<h3 id="什么是浮动"><a href="#什么是浮动" class="headerlink" title="什么是浮动"></a>什么是浮动</h3><p>元素浮动是指设置了浮动属性的元素会脱离标准普通流的控制，移动到其父元素中指定位置的过程。</p>
+<h3 id="浮动与行内块"><a href="#浮动与行内块" class="headerlink" title="浮动与行内块"></a>浮动与行内块</h3><p>行内块之间有难以却除的间隙<br>行内元素或块级元素添加浮动后变为行内块</p>
+<h2 id="版心和布局流程"><a href="#版心和布局流程" class="headerlink" title="版心和布局流程"></a>版心和布局流程</h2><ul>
+<li>确定页面的版心</li>
+<li>分析页面中的行模块，以及每个行模块中的列模块</li>
+<li>制作HTML结构</li>
+<li>CSS初始化，然后开始运用盒子模型的原理，通过 DIV+CSS布局来控制网页中的各个模块。</li>
+</ul>
+<h3 id="清除浮动的本质"><a href="#清除浮动的本质" class="headerlink" title="清除浮动的本质"></a>清除浮动的本质</h3><p>清除浮动主要是为了解决父级元素因为子级浮动引起内部高度为0的问题。</p>
+<p>清除方法</p>
+<ul>
+<li>额外标签法：在浮动元素末尾添加一个空的标签，例如 </li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"clear:both"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>优点：通俗易懂，书写方便<br>缺点：添加许多无意义的标签，结构化差。</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>内容（例子）</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>额外标签法</td>
+<td>在浮动元素末尾添加一个空的标签，例如：&lt;div style=”clear:both”&gt;&lt;/div&gt;</td>
+<td>通俗易懂，书写方便</td>
+<td>添加许多无意义的标签，结构化差</td>
+</tr>
+<tr>
+<td>父级增加overflow属性方法</td>
+<td>给父级元素增加overflow为hidden或auto或scroll都可以实现</td>
+<td>代码简洁</td>
+<td>内容增多时候容易造成不会自动换行导致内容被隐藏掉，无法显示需要溢出的元素</td>
+</tr>
+<tr>
+<td>使用after伪元素</td>
+<td>.clearfix:after{content:”.”;display:block;height:0;visibility:hidden;clear:both}</td>
+<td>符合闭合浮动思维，结构主义化明确</td>
+<td>由于IE6-7不支持after,使用zoom:1触发 hasLayout</td>
+</tr>
+<tr>
+<td>双伪元素</td>
+<td>.clearfix:before,.clearfix:after{content:””,display:table}  .clearfix:after{clear:both} .clearfix{*zoom:1;}</td>
+<td>代码更简洁</td>
+<td>由于IE6-7不支持after,使用zoom:1触发 hasLayout</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/CSS入门及提高/" data-id="cjpayx2b80004pcuqdj1536w2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/CSS入门及提高/" data-id="cjtifr8xf000awguqkqrbhdh1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -152,7 +438,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
   </div>
 
@@ -165,23 +451,23 @@
       <ul>
         
           <li>
-            <a href="/2018/09/30/权限系统/">权限系统</a>
+            <a href="/2019/03/22/CSS入门及提高/example/25 使用双伪元素清除浮动/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/08/16/CSS-Web高级程序设计/">CSS-Web高级程序设计</a>
+            <a href="/2019/03/22/CSS入门及提高/example/24 通栏平均分布布局/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/08/11/Web前端开发环境搭建/">Web前端开发环境搭建</a>
+            <a href="/2019/03/22/CSS入门及提高/example/23 两列左窄右宽布局/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/08/09/JQuery源码解读/">JQuery源码解读</a>
+            <a href="/2019/03/22/CSS入门及提高/example/22 横向布局/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/08/08/Emmet语法/">Emmet语法</a>
+            <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/window/">(no title)</a>
           </li>
         
       </ul>
@@ -196,7 +482,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2018 John Doe<br>
+      &copy; 2019 John Doe<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
