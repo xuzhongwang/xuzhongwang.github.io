@@ -5,51 +5,206 @@
 	<title>Ribbon</title>
 	<link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">
 	<link rel="stylesheet" type="text/css" href="../themes/icon.css">
-	<link rel="stylesheet" type="text/css" href="myribbon-icon.css">
+	<link rel="stylesheet" type="text/css" href="../ribbon-icon.css">
+	<link rel="stylesheet" type="text/css" href="myribbon.css">
 	<script type="text/javascript" src="../jquery.min.js"></script>
 	<script type="text/javascript" src="../jquery.easyui.min.js"></script>
 	<script type="text/javascript" src="jquery.myRibbon.js"></script>
-<style>
-
-	.group  {
-		float: left;
-		height: 117px;
-		margin: 10px 0px;
-		border-left: 1px solid #ccc;
-		border-right: 1px solid #fff;
-		display: inline-block;	
-	}
-</style>
 
 	<script type="text/javascript">
 		$(function(){
-			$("#myribbon").ribbon();
+			var data = {			
+				tabs:[{
+					title:"Home",
+					groups:[{
+						title:"ClipBoard",
+						rows:[{
+							columns:[{
+								type:"splitbutton",
+								name:'paste',
+								text:'Paste',
+								iconCls:'icon-paste-large',
+								iconAlign:'top',
+								size:'large',
+								menuItems:[{
+									name:'paste',
+									text:'Paste',
+									iconCls:'icon-paste'
+								},{
+									name:'paste-special',
+									text:'Paste Special...',
+									iconCls:'icon-paste'
+								}]
+							},{
+								type:"toolbar",
+								items:[
+									{
+										name:'cut',
+										text:'Cut',
+										iconCls:'icon-cut',
+										plain:true,
+										onClick:function(name,e){
+											alert("cut");
+										}
+									},{
+										name:"Copy",
+										text:'Copy',
+										iconCls:'icon-copy',
+										plain:true
+									},{
+										name:'format',
+										text:'Format',
+										iconCls:'icon-format',
+										plain:true
+									}
+								]
+							}]
+						}]
+					},{
+						title:"Font",
+					},{
+						title:"Paragraph",
+					}
+					]
+				},{
+					title:"Insert"
+				}]
+			};
+			var opts = $("#myribbon").ribbon({data:data});
 		})
 	</script>
 </head>
 <body>
-	<div id="myribbon">
-		<div class="easyui-tabs" style="width:700px;height:150px">
-			<div title="Home" style="overflow:hidden">
-				<div class="group">
-					<div style="display:inline-block;margin:18px">
-					<div class="easyui-splitbutton" data-options="menu:'#mm1',iconCls:'icon-paste-large',iconAlign:'top',size:'large' ">Paste</div>
-					</div>
-				</div>
-				<div class="group">
-					<div style="display:inline-block;margin:18px">
-					<div class="easyui-splitbutton" data-options="menu:'#mm1',iconCls:'icon-paste-large',iconAlign:'top',size:'large' ">Paste</div>
-					</div>
-				</div>
-				
-			
+<div id="myribbon"></div>
+<!-- <div id="testribbon">
+	<div class="easyui-tabs">
+		<div title="Home" >
+			<div class="ribbon-group">
+				<div class="ribbon-toolbar"></div>
+				<div class="ribbon-title">ClipBoard</div>
 			</div>
-			<div title="Insert"></div>
 		</div>
+		<div title="Insert" ></div>
 	</div>
-	<div id="mm1">
-		<div>Paste</div>
-		<div>Paste Special</div>
+</div> -->
+<div>
+	<div class="easyui-tabs">
+		<div title="Home" style="overflow:hidden">
+			<div class="ribbon-group">
+				<div class="ribbon-toolbar">
+					<div class="ribbon-row">
+						<div class="ribbon-column">
+						<a class="easyui-splitbutton" data-options="menu:'#mm1',iconCls:'icon-paste-large',iconAlign:'top',size:'large' ">Paste</a>
+					</div>
+					<div class="ribbon-column">			
+						<li>
+							<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-cut'">Cut</a>
+						</li>
+						<li>
+							<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-copy'">Copy</a>
+						</li>
+						<li>
+							<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-format'">Format</a>
+						</li>
+					</div>
+					</div>
+				</div>
+				<div class="ribbon-title">ClipBoard</div>
+			</div>
+			<div class="ribbon-group">		
+				<div class="ribbon-toolbar">						
+					<div class="ribbon-row">
+						<div class="ribbon-column">
+							<a class="easyui-combobox" data-options="textField:'text',data:[{text:'Arial',selected:true},{text:'Century'},{text:'Tahoma'}],width:100"></a>
+						</div>
+						<div class="ribbon-column">
+							<div class="easyui-combobox" data-options="textField:'text',data:[{text:'8'},{text:'12',selected:true},{text:'14'}],width:100"></div>
+						</div>
+						<div class="ribbon-column">
+							<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-increase-font'"></a>
+						</div>
+						<div class="ribbon-column">
+							<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-decrease-font'"></a>
+						</div>
+					</div>
+					<div class="ribbon-row">
+						<div class="ribbon-column">
+							<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-bold'"></a>
+						</div>
+						<div class="ribbon-column">
+							<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-italic'"></a>
+						</div>
+						<div class="ribbon-column">
+							<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-underline'"></a>
+						</div>
+						<div class="ribbon-column">
+							<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-strikethrough'"></a>
+						</div>
+						<div class="ribbon-column">
+							<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-superscript'"></a>
+						</div>
+						<div class="ribbon-column">
+							<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-subscript'"></a>
+						</div>
+						<div style="clear:both"></div>
+					</div>
+					<div class="ribbon-row">
+						<div class="ribbon-column">
+							<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-case-font'"></a>
+						</div>
+						<div class="ribbon-column">
+							<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-grow-font'"></a>
+						</div>
+						<div class="ribbon-column">
+							<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-shrink-font'"></a>
+						</div>
+					</div>
+				</div>
+				<div class="ribbon-title">Font</div>			
+			</div>
+			<div class="ribbon-group">		
+				<div class="ribbon-toolbar">						
+					<div class="ribbon-row">
+						<div class="ribbon-column">
+							<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-align-left'"></a>
+						</div>
+						<div class="ribbon-column">
+							<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-align-center'"></a>
+						</div>
+						<div class="ribbon-column">
+							<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-align-right'"></a>
+						</div>
+						<div class="ribbon-column">
+							<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-align-justify'"></a>
+						</div>
+					</div>
+					<div class="ribbon-row">
+						<div class="ribbon-column">
+							<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-bullets'"></a>
+						</div>
+						<div class="ribbon-column">
+							<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-numbers'"></a>
+						</div>
+						<div style="clear:both"></div>
+					</div>
+				</div>
+				<div class="ribbon-title">Paragraph</div>			
+			</div>			
+		</div>
+		<div title="Insert"></div>
 	</div>
+</div>
+<div id="mm1">
+	<div>Paste</div>
+	<div>Paste Special</div>
+</div>
+<div>
+	<div>
+		<img src="../images/32/picture.png" style="height: 60px;width:80px">
+		<div style="width: 80px;text-align: center">商品房销售统计</div>
+	</div >
+	
+
+</div>
 </body>
 </html>

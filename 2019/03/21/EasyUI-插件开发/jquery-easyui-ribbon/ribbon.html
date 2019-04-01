@@ -39,7 +39,11 @@
 						tools:[{
 							name:'cut',
 							text:'Cut',
-							iconCls:'icon-cut'
+							iconCls:'icon-cut',
+							onClick:function(name,e){
+								
+								alert(name + " clicked");
+							}
 						},{
 							name:'copy',
 							text:'Copy',
@@ -61,7 +65,7 @@
 							data:[{text:'Arial',selected:true},{text:'Century'},{text:'Tahoma'}],
 							width:100,
 							panelHeight:'auto',
-							editable:false
+							editable:false,
 						},{
 							type:'combobox',
 							valueField:'text',
@@ -77,6 +81,7 @@
 						tools:[{
 							name:'increase-font',
 							iconCls:'icon-increase-font'
+
 						},{
 							name:'decrease-font',
 							iconCls:'icon-decrease-font'
@@ -251,6 +256,8 @@
 			$('#rr').ribbon({
 				data:data
 			});
+			debugger;
+			var opt = $('#rr').ribbon("options");
 		});
 	</script>
 </head>

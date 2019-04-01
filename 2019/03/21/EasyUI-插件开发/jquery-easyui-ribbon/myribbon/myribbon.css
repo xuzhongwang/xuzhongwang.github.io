@@ -1,3 +1,30 @@
-.icon-paste {
-	background:url('../images/16/paste.png') no-repeat center center;
-}
+	.ribbon-group  {
+		float: left;
+		height: 120px;
+		margin: 10px 0px 5px 10px;
+		border-left: 1px solid #fff; 
+		border-right: 1px solid #ccc;	
+	}
+
+	.ribbon-toolbar {
+		height: 90px;
+		/*padding-left: 10px;	*/
+		padding-right: 5px;
+	}
+	.ribbon-toolbar li {
+		list-style: none;
+		padding-left: 5px;	
+	}
+	.ribbon-row {
+
+	}
+	.ribbon-column {
+		float: left;	
+		margin-top: 3px;
+	}
+	.ribbon-title {
+		margin-top: 10px;
+		height: 20px;
+		text-align: center;
+		line-height: 20px;
+	}

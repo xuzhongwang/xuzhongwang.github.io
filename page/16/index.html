@@ -62,6 +62,259 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/default/window" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/default/window/" class="article-date">
+  <time datetime="2019-03-21T09:22:46.045Z" itemprop="datePublished">2019-03-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        .window {
+  overflow: hidden;
+  padding: 5px;
+  border-width: 1px;
+  border-style: solid;
+}
+.window .window-header {
+  background: transparent;
+  padding: 0px 0px 6px 0px;
+}
+.window .window-body {
+  border-width: 1px;
+  border-style: solid;
+  border-top-width: 0px;
+}
+.window .window-body-noheader {
+  border-top-width: 1px;
+}
+.window .panel-body-nobottom {
+  border-bottom-width: 0;
+}
+.window .window-header .panel-icon,
+.window .window-header .panel-tool {
+  top: 50%;
+  margin-top: -11px;
+}
+.window .window-header .panel-icon {
+  left: 1px;
+}
+.window .window-header .panel-tool {
+  right: 1px;
+}
+.window .window-header .panel-with-icon {
+  padding-left: 18px;
+}
+.window-proxy {
+  position: absolute;
+  overflow: hidden;
+}
+.window-proxy-mask {
+  position: absolute;
+  filter: alpha(opacity=5);
+  opacity: 0.05;
+}
+.window-mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  filter: alpha(opacity=40);
+  opacity: 0.40;
+  font-size: 1px;
+  overflow: hidden;
+}
+.window,
+.window-shadow {
+  position: absolute;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+.window-shadow {
+  background: #ccc;
+  -moz-box-shadow: 2px 2px 3px #cccccc;
+  -webkit-box-shadow: 2px 2px 3px #cccccc;
+  box-shadow: 2px 2px 3px #cccccc;
+  filter: progid:DXImageTransform.Microsoft.Blur(pixelRadius=2,MakeShadow=false,ShadowOpacity=0.2);
+}
+.window,
+.window .window-body {
+  border-color: #95B8E7;
+}
+.window {
+  background-color: #E0ECFF;
+  background: -webkit-linear-gradient(top,#EFF5FF 0,#E0ECFF 20%);
+  background: -moz-linear-gradient(top,#EFF5FF 0,#E0ECFF 20%);
+  background: -o-linear-gradient(top,#EFF5FF 0,#E0ECFF 20%);
+  background: linear-gradient(to bottom,#EFF5FF 0,#E0ECFF 20%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#EFF5FF,endColorstr=#E0ECFF,GradientType=0);
+}
+.window-proxy {
+  border: 1px dashed #95B8E7;
+}
+.window-proxy-mask,
+.window-mask {
+  background: #ccc;
+}
+.window .panel-footer {
+  border: 1px solid #95B8E7;
+  position: relative;
+  top: -1px;
+}
+.window-thinborder {
+  padding: 0;
+}
+.window-thinborder .window-header {
+  padding: 5px 5px 6px 5px;
+}
+.window-thinborder .window-body {
+  border-width: 0px;
+}
+.window-thinborder .window-footer {
+  border-left: transparent;
+  border-right: transparent;
+  border-bottom: transparent;
+}
+.window-thinborder .window-header .panel-icon,
+.window-thinborder .window-header .panel-tool {
+  margin-top: -9px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.window-noborder {
+  border: 0;
+}
+.window.panel-hleft .window-header {
+  padding: 0 6px 0 0;
+}
+.window.panel-hright .window-header {
+  padding: 0 0 0 6px;
+}
+.window.panel-hleft>.panel-header .panel-title {
+  top: auto;
+  left: 16px;
+}
+.window.panel-hright>.panel-header .panel-title {
+  top: auto;
+  right: 16px;
+}
+.window.panel-hleft>.panel-header .panel-title-up,
+.window.panel-hright>.panel-header .panel-title-up {
+  bottom: 0;
+}
+.window.panel-hleft .window-body {
+  border-width: 1px 1px 1px 0;
+}
+.window.panel-hright .window-body {
+  border-width: 1px 0 1px 1px;
+}
+.window.panel-hleft .window-header .panel-icon {
+  top: 1px;
+  margin-top: 0;
+  left: 0;
+}
+.window.panel-hright .window-header .panel-icon {
+  top: 1px;
+  margin-top: 0;
+  left: auto;
+  right: 1px;
+}
+.window.panel-hleft .window-header .panel-tool,
+.window.panel-hright .window-header .panel-tool {
+  margin-top: 0;
+  top: auto;
+  bottom: 1px;
+  right: auto;
+  margin-right: 0;
+  left: 50%;
+  margin-left: -11px;
+}
+.window.panel-hright .window-header .panel-tool {
+  left: auto;
+  right: 1px;
+}
+.window-thinborder.panel-hleft .window-header {
+  padding: 5px 6px 5px 5px;
+}
+.window-thinborder.panel-hright .window-header {
+  padding: 5px 5px 5px 6px;
+}
+.window-thinborder.panel-hleft>.panel-header .panel-title {
+  left: 21px;
+}
+.window-thinborder.panel-hleft>.panel-header .panel-title-up,
+.window-thinborder.panel-hright>.panel-header .panel-title-up {
+  bottom: 5px;
+}
+.window-thinborder.panel-hleft .window-header .panel-icon,
+.window-thinborder.panel-hright .window-header .panel-icon {
+  margin-top: 5px;
+}
+.window-thinborder.panel-hleft .window-header .panel-tool,
+.window-thinborder.panel-hright .window-header .panel-tool {
+  left: 16px;
+  bottom: 5px;
+}
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/default/window/" data-id="cjtxlyzrk005f00uquc83qrrp" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/default/validatebox" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/default/validatebox/" class="article-date">
+  <time datetime="2019-03-21T09:22:46.041Z" itemprop="datePublished">2019-03-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        .inputbox {
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+}
+.validatebox-invalid {
+  border-color: #ffa8a8;
+  background-color: #fff3f3;
+  color: #000;
+}
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/default/validatebox/" data-id="cjtxlyzrc005900uqk4y14naz" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/default/tree" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/default/tree/" class="article-date">
@@ -242,7 +495,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/default/tree/" data-id="cjtifrb9g004awguqbwneotkg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/default/tree/" data-id="cjtxlyzrg005c00uqyohn0k8t" class="article-share-link">Share</a>
       
       
     </footer>
@@ -371,7 +624,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/default/tooltip/" data-id="cjtifrb9f0049wguqed1wjoz4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/default/tooltip/" data-id="cjtxlyzri005d00uq0ugaxfbv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -541,7 +794,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/default/textbox/" data-id="cjtifrb9e0048wguqed6ul5kd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/default/textbox/" data-id="cjtxlyzrf005b00uqeo6mikmb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -611,7 +864,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/default/tagbox/" data-id="cjtifrb9a0046wguqqtots29u" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/default/tagbox/" data-id="cjtxlyzrd005a00uqmk3fcudr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1050,7 +1303,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/default/tabs/" data-id="cjtifrb9d0047wguqc9z777j5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/default/tabs/" data-id="cjtxlyzrb005800uqzgi0lije" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1153,7 +1406,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/default/switchbutton/" data-id="cjtifrb980045wguqy4rjz9b4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/default/switchbutton/" data-id="cjtxlyzra005700uqli261v5j" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1191,7 +1444,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/default/splitbutton/" data-id="cjtifrb970044wguqbqa6jity" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/default/splitbutton/" data-id="cjtxlyzr6005400uqsfjqp72c" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1331,229 +1584,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/default/spinner/" data-id="cjtifrb960042wguqf10emfjl" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/default/slider" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/default/slider/" class="article-date">
-  <time datetime="2019-03-21T09:22:45.987Z" itemprop="datePublished">2019-03-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        .slider-disabled {
-  opacity: 0.5;
-  filter: alpha(opacity=50);
-}
-.slider-h {
-  height: 22px;
-}
-.slider-v {
-  width: 22px;
-}
-.slider-inner {
-  position: relative;
-  height: 6px;
-  top: 7px;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 5px;
-}
-.slider-handle {
-  position: absolute;
-  display: block;
-  outline: none;
-  width: 20px;
-  height: 20px;
-  top: 50%;
-  margin-top: -10px;
-  margin-left: -10px;
-}
-.slider-tip {
-  position: absolute;
-  display: inline-block;
-  line-height: 12px;
-  font-size: 14px;
-  white-space: nowrap;
-  top: -22px;
-}
-.slider-rule {
-  position: relative;
-  top: 15px;
-}
-.slider-rule span {
-  position: absolute;
-  display: inline-block;
-  font-size: 0;
-  height: 5px;
-  border-width: 0 0 0 1px;
-  border-style: solid;
-}
-.slider-rulelabel {
-  position: relative;
-  top: 20px;
-}
-.slider-rulelabel span {
-  position: absolute;
-  display: inline-block;
-  font-size: 14px;
-}
-.slider-v .slider-inner {
-  width: 6px;
-  left: 7px;
-  top: 0;
-  float: left;
-}
-.slider-v .slider-handle {
-  left: 50%;
-  margin-top: -10px;
-}
-.slider-v .slider-tip {
-  left: -10px;
-  margin-top: -6px;
-}
-.slider-v .slider-rule {
-  float: left;
-  top: 0;
-  left: 16px;
-}
-.slider-v .slider-rule span {
-  width: 5px;
-  height: 'auto';
-  border-left: 0;
-  border-width: 1px 0 0 0;
-  border-style: solid;
-}
-.slider-v .slider-rulelabel {
-  float: left;
-  top: 0;
-  left: 23px;
-}
-.slider-handle {
-  background: url('images/slider_handle.png') no-repeat;
-}
-.slider-inner {
-  border-color: #95B8E7;
-  background: #E0ECFF;
-}
-.slider-rule span {
-  border-color: #95B8E7;
-}
-.slider-rulelabel span {
-  color: #000000;
-}
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/default/slider/" data-id="cjtifrb950041wguqip3u2h8i" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/default/sidemenu" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/default/sidemenu/" class="article-date">
-  <time datetime="2019-03-21T09:22:45.980Z" itemprop="datePublished">2019-03-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        .sidemenu .tree-hit {
-  background-image: none;
-}
-.sidemenu-default-icon {
-  background-image: none;
-  width: 0;
-}
-.sidemenu .accordion .accordion-header,
-.sidemenu .accordion .accordion-body {
-  border-bottom-color: transparent;
-  background: transparent;
-}
-.sidemenu .accordion .accordion-header {
-  color: #0E2D5F;
-}
-.sidemenu .accordion-header .panel-title {
-  height: 30px;
-  line-height: 30px;
-  color: #0E2D5F;
-}
-.sidemenu .accordion-header:hover {
-  background: #eaf2ff;
-  color: #0E2D5F;
-}
-.sidemenu .tree-node-hover {
-  background: #eaf2ff;
-  color: #0E2D5F;
-}
-.sidemenu .tree-node-selected {
-  border-right: 2px solid #ffab3f;
-  color: #000000;
-  background: #ffe48d;
-}
-.sidemenu .tree-node {
-  height: 40px;
-}
-.sidemenu .tree-title {
-  margin: 11px 0;
-}
-.sidemenu .tree-node-nonleaf {
-  position: relative;
-}
-.sidemenu .tree-node-nonleaf::after {
-  display: inline-block;
-  content: '';
-  position: absolute;
-  top: 50%;
-  margin-top: -8px;
-  background: url('images/accordion_arrows.png') no-repeat 0 0;
-  width: 16px;
-  height: 16px;
-  right: 5px;
-}
-.sidemenu .tree-node-nonleaf-collapsed::after {
-  background: url('images/accordion_arrows.png') no-repeat -16px 0;
-}
-.sidemenu-collapsed .panel-icon {
-  left: 50%;
-  margin-left: -8px;
-}
-.sidemenu-tooltip {
-  padding: 0;
-  margin: 0 -12px;
-  border: 0;
-}
-.sidemenu-tooltip .tooltip-arrow-outer,
-.sidemenu-tooltip .tooltip-arrow {
-  display: none;
-}
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/default/sidemenu/" data-id="cjtifrb940040wguqpx7vkm3e" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/default/spinner/" data-id="cjtxlyzr8005500uq2jx74b5f" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1600,7 +1631,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
   </div>
 
@@ -1613,6 +1644,14 @@
       <ul>
         
           <li>
+            <a href="/2019/04/01/CSS入门及提高/example/学成网/index/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/28/mysql使用/">&#39;mysql使用&#39;</a>
+          </li>
+        
+          <li>
             <a href="/2019/03/22/CSS入门及提高/example/25 使用双伪元素清除浮动/">(no title)</a>
           </li>
         
@@ -1622,14 +1661,6 @@
         
           <li>
             <a href="/2019/03/22/CSS入门及提高/example/23 两列左窄右宽布局/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/22/CSS入门及提高/example/22 横向布局/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/window/">(no title)</a>
           </li>
         
       </ul>

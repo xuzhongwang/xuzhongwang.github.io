@@ -7,20 +7,20 @@
   
   <title>Sublime使用 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="替换Ctrl + H进行替换 安装 Package Control1import urllib.request,os,hashlib; h = &apos;6f4c264a24d933ce70df5dedcf1dcaee&apos; + &apos;ebe013ee18cced0ef93d5f746d80ef60&apos;; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.i">
+  <meta name="description" content="替换Ctrl + H 进行替换 安装 Package Control1import urllib.request,os,hashlib; h = &apos;6f4c264a24d933ce70df5dedcf1dcaee&apos; + &apos;ebe013ee18cced0ef93d5f746d80ef60&apos;; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Sublime使用">
 <meta property="og:url" content="http://yoursite.com/2018/02/25/Sublime使用/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="替换Ctrl + H进行替换 安装 Package Control1import urllib.request,os,hashlib; h = &apos;6f4c264a24d933ce70df5dedcf1dcaee&apos; + &apos;ebe013ee18cced0ef93d5f746d80ef60&apos;; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.i">
+<meta property="og:description" content="替换Ctrl + H 进行替换 安装 Package Control1import urllib.request,os,hashlib; h = &apos;6f4c264a24d933ce70df5dedcf1dcaee&apos; + &apos;ebe013ee18cced0ef93d5f746d80ef60&apos;; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2018/02/25/Sublime使用/sbulime配置.png">
 <meta property="og:image" content="http://yoursite.com/2018/02/25/Sublime使用/settinguser.png">
 <meta property="og:image" content="http://yoursite.com/2018/02/25/Sublime使用/设置默认浏览器.png">
-<meta property="og:updated_time" content="2019-03-22T00:22:01.027Z">
+<meta property="og:updated_time" content="2019-03-27T00:46:53.770Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sublime使用">
-<meta name="twitter:description" content="替换Ctrl + H进行替换 安装 Package Control1import urllib.request,os,hashlib; h = &apos;6f4c264a24d933ce70df5dedcf1dcaee&apos; + &apos;ebe013ee18cced0ef93d5f746d80ef60&apos;; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.i">
+<meta name="twitter:description" content="替换Ctrl + H 进行替换 安装 Package Control1import urllib.request,os,hashlib; h = &apos;6f4c264a24d933ce70df5dedcf1dcaee&apos; + &apos;ebe013ee18cced0ef93d5f746d80ef60&apos;; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.">
 <meta name="twitter:image" content="http://yoursite.com/2018/02/25/Sublime使用/sbulime配置.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -90,7 +90,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h1><p>Ctrl + H进行替换</p>
+        <h1 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h1><p>Ctrl + H 进行替换</p>
 <h1 id="安装-Package-Control"><a href="#安装-Package-Control" class="headerlink" title="安装 Package Control"></a>安装 Package Control</h1><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request,os,hashlib; h = '<span class="number">6</span>f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.<span class="built_in">replace</span>(' ', '%<span class="number">20</span>')).read(); dh = hashlib.sha256(by).hexdigest(); <span class="built_in">print</span>('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) <span class="keyword">if</span> dh != h <span class="keyword">else</span> open(os.<span class="built_in">path</span>.join( ipp, pf), 'wb' ).write(by)</span><br></pre></td></tr></table></figure>
 <h2 id="常用插件"><a href="#常用插件" class="headerlink" title="常用插件"></a>常用插件</h2><ul>
 <li>Emmet：前端开发必备，Write less , show more，使用Tab键触发。安装Emmet后，可以输入少量代码后摁Tab键，系统自动补全代码。</li>
@@ -173,7 +173,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/25/Sublime使用/" data-id="cjtifr8ym000ywguqu00xo425" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/25/Sublime使用/" data-id="cjtxlywc8000p00uq4og9nkaj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -232,7 +232,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
   </div>
 
@@ -245,6 +245,14 @@
       <ul>
         
           <li>
+            <a href="/2019/04/01/CSS入门及提高/example/学成网/index/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/28/mysql使用/">&#39;mysql使用&#39;</a>
+          </li>
+        
+          <li>
             <a href="/2019/03/22/CSS入门及提高/example/25 使用双伪元素清除浮动/">(no title)</a>
           </li>
         
@@ -254,14 +262,6 @@
         
           <li>
             <a href="/2019/03/22/CSS入门及提高/example/23 两列左窄右宽布局/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/22/CSS入门及提高/example/22 横向布局/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/window/">(no title)</a>
           </li>
         
       </ul>

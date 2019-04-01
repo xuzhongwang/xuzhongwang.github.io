@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*初始化部分*/
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		ul {
+			list-style: none;
+		}
+		.clearfix:before,.clearfix:after { /*清除浮动*/
+			display: table;
+			content: "";
+		}
+		.clearfix:after {
+			clear: both;
+		}
+		.clearfix {
+			*zoom:1;
+		}
+		a {
+			color: #333;
+			font-size: 16px;
+			text-decoration: none;
+		}
+		/*页面头部分*/
+		header {
+			margin-top: 20px;		
+		}
+		.top_bar {
+			background-color: #fe9630;
+			height: 40px;
+		}
+		.top_box {
+			width: 1200px;			
+			margin: 0 auto;			
+		}
+		nav {
+			width: 1200px;
+			height: 80px;
+			margin: 20px auto 0;
+		}
+		.logo {
+			float: left;
+		}
+		.navbar {
+			height: 80px;
+			line-height: 80px;		
+		}
+		.navbar ul {
+			margin-left: 257px;
+		}
+		.navbar li {
+			float: left;
+			font-size: 16px;
+			color: #333;
+			padding: 0 17px;
+
+		}
+		.navbar li:hover {
+			background-color: #fe9630;
+		}
+		.banner {
+			height: 360px;
+			background-color: #fadc30;
+		}
+		.banner-in {
+			height: 360px;
+			background: url(images/background_banner.png) 0 0 no-repeat;
+			background-position: center;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div class="top_bar">
+			<div class="top_box"></div>
+		</div>		
+		<nav>
+			<div class="logo">
+				<img src="images/logo.png" >
+			</div>
+			<div class="navbar">
+				<ul>
+					<li><a href="#">首页</a></li>
+					<li><a href="#">精品课程</a></li>
+					<li><a href="#">名师团队</a></li>
+					<li><a href="#">资讯公告</a></li>
+					<li><a href="#">官方授权店铺</a></li>
+					<li><a href="#">加盟信息</a></li>
+					<li><a href="#">上岸学员展示</a></li>
+					<li><a href="#">关于我们</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<div class="banner">
+		<div class="banner-in"></div>
+	</div>
+</body>
+</html>

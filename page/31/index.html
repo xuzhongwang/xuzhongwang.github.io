@@ -62,6 +62,143 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-权限系统" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/30/权限系统/" class="article-date">
+  <time datetime="2018-09-30T07:07:17.000Z" itemprop="datePublished">2018-09-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/30/权限系统/">权限系统</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="RBAC基本概念"><a href="#RBAC基本概念" class="headerlink" title="RBAC基本概念"></a>RBAC基本概念</h1><p>基于角色的权限访问控制（Role-Based Access Control）作为传统访问控制（自主访问，强制访问）的有前景的代替受到广泛的关注。</p>
+<p>RBAC 支持三个著名的安全原则：最小权限原则、责任分离原则和数据抽象原则</p>
+<ul>
+<li>最小权限原则之所以被 RBAC 所支持，是因为 RBAC 可以将其角色配置成其完成任务所需要的最小的权限集。</li>
+<li>责任分离原则可以通过调用相互独立互斥的角色来共同完成敏感的任务而体现，比如要求同一个计账员和财务管理员共同参与同一过账。</li>
+<li>数据抽象可以通过权限的抽象来体现，如账务操作用借款、存款等抽象权限，而不用操作系统提供的典型读、写、执行权限。然而这些原则必须通过 RBAC 各部件的详细配置才能得以体现。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/09/30/权限系统/" data-id="cjtxlywei001b00uq1vq03ztv" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-CSS-Web高级程序设计" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/16/CSS-Web高级程序设计/" class="article-date">
+  <time datetime="2018-08-16T02:25:57.000Z" itemprop="datePublished">2018-08-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/16/CSS-Web高级程序设计/">CSS-Web高级程序设计</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-有关-XHTML-和-CSS-的最佳实例"><a href="#1-有关-XHTML-和-CSS-的最佳实例" class="headerlink" title="1. 有关 XHTML 和 CSS 的最佳实例"></a>1. 有关 XHTML 和 CSS 的最佳实例</h1><h2 id="1-1-把结构和表现标记硬挤到一起"><a href="#1-1-把结构和表现标记硬挤到一起" class="headerlink" title="1.1. 把结构和表现标记硬挤到一起"></a>1.1. 把结构和表现标记硬挤到一起</h2><h2 id="1-2-学习并热衷于使用标记"><a href="#1-2-学习并热衷于使用标记" class="headerlink" title="1.2. 学习并热衷于使用标记"></a>1.2. 学习并热衷于使用标记</h2><h3 id="1-2-1-XHTML：新热点"><a href="#1-2-1-XHTML：新热点" class="headerlink" title="1.2.1. XHTML：新热点"></a>1.2.1. XHTML：新热点</h3><p>HTML 有块级元素(如div、p、table等)和内联元素(如a、em、strong等)之分，内联元素永远不能包含块级元素。</p>
+<p>XHTML 特点</p>
+<ul>
+<li>DOCTYPE 声明</li>
+<li>保持标记具有良好的架构</li>
+<li>关闭每一个元素</li>
+<li>把元素和属性值设置为小写</li>
+<li>必须为每个属性指定一个值</li>
+</ul>
+<h3 id="1-2-2-从结构提取样式"><a href="#1-2-2-从结构提取样式" class="headerlink" title="1.2.2. 从结构提取样式"></a>1.2.2. 从结构提取样式</h3><h2 id="1-3-CSS-添加样式层"><a href="#1-3-CSS-添加样式层" class="headerlink" title="1.3. CSS:添加样式层"></a>1.3. CSS:添加样式层</h2><h3 id="1-3-1-更好的了解选择符"><a href="#1-3-1-更好的了解选择符" class="headerlink" title="1.3.1. 更好的了解选择符"></a>1.3.1. 更好的了解选择符</h3><p><img src="/2018/08/16/CSS-Web高级程序设计/简单的样式规则范例.png" alt="简单的样式规则范例"></p>
+<ul>
+<li>1.类型选择符</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line"><span class="attribute">color</span>:<span class="number">#36C</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>2.通配选择符</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* &#123;</span><br><span class="line"><span class="attribute">color</span>:<span class="number">#000</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>3.后代选择符</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ul</span> <span class="selector-tag">em</span> &#123;</span><br><span class="line"><span class="attribute">text-transform</span>:uppercase;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>4.类选择符</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.text</span> &#123;</span><br><span class="line">    <span class="attribute">border</span>:<span class="number">1px</span> solid :<span class="number">#C00</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>5.id选择符</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> <span class="selector-id">#page-title</span> &#123;</span><br><span class="line">    <span class="attribute">text-align</span>:right;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="1-3-2-其他选择符"><a href="#1-3-2-其他选择符" class="headerlink" title="1.3.2. 其他选择符"></a>1.3.2. 其他选择符</h3><ul>
+<li>1.子选择符</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span>&gt;<span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">font-weight</span>:bold;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>大于符号 &gt; 指示用户代理选择子一级的所有 p 元素而不是所有后代。</p>
+<ul>
+<li>2.属性选择符</li>
+</ul>
+<p><img src="/2018/08/16/CSS-Web高级程序设计/属性选择符.png" alt="属性选择符"></p>
+<p><img src="/2018/08/16/CSS-Web高级程序设计/属性选择符进一步说明.png" alt="属性选择符"></p>
+<h3 id="1-3-3-多重声明组合"><a href="#1-3-3-多重声明组合" class="headerlink" title="1.3.3. 多重声明组合"></a>1.3.3. 多重声明组合</h3><h3 id="1-3-4-对选择符进行分组"><a href="#1-3-4-对选择符进行分组" class="headerlink" title="1.3.4. 对选择符进行分组"></a>1.3.4. 对选择符进行分组</h3><h3 id="1-3-5-继承"><a href="#1-3-5-继承" class="headerlink" title="1.3.5. 继承"></a>1.3.5. 继承</h3><p><img src="/2018/08/16/CSS-Web高级程序设计/标记文档树.png" alt="属性选择符"></p>
+<ul>
+<li>1.检查元素的层次</li>
+</ul>
+<p>不是氖属性都可以继承，外边距和内边距就是两个例外。这些属性只能单独应用于某个元素，而不能被其后代继承。</p>
+<ul>
+<li>2.重写继承</li>
+</ul>
+<h3 id="1-3-6-综合应用"><a href="#1-3-6-综合应用" class="headerlink" title="1.3.6. 综合应用"></a>1.3.6. 综合应用</h3><h2 id="1-4-了解层叠"><a href="#1-4-了解层叠" class="headerlink" title="1.4. 了解层叠"></a>1.4. 了解层叠</h2><h3 id="1-4-1-探寻样式来源"><a href="#1-4-1-探寻样式来源" class="headerlink" title="1.4.1. 探寻样式来源"></a>1.4.1. 探寻样式来源</h3><p>样式表三个方面来源</p>
+<ul>
+<li>用户代理</li>
+<li>用户</li>
+<li>作者</li>
+</ul>
+<p><img src="/2018/08/16/CSS-Web高级程序设计/样式重要排序.png" alt="样式重要排序"></p>
+<h3 id="1-4-2-根据优先级排序"><a href="#1-4-2-根据优先级排序" class="headerlink" title="1.4.2. 根据优先级排序"></a>1.4.2. 根据优先级排序</h3><h2 id="把理论应用于实践"><a href="#把理论应用于实践" class="headerlink" title="把理论应用于实践"></a>把理论应用于实践</h2><h3 id="基于可靠浏览器进行构建"><a href="#基于可靠浏览器进行构建" class="headerlink" title="基于可靠浏览器进行构建"></a>基于可靠浏览器进行构建</h3><p>CSS hack：基于不同浏览器写不同CSS代码的过程</p>
+<h3 id="理性对待-hack"><a href="#理性对待-hack" class="headerlink" title="理性对待 hack"></a>理性对待 hack</h3><p><img src="/2018/08/16/CSS-Web高级程序设计/box模型.png" alt="box模型"></p>
+<h1 id="Google-的-blogger-com-翻转器和设计思想"><a href="#Google-的-blogger-com-翻转器和设计思想" class="headerlink" title="Google 的 blogger.com 翻转器和设计思想"></a>Google 的 blogger.com 翻转器和设计思想</h1><h2 id="设计人员访谈"><a href="#设计人员访谈" class="headerlink" title="设计人员访谈"></a>设计人员访谈</h2><h2 id="CSS-驱动的翻转器"><a href="#CSS-驱动的翻转器" class="headerlink" title="CSS 驱动的翻转器"></a>CSS 驱动的翻转器</h2><h3 id="改变链接的颜色和背景色（简单）"><a href="#改变链接的颜色和背景色（简单）" class="headerlink" title="改变链接的颜色和背景色（简单）"></a>改变链接的颜色和背景色（简单）</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">a &#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">border-bottom</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#eee</span>;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">color</span>: <span class="selector-id">#d17e62</span>;</span></span><br><span class="line"><span class="undefined">    text-decoration: none;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css"><span class="selector-tag">a</span><span class="selector-pseudo">:visited</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">border-bottom</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#eee</span>;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">color</span>: <span class="selector-id">#09d604c</span>;</span></span><br><span class="line"><span class="undefined">    text-decoration: none;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">background-color</span>: <span class="selector-id">#ffffda</span>;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">border-bottom</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#ddd</span>;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">color</span>: <span class="selector-id">#c30</span>;</span></span><br><span class="line"><span class="undefined">    text-decoration: none;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>If you're interested then<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span>bung me an email<span class="tag">&lt;/<span class="name">a</span>&gt;</span> and we can talk about what you want<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="改变链接的颜色和背景色（复杂）"><a href="#改变链接的颜色和背景色（复杂）" class="headerlink" title="改变链接的颜色和背景色（复杂）"></a>改变链接的颜色和背景色（复杂）</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/16/CSS-Web高级程序设计/" data-id="cjtxlywb9000b00uq9g8rw8dt" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Web前端开发环境搭建" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/08/11/Web前端开发环境搭建/" class="article-date">
@@ -102,7 +239,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/11/Web前端开发环境搭建/" data-id="cjtifr91v001hwguqzvriscio" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/11/Web前端开发环境搭建/" data-id="cjtxlywdq000w00uqs6p1uoiw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -156,11 +293,42 @@
 <h2 id="dom-对象转换成-jQuery"><a href="#dom-对象转换成-jQuery" class="headerlink" title="dom 对象转换成 jQuery"></a>dom 对象转换成 jQuery</h2><p>对于已经是一个DOM对象，只需要用$()把DOM对象包装起来，就可以获得一个jQuery对象了。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> v=<span class="built_in">document</span>.getElementById(<span class="string">"v"</span>); <span class="comment">//DOM对象</span></span><br><span class="line"><span class="keyword">var</span> $v=$(v); <span class="comment">//jQuery对象</span></span><br></pre></td></tr></table></figure>
 <h1 id="data"><a href="#data" class="headerlink" title="$.data()"></a>$.data()</h1><p>$.data(dom对象, ‘tree’);</p>
+<h1 id="extend-的深拷贝和浅拷贝详细讲解"><a href="#extend-的深拷贝和浅拷贝详细讲解" class="headerlink" title="$.extend()的深拷贝和浅拷贝详细讲解"></a>$.extend()的深拷贝和浅拷贝详细讲解</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">语法：jQuery.extend([deep],target,object1[,objectN])</span><br></pre></td></tr></table></figure>
+<ul>
+<li>浅拷贝（false默认):如果第二个参数对象有的属性第一个参数对象也有，那么不会进行相同参数内部比较，直接将第一个对象的相同参数覆盖。</li>
+<li>深拷贝：如果第二个参数对象有的属性第一个参数对象也有，还要继续在这个相同的参数向下一层找，比较相同参数的对象中是否还有一样的属性，如果有，将其继承到第一个对象，如果没有，则覆盖。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> object1 = &#123;</span><br><span class="line">    apple: <span class="number">0</span>,</span><br><span class="line">    banana: &#123;</span><br><span class="line">        weight: <span class="number">52</span>,</span><br><span class="line">        price: <span class="number">100</span></span><br><span class="line">    &#125;,</span><br><span class="line">    cherry: <span class="number">97</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> object2 = &#123;</span><br><span class="line">    banana: &#123;</span><br><span class="line">        price: <span class="number">200</span></span><br><span class="line">    &#125;,</span><br><span class="line">    durian: <span class="number">100</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//默认情况浅拷贝</span></span><br><span class="line"><span class="comment">//object1---&gt;&#123;"apple":0,"banana":&#123;"price":200&#125;,"cherry":97,"durian":100&#125;</span></span><br><span class="line"><span class="comment">//object2的banner覆盖了object1的banner，但是weight属性未被继承</span></span><br><span class="line"><span class="comment">//$.extend(object1, object2);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//深拷贝</span></span><br><span class="line"><span class="comment">//object1---&gt;&#123;"apple":0,"banana":&#123;"weight":52,"price":200&#125;,"cherry":97,"durian":100&#125;</span></span><br><span class="line"><span class="comment">//object2的banner覆盖了object1的banner，但是weight属性也被继承了呦</span></span><br><span class="line">$.extend(<span class="literal">true</span>,object1, object2);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'object1---&gt;'</span>+<span class="built_in">JSON</span>.stringify(object1));</span><br></pre></td></tr></table></figure>
+<h1 id="jQuery-的应用"><a href="#jQuery-的应用" class="headerlink" title="jQuery 的应用"></a>jQuery 的应用</h1><h2 id="each的用法"><a href="#each的用法" class="headerlink" title="$.each的用法"></a>$.each的用法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$.each(parentData,<span class="function"><span class="keyword">function</span>(<span class="params">index,childData</span>)</span>&#123;</span><br><span class="line">    index ;     <span class="comment">//选择器的index位置 </span></span><br><span class="line">    childData;  <span class="comment">//当前元素</span></span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+<h1 id="checkbox"><a href="#checkbox" class="headerlink" title="checkbox"></a>checkbox</h1><p>1、获取单个checkbox选中项(三种写法)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"input:checkbox:checked"</span>).val()</span><br><span class="line">$(<span class="string">"input:[type='checkbox']:checked"</span>).val();</span><br><span class="line">$(<span class="string">"input:[name='ck']:checked"</span>).val();</span><br></pre></td></tr></table></figure>
+<p>2、 获取多个checkbox选中项</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'input:checkbox'</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> ($(<span class="keyword">this</span>).attr(<span class="string">'checked'</span>) ==<span class="literal">true</span>) &#123;</span><br><span class="line">                alert($(<span class="keyword">this</span>).val());</span><br><span class="line">        &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>3、设置第一个checkbox 为选中值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'input:checkbox:first'</span>).attr(<span class="string">"checked"</span>,<span class="string">'checked'</span>);</span><br><span class="line">$(<span class="string">'input:checkbox'</span>).eq(<span class="number">0</span>).attr(<span class="string">"checked"</span>,<span class="string">'true'</span>);</span><br></pre></td></tr></table></figure>
+<p>4、设置最后一个checkbox为选中值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'input:radio:last'</span>).attr(<span class="string">'checked'</span>, <span class="string">'checked'</span>);</span><br><span class="line">$(<span class="string">'input:radio:last'</span>).attr(<span class="string">'checked'</span>, <span class="string">'true'</span>);</span><br></pre></td></tr></table></figure>
+<p>5、根据索引值设置任意一个checkbox为选中值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'input:checkbox).eq(索引值).attr('</span>checked<span class="string">', '</span><span class="literal">true</span><span class="string">');索引值=0,1,2....</span></span><br><span class="line"><span class="string">$('</span>input:radio<span class="string">').slice(1,2).attr('</span>checked<span class="string">', '</span><span class="literal">true</span><span class="string">');</span></span><br></pre></td></tr></table></figure>
+<p>6、选中多个checkbox同时选中第1个和第2个的checkbox</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'input:radio'</span>).slice(<span class="number">0</span>,<span class="number">2</span>).attr(<span class="string">'checked'</span>,<span class="string">'true'</span>);</span><br></pre></td></tr></table></figure>
+<p>7、根据Value值设置checkbox为选中值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"input:checkbox[value='1']"</span>).attr(<span class="string">'checked'</span>,<span class="string">'true'</span>);</span><br></pre></td></tr></table></figure>
+<p>8、删除Value=1的checkbox</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"input:checkbox[value='1']"</span>).remove();</span><br></pre></td></tr></table></figure>
+<p>9、删除第几个checkbox</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"input:checkbox"</span>).eq(索引值).remove();索引值=<span class="number">0</span>,<span class="number">1</span>,<span class="number">2.</span>...</span><br><span class="line"><span class="comment">// 如删除第3个checkbox:</span></span><br><span class="line">$(<span class="string">"input:checkbox"</span>).eq(<span class="number">2</span>).remove();</span><br></pre></td></tr></table></figure>
+<p>10、遍历checkbox</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'input:checkbox'</span>).each(<span class="function"><span class="keyword">function</span> (<span class="params">index, domEle</span>) </span>&#123;</span><br><span class="line"><span class="comment">//写入代码</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>11、全部选中</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'input:checkbox'</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        $(<span class="keyword">this</span>).attr(<span class="string">'checked'</span>, <span class="literal">true</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>12、全部取消选择</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'input:checkbox'</span>).each(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        $(<span class="keyword">this</span>).attr(<span class="string">'checked'</span>,<span class="literal">false</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/09/JQuery源码解读/" data-id="cjtifr8xp000gwguqatq93dfo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/09/JQuery源码解读/" data-id="cjtxlywbg000e00uqgk2trusp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -260,7 +428,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/08/Emmet语法/" data-id="cjtifr8xb0007wguqwspv1jmf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/08/Emmet语法/" data-id="cjtxlywax000900uqlfbsn5ig" class="article-share-link">Share</a>
       
       
     </footer>
@@ -296,7 +464,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/08/理解JavaScript中的异步/" data-id="cjtifr8z4001cwguqkh7a3mdn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/08/理解JavaScript中的异步/" data-id="cjtxlywee001900uq3t9meseu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -404,7 +572,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/22/打造自己的linqProvider/" data-id="cjtifr8za001gwguqtxqm6nag" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/22/打造自己的linqProvider/" data-id="cjtxlywea001600uqmi65eloo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -445,6 +613,7 @@
 <li><p>不需要设置的属性可以省略，取默认值，但必须保留 font-size 与 font-family</p>
 </li>
 </ul>
+<h2 id="input提示"><a href="#input提示" class="headerlink" title="input提示"></a>input提示</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">placeholder</span>=<span class="string">"请输入内容"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
 <h1 id="3-选择器"><a href="#3-选择器" class="headerlink" title="3. 选择器"></a>3. 选择器</h1><h2 id="3-1-标签选择器（元素选择器）"><a href="#3-1-标签选择器（元素选择器）" class="headerlink" title="3.1. 标签选择器（元素选择器）"></a>3.1. 标签选择器（元素选择器）</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">标签名 &#123; 属性1:属性值1;属性2：属性值2&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="3-2-类选择器"><a href="#3-2-类选择器" class="headerlink" title="3.2. 类选择器"></a>3.2. 类选择器</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.类名 &#123;属性1:属性值1;属性2：属性值2&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="3-3-id-选择器"><a href="#3-3-id-选择器" class="headerlink" title="3.3. id 选择器"></a>3.3. id 选择器</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#id名 &#123;属性1:属性值1;属性2：属性值2&#125;</span><br></pre></td></tr></table></figure>
@@ -723,7 +892,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/21/CSS入门及提高/" data-id="cjtifr8xf000awguqkqrbhdh1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/21/CSS入门及提高/" data-id="cjtxlywam000400uqdo9g0u8b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -768,7 +937,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/18/从零做一个前端开源项目学习笔记/" data-id="cjtifr8yp0010wguq3qrb4ocs" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/18/从零做一个前端开源项目学习笔记/" data-id="cjtxlywdv000y00uqqe9javcb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -911,81 +1080,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/09/SQL Server编程入门经典/" data-id="cjtifr8ya000pwguq7s1kzgu1" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-CLR via C#学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/05/CLR via C#学习笔记/" class="article-date">
-  <time datetime="2018-07-05T00:49:53.470Z" itemprop="datePublished">2018-07-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="什么是CLR"><a href="#什么是CLR" class="headerlink" title="什么是CLR"></a>什么是CLR</h2><p>是一种可由多种编程语言共同使用的运行时。</p>
-<h2 id="CLR的核心功能"><a href="#CLR的核心功能" class="headerlink" title="CLR的核心功能"></a>CLR的核心功能</h2><p>内存管理、程序集加载、安全性、异常处理和线程同步</p>
-<h2 id="程序集"><a href="#程序集" class="headerlink" title="程序集"></a>程序集</h2><p>程序集是一个或多个模块\资源文件的逻辑性分组<br>程序集是重用、安全性以及版本控制的最小单元</p>
-<h2 id="IL的最大优势"><a href="#IL的最大优势" class="headerlink" title="IL的最大优势"></a>IL的最大优势</h2><p>IL的最大优势并不在于它对底层CPU的抽象。而在于其提供的应用程序的健壮性和安全性。</p>
-<h2 id="unsafe关键字"><a href="#unsafe关键字" class="headerlink" title="unsafe关键字"></a>unsafe关键字</h2><p>C#编译器要求包含不安全代码的所有方法都用unsafe关键字标记。</p>
-<h1 id="本地代码生成器：NGen-exe"><a href="#本地代码生成器：NGen-exe" class="headerlink" title="本地代码生成器：NGen.exe"></a>本地代码生成器：NGen.exe</h1>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/05/CLR via C#学习笔记/" data-id="cjtifr8x70005wguq6nhcg8p1" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-ModelUI for WPF" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/08/ModelUI for WPF/" class="article-date">
-  <time datetime="2018-03-08T00:53:36.000Z" itemprop="datePublished">2018-03-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/08/ModelUI for WPF/">ModelUI for WPF</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="使用ModelUI"><a href="#使用ModelUI" class="headerlink" title="使用ModelUI"></a>使用ModelUI</h1><h2 id="首先获取相关dll"><a href="#首先获取相关dll" class="headerlink" title="首先获取相关dll"></a>首先获取相关dll</h2><p>[github地址]：<a href="https://github.com/firstfloorsoftware/mui" target="_blank" rel="noopener">https://github.com/firstfloorsoftware/mui</a></p>
-<h2 id="在项目中添加引用"><a href="#在项目中添加引用" class="headerlink" title="在项目中添加引用"></a>在项目中添加引用</h2><p>在目录FirstFloor.ModernUI\FirstFloor.ModernUI\bin\Debug下找到FirstFloor.ModernUI.dll,添加到你所需要的wpf项目中</p>
-<p>在项目的App.xaml中添加如下代码</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Application</span> <span class="attr">x:Class</span>=<span class="string">"SuperRecite.App"</span></span></span><br><span class="line"><span class="tag">             <span class="attr">xmlns</span>=<span class="string">"http://schemas.microsoft.com/winfx/2006/xaml/presentation"</span></span></span><br><span class="line"><span class="tag">             <span class="attr">xmlns:x</span>=<span class="string">"http://schemas.microsoft.com/winfx/2006/xaml"</span></span></span><br><span class="line"><span class="tag">             <span class="attr">xmlns:local</span>=<span class="string">"clr-namespace:SuperRecite"</span></span></span><br><span class="line"><span class="tag">             <span class="attr">StartupUri</span>=<span class="string">"MainWindow.xaml"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Application.Resources</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ResourceDictionary</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">ResourceDictionary.MergedDictionaries</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ResourceDictionary</span> <span class="attr">Source</span>=<span class="string">"/FirstFloor.ModernUI;component/Assets/ModernUI.xaml"</span> /&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ResourceDictionary</span> <span class="attr">Source</span>=<span class="string">"/FirstFloor.ModernUI;component/Assets/ModernUI.Light.xaml"</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">ResourceDictionary.MergedDictionaries</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ResourceDictionary</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Application.Resources</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Application</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>在项目的主页面中添加引用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xmlns:mui=&quot;http://firstfloorsoftware.com/ModernUI&quot;</span><br></pre></td></tr></table></figure>
-<p> 主窗体后台改变继承的基类</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public partial class MainWindow : ModernWindow</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/08/ModelUI for WPF/" data-id="cjtifr8yc000qwguqhtivu4wa" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/09/SQL Server编程入门经典/" data-id="cjtxlywbv000k00uqnib0blzt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1032,7 +1127,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
   </div>
 
@@ -1045,6 +1140,14 @@
       <ul>
         
           <li>
+            <a href="/2019/04/01/CSS入门及提高/example/学成网/index/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/28/mysql使用/">&#39;mysql使用&#39;</a>
+          </li>
+        
+          <li>
             <a href="/2019/03/22/CSS入门及提高/example/25 使用双伪元素清除浮动/">(no title)</a>
           </li>
         
@@ -1054,14 +1157,6 @@
         
           <li>
             <a href="/2019/03/22/CSS入门及提高/example/23 两列左窄右宽布局/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/22/CSS入门及提高/example/22 横向布局/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/window/">(no title)</a>
           </li>
         
       </ul>

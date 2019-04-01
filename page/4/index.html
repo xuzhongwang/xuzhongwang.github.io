@@ -62,6 +62,228 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/layout" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/layout/" class="article-date">
+  <time datetime="2019-03-21T09:22:47.204Z" itemprop="datePublished">2019-03-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        .layout {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  z-index: 0;
+}
+.layout-panel {
+  position: absolute;
+  overflow: hidden;
+}
+.layout-body {
+  min-width: 1px;
+  min-height: 1px;
+}
+.layout-panel-east,
+.layout-panel-west {
+  z-index: 2;
+}
+.layout-panel-north,
+.layout-panel-south {
+  z-index: 3;
+}
+.layout-expand {
+  position: absolute;
+  padding: 0px;
+  font-size: 1px;
+  cursor: pointer;
+  z-index: 1;
+}
+.layout-expand .panel-header,
+.layout-expand .panel-body {
+  background: transparent;
+  filter: none;
+  overflow: hidden;
+}
+.layout-expand .panel-header {
+  border-bottom-width: 0px;
+}
+.layout-expand .panel-body {
+  position: relative;
+}
+.layout-expand .panel-body .panel-icon {
+  margin-top: 0;
+  top: 0;
+  left: 50%;
+  margin-left: -8px;
+}
+.layout-expand-west .panel-header .panel-icon,
+.layout-expand-east .panel-header .panel-icon {
+  display: none;
+}
+.layout-expand-title {
+  position: absolute;
+  top: 0;
+  left: 21px;
+  white-space: nowrap;
+  word-wrap: normal;
+  -webkit-transform: rotate(90deg);
+  -webkit-transform-origin: 0 0;
+  -moz-transform: rotate(90deg);
+  -moz-transform-origin: 0 0;
+  -o-transform: rotate(90deg);
+  -o-transform-origin: 0 0;
+  transform: rotate(90deg);
+  transform-origin: 0 0;
+}
+.layout-expand-title-up {
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: right;
+  padding-left: 5px;
+  white-space: nowrap;
+  word-wrap: normal;
+  -webkit-transform: rotate(-90deg);
+  -webkit-transform-origin: 0 0;
+  -moz-transform: rotate(-90deg);
+  -moz-transform-origin: 0 0;
+  -o-transform: rotate(-90deg);
+  -o-transform-origin: 0 0;
+  transform: rotate(-90deg);
+  transform-origin: 0 0;
+}
+.layout-expand-with-icon {
+  top: 18px;
+}
+.layout-expand .panel-body-noheader .layout-expand-title,
+.layout-expand .panel-body-noheader .panel-icon {
+  top: 5px;
+}
+.layout-expand .panel-body-noheader .layout-expand-with-icon {
+  top: 23px;
+}
+.layout-split-proxy-h,
+.layout-split-proxy-v {
+  position: absolute;
+  font-size: 1px;
+  display: none;
+  z-index: 5;
+}
+.layout-split-proxy-h {
+  width: 5px;
+  cursor: e-resize;
+}
+.layout-split-proxy-v {
+  height: 5px;
+  cursor: n-resize;
+}
+.layout-mask {
+  position: absolute;
+  background: #fafafa;
+  filter: alpha(opacity=10);
+  opacity: 0.10;
+  z-index: 4;
+}
+.layout-button-up {
+  background: url('images/layout_arrows.png') no-repeat -16px -16px;
+}
+.layout-button-down {
+  background: url('images/layout_arrows.png') no-repeat -16px 0;
+}
+.layout-button-left {
+  background: url('images/layout_arrows.png') no-repeat 0 0;
+}
+.layout-button-right {
+  background: url('images/layout_arrows.png') no-repeat 0 -16px;
+}
+.layout-split-proxy-h,
+.layout-split-proxy-v {
+  background-color: #b3b3b3;
+}
+.layout-split-north {
+  border-bottom: 5px solid #fff;
+}
+.layout-split-south {
+  border-top: 5px solid #fff;
+}
+.layout-split-east {
+  border-left: 5px solid #fff;
+}
+.layout-split-west {
+  border-right: 5px solid #fff;
+}
+.layout-expand {
+  background-color: #ffffff;
+}
+.layout-expand-over {
+  background-color: #ffffff;
+}
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/layout/" data-id="cjtxlyzw2008j00uqa2d9ld9n" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/filebox" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/filebox/" class="article-date">
+  <time datetime="2019-03-21T09:22:47.202Z" itemprop="datePublished">2019-03-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        .filebox .textbox-value {
+  vertical-align: top;
+  position: absolute;
+  top: 0;
+  left: -5000px;
+}
+.filebox-label {
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  background: url('images/blank.gif') no-repeat;
+}
+.l-btn-disabled .filebox-label {
+  cursor: default;
+}
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/filebox/" data-id="cjtxlyzw2008i00uqliog8w6w" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/easyui" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/easyui/" class="article-date">
@@ -3459,7 +3681,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/easyui/" data-id="cjtifrbfj009awguqaauc2wsl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/easyui/" data-id="cjtxlyzz8009d00uqb9bif50v" class="article-share-link">Share</a>
       
       
     </footer>
@@ -3532,7 +3754,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/dialog/" data-id="cjtifrbda008dwguqirs0tbs8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/dialog/" data-id="cjtxlyzvz008h00uqok36gby9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -3594,7 +3816,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/datebox/" data-id="cjtifrbd8008awguq4kmuncwp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/datebox/" data-id="cjtxlyzvs008c00uqn1ybnvli" class="article-share-link">Share</a>
       
       
     </footer>
@@ -3715,7 +3937,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/datalist/" data-id="cjtifrbd9008bwguq1fc7pa25" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/datalist/" data-id="cjtxlyzvw008f00uqr2wq9rm9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -4026,7 +4248,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/datagrid/" data-id="cjtifrbda008cwguqompfmln5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/datagrid/" data-id="cjtxlyzvy008g00uqfh3j3795" class="article-share-link">Share</a>
       
       
     </footer>
@@ -4092,7 +4314,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/combobox/" data-id="cjtifrbd70089wguqv07iu2q4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/combobox/" data-id="cjtxlyzvr008b00uquobzxhjt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -4153,7 +4375,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/combo/" data-id="cjtifrbd60087wguqy7n17azk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/combo/" data-id="cjtxlyzvq008a00uqy19txp4i" class="article-share-link">Share</a>
       
       
     </footer>
@@ -4210,351 +4432,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/checkbox/" data-id="cjtifrbd50086wguqagxbujlv" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/calendar" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/calendar/" class="article-date">
-  <time datetime="2019-03-21T09:22:47.161Z" itemprop="datePublished">2019-03-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        .calendar {
-  border-width: 1px;
-  border-style: solid;
-  padding: 1px;
-  overflow: hidden;
-}
-.calendar table {
-  table-layout: fixed;
-  border-collapse: separate;
-  font-size: 14px;
-  width: 100%;
-  height: 100%;
-}
-.calendar table td,
-.calendar table th {
-  font-size: 14px;
-}
-.calendar-noborder {
-  border: 0;
-}
-.calendar-header {
-  position: relative;
-  height: 28px;
-}
-.calendar-title {
-  text-align: center;
-  height: 28px;
-}
-.calendar-title span {
-  position: relative;
-  display: inline-block;
-  top: 0px;
-  padding: 0 3px;
-  height: 28px;
-  line-height: 28px;
-  font-size: 14px;
-  cursor: pointer;
-  -moz-border-radius: 0px 0px 0px 0px;
-  -webkit-border-radius: 0px 0px 0px 0px;
-  border-radius: 0px 0px 0px 0px;
-}
-.calendar-prevmonth,
-.calendar-nextmonth,
-.calendar-prevyear,
-.calendar-nextyear {
-  position: absolute;
-  top: 50%;
-  margin-top: -8px;
-  width: 16px;
-  height: 16px;
-  cursor: pointer;
-  font-size: 1px;
-  -moz-border-radius: 0px 0px 0px 0px;
-  -webkit-border-radius: 0px 0px 0px 0px;
-  border-radius: 0px 0px 0px 0px;
-}
-.calendar-prevmonth {
-  left: 20px;
-  background: url('images/calendar_arrows.png') no-repeat -16px 0;
-}
-.calendar-nextmonth {
-  right: 20px;
-  background: url('images/calendar_arrows.png') no-repeat -32px 0;
-}
-.calendar-prevyear {
-  left: 3px;
-  background: url('images/calendar_arrows.png') no-repeat 0px 0;
-}
-.calendar-nextyear {
-  right: 3px;
-  background: url('images/calendar_arrows.png') no-repeat -48px 0;
-}
-.calendar-body {
-  position: relative;
-}
-.calendar-body th,
-.calendar-body td {
-  text-align: center;
-}
-.calendar-day {
-  border: 0;
-  padding: 1px;
-  cursor: pointer;
-  -moz-border-radius: 0px 0px 0px 0px;
-  -webkit-border-radius: 0px 0px 0px 0px;
-  border-radius: 0px 0px 0px 0px;
-}
-.calendar-other-month {
-  opacity: 0.3;
-  filter: alpha(opacity=30);
-}
-.calendar-disabled {
-  opacity: 0.6;
-  filter: alpha(opacity=60);
-  cursor: default;
-}
-.calendar-menu {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 180px;
-  height: 150px;
-  padding: 5px;
-  font-size: 14px;
-  display: none;
-  overflow: hidden;
-}
-.calendar-menu-year-inner {
-  text-align: center;
-  padding-bottom: 5px;
-}
-.calendar-menu-year {
-  width: 80px;
-  line-height: 26px;
-  text-align: center;
-  border-width: 1px;
-  border-style: solid;
-  outline-style: none;
-  resize: none;
-  margin: 0;
-  padding: 0;
-  font-weight: bold;
-  font-size: 14px;
-  -moz-border-radius: 0px 0px 0px 0px;
-  -webkit-border-radius: 0px 0px 0px 0px;
-  border-radius: 0px 0px 0px 0px;
-}
-.calendar-menu-prev,
-.calendar-menu-next {
-  display: inline-block;
-  width: 25px;
-  height: 28px;
-  vertical-align: top;
-  cursor: pointer;
-  -moz-border-radius: 0px 0px 0px 0px;
-  -webkit-border-radius: 0px 0px 0px 0px;
-  border-radius: 0px 0px 0px 0px;
-}
-.calendar-menu-prev {
-  margin-right: 10px;
-  background: url('images/calendar_arrows.png') no-repeat 5px center;
-}
-.calendar-menu-next {
-  margin-left: 10px;
-  background: url('images/calendar_arrows.png') no-repeat -44px center;
-}
-.calendar-menu-month {
-  text-align: center;
-  cursor: pointer;
-  font-weight: bold;
-  -moz-border-radius: 0px 0px 0px 0px;
-  -webkit-border-radius: 0px 0px 0px 0px;
-  border-radius: 0px 0px 0px 0px;
-}
-.calendar-body th,
-.calendar-menu-month {
-  color: #919191;
-}
-.calendar-day {
-  color: #444;
-}
-.calendar-sunday {
-  color: #CC2222;
-}
-.calendar-saturday {
-  color: #00ee00;
-}
-.calendar-today {
-  color: #0000ff;
-}
-.calendar-menu-year {
-  border-color: #ddd;
-}
-.calendar {
-  border-color: #ddd;
-}
-.calendar-header {
-  background: #ffffff;
-}
-.calendar-body,
-.calendar-menu {
-  background: #fff;
-}
-.calendar-body th {
-  background: #fff;
-  padding: 4px 0;
-}
-.calendar-hover,
-.calendar-nav-hover,
-.calendar-menu-hover {
-  background-color: #E6E6E6;
-  color: #444;
-}
-.calendar-hover {
-  border: 1px solid #ddd;
-  padding: 0;
-}
-.calendar-selected {
-  background-color: #CCE6FF;
-  color: #000;
-  border: 1px solid #99cdff;
-  padding: 0;
-}
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/calendar/" data-id="cjtifrbd40085wguqvksuynx5" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/accordion" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/accordion/" class="article-date">
-  <time datetime="2019-03-21T09:22:47.157Z" itemprop="datePublished">2019-03-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        .accordion {
-  overflow: hidden;
-  border-width: 1px;
-  border-style: solid;
-}
-.accordion .accordion-header {
-  border-width: 0 0 1px;
-  cursor: pointer;
-}
-.accordion .accordion-body {
-  border-width: 0 0 1px;
-}
-.accordion-noborder {
-  border-width: 0;
-}
-.accordion-noborder .accordion-header {
-  border-width: 0 0 1px;
-}
-.accordion-noborder .accordion-body {
-  border-width: 0 0 1px;
-}
-.accordion-collapse {
-  background: url('images/accordion_arrows.png') no-repeat 0 0;
-}
-.accordion-expand {
-  background: url('images/accordion_arrows.png') no-repeat -16px 0;
-}
-.accordion {
-  background: #fff;
-  border-color: #ddd;
-}
-.accordion .accordion-header {
-  background: #ffffff;
-  filter: none;
-}
-.accordion .accordion-header-selected {
-  background: #CCE6FF;
-}
-.accordion .accordion-header-selected .panel-title {
-  color: #000;
-}
-.accordion .panel-last > .accordion-header {
-  border-bottom-color: #ffffff;
-}
-.accordion .panel-last > .accordion-body {
-  border-bottom-color: #fff;
-}
-.accordion .panel-last > .accordion-header-selected,
-.accordion .panel-last > .accordion-header-border {
-  border-bottom-color: #ddd;
-}
-.accordion> .panel-hleft {
-  float: left;
-}
-.accordion> .panel-hleft>.panel-header {
-  border-width: 0 1px 0 0;
-}
-.accordion> .panel-hleft> .panel-body {
-  border-width: 0 1px 0 0;
-}
-.accordion> .panel-hleft.panel-last > .accordion-header {
-  border-right-color: #ffffff;
-}
-.accordion> .panel-hleft.panel-last > .accordion-body {
-  border-right-color: #fff;
-}
-.accordion> .panel-hleft.panel-last > .accordion-header-selected,
-.accordion> .panel-hleft.panel-last > .accordion-header-border {
-  border-right-color: #ddd;
-}
-.accordion> .panel-hright {
-  float: right;
-}
-.accordion> .panel-hright>.panel-header {
-  border-width: 0 0 0 1px;
-}
-.accordion> .panel-hright> .panel-body {
-  border-width: 0 0 0 1px;
-}
-.accordion> .panel-hright.panel-last > .accordion-header {
-  border-left-color: #ffffff;
-}
-.accordion> .panel-hright.panel-last > .accordion-body {
-  border-left-color: #fff;
-}
-.accordion> .panel-hright.panel-last > .accordion-header-selected,
-.accordion> .panel-hright.panel-last > .accordion-header-border {
-  border-left-color: #ddd;
-}
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/accordion/" data-id="cjtifrbd70088wguqethomrtc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/checkbox/" data-id="cjtxlyzvk008600uqf2goujuz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -4601,7 +4479,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
   </div>
 
@@ -4614,6 +4492,14 @@
       <ul>
         
           <li>
+            <a href="/2019/04/01/CSS入门及提高/example/学成网/index/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/28/mysql使用/">&#39;mysql使用&#39;</a>
+          </li>
+        
+          <li>
             <a href="/2019/03/22/CSS入门及提高/example/25 使用双伪元素清除浮动/">(no title)</a>
           </li>
         
@@ -4623,14 +4509,6 @@
         
           <li>
             <a href="/2019/03/22/CSS入门及提高/example/23 两列左窄右宽布局/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/22/CSS入门及提高/example/22 横向布局/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/window/">(no title)</a>
           </li>
         
       </ul>
