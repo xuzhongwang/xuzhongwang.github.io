@@ -7,19 +7,17 @@
   
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Ribbon 	 	 	 	 	 	 	  	 		$(function(){ 			var data = {			 				tabs:[{ 					title:&quot;Home&quot;, 					groups:[{ 						title:&quot;ClipBoard&quot;, 						rows:[{ 							columns:[{ 								type:&quot;splitbutton&quot;,">
+  <meta name="description" content=".ribbon-group  { 		float: left; 		height: 120px; 		margin: 10px 0px 5px 10px; 		border-left: 1px solid #fff;  		border-right: 1px solid #ccc;	 	}  	.ribbon-toolbar { 		height: 90px; 		/*padding-left:">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/myribbon/MyRibbon/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/myribbon/myribbon/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Ribbon 	 	 	 	 	 	 	  	 		$(function(){ 			var data = {			 				tabs:[{ 					title:&quot;Home&quot;, 					groups:[{ 						title:&quot;ClipBoard&quot;, 						rows:[{ 							columns:[{ 								type:&quot;splitbutton&quot;,">
+<meta property="og:description" content=".ribbon-group  { 		float: left; 		height: 120px; 		margin: 10px 0px 5px 10px; 		border-left: 1px solid #fff;  		border-right: 1px solid #ccc;	 	}  	.ribbon-toolbar { 		height: 90px; 		/*padding-left:">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/myribbon/images/32/picture.png">
-<meta property="og:updated_time" content="2019-03-27T04:42:02.660Z">
+<meta property="og:updated_time" content="2019-03-27T00:48:19.734Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="Ribbon 	 	 	 	 	 	 	  	 		$(function(){ 			var data = {			 				tabs:[{ 					title:&quot;Home&quot;, 					groups:[{ 						title:&quot;ClipBoard&quot;, 						rows:[{ 							columns:[{ 								type:&quot;splitbutton&quot;,">
-<meta name="twitter:image" content="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/myribbon/images/32/picture.png">
+<meta name="twitter:description" content=".ribbon-group  { 		float: left; 		height: 120px; 		margin: 10px 0px 5px 10px; 		border-left: 1px solid #fff;  		border-right: 1px solid #ccc;	 	}  	.ribbon-toolbar { 		height: 90px; 		/*padding-left:">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -66,10 +64,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-EasyUI-插件开发/jquery-easyui-ribbon/myribbon/MyRibbon" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-EasyUI-插件开发/jquery-easyui-ribbon/myribbon/myribbon" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/myribbon/MyRibbon/" class="article-date">
-  <time datetime="2019-03-21T09:22:45.246Z" itemprop="datePublished">2019-03-21</time>
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/myribbon/myribbon/" class="article-date">
+  <time datetime="2019-03-21T09:22:45.243Z" itemprop="datePublished">2019-03-21</time>
 </a>
     
   </div>
@@ -78,147 +76,171 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Ribbon</title>
-	<link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">
-	<link rel="stylesheet" type="text/css" href="../themes/icon.css">
-	<link rel="stylesheet" type="text/css" href="../ribbon-icon.css">
-	<link rel="stylesheet" type="text/css" href="myribbon.css">
-	<script type="text/javascript" src="../jquery.min.js"></script>
-	<script type="text/javascript" src="../jquery.easyui.min.js"></script>
-	<script type="text/javascript" src="jquery.myRibbon.js"></script>
+        	.ribbon-group  {
+		float: left;
+		height: 120px;
+		margin: 10px 0px 5px 10px;
+		border-left: 1px solid #fff; 
+		border-right: 1px solid #ccc;	
+	}
 
-	<script type="text/javascript">
-		$(function(){
-			var data = {			
-				tabs:[{
-					title:"Home",
-					groups:[{
-						title:"ClipBoard",
-						rows:[{
-							columns:[{
-								type:"splitbutton",
-								name:'paste',
-								text:'Paste',
-								iconCls:'icon-paste-large',
-								iconAlign:'top',
-								size:'large',
-								menuItems:[{
-									name:'paste',
-									text:'Paste',
-									iconCls:'icon-paste'
-								},{
-									name:'paste-special',
-									text:'Paste Special...',
-									iconCls:'icon-paste'
-								}]
-							},{
-								type:"toolbar",
-								items:[
-									{
-										name:'cut',
-										text:'Cut',
-										iconCls:'icon-cut',
-										plain:true,
-										onClick:function(name,e){
-											alert("cut");
-										}
-									},{
-										name:"Copy",
-										text:'Copy',
-										iconCls:'icon-copy',
-										plain:true
-									},{
-										name:'format',
-										text:'Format',
-										iconCls:'icon-format',
-										plain:true
-									}
-								]
-							}]
-						}]
-					},{
-						title:"Font",
-					},{
-						title:"Paragraph",
-					}
-					]
-				},{
-					title:"Insert"
-				}]
-			};
-			var opts = $("#myribbon").ribbon({data:data});
-		})
-	</script>
-</head>
-<body>
-<div id="myribbon"></div>
-<!-- <div id="testribbon">
-	<div class="easyui-tabs">
-		<div title="Home" >
-			<div class="ribbon-group">
-				<div class="ribbon-toolbar"></div>
-				<div class="ribbon-title">ClipBoard</div>
-			</div>
-		</div>
-		<div title="Insert" ></div>
-	</div>
-</div> -->
-<div>
-	<div class="easyui-tabs">
-		<div title="Home" style="overflow:hidden">
-			<div class="ribbon-group">
-				<div class="ribbon-toolbar">
-					<div class="ribbon-row">
-						<div class="ribbon-column">
-						<a class="easyui-splitbutton" data-options="menu:'#mm1',iconCls:'icon-paste-large',iconAlign:'top',size:'large' ">Paste</a>
-					</div>
-					<div class="ribbon-column">			
-						<li>
-							<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-cut'">Cut</a>
-						</li>
-						<li>
-							<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-copy'">Copy</a>
-						</li>
-						<li>
-							<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-format'">Format</a>
-						</li>
-					</div>
-					</div>
-				</div>
-				<div class="ribbon-title">ClipBoard</div>
-			</div>
-			<div class="ribbon-group">		
-				<div class="ribbon-toolbar">						
-					<div class="ribbon-row">
-						<div class="ribbon-column">
-							<a class="easyui-combobox" data-options="textField:'text',data:[{text:'Arial',selected:true},{text:'Century'},{text:'Tahoma'}],width:100"></a>
-						</div>
-						<div class="ribbon-column">
-							<div class="easyui-combobox" data-options="textField:'text',data:[{text:'8'},{text:'12',selected:true},{text:'14'}],width:100"></div>
-						</div>
-						<div class="ribbon-column">
-							<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-increase-font'"></a>
-						</div>
-						<div class="ribbon-column">
-							<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-decrease-font'"></a>
-						</div>
-					</div>
-					<div class="ribbon-row">
-						<div class="ribbon-column">
-							<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-bold'"></a>
-						</div>
-						<div class="ribbon-column">
-							<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-italic'"></a>
-						</div>
-						<div class="ribbon-column">
-							<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-underline'"></a>
-						</div>
-						<div class="ribbon-column">
-							<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-strikethrough'"></a>
+	.ribbon-toolbar {
+		height: 90px;
+		/*padding-left: 10px;	*/
+		padding-right: 5px;
+	}
+	.ribbon-toolbar li {
+		list-style: none;
+		padding-left: 5px;	
+	}
+	.ribbon-row {
+
+	}
+	.ribbon-column {
+		float: left;	
+		margin-top: 3px;
+	}
+	.ribbon-title {
+		margin-top: 10px;
+		height: 20px;
+		text-align: center;
+		line-height: 20px;
+	}
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/myribbon/myribbon/" data-id="cju85ccyq00278suqutd618b6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/myribbon/MyRibbon/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/myribbon/myribbon-icon/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/04/03/CSS入门及提高/example/27 鼠标经过显示图片/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/02/CSS入门及提高/example/图片轮播/index/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/02/CSS入门及提高/example/26 绝对位置水平垂直居中/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/01/CSS入门及提高/example/学成网/index/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/28/mysql使用/">&#39;mysql使用&#39;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>s:'icon-strikethrough'"></a>
 						</div>
 						<div class="ribbon-column">
 							<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-superscript'"></a>
@@ -292,7 +314,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/myribbon/MyRibbon/" data-id="cjtxlyzkq002800uqcdek3w29" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/myribbon/MyRibbon/" data-id="cju85ccxx00248suqxs9s8h69" class="article-share-link">Share</a>
       
       
     </footer>
@@ -364,23 +386,23 @@
       <ul>
         
           <li>
+            <a href="/2019/04/03/CSS入门及提高/example/27 鼠标经过显示图片/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/02/CSS入门及提高/example/图片轮播/index/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/02/CSS入门及提高/example/26 绝对位置水平垂直居中/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2019/04/01/CSS入门及提高/example/学成网/index/">(no title)</a>
           </li>
         
           <li>
             <a href="/2019/03/28/mysql使用/">&#39;mysql使用&#39;</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/22/CSS入门及提高/example/25 使用双伪元素清除浮动/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/22/CSS入门及提高/example/24 通栏平均分布布局/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/22/CSS入门及提高/example/23 两列左窄右宽布局/">(no title)</a>
           </li>
         
       </ul>

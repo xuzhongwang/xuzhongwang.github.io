@@ -62,6 +62,232 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-CAD二次开发" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/25/CAD二次开发/" class="article-date">
+  <time datetime="2018-01-25T00:56:47.000Z" itemprop="datePublished">2018-01-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/25/CAD二次开发/">C#进行CAD二次开发</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近被公司分配到了做CAD二次开发。也是初次接触这方面的东西，其实是有些无从下手的感觉。因为公司这边也没有人有时间带我，只能是自己看书，然后再写一些Demo，再结合实际的应用来一点点的学习。废话不多说，推荐一本我入门的书籍，就是李冠亿先生的《深居浅出AutoCAD二次开发》,写的非常不错，把这本书中的Demo自己手写一遍大概就能知道CAD二次开发到底是个什么东西了。</p>
+<h1 id="1-开发环境配置"><a href="#1-开发环境配置" class="headerlink" title="1. 开发环境配置"></a>1. 开发环境配置</h1><h2 id="1-1-开发环境"><a href="#1-1-开发环境" class="headerlink" title="1.1. 开发环境"></a>1.1. 开发环境</h2><ul>
+<li>Win10 x64</li>
+<li>CAD 2010</li>
+<li>Visual Studio 2012</li>
+</ul>
+<h2 id="1-2-环境配置"><a href="#1-2-环境配置" class="headerlink" title="1.2. 环境配置"></a>1.2. 环境配置</h2><ol>
+<li>首先要安装CAD软件</li>
+<li>用Visual Studio新建一个类库项目。</li>
+<li>需要添加常用的引用，在CAD目录下，下面介绍三个主要的DLL文件</li>
+</ol>
+<ul>
+<li>AcDbMgd.dll 当处理图形文件中存储对象时引用。</li>
+<li>AcMgd.dll 当处理AutoCAD应用程序和用户接口时引用。</li>
+<li>AcGui.dll 当处理自定义文件时引用。</li>
+</ul>
+<h1 id="2-程序与调试"><a href="#2-程序与调试" class="headerlink" title="2. 程序与调试"></a>2. 程序与调试</h1><h2 id="2-1-写第一个程序"><a href="#2-1-写第一个程序" class="headerlink" title="2.1. 写第一个程序"></a>2.1. 写第一个程序</h2><ol>
+<li>在刚刚创建的类库中添加一个类</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public class FisrtCADTest</span><br><span class="line">&#123;</span><br><span class="line">    [CommandMethod(&quot;Hello&quot;)]</span><br><span class="line">    public void Hello</span><br><span class="line">    &#123;</span><br><span class="line">        Document acDoc = Application.DocumentManager.MdiActiveDocument;</span><br><span class="line">        Editor ed = acDoc.Editor;</span><br><span class="line">        ed.WriteMessage(&quot;Hello World！&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>编译这个程序</li>
+<li>启动CAD在命令行中输入netload,然后在打开的窗口中找到刚编译的程序的dll,加载后在命令行输入Hello，猜猜会出现什么？没错，你的第一个CAD二次开发的程序已经完美运行了。</li>
+</ol>
+<h2 id="2-2-如何调试程序"><a href="#2-2-如何调试程序" class="headerlink" title="2.2. 如何调试程序"></a>2.2. 如何调试程序</h2><p>书中介绍了一种方法，不再赘述，下面来说一下我常用的方法<br>在解决方案资源管理器中右击解决方案，选择“添加”-“现有项目”<br><img src="/2018/01/25/CAD二次开发/add_debug_cad_project.png" alt="add_debug_cad_project"><br>在打开的对话框中找到CAD安装路径下的acad.exe,选择打开<br><img src="/2018/01/25/CAD二次开发/find_acad.png" alt="find_acad"><br>将刚添加的项目设置为启动项目<br><img src="/2018/01/25/CAD二次开发/set_startup.png" alt="set startup"><br>设置项目属性<br><img src="/2018/01/25/CAD二次开发/set_property.png" alt="set property"><br>修改调试器类型如下图所示<br><img src="/2018/01/25/CAD二次开发/set_debugger_type.png" alt="set debugger type"><br>在需要的地方设置断点，启动项目，会发现CAD程序会被找开，netload加载程序集，就可以调试啦</p>
+<h1 id="3-错误记录"><a href="#3-错误记录" class="headerlink" title="3. 错误记录"></a>3. 错误记录</h1><p>1、CAD崩溃，错误“unhandled access violation reading”=“未将对象引用设置到对象的实例”。</p>
+<p>2、建模操作错误:指向给定边的指针为空。<br>建模操作错误:访问冲突。<br>acdbmgdeGeneralModelingFailure</p>
+<ul>
+<li>情形一</li>
+</ul>
+<p>这类错误是CAD直接在其命令行中输出提示的，有时候会引发CAD崩溃，但有时候又不会引发崩溃。</p>
+<p>我碰到的这种类错误的情况是：频繁对一些Region进行重复炸碎，出现了这类错误。重复时间间隔越短越容易出问题，有时候中间间隔十几秒半分钟，但还会引发这类错误。</p>
+<p>原因可能是炸碎之后对象的释放不及时，CAD内存管理上出了问题；炸碎之后的实体存放在了DBObjectCollection中，虽然这个类的继承了IDisopsable，并且实现了Dispose方法和析构函数，但C#对它的释放时机好像没有把握对，释放的太晚，可能我第一次炸碎之后的得到的对象，在我第二次进行炸碎操作的时候还没有释放掉，或者在炸碎的过程中进行了释放，于是出错误。</p>
+<p>而对于释放不及时的原因，我猜想是因为DBObjectCollection内部有些地方用了GC.KeepAlive，而使得C#对它的释放不够及时。</p>
+<p>解决的办法是尽量手动释放，发现这个问题之后，我刚开始是在使用完炸碎Region得到的DBObjectCollection之后，进行了统一的释放，但是还会出现这类错误。于是在使用DBObjectCollection的循环内部，每次循环结束后，主动调用每个DBObject的Dispose方法，然后在循环结束之后，再对DBObjectCollection进行统一释放，至此，没有再出现这类错误。</p>
+<ul>
+<li>情形二</li>
+</ul>
+<p>注意foreach循环</p>
+<p>3、不会命中断点，源代码与原始版本不同。</p>
+<p>在时候用VS调试代码的时候设的断点无效，断点上会出来一个黄色的三角形，鼠标放上去会提示“不会命中断点，源代码与原始版本不同”，出现这种情况可以把项目中bin文件夹和obj文件夹清空，然后再重新生成解决方案。如果不能解决，可以找到工具-&gt;选项-&gt;调试-&gt;要求源文件与原始版本完成匹配，去掉勾选。</p>
+<p>4、eNonCoplanarGeometry</p>
+<p>当实体不共面时，即有些实体的Z值不为0，则进行想到计算、判断时（如面域的布尔运算），会有此提示，此时把对应实体或所有实体的Z值全部清零即可，或者是在进行计算、判断前先判断每个参与操作的实体的Z值是否为0，如果不为0则跳过不进行运算。</p>
+<p>5、eNotApplicable</p>
+<p>情况1：一个面域是复合面域，是一个回字形面域，但它里面的那一块非常非常小，此时将它炸开时会失败（不管是用接口的炸开还是用CAD命令炸开都会失败）。</p>
+<h1 id="4-CommandFlags"><a href="#4-CommandFlags" class="headerlink" title="4. CommandFlags"></a>4. CommandFlags</h1><p>枚举值|描述<br>ActionMacro|可以用动作录制器录制命令动作；<br>DocReadLock|命令执行时将被只读锁定；<br>Interruptible|提示用户输入时可以中断命令；<br>Modal|别的命令运行时不能运行此命令；<br>NoActionRecording|不能用动作录制器录制命令动作；<br>NoBlockEditor|不能从块编辑器使用该命令；<br>NoHistory|不能将命令添加到repeat-last-command（重复上一个命令）历史列表；<br>NoPaperSpace|不能从图纸空间使用该命令；<br>NoTileMode|当TILEMODE置1时不能使用该命令；<br>NoUndoMarker|命令不支持撤销标记。用于不修改数据库因而也就无需出现在撤销记录中的那些命令；<br>Redraw|不清空取回的先选择后执行设置及对象捕捉设置；<br>Session|命令运行于应用程序上下文，而不是当前图形文档上下文；<br>Transparent|别的命令运行时可以运行此命令；<br>Undefined|只能通过全局名使用命令；<br>UsePickSet|清空取回的先选择后执行设置；</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/25/CAD二次开发/" data-id="cju85caid00028suq26u3yox5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-AutoMapper" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/19/AutoMapper/" class="article-date">
+  <time datetime="2018-01-19T01:40:01.000Z" itemprop="datePublished">2018-01-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/19/AutoMapper/">AutoMapper</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="DTO"><a href="#DTO" class="headerlink" title="DTO"></a>DTO</h1><h2 id="什么是DTO"><a href="#什么是DTO" class="headerlink" title="什么是DTO"></a>什么是DTO</h2><p>DTO(Data Transfer Object)就是数据传输对象。<br>表现层与应用层通过DTO进行交互，数据传输对象是没有行为的POCO对象，它的目的只是为了对领域对象进行数据的封装，实现层与层之间的数据传递。</p>
+<h2 id="为什么要用DTO"><a href="#为什么要用DTO" class="headerlink" title="为什么要用DTO"></a>为什么要用DTO</h2><ul>
+<li>领域对象更注重领域，而DTO更注重数据，是对领域模型的合理封装，从而不会将领域对象的行为过分暴露给表现层。</li>
+</ul>
+<h1 id="AutoMapper"><a href="#AutoMapper" class="headerlink" title="AutoMapper"></a>AutoMapper</h1><p><a href="https://github.com/xuzhongwang/BlogCode/tree/master/AutoMapperDemo" target="_blank" rel="noopener">源码地址</a>.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/19/AutoMapper/" data-id="cju85ca5m00018suqt5ei4se6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Code-First学习" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/17/Code-First学习/" class="article-date">
+  <time datetime="2018-01-17T05:54:21.000Z" itemprop="datePublished">2018-01-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/17/Code-First学习/">Code First学习</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-CodeFirst学习笔记"><a href="#1-CodeFirst学习笔记" class="headerlink" title="1. CodeFirst学习笔记"></a>1. CodeFirst学习笔记</h1><h2 id="1-1-EntityTypeConfiguration-lt-T-gt"><a href="#1-1-EntityTypeConfiguration-lt-T-gt" class="headerlink" title="1.1. EntityTypeConfiguration&lt;T&gt;"></a>1.1. EntityTypeConfiguration&lt;T&gt;</h2><h2 id="1-2-SetInitializer"><a href="#1-2-SetInitializer" class="headerlink" title="1.2. SetInitializer"></a>1.2. SetInitializer</h2><p>1 CreateDatabaseIfNotExists&lt;&gt;</p>
+<p>只有在没有数据库的时候才会根据数据库连接配置创建新的数据库。这种配置主要用于production环境，因为你不可能把你现在使用的数据库删除掉，那样会损失重要的数据。你需要让你的实施人员拿着与Fluent API配置对应的数据库脚本去更新数据库。</p>
+<p>2 DropCreateDatabaseIfModelChanges&lt;T&gt;</p>
+<p>只要Fluent API配置的数据库映射发生变化或者domain中的model发生变化了，就把以前的数据库删除掉，根据新的配置重新建立数据库。这种方式比较适合开发数据库，可以减少开发人员的工作量。</p>
+<p>3 DropCreateDatabaseAlways&lt;&gt;<br>不管数据库映射或者model是否发生变化，每次都重新删除并根据配置重建数据库。这种方式可以适用于一些特殊情况的测试，比如说当每次测试结束之后把所有的测试数据都删除掉，并且在测试开始前插入一些基础数据。<br>可以用配置文件配置上述信息</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">appSettings</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">add</span> <span class="attr">key</span>=<span class="string">"DatabaseInitializerForType OrderSystemContext"</span></span></span><br><span class="line"><span class="tag"><span class="attr">value</span>=<span class="string">"System.Data.Entity.DropCreateDatabaseIfModelChanges[[OrderSystemContext]], EntityFramework"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">appSettings</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-3-添加初始数据"><a href="#1-3-添加初始数据" class="headerlink" title="1.3. 添加初始数据"></a>1.3. 添加初始数据</h2><h2 id="1-4-使用Fluent-API-配置属性"><a href="#1-4-使用Fluent-API-配置属性" class="headerlink" title="1.4. 使用Fluent API 配置属性"></a>1.4. 使用Fluent API 配置属性</h2><h3 id="1-4-1-配置Length"><a href="#1-4-1-配置Length" class="headerlink" title="1.4.1. 配置Length"></a>1.4.1. 配置Length</h3><p>Length用来描述数组的长度，当前包括string和Byte数组。<br>默认约定：Code First对string或byte数组的默认长度约定是max。注意：Sql Server Compact中默认最大数组长度是4000。<br>重写约定：使用HasMaxLength(nn)，参数为可空整数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Property(t =&gt; t.Name).HasMaxLength(50);</span><br></pre></td></tr></table></figure>
+<p>另外关于Length的Fluent API还有下面2个：</p>
+<ul>
+<li><p>IsFixedLength()，配置属性为固定长度。</p>
+</li>
+<li><p>IsMaxLength()，配置属性为数据库提供程序允许的最大长度。</p>
+</li>
+</ul>
+<h3 id="1-4-2-配置Data-Type"><a href="#1-4-2-配置Data-Type" class="headerlink" title="1.4.2. 配置Data Type"></a>1.4.2. 配置Data Type</h3><p>Data Type表示将.NET类型映射到的数据库的数据类型。<br>默认约定：列的数据类型由使用的数据库提供程序决定。以SQL Server为例：String-&gt;nvarchar(max),Integer-&gt;int,Byte[]-&gt;varbinary(max),Boolean-&gt;bit。<br>重写约定：使用HasColumnType(“xxx”)，下面列子的Photo是byte[]类型，配置映射到image数据类型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Property(t =&gt; t.Photo).HasColumnType(&quot;image&quot;);</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-3-配置允许为空和不允许为空"><a href="#1-4-3-配置允许为空和不允许为空" class="headerlink" title="1.4.3. 配置允许为空和不允许为空"></a>1.4.3. 配置允许为空和不允许为空</h3><p>默认约定：主键属性不允许为空，引用类型（String,array）允许为空，值类型（所有的数字类型，Datetime,bool,char）不允许为空，可空的值类型Nullable<t>允许为空。<br>重写约定：使用IsRequired()配置不允许为空，使用IsOptional()配置允许为空。下面配置Name属性为不为空：</t></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Property(t =&gt; t.Name).IsRequired();</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-4-配置属性到指定列"><a href="#1-4-4-配置属性到指定列" class="headerlink" title="1.4.4. 配置属性到指定列"></a>1.4.4. 配置属性到指定列</h3><p>默认约定：映射到与属性名相同的列。</p>
+<p>重写约定：使用Property(t=&gt;t.属性名).HasColumnName(“xxx”)。下面配置Name映射到DepartmentName：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Property(t =&gt; t.Name).HasColumnName(&quot;DepartmentName&quot;);</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-5-配置主键"><a href="#1-4-5-配置主键" class="headerlink" title="1.4.5. 配置主键"></a>1.4.5. 配置主键</h3><p>默认约定：<br>(1)属性名为ID或Id的默认为主键<br>(2)类名+ID或类名+Id默认为主键  （其中ID或Id的优先级大于类名+ID或类名+Id）</p>
+<p>重写约定：使用HasKey(t=&gt;t.属性名)。下面将BlogId配置为主键：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HasKey(t =&gt; t.BlogId);</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-6-配置组合主键"><a href="#1-4-6-配置组合主键" class="headerlink" title="1.4.6. 配置组合主键"></a>1.4.6. 配置组合主键</h3><p>下面的例子将DepartmentId和Name属性组合作为Department类型的主键：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HasKey(t =&gt; new &#123; t.DepartmentId, t.Name &#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-7-配置Database-Generated"><a href="#1-4-7-配置Database-Generated" class="headerlink" title="1.4.7. 配置Database-Generated"></a>1.4.7. 配置Database-Generated</h3><p>默认约定：整型键：Identity。</p>
+<p>重写约定：使用Property(t =&gt; t.属性名).HasDatabaseGeneratedOption(DatabaseGeneratedOption)。</p>
+<p>DatabaseGeneratedOption枚举包括三个成员：<br>(1) None：数据库不生成值<br>(2) Identity：当插入行时，数据库生成值<br>(3) Computed：当插入或更新行时，数据库生成值</p>
+<p>整型默认是Identity，数据库生成值，自动增长，如果不想数据库自动生成值，使用DatabaseGeneratedOption.None。</p>
+<p>Guid类型作为主键时，要显示配置为DatabaseGeneratedOption.Identity。</p>
+<h3 id="1-4-8-配置TimeStamp-RowVersion的乐观并发"><a href="#1-4-8-配置TimeStamp-RowVersion的乐观并发" class="headerlink" title="1.4.8. 配置TimeStamp/RowVersion的乐观并发"></a>1.4.8. 配置TimeStamp/RowVersion的乐观并发</h3><p>默认约定：这个没有默认约定。</p>
+<p>配置：使用Property(t=&gt;t.属性名).IsRowVersion()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Property(t =&gt; t.RowVersion).IsRowVersion();</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-9-不配置TimeStamp的乐观并发"><a href="#1-4-9-不配置TimeStamp的乐观并发" class="headerlink" title="1.4.9. 不配置TimeStamp的乐观并发"></a>1.4.9. 不配置TimeStamp的乐观并发</h3><p>有些数据库不支持RowVersion类型，但是又想对数据库的一个或多个字段并发检查，这时可以使用Property(t=&gt;t.属性名).IsConcurrencyToken(),下面的例子将SocialSecurityNumber配置为并发检查。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Property(t =&gt; t.SocialSecurityNumber).IsConcurrencyToken();</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-10-配置String属性是否支持Unicode内容"><a href="#1-4-10-配置String属性是否支持Unicode内容" class="headerlink" title="1.4.10. 配置String属性是否支持Unicode内容"></a>1.4.10. 配置String属性是否支持Unicode内容</h3><p>默认约定：默认string是Unicode（在SQL Server中是nvarchar）的。</p>
+<p>重写约定：下面的例子使用IsUnicode()方法将Name属性配置为varchar类型的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Property(t =&gt; t.Name).IsUnicode(false);</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-11-配置小数的精度和小数位数"><a href="#1-4-11-配置小数的精度和小数位数" class="headerlink" title="1.4.11. 配置小数的精度和小数位数"></a>1.4.11. 配置小数的精度和小数位数</h3><p>默认约定：小数是(18,2)</p>
+<p>配置：使用Property(t=&gt;t.属性名).HasPrecision(n,n)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public decimal MilesFromNearestAirport &#123; get; set; &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-12-复杂类型"><a href="#1-4-12-复杂类型" class="headerlink" title="1.4.12. 复杂类型"></a>1.4.12. 复杂类型</h3><p>默认复杂类型有以下规则：</p>
+<p>(1) 复杂类型没有主键属性<br>(2) 复杂类型只能包含原始属性。<br>(3)在其他类中使用复杂类型时，必须表示为非集合类型。</p>
+<p>使用DbModelBuilder.ComplexType方法显示配置为复杂类型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">modelBuilder.ComplexType&lt;Address&gt;();</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-13-嵌套的复杂类型"><a href="#1-4-13-嵌套的复杂类型" class="headerlink" title="1.4.13. 嵌套的复杂类型"></a>1.4.13. 嵌套的复杂类型</h3><p>嵌套的复杂类型只需显示配置外层，内层自动继承复杂类型的约定。</p>
+<h3 id="1-4-14-配置复杂类型的属性"><a href="#1-4-14-配置复杂类型的属性" class="headerlink" title="1.4.14. 配置复杂类型的属性"></a>1.4.14. 配置复杂类型的属性</h3><p>配置复杂类型的属性和配置实体属性一样，具体参考下面的实例。</p>
+<h3 id="1-4-15-实例"><a href="#1-4-15-实例" class="headerlink" title="1.4.15. 实例"></a>1.4.15. 实例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br></pre></td><td class="code"><pre><span class="line">  //实体</span><br><span class="line">public class Trip</span><br><span class="line">&#123;</span><br><span class="line">    public Guid Identifier &#123; get; set; &#125;</span><br><span class="line">    public DateTime StartDate &#123; get; set; &#125;</span><br><span class="line">    public DateTime EndDate &#123; get; set; &#125;</span><br><span class="line">    public decimal CostUSD &#123; get; set; &#125;</span><br><span class="line">    public string Description &#123; get; set; &#125;</span><br><span class="line">    public byte[] RowVersion &#123; get; set; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//复杂类型</span><br><span class="line">public class Address</span><br><span class="line">&#123;</span><br><span class="line">    public int AddressId &#123; get; set; &#125;</span><br><span class="line">    public string StreetAddress &#123; get; set; &#125;</span><br><span class="line">    public string City &#123; get; set; &#125;</span><br><span class="line">    public string State &#123; get; set; &#125;</span><br><span class="line">    public string ZipCode &#123; get; set; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//复杂类型</span><br><span class="line">public class PersonalInfo</span><br><span class="line">&#123;</span><br><span class="line">    public Measurement Weight &#123; get; set; &#125;</span><br><span class="line">    public Measurement Height &#123; get; set; &#125;</span><br><span class="line">    public string DietryRestrictions &#123; get; set; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//复杂类型</span><br><span class="line">public class Measurement</span><br><span class="line">&#123;</span><br><span class="line">    public decimal Reading &#123; get; set; &#125;</span><br><span class="line">    public string Units &#123; get; set; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//实体</span><br><span class="line">public class Person</span><br><span class="line">&#123;</span><br><span class="line">    public Person()</span><br><span class="line">    &#123;</span><br><span class="line">        Address = new Address();</span><br><span class="line">        Info = new PersonalInfo()</span><br><span class="line">        &#123;</span><br><span class="line">            Weight = new Measurement(),</span><br><span class="line">            Height = new Measurement()</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public int PersonId &#123; get; set; &#125;</span><br><span class="line">    public int SocialSecurityNumber &#123; get; set; &#125;</span><br><span class="line">    public string FirstName &#123; get; set; &#125;</span><br><span class="line">    public string LastName &#123; get; set; &#125;</span><br><span class="line">    public Address Address &#123; get; set; &#125;</span><br><span class="line">    public byte[] Photo &#123; get; set; &#125;</span><br><span class="line">    public PersonalInfo Info &#123; get; set; &#125;</span><br><span class="line">    public byte[] RowVersion &#123; get; set; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//对实体Trip的配置，继承自EntityTypeConfiguration&lt;T&gt;</span><br><span class="line">public class TripConfiguration : EntityTypeConfiguration&lt;Trip&gt;</span><br><span class="line">&#123;</span><br><span class="line">    public TripConfiguration()</span><br><span class="line">    &#123;</span><br><span class="line">        //配置Identifier映射到TripId列，并设为主键，且默认值为newid()</span><br><span class="line">        HasKey(t =&gt; t.Identifier).Property(t =&gt; t.Identifier).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity).HasColumnName(&quot;TripId&quot;);</span><br><span class="line">        //配置CostUSD的精度为20，小数位数为3</span><br><span class="line">        Property(t =&gt; t.CostUSD).HasPrecision(20, 3);</span><br><span class="line">        //配置Description的长度为500</span><br><span class="line">        Property(t =&gt; t.Description).HasMaxLength(500);</span><br><span class="line">        //配置RowVersion乐观并发检查</span><br><span class="line">        Property(t =&gt; t.RowVersion).IsRowVersion();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//对实体Person的配置，继承自EntityTypeConfiguration&lt;T&gt;</span><br><span class="line">public class PersonConfiguration : EntityTypeConfiguration&lt;Person&gt;</span><br><span class="line">&#123;</span><br><span class="line">    public PersonConfiguration()</span><br><span class="line">    &#123;</span><br><span class="line">        //配置SocialSecurityNumber不允许为空且乐观并发检查</span><br><span class="line">        Property(t =&gt; t.SocialSecurityNumber).IsRequired().IsConcurrencyToken();</span><br><span class="line">        //配置FirstName不允许为空</span><br><span class="line">        Property(t =&gt; t.FirstName).IsRequired();</span><br><span class="line">        //配置LastName不允许为空</span><br><span class="line">        Property(t =&gt; t.LastName).IsRequired();</span><br><span class="line">        //配置Photo映射到数据库的数据类型为image</span><br><span class="line">        Property(t =&gt; t.Photo).HasColumnType(&quot;image&quot;);</span><br><span class="line">        //配置RowVersion乐观并发检查</span><br><span class="line">        Property(t =&gt; t.RowVersion).IsRowVersion();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//对复杂类型Address的配置，继承自ComplexTypeConfiguration&lt;T&gt;</span><br><span class="line">public class AddressConfiguration : ComplexTypeConfiguration&lt;Address&gt;</span><br><span class="line">&#123;</span><br><span class="line">    public AddressConfiguration()</span><br><span class="line">    &#123;</span><br><span class="line">        //配置AddressId映射到AddressId列</span><br><span class="line">        Property(t =&gt; t.AddressId).HasColumnName(&quot;AddressId&quot;);</span><br><span class="line">        //配置StreetAddress长度为100并映射到StreetAddrress列</span><br><span class="line">        Property(t =&gt; t.StreetAddress).HasMaxLength(100).HasColumnName(&quot;StreetAddress&quot;);</span><br><span class="line">        //配置State长度为50并映射到State列</span><br><span class="line">        Property(t =&gt; t.State).HasMaxLength(50).HasColumnName(&quot;State&quot;);</span><br><span class="line">        //配置City长度为50并映射到City列</span><br><span class="line">        Property(t =&gt; t.City).HasMaxLength(50).HasColumnName(&quot;City&quot;);</span><br><span class="line">        //配置ZipCode映射到ZipCode列，不支持Unicode内容，并设为固定长度为6</span><br><span class="line">        Property(t =&gt; t.ZipCode).IsUnicode(false).IsFixedLength().HasMaxLength(6).HasColumnName(&quot;ZipCode&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//对复杂类型PersonalInfo的配置，继承自ComplexTypeConfiguration&lt;T&gt;</span><br><span class="line">public class PersonalInfoConfiguration : ComplexTypeConfiguration&lt;PersonalInfo&gt;</span><br><span class="line">&#123;</span><br><span class="line">    public PersonalInfoConfiguration()</span><br><span class="line">    &#123;</span><br><span class="line">        //配置DietryRestrictions长度为100</span><br><span class="line">        Property(t =&gt; t.DietryRestrictions).HasMaxLength(100);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class BreakAwayContext : DbContext</span><br><span class="line">&#123;</span><br><span class="line">    public DbSet&lt;Trip&gt; Trips &#123; get; set; &#125;</span><br><span class="line">    public DbSet&lt;Person&gt; People &#123; get; set; &#125;</span><br><span class="line"></span><br><span class="line">    protected override void OnModelCreating(DbModelBuilder modelBuilder)</span><br><span class="line">    &#123;</span><br><span class="line">        //注册配置</span><br><span class="line">        modelBuilder.Configurations.Add(new TripConfiguration());</span><br><span class="line">        modelBuilder.Configurations.Add(new PersonConfiguration());</span><br><span class="line">        modelBuilder.Configurations.Add(new AddressConfiguration());</span><br><span class="line">        modelBuilder.Configurations.Add(new PersonalInfoConfiguration());</span><br><span class="line">        base.OnModelCreating(modelBuilder);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="异常记录"><a href="#异常记录" class="headerlink" title="异常记录"></a>异常记录</h2><h3 id="从-datetime2-数据类型到-datetime-数据类型的转换产生一个超出范围的值"><a href="#从-datetime2-数据类型到-datetime-数据类型的转换产生一个超出范围的值" class="headerlink" title="从 datetime2 数据类型到 datetime 数据类型的转换产生一个超出范围的值"></a>从 datetime2 数据类型到 datetime 数据类型的转换产生一个超出范围的值</h3><p>触发该错误的条件如下：</p>
+<ul>
+<li>SQL Server数据库版本中的字段类型为datetime2</li>
+<li>数据库中，某个要进行Add或者Edit的字段的数据类型为datetime，比如表A中的today字段，类型为datetime。而后台代码进行数据库操作时，并没有给today（datetime类型）赋值。结果就是VS2015编译的时候默认将其类型编译为datetime2，导致用EF进行add和edit操作的时候出现该异常。 </li>
+</ul>
+<p>解决方案：</p>
+<ul>
+<li>给这些字段一个值（不管它是否在数据库设置了默认值），并且日期要大于1753年1月1日，这是最简单的方法。</li>
+<li>将数据库类型修改为datetime？类型，也就是说允许为空。</li>
+<li>修改数据库字段类型为datetime2类型，前提是数据库要支持该类型。</li>
+<li>在C#中用new DateTime(year,month,day,hour,minute,second)来限制精度，原因之后会在datetime2和datetime的区别中提到。</li>
+<li>这个方法不太推荐，将model的edmx中的providerManifestToken设置成2005，这样ef就默认转化成datetime。</li>
+</ul>
+<p>datetime2和datetime的区别：</p>
+<p>官方MSDN对于datetime2的说明：定义结合了 24 小时制时间的日期。 可将 datetime2 视作现有 datetime 类型的扩展，其数据范围更大，默认的小数精度更高，并具有可选的用户定义的精度。</p>
+<p>这里值的注意的是datetime2的日期范围是”0001-01-01 到 9999-12-31”（公元元年 1 月 1 日到公元 9999 年 12 月 31 日）。</p>
+<p>而datetime的日期范围是：”1753 年 1 月 1 日到 9999 年 12 月 31 日“。这里的日期范围就是造成“从 datetime2 数据类型到 datetime 数据类型的转换产生一个超出范围的值”这个错误的原因。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DateTime字段类型对应的时间格式是yyyy-MM-dd HH:mm:ss.fff，3个f，精确到1毫秒(ms)，示例2014-12-0317:06:15.433.</span><br><span class="line">DateTime2字段类型对应的时间格式是yyyy-MM-dd HH:mm:ss.fffffff，7个f，精确到0.1微秒(μs)，示例2014-12-0317:23:19.2880929. </span><br><span class="line">如果用SQL的日期函数进行赋值，DateTime字段类型要用GETDATE()，DateTime2字段类型要用SYSDATETIME()。</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/17/Code-First学习/" data-id="cju85cait00098suqh1eejsds" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-通向财务自由" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/01/16/通向财务自由/" class="article-date">
@@ -89,7 +315,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/16/通向财务自由/" data-id="cjtxlywem001d00uqfp9iikvy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/16/通向财务自由/" data-id="cju85cal8001c8suqax2qxp8e" class="article-share-link">Share</a>
       
       
     </footer>
@@ -128,7 +354,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/15/常用命令行/" data-id="cjtxlywe0001100uq9x5t8g24" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/15/常用命令行/" data-id="cju85cakz00168suqx64vv8uw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -164,7 +390,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/13/博客园美化/" data-id="cjtxlywe2001200uqoaqd5m9w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/13/博客园美化/" data-id="cju85cakg00118suqv9b1sl29" class="article-share-link">Share</a>
       
       
     </footer>
@@ -209,7 +435,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/08/UML类图的基本关系/" data-id="cjtxlywcu000r00uqnelv2vxg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/08/UML类图的基本关系/" data-id="cju85cajp000r8suqpmlk5fgp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -258,7 +484,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/07/日常代码积累/" data-id="cjtxlywek001c00uqq4vcufy3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/07/日常代码积累/" data-id="cju85cal100178suqdtied0rh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -311,7 +537,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/07/Visual-Studio-2017无法添加引用/" data-id="cjtxlywcy000s00uqn0kxa5yc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/07/Visual-Studio-2017无法添加引用/" data-id="cju85cak8000v8suq28asnvfv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -488,146 +714,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/06/Log4net学习/" data-id="cjtxlywbi000f00uqnxb9lzoz" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Hexo的使用" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/01/05/Hexo的使用/" class="article-date">
-  <time datetime="2018-01-05T06:16:22.000Z" itemprop="datePublished">2018-01-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/05/Hexo的使用/">Hexo的使用</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="使用Hexo生成博文中播入图片"><a href="#使用Hexo生成博文中播入图片" class="headerlink" title="使用Hexo生成博文中播入图片"></a>使用Hexo生成博文中播入图片</h1><ol>
-<li>把主页配置文件_config.yml 里的post_asset_folder:这个选项设置为true</li>
-<li><p>在你的hexo目录下执行如下命令，下载一个可以上传本地图片的插件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-asset-image --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;newblog&quot;</span><br></pre></td></tr></table></figure>
-<p> 生成newblog.md的同时，会生成一个同名的文件在Source目录下，将你要引用的图片放入这个目录下，在文章中引用图片时，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![你想输入的文字](xxxx/图片名.jpg)</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/05/Hexo的使用/" data-id="cjtxlywbc000c00uqr8jjkpwu" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-SourceTree使用" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/01/05/SourceTree使用/" class="article-date">
-  <time datetime="2018-01-05T04:55:38.000Z" itemprop="datePublished">2018-01-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/05/SourceTree使用/">SourceTree使用</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="SourceTree的安装"><a href="#SourceTree的安装" class="headerlink" title="SourceTree的安装"></a>SourceTree的安装</h1><p>   安装没什么好说，但安装之后需要登陆之后才能使用，这个登陆也不知道怎么搞的，总是失败，在网上查找了一些解决方法，跳过这个初始化步骤。当然如果你人品好，登陆正常，可以跳过此步。</p>
-<h3 id="跳过初始化步骤"><a href="#跳过初始化步骤" class="headerlink" title="跳过初始化步骤"></a>跳过初始化步骤</h3><p>在目录 C:\Users{youruser}\AppData\Local\Atlassian\SourceTree 下创建文件accounts.json<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    &quot;$id&quot;: &quot;1&quot;,</span><br><span class="line">    &quot;$type&quot;: &quot;SourceTree.Api.Host.Identity.Model.IdentityAccount, SourceTree.Api.Host.Identity&quot;,</span><br><span class="line">    &quot;Authenticate&quot;: true,</span><br><span class="line">    &quot;HostInstance&quot;: &#123;</span><br><span class="line">      &quot;$id&quot;: &quot;2&quot;,</span><br><span class="line">      &quot;$type&quot;: &quot;SourceTree.Host.Atlassianaccount.AtlassianAccountInstance, SourceTree.Host.AtlassianAccount&quot;,</span><br><span class="line">      &quot;Host&quot;: &#123;</span><br><span class="line">        &quot;$id&quot;: &quot;3&quot;,</span><br><span class="line">        &quot;$type&quot;: &quot;SourceTree.Host.Atlassianaccount.AtlassianAccountHost, SourceTree.Host.AtlassianAccount&quot;,</span><br><span class="line">        &quot;Id&quot;: &quot;atlassian account&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;BaseUrl&quot;: &quot;https://id.atlassian.com/&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;Credentials&quot;: &#123;</span><br><span class="line">      &quot;$id&quot;: &quot;4&quot;,</span><br><span class="line">      &quot;$type&quot;: &quot;SourceTree.Model.BasicAuthCredentials, SourceTree.Api.Account&quot;,</span><br><span class="line">      &quot;Username&quot;: &quot;&quot;,</span><br><span class="line">      &quot;Email&quot;: null</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;IsDefault&quot;: false</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/05/SourceTree使用/" data-id="cjtxlywc1000m00uqmirv40mr" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-OSharp读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/01/04/OSharp读书笔记/" class="article-date">
-  <time datetime="2018-01-04T07:50:42.000Z" itemprop="datePublished">2018-01-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/04/OSharp读书笔记/">OSharp读书笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="EntityFramework与其它ORM相比有什么优点"><a href="#EntityFramework与其它ORM相比有什么优点" class="headerlink" title="EntityFramework与其它ORM相比有什么优点"></a>EntityFramework与其它ORM相比有什么优点</h1><ul>
-<li>EntityFramework 是微软大力发展的一个开源项目，EF 6 在 codeplex.com 开源，EF 7 在 github.com 随 ASP.NET 5 开源。</li>
-<li>EntityFramework 能轻松支持各大主流数据库，只要引入相应数据库的 DataProvider 即可，能无差异的操作各大主流数据库。</li>
-<li>EntityFramework 支持 linq to entities 语句查询，强类型支持，高效实现查询需求。</li>
-<li>EntityFramework 全面封装了数据库细节，使用了大量的“约定胜于配置”的思想，使开发者不必直接对关系存储架构编程，减少代码量，减轻维护工作，并使项目可维护性更高</li>
-</ul>
-<h1 id="为什么要封装EntityFramework"><a href="#为什么要封装EntityFramework" class="headerlink" title="为什么要封装EntityFramework"></a>为什么要封装EntityFramework</h1><ul>
-<li>不是所有的开发人员都对 EntityFramework 足够熟悉，封装之后能将 EntityFramework 的细节及较敏感的 API 进行包装与隐藏，使 EntityFramework 的使用更加透明易用。</li>
-<li>统一的封装，有利于对业务层提供统一的 API，对业务层的代码规范非常有利。</li>
-<li>封装有利于业务实体与 EntityFramework 的解耦。如果不封装，所有业务实体模型（Model）都要在上下文类中设置一个 DbSet<tentity> 类型的实体集，将与上下文强耦合，当需求发生变化时，都要对原有代码进行修改，很不利于维护。而封装之后，所有的实体模型都是动态加载到上下文类中的，业务实体与 EntityFramework 能够完全解耦，大大增强系统的可维护性。 </tentity></li>
-</ul>
-<h1 id="IEnumerable-与-IQueryable-的区别"><a href="#IEnumerable-与-IQueryable-的区别" class="headerlink" title="IEnumerable 与 IQueryable 的区别"></a>IEnumerable<t> 与 IQueryable<t> 的区别</t></t></h1><p>　　在设计数据访问层的查询API的时候，IEnumerable<t> 和 IQueryable<t> 都可以作为集合类查询结果的返回类型，那么，这两者有什么区别呢？为什么误用的时候会造成致命的性能问题呢？<br>　　IEnumerable<t> 接口的声明为：　</t></t></t></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/// &lt;summary&gt;</span><br><span class="line">/// 公开枚举数，该枚举数支持在指定类型的集合上进行简单迭代。</span><br><span class="line">/// &lt;/summary&gt;</span><br><span class="line">public interface IEnumerable&lt;out T&gt; : IEnumerable</span><br></pre></td></tr></table></figure>
-<p>IQueryable&lt;&lt;T&gt; 接口的声明为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/// &lt;summary&gt;</span><br><span class="line">/// 提供对数据类型已知的特定数据源的查询进行计算的功能。</span><br><span class="line">/// &lt;/summary&gt;</span><br><span class="line">public interface IQueryable&lt;out T&gt; : IEnumerable&lt;T&gt;, IQueryable, IEnumerable</span><br></pre></td></tr></table></figure>
-<p>在进行查询的时候，IEnumerable<t> 接口接受一个 Func&lt;T, bool&gt; 类型的委托参数： public static IEnumerable<tsource> Where<tsource>(this IEnumerable<tsource> source, Func&lt;TSource, bool&gt; predicate); ，而 IQueryable<t> 接口接受一个 Expression&lt;Func&lt;T, bool&gt;&gt; 类型的表达式参数： public static IQueryable<tsource> Where<tsource>(this IQueryable<tsource> source, Expression&lt;Func&lt;TSource, bool&gt;&gt; predicate); 。<br>正因为 IEnumerable<t> 接受的参数 predicate 数据类型是委托类型，所以这个参数在被调用的时候，就会立即执行查询逻辑，然后将查询的结果保存在内存中，后续的查询逻辑是完全在内存中执行的。而 IQueryable<t> 接受的参数 predicate 数据类型是表达式类型，这个参数会一直往下传递，直到被 IQueryable 中的 IQueryableProvider 类型的 Provider 属性解析成真正的查询语句（如 sql 语句），才传到数据源中进行查询动作。<br>所以，如果查询返回的数据集合很大的时候，使用 IEnumerable<t> 作为返回类型，会将这个数据集合立即加载到内存中，比如在设计 IRepository<t> 的 API 时，设计  IEnumerable<t> GetAll(); ， IEnumerable<t> GetByPredicate(Func&lt;T, bool&gt; predicate); 这种 API ，是非常可怕的，如果一个表中有几十上百万的数据，也同样会把所有数据加载到内存中，可能直接就导致服务器宕机了。即使数据量不大，当并发量上来的时候，也同样会造成极大的性能问题。</t></t></t></t></t></t></tsource></tsource></tsource></t></tsource></tsource></tsource></t></p>
-<h1 id="过早地内存化数据"><a href="#过早地内存化数据" class="headerlink" title="过早地内存化数据"></a>过早地内存化数据</h1><p>　　IEnumerable<t> 类型与 IQueryable<t> 类型是支持延迟的，没有真正使用数据之前，不管怎么调用，都不会执行查询，数据还是在数据库内，只有真正使用数据的时候，才会执行查询，把数据本地化到内存中。这样一来，什么时候执行本地化操作（ToArray()，ToList()等操作）就显得非常重要了，如果过早的执行本地化操作，那么就容易造成加载到内存的数据集合过于庞大，记录条数过多，造成性能问题。因此，在进行数据查询的时候，原则上应该按需获取数据，取出的数据集合就尽量的小，字段应尽量少，到数据真正使用的时候，才执行数据内存本地化操作。对于筛选部分字段的需求，linq to entities 的 select 查询匿名结果的查询方式，提供了有力的支持。</t></t></p>
-<h1 id="导航属性的延迟加载与循环"><a href="#导航属性的延迟加载与循环" class="headerlink" title="导航属性的延迟加载与循环"></a>导航属性的延迟加载与循环</h1><p>　　EntityFramework 实体模型的导航属性（即与当前表有外键关系的关联表）通常标记为 virtual，标记为 virtual 之后，相应属性的数据是具有延迟加载的特性的，只有真正用到相应属性的数据时，才会根据外键关系执行相应的查询动作，加载相应的数据。延迟加载的特性，能给系统性能带来优化，因为加载主干实体时只加载主干实体的信息，不会把关联实体的信息都加载进来，关联实体的数据只有用到的时候都会去加载。但也正是因为延迟加载，导航属性的数据是用到一次就执行一次查询动作，加载一次数据，一次还如，如果对于相同实体，需要多次用到同一个导航属性，就会产生多次重复的查询动作来加载导航属性的数据，给系统带来性能问题。例如如下的操作：</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/04/OSharp读书笔记/" data-id="cjtxlywc3000n00uqtzsf9a55" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/06/Log4net学习/" data-id="cju85caj8000h8suqvd6m31r1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -687,23 +774,23 @@
       <ul>
         
           <li>
+            <a href="/2019/04/03/CSS入门及提高/example/27 鼠标经过显示图片/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/02/CSS入门及提高/example/图片轮播/index/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/02/CSS入门及提高/example/26 绝对位置水平垂直居中/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2019/04/01/CSS入门及提高/example/学成网/index/">(no title)</a>
           </li>
         
           <li>
             <a href="/2019/03/28/mysql使用/">&#39;mysql使用&#39;</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/22/CSS入门及提高/example/25 使用双伪元素清除浮动/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/22/CSS入门及提高/example/24 通栏平均分布布局/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/22/CSS入门及提高/example/23 两列左窄右宽布局/">(no title)</a>
           </li>
         
       </ul>

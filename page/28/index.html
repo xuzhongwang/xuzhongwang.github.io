@@ -62,6 +62,404 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/MutiSearch/mutisearch" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/MutiSearch/mutisearch/" class="article-date">
+  <time datetime="2019-03-21T09:22:45.230Z" itemprop="datePublished">2019-03-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        (function($){
+	$.fn.mutisearch = function(options,param){
+		debugger;
+	}
+})(jQuery)
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/MutiSearch/mutisearch/" data-id="cju85ccy500258suqamnep3ve" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/MutiSearch/mutisearch" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/MutiSearch/mutisearch/" class="article-date">
+  <time datetime="2019-03-21T09:22:45.214Z" itemprop="datePublished">2019-03-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>MutiSearch</title>
+	<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">
+	<script type="text/javascript" src="../jquery.min.js"></script>
+	<script type="text/javascript" src="../jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="mutisearch.js"></script>
+
+	<script type="text/javascript">
+		$(function(){
+			$("#mutiSearch").mutisearch();
+		})
+	</script>
+
+
+</head>
+<body>
+<!-- 	<div onMouseover="javascript:$('#searchPanel').panel('open')">查询条件：</div>
+	<div id="searchPanel" class="easyui-panel"  style="width:700px;height:200px;padding:10px;">
+		<div></div>
+	</div> -->
+	<div id="mutiSearch"></div>
+</body>
+</html>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/MutiSearch/mutisearch/" data-id="cju85ccxi00228suqy988aoad" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/ribbon" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/ribbon/" class="article-date">
+  <time datetime="2019-03-21T09:22:45.045Z" itemprop="datePublished">2019-03-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Ribbon - jQuery EasyUI</title>
+	<link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="ribbon.css">
+	<link rel="stylesheet" type="text/css" href="ribbon-icon.css">
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="jquery.ribbon.js"></script>
+	<script type="text/javascript">
+		var data = {
+			selected:0,
+			tabs:[{
+				title:'Home',
+				groups:[{
+					title:'Clipboard',
+					tools:[{
+						type:'splitbutton',
+						name:'paste',
+						text:'Paste',
+						iconCls:'icon-paste-large',
+						iconAlign:'top',
+						size:'large',
+						menuItems:[{
+							name:'paste',
+							text:'Paste',
+							iconCls:'icon-paste'
+						},{
+							name:'paste-special',
+							text:'Paste Special...',
+							iconCls:'icon-paste'
+						}]
+					},{
+						type:'toolbar',
+						dir:'v',
+						tools:[{
+							name:'cut',
+							text:'Cut',
+							iconCls:'icon-cut',
+							onClick:function(name,e){
+								
+								alert(name + " clicked");
+							}
+						},{
+							name:'copy',
+							text:'Copy',
+							iconCls:'icon-copy'
+						},{
+							name:'format',
+							text:'Format',
+							iconCls:'icon-format'
+						}]
+					}]
+				},{
+					title:'Font',
+					tools:[{
+						type:'toolbar',
+						tools:[{
+							type:'combobox',
+							valueField:'text',
+							textField:'text',
+							data:[{text:'Arial',selected:true},{text:'Century'},{text:'Tahoma'}],
+							width:100,
+							panelHeight:'auto',
+							editable:false,
+						},{
+							type:'combobox',
+							valueField:'text',
+							textField:'text',
+							data:[{text:'8'},{text:'12',selected:true},{text:'14'}],
+							width:60,
+							panelHeight:'auto',
+							editable:false
+						}]
+					},{
+						type:'toolbar',
+						style:{marginLeft:'5px'},
+						tools:[{
+							name:'increase-font',
+							iconCls:'icon-increase-font'
+
+						},{
+							name:'decrease-font',
+							iconCls:'icon-decrease-font'
+						}]
+					},{
+						type:'toolbar',
+						style:{clear:'both',marginTop:'2px'},
+						tools:[{
+							name:'bold',
+							iconCls:'icon-bold',
+							toggle:true
+						},{
+							name:'italic',
+							iconCls:'icon-italic',
+							toggle:true
+						},{
+							name:'underline',
+							iconCls:'icon-underline',
+							toggle:true
+						},{
+							name:'strikethrough',
+							iconCls:'icon-strikethrough',
+							toggle:true
+						},{
+							name:'superscript',
+							iconCls:'icon-superscript',
+							toggle:true
+						},{
+							name:'subscript',
+							iconCls:'icon-subscript',
+							toggle:true
+						}]
+					},{
+						type:'toolbar',
+						style:{clear:'both'},
+						tools:[{
+							name:'case-font',
+							iconCls:'icon-case-font'
+						},{
+							name:'grow-font',
+							iconCls:'icon-grow-font'
+						},{
+							name:'shrink-font',
+							iconCls:'icon-shrink-font'
+						}]
+					}]
+				},{
+					title:'Paragraph',
+					dir:'v',
+					tools:[{
+						type:'toolbar',
+						tools:[{
+							name:'slign-left',
+							iconCls:'icon-align-left',
+							toggle:true,
+							group:'p1'
+						},{
+							name:'align-center',
+							iconCls:'icon-align-center',
+							toggle:true,
+							group:'p1'
+						},{
+							name:'align-right',
+							iconCls:'icon-align-right',
+							toggle:true,
+							group:'p1'
+						},{
+							name:'align-justify',
+							iconCls:'icon-align-justify',
+							toggle:true,
+							group:'p1'
+						}]
+					},{
+						type:'toolbar',
+						style:{marginTop:'2px'},
+						tools:[{
+							name:'bullets',
+							iconCls:'icon-bullets'
+						},{
+							name:'numbers',
+							iconCls:'icon-numbers'
+						}]
+					}]
+				},{
+					title:'Editing',
+					dir:'v',
+					tools:[{
+						type:'splitbutton',
+						name:'find',
+						text:'Find',
+						iconCls:'icon-find',
+						menuItems:[{
+							name:'find',
+							text:'Find',
+							iconCls:'icon-find'
+						},{
+							name:'go',
+							text:'Go to...',
+							iconCls:'icon-go'
+						}]
+					},{
+						name:'replace',
+						text:'Replace',
+						iconCls:'icon-replace'
+					},{
+						type:'menubutton',
+						name:'select',
+						text:'Select',
+						iconCls:'icon-select',
+						menuItems:[{
+							name:'selectall',
+							text:'Select All',
+							iconCls:'icon-selectall'
+						},{
+							name:'select-object',
+							text:'Select Objects',
+							iconCls:'icon-select'
+						}]
+					}]
+				}]
+			},{
+				title:'Insert',
+				groups:[{
+					title:'Table',
+					tools:[{
+						type:'menubutton',
+						name:'table',
+						text:'Table',
+						iconCls:'icon-table-large',
+						iconAlign:'top',
+						size:'large'
+					}]
+				},{
+					title:'Illustrations',
+					tools:[{
+						name:'picture',
+						text:'Picture',
+						iconCls:'icon-picture-large',
+						iconAlign:'top',
+						size:'large'
+					},{
+						name:'clipart',
+						text:'Clip Art',
+						iconCls:'icon-clipart-large',
+						iconAlign:'top',
+						size:'large'
+					},{
+						type:'menubutton',
+						name:'shapes',
+						text:'Shapes',
+						iconCls:'icon-shapes-large',
+						iconAlign:'top',
+						size:'large'
+					},{
+						name:'smartart',
+						text:'SmartArt',
+						iconCls:'icon-smartart-large',
+						iconAlign:'top',
+						size:'large'
+					},{
+						name:'chart',
+						text:'Chart',
+						iconCls:'icon-chart-large',
+						iconAlign:'top',
+						size:'large'
+					}]
+				}]
+			}]
+		};
+		
+		$(function(){
+			$('#rr').ribbon({
+				data:data
+			});
+			debugger;
+			var opt = $('#rr').ribbon("options");
+		});
+	</script>
+</head>
+<body>
+	<h1>Ribbon</h1>
+	<div id="rr" style="width:700px;">
+	</div>
+<!-- 	<h1>Ribbon Markup</h1>
+	<div class="easyui-ribbon" style="width:700px;">
+		<div title="Home">
+			<div class="ribbon-group">
+				<div class="ribbon-toolbar">
+					<a href="#" class="easyui-menubutton" data-options="name:'paste',iconCls:'icon-paste-large',iconAlign:'top',size:'large'">Paste</a>
+				</div>
+				<div class="ribbon-toolbar">
+					<a href="#" class="easyui-linkbutton" data-options="name:'cut',iconCls:'icon-cut',plain:true">Cut</a><br>
+					<a href="#" class="easyui-linkbutton" data-options="name:'copy',iconCls:'icon-copy',plain:true">Copy</a><br>
+					<a href="#" class="easyui-linkbutton" data-options="name:'format',iconCls:'icon-format',plain:true">Format</a>
+				</div>
+				<div class="ribbon-group-title">Clipboard</div>
+			</div>
+			<div class="ribbon-group-sep"></div>
+			<div class="ribbon-group">
+				<div class="ribbon-toolbar" style="width:200px"></div>
+				<div class="ribbon-group-title">other title</div>
+			</div>
+			<div class="ribbon-group-sep"></div>
+		</div> -->
+	
+</body>
+</html>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/ribbon/" data-id="cju85cbmd001v8suqaaqmzl3h" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/ribbon" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/ribbon/" class="article-date">
@@ -120,7 +518,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/ribbon/" data-id="cjtxlyxro001u00uqj1rge2os" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/ribbon/" data-id="cju85cbme001w8suq7k8zvhel" class="article-share-link">Share</a>
       
       
     </footer>
@@ -243,7 +641,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/ribbon-icon/" data-id="cjtxlyx2y001r00uq1945rqpy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/ribbon-icon/" data-id="cju85cbmc001u8suqfys40iqr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -444,7 +842,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/jquery.ribbon/" data-id="cjtxlyxrs001v00uqid07n6fd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/jquery.ribbon/" data-id="cju85cbma001t8suqhy4872g8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -475,7 +873,7 @@ padding:"inner"+a,content:b,"":"outer"+a},function(c,d){n.fn[d]=function(d,e){va
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/jquery.min/" data-id="cjtxlyxsx001w00uq3txtertd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/jquery.min/" data-id="cju85cbwr001y8suqjxl25zno" class="article-share-link">Share</a>
       
       
     </footer>
@@ -12662,7 +13060,7 @@ if(opts.value.length</m?v1=_cb4:v2=_cb4;></v1){></=v2&&_cb6){></opts.step></0||l
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/jquery.easyui.min/" data-id="cjtxlz007009m00uqgr6b5fg3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/jquery.easyui.min/" data-id="cju85cd8k009o8suq69f2i65d" class="article-share-link">Share</a>
       
       
     </footer>
@@ -12698,7 +13096,7 @@ if(opts.value.length</m?v1=_cb4:v2=_cb4;></v1){></=v2&&_cb6){></opts.step></0||l
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/" data-id="cjtxlywat000700uqdk8f48qg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/" data-id="cju85caik00058suqvzvjrp9r" class="article-share-link">Share</a>
       
       
     </footer>
@@ -12724,202 +13122,7 @@ if(opts.value.length</m?v1=_cb4:v2=_cb4;></v1){></=v2&&_cb6){></opts.step></0||l
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/Sublime使用/channel_v3/" data-id="cjtxlz0l1009p00uqnnqu323t" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-CSS入门及提高/example/21 表格细线边框" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/20/CSS入门及提高/example/21 表格细线边框/" class="article-date">
-  <time datetime="2019-03-20T05:17:10.841Z" itemprop="datePublished">2019-03-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<style>
-		table {
-			width: 500px;
-			height: 700px;
-			border: 1px solid red;
-			border-collapse: collapse;
-		}
-		td {
-			border: 1px solid blue;
-
-		}
-	</style>
-</head>
-<body>
-<table cellspacing="0" cellpadding="0">
-	<tr>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-		<tr>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-		<tr>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-		<tr>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-		<tr>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-</table>
-	
-</body>
-</html>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/20/CSS入门及提高/example/21 表格细线边框/" data-id="cjtxlywyv001m00uq72wbwolv" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-CSS入门及提高/example/王者荣耀导航栏/index" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/19/CSS入门及提高/example/王者荣耀导航栏/index/" class="article-date">
-  <time datetime="2019-03-19T07:25:17.033Z" itemprop="datePublished">2019-03-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<style>
-		body {
-			background-color: #000;
-		}
-		a {
-			width: 200px;
-			height: 50px;
-			color: #fff;
-			display: inline-block;
-			line-height: 50px;
-			text-align: center;
-			/*background-color: orange;*/
-			font-size: 20px;
-			text-decoration: none;
-
-		}
-		a:hover {
-			background-color: orange;
-		}
-	</style>
-</head>
-<body>
-	<a href="#">链接1</a>
-	<a href="#">链接2</a>
-	<a href="#">链接3</a>
-	<a href="#">链接4</a>
-</body>
-</html>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/19/CSS入门及提高/example/王者荣耀导航栏/index/" data-id="cjtxlyzia001y00uqhks9wt6m" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-CSS入门及提高/example/20 凹凸文字" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/19/CSS入门及提高/example/20 凹凸文字/" class="article-date">
-  <time datetime="2019-03-19T07:13:03.308Z" itemprop="datePublished">2019-03-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-<style>
-	body {
-		background-color:#ccc;
-	}
-	div {
-		font-size: 80px;
-		color: #ccc;
-	}
-	div:first-child {
-		text-shadow: 1px 1px 1px #000,-1px -1px 1px #fff;
-	}
-	div:last-child {
-		text-shadow: 1px 1px 1px #fff,-1px -1px 1px #000;
-	}
-</style>
-</head>
-<body>
-<div>我是凸起的文字</div>
-<div>我是凹下的文字</div>	
-</body>
-</html>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/19/CSS入门及提高/example/20 凹凸文字/" data-id="cjtxlywxf001j00uqct2w5l3u" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/Sublime使用/channel_v3/" data-id="cju85cdy4009s8suqkzvwdd9d" class="article-share-link">Share</a>
       
       
     </footer>
@@ -12979,23 +13182,23 @@ if(opts.value.length</m?v1=_cb4:v2=_cb4;></v1){></=v2&&_cb6){></opts.step></0||l
       <ul>
         
           <li>
+            <a href="/2019/04/03/CSS入门及提高/example/27 鼠标经过显示图片/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/02/CSS入门及提高/example/图片轮播/index/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/02/CSS入门及提高/example/26 绝对位置水平垂直居中/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2019/04/01/CSS入门及提高/example/学成网/index/">(no title)</a>
           </li>
         
           <li>
             <a href="/2019/03/28/mysql使用/">&#39;mysql使用&#39;</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/22/CSS入门及提高/example/25 使用双伪元素清除浮动/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/22/CSS入门及提高/example/24 通栏平均分布布局/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/22/CSS入门及提高/example/23 两列左窄右宽布局/">(no title)</a>
           </li>
         
       </ul>

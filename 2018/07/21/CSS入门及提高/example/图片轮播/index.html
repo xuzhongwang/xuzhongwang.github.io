@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+		}	
+		ul li {
+			list-style: none;
+		}	
+		.container {
+			width: 600px;
+			height: 600px;
+			margin: 50px auto;
+			position: relative;
+			padding: 5px;
+			border: 1px solid gray;
+		}
+		.container img {
+			width: 600px;
+			height: 600px;
+		}
+		.arrow-left,
+		.arrow-right {
+			display: block;
+			width: 20px;
+			height: 40px;
+			text-decoration: none;
+			background-color: rgb(0,0,0,0.2);
+			position: absolute;
+			top: 50%;
+			margin-top: -20px;
+			line-height: 40px;
+			text-align: center;
+			color: black;
+		}
+		.arrow-left {			
+			left: 5px;
+		}
+		.arrow-right {
+			right: 5px;
+		}
+		.slider {
+			background-color: yellow;
+			width: 120px;
+			height: 20px;
+			position: absolute;
+			left: 50%;
+			margin-left: -50px;
+			bottom: 40px;
+			padding: 5px;
+		}
+		.slider li {
+			background-color: blue;
+			width: 20px;
+			height: 20px;
+			display: inline-block;
+			border-radius: 50%;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<img src="images/timg.jpg">
+		<a href="#" class="arrow-left"><</a>
+		<a href="#" class="arrow-right">></a>
+		<ul class="slider">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+</body>
+</html>

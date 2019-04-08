@@ -62,6 +62,596 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-CSS入门及提高" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/21/CSS入门及提高/" class="article-date">
+  <time datetime="2018-07-21T06:30:58.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/21/CSS入门及提高/">CSS入门及提高</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-CSS-样式规则"><a href="#1-CSS-样式规则" class="headerlink" title="1. CSS 样式规则"></a>1. CSS 样式规则</h1><p><img src="/2018/07/21/CSS入门及提高/CSS样式规则.png" alt="CSS入门及提高"></p>
+<h1 id="2-字体设置"><a href="#2-字体设置" class="headerlink" title="2. 字体设置"></a>2. 字体设置</h1><h2 id="2-1-字体综合设置"><a href="#2-1-字体综合设置" class="headerlink" title="2.1. 字体综合设置"></a>2.1. 字体综合设置</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">选择器 &#123;<span class="attribute">font</span>: font-style font-weight font-size/line-weight font-family;&#125;</span><br></pre></td></tr></table></figure>
+<p>注意：</p>
+<ul>
+<li><p>顺序不能变.</p>
+</li>
+<li><p>不需要设置的属性可以省略，取默认值，但必须保留 font-size 与 font-family</p>
+</li>
+</ul>
+<h2 id="2-2-input提示"><a href="#2-2-input提示" class="headerlink" title="2.2. input提示"></a>2.2. input提示</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">placeholder</span>=<span class="string">"请输入内容"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="3-选择器"><a href="#3-选择器" class="headerlink" title="3. 选择器"></a>3. 选择器</h1><h2 id="3-1-标签选择器（元素选择器）"><a href="#3-1-标签选择器（元素选择器）" class="headerlink" title="3.1. 标签选择器（元素选择器）"></a>3.1. 标签选择器（元素选择器）</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">标签名 &#123; 属性1:属性值1;属性2：属性值2&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-2-类选择器"><a href="#3-2-类选择器" class="headerlink" title="3.2. 类选择器"></a>3.2. 类选择器</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.类名 &#123;属性1:属性值1;属性2：属性值2&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-3-id-选择器"><a href="#3-3-id-选择器" class="headerlink" title="3.3. id 选择器"></a>3.3. id 选择器</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#id名 &#123;属性1:属性值1;属性2：属性值2&#125;</span><br></pre></td></tr></table></figure>
+<p>id 选择器与 类选择器的区别：在使用次数上，类选择器可以使用多次，id 选择器只能使用一次</p>
+<h2 id="3-4-通配符选择器"><a href="#3-4-通配符选择器" class="headerlink" title="3.4. 通配符选择器"></a>3.4. 通配符选择器</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* &#123;属性1:属性值1;属性2：属性值2&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-5-伪类选择器"><a href="#3-5-伪类选择器" class="headerlink" title="3.5. 伪类选择器"></a>3.5. 伪类选择器</h2><h3 id="3-5-1-链接伪类选择器"><a href="#3-5-1-链接伪类选择器" class="headerlink" title="3.5.1. 链接伪类选择器"></a>3.5.1. 链接伪类选择器</h3><ul>
+<li>:link  未访问的链接</li>
+<li>:visited 已访问的链接</li>
+<li>:hover 鼠标移动到链接上</li>
+<li>:active 选定的链接，选定不松开时</li>
+</ul>
+<p>注意：顺序不能颠倒</p>
+<h3 id="3-5-2-结构伪类选择器"><a href="#3-5-2-结构伪类选择器" class="headerlink" title="3.5.2. 结构伪类选择器"></a>3.5.2. 结构伪类选择器</h3><ul>
+<li>:first-child 选取属于其父元素的首个子元素的指定选择器</li>
+<li>:last-child 选取属于其父元素的最后一个子元素的指定选择器</li>
+<li>:nth-child(n)  选取第n个,n从0开始,n可以是公式</li>
+<li>:nth-last-child(n) 从最后一个元素开始,</li>
+</ul>
+<h3 id="3-5-3-目标伪类选择器"><a href="#3-5-3-目标伪类选择器" class="headerlink" title="3.5.3. 目标伪类选择器"></a>3.5.3. 目标伪类选择器</h3><p>:target 目标伪类选择器，选择器可用于选取当前活动的目标元素。</p>
+<h1 id="4-文字"><a href="#4-文字" class="headerlink" title="4. 文字"></a>4. 文字</h1><h2 id="4-1-文字阴影"><a href="#4-1-文字阴影" class="headerlink" title="4.1. 文字阴影"></a>4.1. 文字阴影</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">text-shadow</span>: 水平位置，垂直位置，模糊距离，阴影颜色</span><br></pre></td></tr></table></figure>
+<h2 id="4-2-文本的装饰"><a href="#4-2-文本的装饰" class="headerlink" title="4.2. 文本的装饰"></a>4.2. 文本的装饰</h2><table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>none</td>
+<td>默认，定义标准的文本</td>
+</tr>
+<tr>
+<td>underline</td>
+<td>定义文本下的一条线</td>
+</tr>
+<tr>
+<td>overline</td>
+<td>定义文本上的一条线</td>
+</tr>
+<tr>
+<td>line-through</td>
+<td>定义穿过文本下的一条线</td>
+</tr>
+</tbody>
+</table>
+<h1 id="5-css样式表"><a href="#5-css样式表" class="headerlink" title="5. css样式表"></a>5. css样式表</h1><table>
+<thead>
+<tr>
+<th>样式表</th>
+<th>优点</th>
+<th>缺点</th>
+<th>使用情况</th>
+<th>控制范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>内部样式表</td>
+<td>书写方便，权重高</td>
+<td>没有实现样式和结构相分离</td>
+<td>较少</td>
+<td>控制一个标签（少） </td>
+</tr>
+<tr>
+<td>行内样式表</td>
+<td>部分结构与样式分离</td>
+<td>没有彻底分离</td>
+<td>较多</td>
+<td>控制一个页面（中）</td>
+</tr>
+<tr>
+<td>外部样式表</td>
+<td>完全实现结构与样式分离</td>
+<td>需要引入</td>
+<td>最多，强烈推荐</td>
+<td>控制整个站点（多）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-1-标签的显示形式"><a href="#5-1-标签的显示形式" class="headerlink" title="5.1. 标签的显示形式"></a>5.1. 标签的显示形式</h2><p>HTML 标签一般分为块标签和行内标签两种类型，它们也称块元素和行内元素</p>
+<h3 id="5-1-1-块级元素"><a href="#5-1-1-块级元素" class="headerlink" title="5.1.1. 块级元素"></a>5.1.1. 块级元素</h3><p>每个块级元素通常都会独自占据一整行或多行，可以对其设置宽度、高度、对齐等属性，常用于网页布局和网页结构搭建。</p>
+<p>常见的元素有：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">h1</span>&gt;...&lt;<span class="selector-tag">h6</span>&gt;、&lt;<span class="selector-tag">p</span>&gt;、&lt;<span class="selector-tag">div</span>&gt;、&lt;<span class="selector-tag">ul</span>&gt;、&lt;<span class="selector-tag">ol</span>&gt;、&lt;<span class="selector-tag">li</span>&gt;等</span><br></pre></td></tr></table></figure>
+<p>特点：</p>
+<ul>
+<li>总是从新行开始</li>
+<li>宽度、行高、外边距及内边距都可以控制</li>
+<li>宽度默认是容器的100%</li>
+<li>可以容纳其它内联元素和其他块元素</li>
+</ul>
+<h3 id="5-1-2-行内元素"><a href="#5-1-2-行内元素" class="headerlink" title="5.1.2. 行内元素"></a>5.1.2. 行内元素</h3><p>行内元素（内联元素）不占有独立的区域，仅仅靠自身的字体大小和图像尺寸来支撑结构，一般不可以设置宽度、高度、对齐等属性，常用开控制页面中文本的样式。</p>
+<p>常见的行内元素有</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">a</span>&gt; &lt;<span class="selector-tag">strong</span>&gt; &lt;<span class="selector-tag">b</span>&gt; &lt;<span class="selector-tag">em</span>&gt; &lt;<span class="selector-tag">i</span>&gt; &lt;<span class="selector-tag">del</span>&gt; &lt;<span class="selector-tag">ins</span>&gt; &lt;<span class="selector-tag">u</span>&gt; &lt;<span class="selector-tag">span</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>特点：</p>
+<ul>
+<li>和相邻行内元素在一行内显示</li>
+<li>高、宽无效，但水平方向的 padding 和 margin 可以设置，垂直方向的无效。</li>
+<li>默认宽度就是它本身内容的宽度</li>
+<li>行内元素只能容纳文本或者其他行内元素（a特殊)</li>
+</ul>
+<p>注意：</p>
+<ul>
+<li>只有文字能组成段落，因此 p 里面不能放块级元素，同理 h1~h6</li>
+<li>链接里面不能再放链接</li>
+</ul>
+<h3 id="5-1-3-行内块元素-inline-block"><a href="#5-1-3-行内块元素-inline-block" class="headerlink" title="5.1.3. 行内块元素(inline-block)"></a>5.1.3. 行内块元素(inline-block)</h3><p>在行内元素中有几个特殊的标签 &lt;img/&gt;、&lt;input/&gt;、&lt;td&gt; 可以对它们设置宽度和对齐属性</p>
+<p>特点：</p>
+<ul>
+<li>和相邻行内元素（行内块）在一行上，但是之间会有空白缝隙。</li>
+<li>默认宽度就是它本身内容的宽度（宽度由内容决定）</li>
+<li>高度，行高，外边距以及内边距都可以控制。</li>
+</ul>
+<h3 id="5-1-4-显示模式转换"><a href="#5-1-4-显示模式转换" class="headerlink" title="5.1.4. 显示模式转换"></a>5.1.4. 显示模式转换</h3><p>块转行内： display:inline;<br>行内转块： display:block;<br>块、行内元素转行内块： display:inline-block;</p>
+<h1 id="6-复合选择器"><a href="#6-复合选择器" class="headerlink" title="6. 复合选择器"></a>6. 复合选择器</h1><h2 id="6-1-交集选择器"><a href="#6-1-交集选择器" class="headerlink" title="6.1. 交集选择器"></a>6.1. 交集选择器</h2><p><img src="/2018/07/21/CSS入门及提高/交集选择器.png" alt="交集选择器"></p>
+<h2 id="6-2-并集选择器"><a href="#6-2-并集选择器" class="headerlink" title="6.2. 并集选择器"></a>6.2. 并集选择器</h2><p><img src="/2018/07/21/CSS入门及提高/并集选择器.png" alt="并集选择器"></p>
+<h2 id="6-3-后代选择器"><a href="#6-3-后代选择器" class="headerlink" title="6.3. 后代选择器"></a>6.3. 后代选择器</h2><p><img src="/2018/07/21/CSS入门及提高/后代选择器.png" alt="后代选择器"></p>
+<h2 id="6-4-子元素选择器"><a href="#6-4-子元素选择器" class="headerlink" title="6.4. 子元素选择器"></a>6.4. 子元素选择器</h2><p><img src="/2018/07/21/CSS入门及提高/子元素选择器.png" alt="子元素选择器"></p>
+<h2 id="6-5-属性选择器"><a href="#6-5-属性选择器" class="headerlink" title="6.5. 属性选择器"></a>6.5. 属性选择器</h2><p>选取标签带有某些特殊属性的选择器</p>
+<table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E[attr]</td>
+<td>存在 attr 属性即可</td>
+</tr>
+<tr>
+<td>E[attr=val]</td>
+<td>属性值完全等于 val</td>
+</tr>
+<tr>
+<td>E[attr*=val]</td>
+<td>属性值包含 val 字符并且在“任意”位置</td>
+</tr>
+<tr>
+<td>E[attr^=val]</td>
+<td>属性值包含 val 字符并且在“开始”位置</td>
+</tr>
+<tr>
+<td>E[attr$=val]</td>
+<td>属性值包含 val 字符并且在“结束”位置</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6-6-伪元素选择器（CSS3"><a href="#6-6-伪元素选择器（CSS3" class="headerlink" title="6.6. 伪元素选择器（CSS3)"></a>6.6. 伪元素选择器（CSS3)</h2><ul>
+<li>E::first-letter 文本的第一个单词或字</li>
+<li>E::first-line 文本第一行</li>
+<li>E::selection 可改变选中文本的样式</li>
+<li>E::before和 E::after 在E元素内部开始的位置和结束位创建一个元素，该元素为行内元素，且必须结合content属性使用</li>
+</ul>
+<h1 id="7-CSS-书写规范"><a href="#7-CSS-书写规范" class="headerlink" title="7. CSS 书写规范"></a>7. CSS 书写规范</h1><h2 id="7-1-空格规范"><a href="#7-1-空格规范" class="headerlink" title="7.1. 空格规范"></a>7.1. 空格规范</h2><p>【强制】选择器与{}之间必须包含空格<br>【强制】属性名与之后的：之间不允许包含空格，：与属性值之间必须包含空格.<br>示例：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">font-size</span>: 12<span class="selector-tag">px</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="7-2-选择器规范"><a href="#7-2-选择器规范" class="headerlink" title="7.2. 选择器规范"></a>7.2. 选择器规范</h2><p>【强制】当一个 rule 包含多个 selector 时，每个选择器声明必须独占一行。<br>【建议】选择器嵌套层级不大于3级，位置靠后的限定条件应尽可能精确。</p>
+<h2 id="7-3-属性规范"><a href="#7-3-属性规范" class="headerlink" title="7.3. 属性规范"></a>7.3. 属性规范</h2><p>【强制】属性定义必须另起一行<br>【强制】属性定义后必须以分号结尾</p>
+<h1 id="8-CSS-背景"><a href="#8-CSS-背景" class="headerlink" title="8. CSS 背景"></a>8. CSS 背景</h1><h2 id="8-1-多背景"><a href="#8-1-多背景" class="headerlink" title="8.1. 多背景"></a>8.1. 多背景</h2><ul>
+<li>一个元素可以设置多重背景图像</li>
+<li>每组属性之间使用逗号隔开</li>
+<li>如果设置的多重背景之间存在着交集（即存在着重叠关系），前面的背景图片会覆盖在后面的背景图片上。</li>
+<li>为了避免背景色将图像盖住，背景色通常定义在最后一组上。</li>
+</ul>
+<h1 id="9-CSS-三大特性"><a href="#9-CSS-三大特性" class="headerlink" title="9. CSS 三大特性"></a>9. CSS 三大特性</h1><h2 id="9-1-层叠性"><a href="#9-1-层叠性" class="headerlink" title="9.1. 层叠性"></a>9.1. 层叠性</h2><p>样式冲突遵循的原则是就近原则，哪个样式离着结构近就执行哪个样式。</p>
+<h2 id="9-2-继承性"><a href="#9-2-继承性" class="headerlink" title="9.2. 继承性"></a>9.2. 继承性</h2><p>子元素可以继承父元素的样式，如 text- font- line- 以及 color属性</p>
+<h2 id="9-3-优先性"><a href="#9-3-优先性" class="headerlink" title="9.3. 优先性"></a>9.3. 优先性</h2><p>权重表</p>
+<table>
+<thead>
+<tr>
+<th>继承或者*的贡献值</th>
+<th>0,0,0,0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>每个元素（标签）贡献值为</td>
+<td>0,0,0,1</td>
+</tr>
+<tr>
+<td>每个类、伪类贡献值为</td>
+<td>0,0,1,0</td>
+</tr>
+<tr>
+<td>每个ID贡献值为</td>
+<td>0,１,0,0</td>
+</tr>
+<tr>
+<td>每个行内样式贡献值为</td>
+<td>1,0,0,0</td>
+</tr>
+<tr>
+<td>每个!important贡献值为</td>
+<td>无穷大</td>
+</tr>
+</tbody>
+</table>
+<p>继承的权重为0</p>
+<h1 id="10-盒子模型"><a href="#10-盒子模型" class="headerlink" title="10. 盒子模型"></a>10. 盒子模型</h1><h2 id="10-1-外边距合并"><a href="#10-1-外边距合并" class="headerlink" title="10.1. 外边距合并"></a>10.1. 外边距合并</h2><h3 id="10-1-1-相邻元素块垂直外边距合并"><a href="#10-1-1-相邻元素块垂直外边距合并" class="headerlink" title="10.1.1. 相邻元素块垂直外边距合并"></a>10.1.1. 相邻元素块垂直外边距合并</h3><p>不是两者相加的和，而是取两者中的较大者。</p>
+<h3 id="10-1-2-嵌套元素垂直外边距合并"><a href="#10-1-2-嵌套元素垂直外边距合并" class="headerlink" title="10.1.2. 嵌套元素垂直外边距合并"></a>10.1.2. 嵌套元素垂直外边距合并</h3><p>对于两个嵌套关系的块元素，如果父元素没有上边距及边框，则父元素的上边距会与子元素的上边距发生合并，合并后的外边距为两者中的较大者。</p>
+<p>解决方案：</p>
+<ul>
+<li>可以为父元素定义1像素的上边框或上内边距。</li>
+<li>可以为父元素添加overflow:hidden</li>
+</ul>
+<h2 id="10-2-盒子的计算尺寸"><a href="#10-2-盒子的计算尺寸" class="headerlink" title="10.2. 盒子的计算尺寸"></a>10.2. 盒子的计算尺寸</h2><p>注意：</p>
+<ul>
+<li>宽度属性和高度属性仅适用于块级元素，对行内元素无效（img标签和input除外）</li>
+<li>计算盒子模型的总高度时，还应考虑上下两个盒子垂直外边距合并的情况</li>
+<li>如果一个盒子没有给定宽度/高度或者继承父亲的宽度/高度,则padding不会影响本盒子大小。</li>
+</ul>
+<h2 id="10-3-盒子模型与布局稳定性"><a href="#10-3-盒子模型与布局稳定性" class="headerlink" title="10.3. 盒子模型与布局稳定性"></a>10.3. 盒子模型与布局稳定性</h2><p>稳定性<br>width &gt; padding &gt; margin</p>
+<h2 id="10-4-CSS3-盒模型"><a href="#10-4-CSS3-盒模型" class="headerlink" title="10.4. CSS3 盒模型"></a>10.4. CSS3 盒模型</h2><ol>
+<li>box-sizing:content-box 盒子大小为 width + padding + border ,此值为默认值，W2C标准的Box Mode</li>
+<li>box-sizing:border-box 盒子大小为 width</li>
+</ol>
+<h2 id="10-5-盒子阴影"><a href="#10-5-盒子阴影" class="headerlink" title="10.5. 盒子阴影"></a>10.5. 盒子阴影</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">box-shadow</span> 水平位置 垂直位置 模糊距离 阴影尺寸 阴影颜色  内外阴影</span><br></pre></td></tr></table></figure>
+<h2 id="10-6-浮动"><a href="#10-6-浮动" class="headerlink" title="10.6. 浮动"></a>10.6. 浮动</h2><p>CSS 定位机制有3种：普通流（标准流）、浮动和定位</p>
+<ul>
+<li>普通流(normal flow) ：自上而下，自左而右</li>
+<li>浮动：最开始用来做文字环绕效果</li>
+</ul>
+<h3 id="10-6-1-什么是浮动"><a href="#10-6-1-什么是浮动" class="headerlink" title="10.6.1. 什么是浮动"></a>10.6.1. 什么是浮动</h3><p>元素浮动是指设置了浮动属性的元素会脱离标准普通流的控制，移动到其父元素中指定位置的过程。</p>
+<h3 id="10-6-2-浮动与行内块"><a href="#10-6-2-浮动与行内块" class="headerlink" title="10.6.2. 浮动与行内块"></a>10.6.2. 浮动与行内块</h3><p>行内块之间有难以却除的间隙<br>行内元素或块级元素添加浮动后变为行内块</p>
+<h2 id="10-7-版心和布局流程"><a href="#10-7-版心和布局流程" class="headerlink" title="10.7. 版心和布局流程"></a>10.7. 版心和布局流程</h2><ul>
+<li>确定页面的版心</li>
+<li>分析页面中的行模块，以及每个行模块中的列模块</li>
+<li>制作HTML结构</li>
+<li>CSS初始化，然后开始运用盒子模型的原理，通过 DIV+CSS布局来控制网页中的各个模块。</li>
+</ul>
+<h3 id="10-7-1-清除浮动的本质"><a href="#10-7-1-清除浮动的本质" class="headerlink" title="10.7.1. 清除浮动的本质"></a>10.7.1. 清除浮动的本质</h3><p>清除浮动主要是为了解决父级元素因为子级浮动引起内部高度为0的问题。</p>
+<p>清除方法</p>
+<ul>
+<li>额外标签法：在浮动元素末尾添加一个空的标签，例如 </li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"clear:both"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>优点：通俗易懂，书写方便<br>缺点：添加许多无意义的标签，结构化差。</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>内容（例子）</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>额外标签法</td>
+<td>在浮动元素末尾添加一个空的标签，例如：&lt;div style=”clear:both”&gt;&lt;/div&gt;</td>
+<td>通俗易懂，书写方便</td>
+<td>添加许多无意义的标签，结构化差</td>
+</tr>
+<tr>
+<td>父级增加overflow属性方法</td>
+<td>给父级元素增加overflow为hidden或auto或scroll都可以实现</td>
+<td>代码简洁</td>
+<td>内容增多时候容易造成不会自动换行导致内容被隐藏掉，无法显示需要溢出的元素</td>
+</tr>
+<tr>
+<td>使用after伪元素</td>
+<td>.clearfix:after{content:”.”;display:block;height:0;visibility:hidden;clear:both}</td>
+<td>符合闭合浮动思维，结构主义化明确</td>
+<td>由于IE6-7不支持after,使用zoom:1触发 hasLayout</td>
+</tr>
+<tr>
+<td>双伪元素</td>
+<td>.clearfix:before,.clearfix:after{content:””,display:table}  .clearfix:after{clear:both} .clearfix{*zoom:1;}</td>
+<td>代码更简洁</td>
+<td>由于IE6-7不支持after,使用zoom:1触发 hasLayout</td>
+</tr>
+</tbody>
+</table>
+<h1 id="11-定位"><a href="#11-定位" class="headerlink" title="11. 定位"></a>11. 定位</h1><h2 id="11-1-元素的定位属性"><a href="#11-1-元素的定位属性" class="headerlink" title="11.1. 元素的定位属性"></a>11.1. 元素的定位属性</h2><p>元素的定位属性主要包括定位模式和边偏移两部分</p>
+<h3 id="11-1-1-边偏移"><a href="#11-1-1-边偏移" class="headerlink" title="11.1.1. 边偏移"></a>11.1.1. 边偏移</h3><p>top,bottom,left,right</p>
+<h3 id="11-1-2-定位模式"><a href="#11-1-2-定位模式" class="headerlink" title="11.1.2. 定位模式"></a>11.1.2. 定位模式</h3><p>语法: 选择器（postition属性值)</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+<th>是否脱标占有位置</th>
+<th>是否可以使用边偏移</th>
+<th>移动位置基准</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>static</td>
+<td>静态定位（默认定位方式）</td>
+<td>不脱标</td>
+<td>不可以</td>
+<td>正常模式</td>
+</tr>
+<tr>
+<td>relative</td>
+<td>相对定位，相对于其原文档流位置进行定位</td>
+<td>不脱标，占有位置</td>
+<td>可以</td>
+<td>相对自身位置移动</td>
+</tr>
+<tr>
+<td>absolute</td>
+<td>绝对定位，相对于其上一个已经定位的父元素进行定位</td>
+<td>完全脱标，不占有位置</td>
+<td>可以</td>
+<td>相对于定位父级移动位置</td>
+</tr>
+<tr>
+<td>fixed</td>
+<td>固定定位，相对于浏览器窗口进行定位</td>
+<td>完全脱标，不占有位置</td>
+<td>可以</td>
+<td>相对于浏览器移动位置</td>
+</tr>
+</tbody>
+</table>
+<h4 id="11-1-2-1-静态定位"><a href="#11-1-2-1-静态定位" class="headerlink" title="11.1.2.1. 静态定位"></a>11.1.2.1. 静态定位</h4><p>对于边偏移无效，通常用于清除定位的。</p>
+<h4 id="11-1-2-2-相对定位"><a href="#11-1-2-2-相对定位" class="headerlink" title="11.1.2.2. 相对定位"></a>11.1.2.2. 相对定位</h4><ul>
+<li>相对定位最重要的一点是，它可以通过边偏移移动位置，但是原来所占的位置，继续占有。</li>
+<li>其次，每次移动的位置，是以自己的左上角为基点移动的。</li>
+</ul>
+<p>相对定位的盒子仍在标准流中，它后面的盒子仍以标准流来对待它</p>
+<h4 id="11-1-2-3-绝对定位"><a href="#11-1-2-3-绝对定位" class="headerlink" title="11.1.2.3. 绝对定位"></a>11.1.2.3. 绝对定位</h4><p>绝对定位是完全脱标的，它不占有位置。</p>
+<p>若所有父元素都没有定位，以浏览器为准对齐。</p>
+<p>若父级有定位(绝对、固定或相对定位)，则以最近的有定位的父元素进行定位。</p>
+<p>子绝父相：意思是子级是绝对定位的话，父级要用相对定位。</p>
+<h4 id="11-1-2-4-固定定位"><a href="#11-1-2-4-固定定位" class="headerlink" title="11.1.2.4. 固定定位"></a>11.1.2.4. 固定定位</h4><ul>
+<li>固定定位元素跟父亲没有任何关系</li>
+<li>固定定位完全脱标，不占有位置，不随着滚动条滚动。</li>
+</ul>
+<h3 id="11-1-3-叠放次序-z-index"><a href="#11-1-3-叠放次序-z-index" class="headerlink" title="11.1.3. 叠放次序(z-index)"></a>11.1.3. 叠放次序(z-index)</h3><ul>
+<li>z-index 的默认值是0，取值越大，定位元素层叠越居上</li>
+<li>如果取值相同，则根据书写顺序，后来居上</li>
+<li>后面数字一定不能加单位</li>
+<li>只有相对定位、绝对定们、固定定位有此属性。</li>
+</ul>
+<h3 id="11-1-4-定位模式的转换"><a href="#11-1-4-定位模式的转换" class="headerlink" title="11.1.4. 定位模式的转换"></a>11.1.4. 定位模式的转换</h3><p>跟浮动一样，元素添加了绝对定位和固定定位之后，元素模式也会发生转换，都转换为行内块模式。</p>
+<h3 id="11-1-5-元素的显示与隐藏"><a href="#11-1-5-元素的显示与隐藏" class="headerlink" title="11.1.5. 元素的显示与隐藏"></a>11.1.5. 元素的显示与隐藏</h3><p>隐藏：<br>display : none 隐藏之后不保留位置<br>visibility ：hidden 隐藏之后保留位置</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/21/CSS入门及提高/" data-id="cju85caij00048suql0juad3d" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-从零做一个前端开源项目学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/18/从零做一个前端开源项目学习笔记/" class="article-date">
+  <time datetime="2018-07-18T11:28:43.000Z" itemprop="datePublished">2018-07-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/18/从零做一个前端开源项目学习笔记/">从零做一个前端开源项目学习笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="什么是开源"><a href="#什么是开源" class="headerlink" title="什么是开源"></a>什么是开源</h1><p>开源包括：</p>
+<ul>
+<li>源码</li>
+<li>文档，如二次开发文档和用户使用文档</li>
+<li>开发环境，告诉二次开发者如何搭建和运行代码</li>
+<li>允许他人贡献代码：而不是仅仅给别人阅读代码的权限</li>
+<li>问题：用户提问，维护者答复，问题共享</li>
+<li>问题列表和升级计划：记录当前问题，以及何时解决、何时升级</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/18/从零做一个前端开源项目学习笔记/" data-id="cju85cakd000z8suqljysfpcv" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="&#39;sql-SQL Server编程入门经典" class="article article-type-&#39;sql" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/09/SQL Server编程入门经典/" class="article-date">
+  <time datetime="2018-07-09T01:09:25.000Z" itemprop="datePublished">2018-07-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/09/SQL Server编程入门经典/">SQL Server编程入门经典</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-RDBMS-基础：SQLServer-数据库的构成"><a href="#1-RDBMS-基础：SQLServer-数据库的构成" class="headerlink" title="1. RDBMS 基础：SQLServer 数据库的构成"></a>1. RDBMS 基础：SQLServer 数据库的构成</h1><h2 id="1-1-数据对象的概述"><a href="#1-1-数据对象的概述" class="headerlink" title="1.1. 数据对象的概述"></a>1.1. 数据对象的概述</h2><p>数据库对象：</p>
+<ul>
+<li>数据库本身</li>
+<li>事务日志</li>
+<li>表</li>
+<li>索引</li>
+<li>文件组</li>
+<li>数据库关系图</li>
+<li>视图</li>
+<li>存储过程</li>
+<li>用户自定义函数</li>
+<li>序列</li>
+<li>用户</li>
+<li>角色</li>
+<li>程序集</li>
+<li>报表</li>
+<li>全文目录</li>
+<li>用户自定义数据类型</li>
+</ul>
+<h3 id="1-1-1-数据库对象"><a href="#1-1-1-数据库对象" class="headerlink" title="1.1.1. 数据库对象"></a>1.1.1. 数据库对象</h3><p>存储过程和视图是对存储在数据库表中的数据的特定分组</p>
+<p>SQL Server 第一次启动时至少包括4个系统数据库</p>
+<ul>
+<li>master：系统表用于系统的总体控件</li>
+<li>model：是指可以基于该模型得一个副本</li>
+<li>msdb：SQL Agent 进程存储任意系统任务的地方</li>
+<li>tempdb：是服务器的主要工作地方之一。在执行一个复杂或者大型的查询操作时，SQL Server可能需要创建一些中间表来完成该操作。每次启动SQLServer,tempdb数据库是系统中唯一完全重建的数据库。</li>
+</ul>
+<h3 id="1-1-2-事务日志"><a href="#1-1-2-事务日志" class="headerlink" title="1.1.2. 事务日志"></a>1.1.2. 事务日志</h3><p>实际上，任意数据库的更改起初不进入数据库本身，而是不断地被写入到事务日志。<br>日志是数据进入磁盘上的最先位置，且稍后会被传播到实际的数据库。需要数据库文件和事务日志一起完成数据库功能。</p>
+<h3 id="1-1-3-最基本的数据库对象：表"><a href="#1-1-3-最基本的数据库对象：表" class="headerlink" title="1.1.3. 最基本的数据库对象：表"></a>1.1.3. 最基本的数据库对象：表</h3><ol>
+<li>索引</li>
+</ol>
+<p>索引分两类：</p>
+<ul>
+<li>群集索引：每个表只能有一个群集索引，如果为百科全书做索引，则群集索引是书的页码</li>
+<li>非群集索引：每个表可以有多个非群集索引。</li>
+</ul>
+<p>注意：具有索引的视图在有非群集索引之前必须有一个群集索引</p>
+<ol start="2">
+<li>触发器</li>
+</ol>
+<p>触发器有多种用途，但主要用于输入时复制数据或在更新时检查数据，确保数据满足相应条件。</p>
+<ol start="3">
+<li>约束</li>
+</ol>
+<h3 id="1-1-4-文件组"><a href="#1-1-4-文件组" class="headerlink" title="1.1.4. 文件组"></a>1.1.4. 文件组</h3><h3 id="1-1-5-数据库关系图"><a href="#1-1-5-数据库关系图" class="headerlink" title="1.1.5. 数据库关系图"></a>1.1.5. 数据库关系图</h3><h3 id="1-1-6-视图"><a href="#1-1-6-视图" class="headerlink" title="1.1.6. 视图"></a>1.1.6. 视图</h3><p>视图仅仅是表中所存储数据的一个预先计划的映射和表示。视图以查询的形式存储在数据库中。</p>
+<p>视图的主要目的是控制视图用户查看的数据。</p>
+<p>索引视图除了可以创建索引外，其它都与视图相同，其对使用性能的影响如下：</p>
+<ul>
+<li>对于引用多个表的视图来说，索引视图的可读性更好，因为它预告构建了表之间的连接。</li>
+<li>由于预先计算好视图中执行的聚合(aggregation)，并将其作为索引的一部分存储，因此聚合只要执行一次（在插入或更新时），然后就可从索引信息中直接读取它。</li>
+<li>由于视图上的索引必须及时更新，因此插入和删除索引需要更多的系统开销，如果更新影响到索引的键列或群集键，则更新也需要更多的系统开销。</li>
+</ul>
+<h3 id="1-1-7-存储过程"><a href="#1-1-7-存储过程" class="headerlink" title="1.1.7. 存储过程"></a>1.1.7. 存储过程</h3><p>存储过程优点：</p>
+<ul>
+<li>不使用长字符中文本而使用短字符串存储过程名，可减少运行存储过程中的代码所需要的网络通信流量。</li>
+<li>预先优化和预编译，节省每次运行存储过程的时间。</li>
+<li>通常考虑安全原因，或仅仅隐藏数据库的复杂性，将过程封装。</li>
+<li>可从其它存储过程调用，使得它们在某些限定意义上重用。</li>
+</ul>
+<h3 id="1-1-8-用户自定义函数"><a href="#1-1-8-用户自定义函数" class="headerlink" title="1.1.8. 用户自定义函数"></a>1.1.8. 用户自定义函数</h3><p>用户自定义函数（UDF）与存储过程十分相似，不同之处有如下几点：</p>
+<ul>
+<li>返回值的数据类型包括大部分 SQLServer 数据类型。不包括的返回值数据类型有：text,ntext,image,cursor,timestamp</li>
+<li>没有“副作用”。基本上用户自定义函数不能超出函数的作用范围。</li>
+</ul>
+<p>传送到函数中的所有变量都是按值传递的，但可以返回一种特殊的数据类型–表</p>
+<h3 id="1-1-9-序列"><a href="#1-1-9-序列" class="headerlink" title="1.1.9. 序列"></a>1.1.9. 序列</h3><p>序列的作用是提供任意数量的进程都可以访问的序号源，同时保证任意两个进程不会同时获取相同的下一个值。因为序列是单独存在的对象(没有绑定到任何表),所以它可以有多种用途。</p>
+<h3 id="1-1-10-用户和角色"><a href="#1-1-10-用户和角色" class="headerlink" title="1.1.10. 用户和角色"></a>1.1.10. 用户和角色</h3><h3 id="1-1-11-规则"><a href="#1-1-11-规则" class="headerlink" title="1.1.11. 规则"></a>1.1.11. 规则</h3><h3 id="1-1-12-默认值"><a href="#1-1-12-默认值" class="headerlink" title="1.1.12. 默认值"></a>1.1.12. 默认值</h3><p>SQL Server 中有两种类型的默认值，包括对象本身的默认值，以及描述表中特定列的元数据的默认值。</p>
+<h3 id="1-1-13-用户自定义数据类型"><a href="#1-1-13-用户自定义数据类型" class="headerlink" title="1.1.13. 用户自定义数据类型"></a>1.1.13. 用户自定义数据类型</h3><h3 id="1-1-14-全文目录"><a href="#1-1-14-全文目录" class="headerlink" title="1.1.14. 全文目录"></a>1.1.14. 全文目录</h3><h2 id="1-2-SQL-Server-数据类型"><a href="#1-2-SQL-Server-数据类型" class="headerlink" title="1.2. SQL Server 数据类型"></a>1.2. SQL Server 数据类型</h2><p><img src="/2018/07/09/SQL Server编程入门经典/SQL_Server编程入门经典/数据类型1.png" alt="数据类型1"><br><img src="/2018/07/09/SQL Server编程入门经典/SQL_Server编程入门经典/数据类型2.png" alt="数据类型2"></p>
+<h1 id="2-连接"><a href="#2-连接" class="headerlink" title="2. 连接"></a>2. 连接</h1><p>数据库规范化是指将数据从更大的表分割成几个较小的表，目的是消除重复的数据、节省空间、提高数据库性能，并增加数据完整性。</p>
+<h2 id="2-1-内部连接"><a href="#2-1-内部连接" class="headerlink" title="2.1. 内部连接"></a>2.1. 内部连接</h2><p>INNER JOIN:内部连接是一个排他的连接，即排除在两表————第一个指定的表（即左表）和第二个指定表（即右表）————中没有匹配的所有记录。</p>
+<h3 id="2-1-1-处理更复杂的外部连接"><a href="#2-1-1-处理更复杂的外部连接" class="headerlink" title="2.1.1. 处理更复杂的外部连接"></a>2.1.1. 处理更复杂的外部连接</h3><p>在所有的查询的语句中，JOIN 左侧或之前的所有表只作为一个表，不论查询语句是要包含或排除表中的数据。同样，所有查询语句中 JOIN 右侧或之后的所有表只作为一个表。</p>
+<p>通常，应首先使用内部连接，然后尽量少地使用外部连接，这样可以减少代码中的错误。</p>
+<h2 id="2-2-联合"><a href="#2-2-联合" class="headerlink" title="2.2. 联合"></a>2.2. 联合</h2><p>JOIN 将信息水平连接（添加更多列），而 UNION 将数据垂直连接（添加更多行）。</p>
+<h1 id="3-创建和修改数据表"><a href="#3-创建和修改数据表" class="headerlink" title="3. 创建和修改数据表"></a>3. 创建和修改数据表</h1><h2 id="3-1-SQL-SERVER-中的对象名"><a href="#3-1-SQL-SERVER-中的对象名" class="headerlink" title="3.1. SQL SERVER 中的对象名"></a>3.1. SQL SERVER 中的对象名</h2><p>有4层命名约定</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ServerName.[DatabaseName.[SchemaName.]]]ObjectName</span><br></pre></td></tr></table></figure>
+<h1 id="4-刍和约束"><a href="#4-刍和约束" class="headerlink" title="4. 刍和约束"></a>4. 刍和约束</h1><p>确保数据完整性不是使用数据库的程序的责任，而是数据库本身的责任。</p>
+<p>有3种不同类型的约束</p>
+<ul>
+<li>实体约束</li>
+<li>域约束</li>
+<li>参照完整笥约束</li>
+</ul>
+<p>约束的方法</p>
+<ul>
+<li>主键约束</li>
+<li>外键约束</li>
+<li>唯一约束(也称替换键)</li>
+<li>CHECK约束</li>
+<li>DEFAULT约束</li>
+<li>规则</li>
+<li>默认值(和DEFAULT约束类似)</li>
+</ul>
+<h2 id="4-1-约束的类型"><a href="#4-1-约束的类型" class="headerlink" title="4.1. 约束的类型"></a>4.1. 约束的类型</h2><h3 id="4-1-1-域约束"><a href="#4-1-1-域约束" class="headerlink" title="4.1.1. 域约束"></a>4.1.1. 域约束</h3><p>域约束处理一个或多个列</p>
+<h2 id="4-2-键约束"><a href="#4-2-键约束" class="headerlink" title="4.2. 键约束"></a>4.2. 键约束</h2><p>主键、外键、替换键和倒置健</p>
+<h1 id="5-更复杂的查询"><a href="#5-更复杂的查询" class="headerlink" title="5. 更复杂的查询"></a>5. 更复杂的查询</h1><h2 id="5-1-子查询的概念"><a href="#5-1-子查询的概念" class="headerlink" title="5.1. 子查询的概念"></a>5.1. 子查询的概念</h2><p>子查询通常用于满足下列某个需求</p>
+<ul>
+<li>将一个查询分解为一系列的逻辑步骤</li>
+<li>提供一个列表作为 WHERE 子句和 [IN|EXIST|ANY|ALL]的目标</li>
+<li>为父查询中的每个记录提供一个查询表</li>
+</ul>
+<h2 id="5-2-关联子查询"><a href="#5-2-关联子查询" class="headerlink" title="5.2. 关联子查询"></a>5.2. 关联子查询</h2><p>关联子查询与嵌套子查询的不同之处在于：信息传递是双向的，而不是单向的。在嵌套子查询中，内部查询只处理一次，然后将信息传递到外部查询，而外部查询也只执行一次————提供和您自己可能输入的完全相同的值或列表。</p>
+<p>关联子查询处理过程</p>
+<ul>
+<li>外部查询获取一个记录，然后将该记录传递到内部查询</li>
+<li>内部查询根据传递的值进行查询</li>
+<li>内部查询将结果值传递回外部查询，而外部查询利用这些值完成处理过程。</li>
+</ul>
+<h1 id="6-存储过程"><a href="#6-存储过程" class="headerlink" title="6. 存储过程"></a>6. 存储过程</h1><h1 id="7-数据库查询优化技巧"><a href="#7-数据库查询优化技巧" class="headerlink" title="7. 数据库查询优化技巧"></a>7. 数据库查询优化技巧</h1><h2 id="7-1-比较运算符能用-“-”就不用“-lt-gt-”"><a href="#7-1-比较运算符能用-“-”就不用“-lt-gt-”" class="headerlink" title="7.1. 比较运算符能用 “=”就不用“&lt;&gt;”"></a>7.1. 比较运算符能用 “=”就不用“&lt;&gt;”</h2><p>“=”增加了索引的使用几率。</p>
+<h2 id="7-2-明知只有一条查询结果，那请使用-“LIMIT-1”"><a href="#7-2-明知只有一条查询结果，那请使用-“LIMIT-1”" class="headerlink" title="7.2. 明知只有一条查询结果，那请使用 “LIMIT 1”"></a>7.2. 明知只有一条查询结果，那请使用 “LIMIT 1”</h2><p>“LIMIT 1”可以避免全表扫描，找到对应结果就不会再继续扫描了。</p>
+<h2 id="7-3-为列选择合适的数据类型"><a href="#7-3-为列选择合适的数据类型" class="headerlink" title="7.3. 为列选择合适的数据类型"></a>7.3. 为列选择合适的数据类型</h2><p>能用TINYINT就不用SMALLINT，能用SMALLINT就不用INT，道理你懂的，磁盘和内存消耗越小越好嘛。</p>
+<h2 id="7-4-将大的DELETE，UPDATE-or-INSERT-查询变成多个小查询"><a href="#7-4-将大的DELETE，UPDATE-or-INSERT-查询变成多个小查询" class="headerlink" title="7.4. 将大的DELETE，UPDATE or INSERT 查询变成多个小查询"></a>7.4. 将大的DELETE，UPDATE or INSERT 查询变成多个小查询</h2><p>能写一个几十行、几百行的SQL语句是不是显得逼格很高?然而，为了达到更好的性能以及更好的数据控制，你可以将他们变成多个小查询。</p>
+<p>查询数据库，你还在 Select * 吗？</p>
+<h2 id="7-5-使用UNION-ALL-代替-UNION，如果结果集允许重复的话"><a href="#7-5-使用UNION-ALL-代替-UNION，如果结果集允许重复的话" class="headerlink" title="7.5. 使用UNION ALL 代替 UNION，如果结果集允许重复的话"></a>7.5. 使用UNION ALL 代替 UNION，如果结果集允许重复的话</h2><p>因为 UNION ALL 不去重，效率高于 UNION。</p>
+<h2 id="7-6-为获得相同结果集的多次执行，请保持SQL语句前后一致"><a href="#7-6-为获得相同结果集的多次执行，请保持SQL语句前后一致" class="headerlink" title="7.6. 为获得相同结果集的多次执行，请保持SQL语句前后一致"></a>7.6. 为获得相同结果集的多次执行，请保持SQL语句前后一致</h2><p>这样做的目的是为了充分利用查询缓冲。</p>
+<p>比如根据地域和产品id查询产品价格，第一次使用了：</p>
+<p>查询数据库，你还在 Select * 吗？<br>那么第二次同样的查询，请保持以上语句的一致性，比如不要将where语句里面的id和region位置调换顺序。</p>
+<h2 id="7-7-尽量避免使用-“SELECT-”"><a href="#7-7-尽量避免使用-“SELECT-”" class="headerlink" title="7.7. 尽量避免使用 “SELECT *”"></a>7.7. 尽量避免使用 “SELECT *”</h2><p>如果不查询表中所有的列，尽量避免使用 SELECT *，因为它会进行全表扫描，不能有效利用索引，增大了数据库服务器的负担，以及它与应用程序客户端之间的网络IO开销。</p>
+<p>查询数据库，你还在 Select * 吗？</p>
+<h2 id="7-8-WHERE-子句里面的列尽量被索引"><a href="#7-8-WHERE-子句里面的列尽量被索引" class="headerlink" title="7.8. WHERE 子句里面的列尽量被索引"></a>7.8. WHERE 子句里面的列尽量被索引</h2><p>只是“尽量”哦，并不是说所有的列。因地制宜，根据实际情况进行调整，因为有时索引太多也会降低性能。</p>
+<h2 id="7-9-JOIN-子句里面的列尽量被索引"><a href="#7-9-JOIN-子句里面的列尽量被索引" class="headerlink" title="7.9. JOIN 子句里面的列尽量被索引"></a>7.9. JOIN 子句里面的列尽量被索引</h2><p>同样只是“尽量”哦，并不是说所有的列。</p>
+<h2 id="7-10-ORDER-BY-的列尽量被索引"><a href="#7-10-ORDER-BY-的列尽量被索引" class="headerlink" title="7.10. ORDER BY 的列尽量被索引"></a>7.10. ORDER BY 的列尽量被索引</h2><p>ORDER BY的列如果被索引，性能也会更好。</p>
+<h2 id="7-11-使用-LIMIT-实现分页逻辑"><a href="#7-11-使用-LIMIT-实现分页逻辑" class="headerlink" title="7.11. 使用 LIMIT 实现分页逻辑"></a>7.11. 使用 LIMIT 实现分页逻辑</h2><p>不仅提高了性能，同时减少了不必要的数据库和应用间的网络传输。</p>
+<h2 id="7-12-使用-EXPLAIN-关键字去查看执行计划"><a href="#7-12-使用-EXPLAIN-关键字去查看执行计划" class="headerlink" title="7.12. 使用 EXPLAIN 关键字去查看执行计划"></a>7.12. 使用 EXPLAIN 关键字去查看执行计划</h2><p>EXPLAIN 可以检查索引使用情况以及扫描的行。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/09/SQL Server编程入门经典/" data-id="cju85caje000l8suqtcr5b11o" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-CLR via C#学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/05/CLR via C#学习笔记/" class="article-date">
@@ -83,7 +673,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/05/CLR via C#学习笔记/" data-id="cjtxlywaj000300uqeyg5q505" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/05/CLR via C#学习笔记/" data-id="cju85caig00038suqs4hnr3gi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -126,7 +716,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/08/ModelUI for WPF/" data-id="cjtxlywcj000q00uq0mfehixo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/08/ModelUI for WPF/" data-id="cju85caji000o8suqyh3te4rf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -165,7 +755,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/04/设计模式/" data-id="cjtxlyweg001a00uq2xebuyuj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/04/设计模式/" data-id="cju85cal5001a8suq1o8p4d7s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -236,7 +826,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/01/T4模板/" data-id="cjtxlywd0000t00uqzbf0ijfp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/01/T4模板/" data-id="cju85cajt000s8suqunnibwtd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
@@ -276,7 +866,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/01/Access数据库/" data-id="cjtxlyw9r000200uqsheofc88" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/01/Access数据库/" data-id="cju85caj1000c8suqq5xipqm9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -315,7 +905,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/28/千万别说你懂买房/" data-id="cjtxlywe8001500uqktjcnqqy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/28/千万别说你懂买房/" data-id="cju85cakj00138suqivr1ebvu" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
@@ -371,209 +961,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/26/信息系统项目管理师/" data-id="cjtxlywdy001000uqbipwsvbs" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-VSCode" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/02/25/VSCode/" class="article-date">
-  <time datetime="2018-02-25T09:09:06.000Z" itemprop="datePublished">2018-02-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/25/VSCode/">VSCode</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-在VSCode中编辑MarkDown"><a href="#1-在VSCode中编辑MarkDown" class="headerlink" title="1. 在VSCode中编辑MarkDown"></a>1. 在VSCode中编辑MarkDown</h1><h2 id="1-1-使用命令"><a href="#1-1-使用命令" class="headerlink" title="1.1. 使用命令"></a>1.1. 使用命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl+shit+p</span><br></pre></td></tr></table></figure>
-<h2 id="1-2-标题自动编号"><a href="#1-2-标题自动编号" class="headerlink" title="1.2. 标题自动编号"></a>1.2. 标题自动编号</h2><ul>
-<li><p>安装markdown_index.</p>
-</li>
-<li><p>运行 &gt; markdown add index，即可自动添加序号</p>
-</li>
-</ul>
-<h1 id="visual-studio-code-中搭建-javascript-开发环境"><a href="#visual-studio-code-中搭建-javascript-开发环境" class="headerlink" title="visual studio code 中搭建 javascript 开发环境"></a>visual studio code 中搭建 javascript 开发环境</h1><h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><ul>
-<li>Code Runner</li>
-<li>Debugger for Chrome</li>
-</ul>
-<h2 id="添加配置文件"><a href="#添加配置文件" class="headerlink" title="添加配置文件"></a>添加配置文件</h2><p>在 launch.json 中添加配置如下</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"0.2.0"</span>,</span><br><span class="line">  <span class="attr">"configurations"</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">          <span class="attr">"name"</span>: <span class="string">"Launch Chrome and new instance of Chrome"</span>,</span><br><span class="line">          <span class="attr">"type"</span>: <span class="string">"chrome"</span>,</span><br><span class="line">          <span class="attr">"request"</span>: <span class="string">"launch"</span>,</span><br><span class="line">          <span class="attr">"url"</span>: <span class="string">"file:///C:/Users/xz/Desktop/test"</span>,</span><br><span class="line">          <span class="attr">"sourceMaps"</span>: <span class="literal">true</span>,</span><br><span class="line">          <span class="attr">"webRoot"</span>: <span class="string">"E:/apache-tomcat-8.0.21/webapps/Test"</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">          <span class="attr">"name"</span>: <span class="string">"Attach to Chrome"</span>,</span><br><span class="line">          <span class="attr">"type"</span>: <span class="string">"chrome"</span>,</span><br><span class="line">          <span class="attr">"request"</span>: <span class="string">"attach"</span>,</span><br><span class="line">          <span class="attr">"port"</span>: <span class="number">9222</span>,</span><br><span class="line">          <span class="attr">"sourceMaps"</span>: <span class="literal">true</span>,</span><br><span class="line">          <span class="attr">"webRoot"</span>: <span class="string">"$&#123;workspaceRoot&#125;"</span></span><br><span class="line">      &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/25/VSCode/" data-id="cjtxlywe5001300uq4ujdqdm0" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Sublime使用" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/02/25/Sublime使用/" class="article-date">
-  <time datetime="2018-02-25T08:20:12.000Z" itemprop="datePublished">2018-02-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/25/Sublime使用/">Sublime使用</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h1><p>Ctrl + H 进行替换</p>
-<h1 id="安装-Package-Control"><a href="#安装-Package-Control" class="headerlink" title="安装 Package Control"></a>安装 Package Control</h1><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request,os,hashlib; h = '<span class="number">6</span>f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.<span class="built_in">replace</span>(' ', '%<span class="number">20</span>')).read(); dh = hashlib.sha256(by).hexdigest(); <span class="built_in">print</span>('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) <span class="keyword">if</span> dh != h <span class="keyword">else</span> open(os.<span class="built_in">path</span>.join( ipp, pf), 'wb' ).write(by)</span><br></pre></td></tr></table></figure>
-<h2 id="常用插件"><a href="#常用插件" class="headerlink" title="常用插件"></a>常用插件</h2><ul>
-<li>Emmet：前端开发必备，Write less , show more，使用Tab键触发。安装Emmet后，可以输入少量代码后摁Tab键，系统自动补全代码。</li>
-<li>AutoFileName：快速列出你想引用的文件夹里面所有文件的名字，比如想引用test/img/1.png。只需要输入/img,该插件就会自动提示/img下面的所有文件名，如图</li>
-<li>BracketHighlighter：高亮显示[], (), {}, “”, ”, &lt;tag&gt;&lt;/tag&gt;符号，便于查看起始和结束标记。</li>
-<li>ColorPicker:调色板，需要输入颜色时，可直接选取颜色。使用快捷键ctrl+shift+c即可打开调色板。需要注意的是，这个快捷键可能会打不开调色板，原因是该快捷键被占用了，最直接的解决办法是直接在Preferences→Key Bindings-User中配置：“{ “keys”: [“ctrl+shift+c”], “command”: “color_pick”},”</li>
-<li>JsFormat:JsForma可以自动帮助你格式化JavaScript代码，形成一种通用的格式，比如对压缩、空格、换行的js代码进行整理，使得js代码结构清晰，易于观看。在已压缩的JS文件中，右键选择jsFormat或者使用默认快捷键（Ctrl+Alt+F），如果该热键被占用了，可以在Preferences→Key Bindings-User中配置： { “keys”: [“ctrl+shift+alt+j”], “command”: “js_format”,”context”: [{“key”: “selector”, “operator”: “equal”, “operand”: “source.js,source.json”}]},</li>
-<li>DocBlockr:安装该插件后，可以快速生成各种注释格式，当需要生成注释符号时，输入/*、/然后回车系统即帮你自动生成，如果/后面刚好是一个函数的定义，注释格式会根据函数的参数生成。</li>
-<li><p>Sidebar Enhancements:sub侧栏右键文件提供的功能很少，但在实际开发中，文件通常会有各种处理请求，而该插件增强侧栏文件右键功能，比如可以直接右键将文件移入回收站，在浏览器中浏览，将文件复制到剪切板等。详情查看sidebar文档,安装该插件前，文件右键选项很少：安装插件后，文件右键选项大大增强：</p>
-<p>  我常用的两个功能是设置文件使用浏览器打开的快捷键F12和重命名F2，需要自己往Key-Bindings-User里面添加<br>{ “keys”: [“f12”], “command”: “side_bar_open_in_browser”,”args”:{“paths”:[], “type”:”testing”, “browser”:””}},<br>{ “keys”: [“f2”], “command”: “side_bar_rename”},</p>
-<ul>
-<li>Alignment:对定义的变量进行智能对齐,一般是“=”号对齐，默认的快捷键是Ctrl+Alt+A，但这个热键和QQ截屏的热键冲突不能使用，需要自己重新设置，我通常设置成Ctr+Alt+Shift+A，以下粘贴到Key-Bindings-User里面：</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="attr">"keys"</span>: [<span class="string">"ctrl+alt+shift+a"</span>], <span class="attr">"command"</span>: <span class="string">"alignment"</span> &#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>CSS Format:CSS Format可以将任意的 CSS、SASS、SCSS、LESS 代码格式化为展开、紧凑、压缩的形式，选中需要格式化的样式代码，右键选中CSS Format，选择需要形成的格式即可。</li>
-<li>Tag:Tag插件提供各种对Tag标签的操作，具有功能：根据/自动关闭HTML标签，标签自动缩进（或选中ctrl+alt+f），删除标签和里面的内容，插入标签（对光标字符“ctrl+shift+,”生成标签），删除标签里的属性，关闭标签，检查标签等。有些功能是自动执行，有些功能需要手动执行，功能入口 菜单栏Edit→<br>Tag。</li>
-<li><p>Trailing spaces:可以检测和一键删除代码的空格，保存时自动删除多余空格，让你的代码更加紧凑规范。功能入口：Edit→<br>Trailing Spaces→<br>Delete，也可以自己设置快捷键，我通常设置成ctrl+shift+alt+t，以下粘贴到Key-Bindings-User里面：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="attr">"keys"</span>: [<span class="string">"ctrl+shift+alt+t"</span>], <span class="attr">"command"</span>: <span class="string">"delete_trailing_spaces"</span> &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>ConvertToUTF8:通过本插件，您可以编辑并保存目前编码不被 Sublime Text 支持的文件，特别是中日韩用户使用的 GB2312，GBK，BIG5，EUC-KR，EUC-JP 等。可以通过 File→<br>Set File Encoding to 菜单对文件编码进行手工转换。例如，您可以打开一个 UTF-8 编码的文件，指定保存为 GBK，反之亦然。</p>
-</li>
-<li><p>HTML-CSS-JS Prettify:格式化HTML,CSS,javascript和Json代码格式。使用该插件，需要安装nodejs，而且要在Packages-Setting→<br>HTML/CSS/JS Prettify→<br>set node path中设置你node的安装路径。使用过程：Tools→<br>Command Palette(或者Ctrl+Shift+P)，输入选择htmlprettify即可完成整个文档的格式化。也可以设置快捷键：Packages-Setting→HTML/CSS/JS Prettify→set keyboard shortcuts，因为我的ctrl+shift+h已经被占用，所以我改成ctrl+shift+alt+h。</p>
-</li>
-<li><p>Terminal:打开文件的终端，终端默认是CMD。ctrl+shift+t 打开文件所在文件夹，ctrl+shift+alt+t 打开文件所在项目的根目录文件夹，可以自己重新配置快捷键。也可以右键open terminal here打开。</p>
-</li>
-</ul>
-<p>汇总一下前面介绍的插件：</p>
-<ul>
-<li>Alignment</li>
-<li>AutoFileName</li>
-<li>BracketHighlighter</li>
-<li>ColorPicker</li>
-<li>CSS Format</li>
-<li>DocBlockr</li>
-<li>Emmet</li>
-<li>JsFormat</li>
-<li>Sidebar Enhancements</li>
-<li>Tag</li>
-<li>Trailing Spaces</li>
-<li>ConvertToUTF8</li>
-<li>HTML-CSS-JS Prettify</li>
-<li>Terminal</li>
-</ul>
-<p>以及因为这些插件而重新设置的快捷键：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[html] view plain copy </span><br><span class="line">1.&#123; "keys": ["ctrl+alt+shift+a"], "command": "alignment" &#125;,  </span><br><span class="line">2.&#123; "keys": ["ctrl+shift+alt+f"], "command": "show_panel", "args": &#123;"panel": "find_in_files"&#125; &#125;,  </span><br><span class="line">3.&#123; "keys": ["ctrl+alt+u"], "command": "soft_undo" &#125;,  </span><br><span class="line">4.&#123; "keys": ["ctrl+shift+alt+t"], "command": "delete_trailing_spaces" &#125;,  </span><br><span class="line">5.&#123; "keys": ["f12"], "command": "side_bar_open_in_browser","args":&#123;"paths":[], "type":"testing", "browser":""&#125;&#125;,  </span><br><span class="line">6.&#123; "keys": ["alt+f12"], "command": "side_bar_open_in_browser","args":&#123;"paths":[], "type":"production", "browser":""&#125;&#125;,  </span><br><span class="line">7.&#123; "keys": ["ctrl+t"], "command": "side_bar_new_file2"&#125;,  </span><br><span class="line">8.&#123; "keys": ["f2"], "command": "side_bar_rename"&#125;,  </span><br><span class="line">9.&#123; "keys": ["ctrl+shift+c"], "command": "color_pick"&#125;,  </span><br><span class="line">10.&#123; "keys": ["ctrl+shift+alt+j"], "command": "js_format","context": [&#123;"key": "selector", "operator": "equal", "operand": "source.js,source.json"&#125;]&#125;,</span><br></pre></td></tr></table></figure>
-<p>还有很多插件需要根据你使用的库和框架自己去添加，比如jQuery、angular、node.js、less等，只要Ctr+Shift+p输入关键词即可找到你想安装的插件。</p>
-<p>sublimeCodeIntel</p>
-<p>js智能提示，超级好用</p>
-<p>因为快捷键过多，下面仅罗列一下比较常用的快捷键：</p>
-<p>1.操作<br>Ctrl + `： 打开Sublime Text控制台（Esc退出）<br>Ctrl+Shift+P：打开命令面板（Esc退出）<br>Ctrl + K, Ctrl + B： 组合键，显示或隐藏侧栏<br>Alt ：光标调到菜单栏，↑↓←→ 移动光标</p>
-<p>2.编辑<br>Ctr+Shift+D：复制粘贴光标所在行<br>Alt+.：关闭标签<br>Ctrl+/：用//注释当前行。<br>Ctrl+Shift+/：用/**/注释。<br>Ctrl + Enter： 在当前行下面新增一行然后跳至该行<br>Ctrl + Shift + Enter： 在当前行上面增加一行并跳至该行<br>Ctrl + ←/→： 进行逐词移动，<br>Ctrl + Shift + ←/→： 进行逐词选择<br>Ctrl + Shift + ↑/↓： 移动当前行（文件会被修改）<br>Ctrl+KK ：从光标处删除至行尾<br>Ctrl+K Backspace ：从光标处删除至行首<br>Ctrl+Z：撤销<br>Ctrl+Y：恢复撤销<br>Ctrl+J：合并行（已选择需要合并的多行时）<br>Ctrl + [： 选中内容向左缩进<br>Ctrl + ]： 选中内容向右缩进</p>
-<p>3.选择<br>Alt+F3：选中关键词后，选中所有相同的词。可以配合Ctrl+D使用。<br>Ctrl + D Ctrl + K Ctrl + U：Ctrl + D选择当前光标所在的词并高亮该词所有出现的位置，再次Ctrl + D，会选择该词出现的下一个位置。在多重选词的过程中，Ctrl + K会将当前选中的词进行跳过在多重选词的过程中，Ctrl + U进行回退<br>Ctrl+L ：选择光标所在整行<br>Ctrl+X：删除光标所在行<br>Ctrl + J： 把当前选中区域合并为一行<br>Ctrl+Shift+M：选中当前括号内容，重复可选着括号本身</p>
-<p>4.查找<br> （如果有窗口弹出都是Esc退出弹出窗口）<br>Ctr+p：输入@显示容器（css或者js里面）<br>Ctrl + F： 调出搜索框<br>Ctrl + H： 调出替换框进行替换<br>Ctrl + Shift + H： 输入替换内容后，替换当前关键字<br>Ctrl + Alt + Enter： 输入替换内容后，替换所有匹配关键字。(NOTE: 注意此时如果鼠标焦点在编辑窗口中，则替换失败，将鼠标焦点调到替换框中，Ctrl + Alt + Enter才会起作用)<br>Ctrl + Shift + F： 开启多文件搜索&amp;替换<br>Alt + C： 切换大小写敏感（Case-sensitive）模式<br>Alt + W： 切换整字匹配（Whole matching）模式<br>Alt + R： 切换正则匹配模式的开启/关闭</p>
-<p>5.跳转<br>Ctrl + P：列出当前打开的文件（或者是当前文件夹的文件），输入文件名然后 Enter 跳转至该文件，输入@symbol跳转到symbol符号所在的位置，输入#keyword跳转到keyword所在的位置，输入:n跳转到文件的第n行<br>Ctrl + R：列出当前文件中的符号（例如类名和函数名，但无法深入到变量名），输入符号名称 Enter 即可以跳转到该处。<br> 会列出Markdown文件的大纲<br>F12： 快速跳转到当前光标所在符号的定义处（Jump to Definition）。比如当前光标所在为一个函数调用，F12会跳转至该函数的定义处。<br>Ctrl + G： 输入行号以跳转到指定行<br>Ctrl+M：跳转到括号另一半。</p>
-<p>6.窗口和Tab页<br>Ctrl + N： 在当前窗口创建一个新标签<br>Ctrl + Shift + N： 创建一个新窗口（该快捷键 和搜狗输入法快捷键冲突）<br>Ctrl + W： 关闭标签页，如果没有标签页了，则关闭该窗口<br>Ctrl+Shift+W：关闭所有打开文件<br>Ctrl + Shift + T： 恢复刚刚关闭的标签。<br>Ctrl +Tag：移动标签。</p>
-<p>7.屏幕<br>F11： 切换普通全屏<br>Shift + F11： 切换无干扰全屏<br>Alt + Shift + 2： 进行左右分屏<br>Alt + Shift + 8进行上下分屏<br>Alt + Shift + 5进行上下左右分屏（即分为四屏）<br>Ctrl + 数字键： 跳转到指定屏<br>Ctrl + Shift + 数字键： 将当前屏移动到指定屏</p>
-<h1 id="搭建-JavaScript-运行环境"><a href="#搭建-JavaScript-运行环境" class="headerlink" title="搭建 JavaScript 运行环境"></a>搭建 JavaScript 运行环境</h1><h2 id="安装-NodeJs"><a href="#安装-NodeJs" class="headerlink" title="安装 NodeJs"></a>安装 NodeJs</h2><h2 id="配置-sublime"><a href="#配置-sublime" class="headerlink" title="配置 sublime"></a>配置 sublime</h2><p><img src="/2018/02/25/Sublime使用/sbulime配置.png" alt="sbulime配置.png"></p>
-<p>添加如下代码</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   <span class="attr">"cmd"</span>: [<span class="string">"node"</span>,<span class="string">"$file"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/2018/02/25/Sublime使用/settinguser.png" alt="settinguser"></p>
-<p>添加如下配置</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="attr">"build_env"</span>: &#123;</span><br><span class="line">    <span class="attr">"PATH"</span>: <span class="string">"C:/Program Files/nodejs"</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>PATH的值是nodejs的安装路径。 </p>
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>新建一个文件，随便写一段JavaScript代码，按快捷键：<br>Ctrl + B<br>即可看到运行结果。</p>
-<h1 id="解决PackageControl无法使用的问题"><a href="#解决PackageControl无法使用的问题" class="headerlink" title="解决PackageControl无法使用的问题"></a>解决PackageControl无法使用的问题</h1><p>1.下载 JSON文件：“<a href="https://packagecontrol.io/channel_v3.json”；" target="_blank" rel="noopener">https://packagecontrol.io/channel_v3.json”；</a></p>
-<p>2.修改 JSON文件中的版本号“schema_version”，将“3.0.0”修改为 “2.0”；</p>
-<p>3.打开 首选项 –》插件设置 –》Package Control –》 设置-用户  （或者“设置-默认”）</p>
-<p>4.修改第3步设置文件中的 channels 属性的值，<br>在 channels[……]的最前面添加 JSON文件 的 地址（步骤1下载的文件）<br>注意：英文逗号分割  和  斜线方向</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">"channels":</span><br><span class="line">[</span><br><span class="line">	<span class="string">"D:/Program Files/Sublime Text 3.3126x64/Data/ChannelJson_download/channel_v3.json"</span>,</span><br><span class="line">	<span class="string">"https://packagecontrol.io/channel_v3.json"</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<p>5.保存上述打开的文件。</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ctrl+<span class="built_in">Shift</span>+P 输入“pc:ip”（package control:install package），回车。</span><br></pre></td></tr></table></figure>
-<h1 id="设置默认浏览器"><a href="#设置默认浏览器" class="headerlink" title="设置默认浏览器"></a>设置默认浏览器</h1><p><img src="/2018/02/25/Sublime使用/设置默认浏览器.png" alt="设置默认浏览器"></p>
-<p>在配置文件中添加如下内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	&quot;cmd&quot;:[&quot;C:/Program Files/Mozilla Firefox/firefox.exe&quot;,&quot;$file&quot;],</span><br><span class="line">	&quot;selector&quot;:[&quot;text.html&quot;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>ctrl+B 预览</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/25/Sublime使用/" data-id="cjtxlywc8000p00uq4og9nkaj" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-MarkDown使用" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/02/25/MarkDown使用/" class="article-date">
-  <time datetime="2018-02-25T08:18:47.000Z" itemprop="datePublished">2018-02-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/25/MarkDown使用/">MarkDown使用</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-特殊符号"><a href="#1-特殊符号" class="headerlink" title="1. 特殊符号"></a>1. 特殊符号</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">符号  说明  对应编码(应用时去掉空格)   英文怎么说</span><br><span class="line">&amp;   AND 符号  &amp; amp;  ampersand</span><br><span class="line">&lt;   小于  &amp; lt;   little</span><br><span class="line">&gt;   大于  &amp; gt;   great</span><br><span class="line">空格  &amp; nbsp; number space</span><br><span class="line">¿   倒问号 &amp; iquest;   inverted question</span><br><span class="line">?   问号  &amp; quest;    question</span><br><span class="line">«   左书名号    &amp; laquo;    left angle quote</span><br><span class="line">»   右书名号    &amp; raquo;    right angle quote</span><br><span class="line">&quot;   引号  &amp; quot; quote</span><br><span class="line">‘   左单引号    &amp; lsquo;    left single quote</span><br><span class="line">’   右单引号    &amp; rsquo:    right single quote</span><br><span class="line">“   左双引号    &amp; ldquo:    left double quote</span><br><span class="line">”   右双引号    &amp; rdquo:    right double quote</span><br><span class="line">¶   段落符号    &amp; para; paragraph</span><br><span class="line">§   章节符 &amp; sect; section</span><br><span class="line">×   乘号  &amp; times;    times</span><br><span class="line">÷   除号  &amp; divide;   divide</span><br><span class="line">±   加减号 &amp; plusmn;   plus minus</span><br><span class="line">ƒ   function    &amp; fnof; 还没查到</span><br><span class="line">√   根号  &amp; radic;    radic</span><br><span class="line">∞   无穷大 &amp; infin;    infinite</span><br><span class="line">°   度   &amp; deg;  degree</span><br><span class="line">≠   不等号 &amp; ne;   ne</span><br><span class="line">≡   恒等于 &amp; equiv;    equivalent</span><br><span class="line">≤   小于等于    &amp; le;   less than or equal to</span><br><span class="line">≥   大于等于    &amp; ge;   great than or equal to</span><br><span class="line">⊥   垂直符号    &amp; perp; perpendicular</span><br><span class="line">←   左箭头 &amp; larr; left arrow</span><br><span class="line">→   右箭头 &amp; rarr; right arrow</span><br><span class="line">↑   上箭头 &amp; uarr; up arrow</span><br><span class="line">↓   下箭头 &amp; darr; down arrow</span><br><span class="line">↔   水平箭头    &amp; harr; horizontal arrow</span><br><span class="line">↕   竖直箭头    &amp; varr; vertical arrow</span><br><span class="line">⇐   双线左箭头   &amp; lArr; left arrow</span><br><span class="line">⇒   双线右箭头   &amp; rArr; right arrow</span><br><span class="line">⇑   双线上箭头   &amp; uArr; up arrow</span><br><span class="line">⇓   双线上箭头   &amp; dArr; down arrow</span><br><span class="line">⇔   双线水平双箭头 &amp; hArr; horizontal arrow</span><br><span class="line">⇕   双线竖直箭头  &amp; vArr; vertical arrow</span><br><span class="line">♠   黑桃  &amp; spades;   spades</span><br><span class="line">♥   红桃  &amp; hearts;   hearts</span><br><span class="line">♣   梅花  &amp; clubs;    club</span><br><span class="line">♦   方块  &amp; diams;    diamonds</span><br><span class="line">©   版权  &amp; copy; copy right</span><br><span class="line">®   注册商标    &amp; reg;  registration</span><br><span class="line">™   商标  &amp; trade;    trade</span><br><span class="line">¥   人民币 &amp; yen;</span><br><span class="line">€   欧元  &amp; euro; euro</span><br><span class="line">¢   美分  &amp; cent; cent</span><br><span class="line">£   英磅  &amp; pound;    pound</span><br><span class="line">⊕       &amp; oplus;    </span><br><span class="line">½   二分之一    &amp; frac12;   fraction</span><br><span class="line">¼   四分之一    &amp; frac14;   fraction</span><br><span class="line">‰   千分符号    &amp; permil;   per mille</span><br><span class="line">∴   所以  &amp; there4;   there fore</span><br><span class="line">π   圆周率 &amp; pi;</span><br><span class="line">¹   商标1 &amp; sup1; super 1</span><br><span class="line">α   alpha   &amp; alpha;    alpha</span><br><span class="line">β   beta    &amp; beta; beta</span><br><span class="line">γ   gamma   &amp; gamma;    gamma</span><br><span class="line">δ   delta   &amp; delta;    delta</span><br><span class="line">θ   theta   &amp; theta;    theta</span><br><span class="line">λ   lambda  &amp; lambda;   lambda</span><br><span class="line">σ   sigma   &amp; sigma;    sigma</span><br><span class="line">τ   tau &amp; tau;  tau</span><br></pre></td></tr></table></figure>
-<h1 id="增加链接"><a href="#增加链接" class="headerlink" title="增加链接"></a>增加链接</h1><p>[example link]<a href="https://xuzhongwang.github.io/" target="_blank" rel="noopener">https://xuzhongwang.github.io/</a></p>
-<h1 id="2-在VSCode中自动为markdown标题添加顺序"><a href="#2-在VSCode中自动为markdown标题添加顺序" class="headerlink" title="2. 在VSCode中自动为markdown标题添加顺序"></a>2. 在VSCode中自动为markdown标题添加顺序</h1><p>安装markdown_index，运行 &gt; markdown add index，即可自动添加序号<br>安装方法：<br>在vscode market搜索“markdown-index”即可安装</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/25/MarkDown使用/" data-id="cjtxlywbq000i00uqz1g0316l" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/26/信息系统项目管理师/" data-id="cju85caki00128suqpsvghoy2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -633,23 +1021,23 @@
       <ul>
         
           <li>
+            <a href="/2019/04/03/CSS入门及提高/example/27 鼠标经过显示图片/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/02/CSS入门及提高/example/图片轮播/index/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/02/CSS入门及提高/example/26 绝对位置水平垂直居中/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2019/04/01/CSS入门及提高/example/学成网/index/">(no title)</a>
           </li>
         
           <li>
             <a href="/2019/03/28/mysql使用/">&#39;mysql使用&#39;</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/22/CSS入门及提高/example/25 使用双伪元素清除浮动/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/22/CSS入门及提高/example/24 通栏平均分布布局/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/22/CSS入门及提高/example/23 两列左窄右宽布局/">(no title)</a>
           </li>
         
       </ul>

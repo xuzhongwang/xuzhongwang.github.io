@@ -16,7 +16,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2018/07/09/SQL%20Server编程入门经典/SQL_Server编程入门经典/数据类型1.png">
 <meta property="og:image" content="http://yoursite.com/2018/07/09/SQL%20Server编程入门经典/SQL_Server编程入门经典/数据类型2.png">
-<meta property="og:updated_time" content="2019-03-08T00:56:20.621Z">
+<meta property="og:updated_time" content="2019-04-08T09:19:16.982Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL Server编程入门经典">
 <meta name="twitter:description" content="1. RDBMS 基础：SQLServer 数据库的构成1.1. 数据对象的概述数据库对象：  数据库本身 事务日志 表 索引 文件组 数据库关系图 视图 存储过程 用户自定义函数 序列 用户 角色 程序集 报表 全文目录 用户自定义数据类型  1.1.1. 数据库对象存储过程和视图是对存储在数据库表中的数据的特定分组 SQL Server 第一次启动时至少包括4个系统数据库  master：系统">
@@ -196,11 +196,27 @@
 <li>内部查询根据传递的值进行查询</li>
 <li>内部查询将结果值传递回外部查询，而外部查询利用这些值完成处理过程。</li>
 </ul>
+<h1 id="6-存储过程"><a href="#6-存储过程" class="headerlink" title="6. 存储过程"></a>6. 存储过程</h1><h1 id="7-数据库查询优化技巧"><a href="#7-数据库查询优化技巧" class="headerlink" title="7. 数据库查询优化技巧"></a>7. 数据库查询优化技巧</h1><h2 id="7-1-比较运算符能用-“-”就不用“-lt-gt-”"><a href="#7-1-比较运算符能用-“-”就不用“-lt-gt-”" class="headerlink" title="7.1. 比较运算符能用 “=”就不用“&lt;&gt;”"></a>7.1. 比较运算符能用 “=”就不用“&lt;&gt;”</h2><p>“=”增加了索引的使用几率。</p>
+<h2 id="7-2-明知只有一条查询结果，那请使用-“LIMIT-1”"><a href="#7-2-明知只有一条查询结果，那请使用-“LIMIT-1”" class="headerlink" title="7.2. 明知只有一条查询结果，那请使用 “LIMIT 1”"></a>7.2. 明知只有一条查询结果，那请使用 “LIMIT 1”</h2><p>“LIMIT 1”可以避免全表扫描，找到对应结果就不会再继续扫描了。</p>
+<h2 id="7-3-为列选择合适的数据类型"><a href="#7-3-为列选择合适的数据类型" class="headerlink" title="7.3. 为列选择合适的数据类型"></a>7.3. 为列选择合适的数据类型</h2><p>能用TINYINT就不用SMALLINT，能用SMALLINT就不用INT，道理你懂的，磁盘和内存消耗越小越好嘛。</p>
+<h2 id="7-4-将大的DELETE，UPDATE-or-INSERT-查询变成多个小查询"><a href="#7-4-将大的DELETE，UPDATE-or-INSERT-查询变成多个小查询" class="headerlink" title="7.4. 将大的DELETE，UPDATE or INSERT 查询变成多个小查询"></a>7.4. 将大的DELETE，UPDATE or INSERT 查询变成多个小查询</h2><p>能写一个几十行、几百行的SQL语句是不是显得逼格很高?然而，为了达到更好的性能以及更好的数据控制，你可以将他们变成多个小查询。</p>
+<p>查询数据库，你还在 Select * 吗？</p>
+<h2 id="7-5-使用UNION-ALL-代替-UNION，如果结果集允许重复的话"><a href="#7-5-使用UNION-ALL-代替-UNION，如果结果集允许重复的话" class="headerlink" title="7.5. 使用UNION ALL 代替 UNION，如果结果集允许重复的话"></a>7.5. 使用UNION ALL 代替 UNION，如果结果集允许重复的话</h2><p>因为 UNION ALL 不去重，效率高于 UNION。</p>
+<h2 id="7-6-为获得相同结果集的多次执行，请保持SQL语句前后一致"><a href="#7-6-为获得相同结果集的多次执行，请保持SQL语句前后一致" class="headerlink" title="7.6. 为获得相同结果集的多次执行，请保持SQL语句前后一致"></a>7.6. 为获得相同结果集的多次执行，请保持SQL语句前后一致</h2><p>这样做的目的是为了充分利用查询缓冲。</p>
+<p>比如根据地域和产品id查询产品价格，第一次使用了：</p>
+<p>查询数据库，你还在 Select * 吗？<br>那么第二次同样的查询，请保持以上语句的一致性，比如不要将where语句里面的id和region位置调换顺序。</p>
+<h2 id="7-7-尽量避免使用-“SELECT-”"><a href="#7-7-尽量避免使用-“SELECT-”" class="headerlink" title="7.7. 尽量避免使用 “SELECT *”"></a>7.7. 尽量避免使用 “SELECT *”</h2><p>如果不查询表中所有的列，尽量避免使用 SELECT *，因为它会进行全表扫描，不能有效利用索引，增大了数据库服务器的负担，以及它与应用程序客户端之间的网络IO开销。</p>
+<p>查询数据库，你还在 Select * 吗？</p>
+<h2 id="7-8-WHERE-子句里面的列尽量被索引"><a href="#7-8-WHERE-子句里面的列尽量被索引" class="headerlink" title="7.8. WHERE 子句里面的列尽量被索引"></a>7.8. WHERE 子句里面的列尽量被索引</h2><p>只是“尽量”哦，并不是说所有的列。因地制宜，根据实际情况进行调整，因为有时索引太多也会降低性能。</p>
+<h2 id="7-9-JOIN-子句里面的列尽量被索引"><a href="#7-9-JOIN-子句里面的列尽量被索引" class="headerlink" title="7.9. JOIN 子句里面的列尽量被索引"></a>7.9. JOIN 子句里面的列尽量被索引</h2><p>同样只是“尽量”哦，并不是说所有的列。</p>
+<h2 id="7-10-ORDER-BY-的列尽量被索引"><a href="#7-10-ORDER-BY-的列尽量被索引" class="headerlink" title="7.10. ORDER BY 的列尽量被索引"></a>7.10. ORDER BY 的列尽量被索引</h2><p>ORDER BY的列如果被索引，性能也会更好。</p>
+<h2 id="7-11-使用-LIMIT-实现分页逻辑"><a href="#7-11-使用-LIMIT-实现分页逻辑" class="headerlink" title="7.11. 使用 LIMIT 实现分页逻辑"></a>7.11. 使用 LIMIT 实现分页逻辑</h2><p>不仅提高了性能，同时减少了不必要的数据库和应用间的网络传输。</p>
+<h2 id="7-12-使用-EXPLAIN-关键字去查看执行计划"><a href="#7-12-使用-EXPLAIN-关键字去查看执行计划" class="headerlink" title="7.12. 使用 EXPLAIN 关键字去查看执行计划"></a>7.12. 使用 EXPLAIN 关键字去查看执行计划</h2><p>EXPLAIN 可以检查索引使用情况以及扫描的行。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/09/SQL Server编程入门经典/" data-id="cjtxlywbv000k00uqnib0blzt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/09/SQL Server编程入门经典/" data-id="cju85caje000l8suqtcr5b11o" class="article-share-link">Share</a>
       
       
     </footer>
@@ -272,23 +288,23 @@
       <ul>
         
           <li>
+            <a href="/2019/04/03/CSS入门及提高/example/27 鼠标经过显示图片/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/02/CSS入门及提高/example/图片轮播/index/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/02/CSS入门及提高/example/26 绝对位置水平垂直居中/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2019/04/01/CSS入门及提高/example/学成网/index/">(no title)</a>
           </li>
         
           <li>
             <a href="/2019/03/28/mysql使用/">&#39;mysql使用&#39;</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/22/CSS入门及提高/example/25 使用双伪元素清除浮动/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/22/CSS入门及提高/example/24 通栏平均分布布局/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/22/CSS入门及提高/example/23 两列左窄右宽布局/">(no title)</a>
           </li>
         
       </ul>

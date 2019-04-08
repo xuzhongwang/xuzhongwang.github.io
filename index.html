@@ -62,6 +62,224 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-CSS入门及提高/example/27 鼠标经过显示图片" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/03/CSS入门及提高/example/27 鼠标经过显示图片/" class="article-date">
+  <time datetime="2019-04-02T23:45:25.159Z" itemprop="datePublished">2019-04-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>	</title>
+	<style>
+	 div {
+	 	background-color: pink;
+	 	width: 100px;	
+	 	height: 100px;	
+	 	margin: 100px auto;
+	 	text-align: center;	
+	 	line-height: 100px;
+	 	position: 	relative;	
+	 }	
+	 div img {
+	 	position: absolute;	
+	 	top: 0;
+	 	left: 110px;
+	 	display: 	none;	
+	 }	
+	 div:hover img {
+		display: 	block;		
+	 }
+	</style>
+</head>
+<body>
+	<div>
+		显示图片
+		<img src="/2019/04/03/CSS入门及提高/example/27 鼠标经过显示图片/学成网/images/logo.png">
+	</div>
+</body>
+</html>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/04/03/CSS入门及提高/example/27 鼠标经过显示图片/" data-id="cju85cbm9001s8suqjmnrpr2q" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-CSS入门及提高/example/图片轮播/index" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/02/CSS入门及提高/example/图片轮播/index/" class="article-date">
+  <time datetime="2019-04-02T00:07:09.431Z" itemprop="datePublished">2019-04-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+		}	
+		ul li {
+			list-style: none;
+		}	
+		.container {
+			width: 600px;
+			height: 600px;
+			margin: 50px auto;
+			position: relative;
+			padding: 5px;
+			border: 1px solid gray;
+		}
+		.container img {
+			width: 600px;
+			height: 600px;
+		}
+		.arrow-left,
+		.arrow-right {
+			display: block;
+			width: 20px;
+			height: 40px;
+			text-decoration: none;
+			background-color: rgb(0,0,0,0.2);
+			position: absolute;
+			top: 50%;
+			margin-top: -20px;
+			line-height: 40px;
+			text-align: center;
+			color: black;
+		}
+		.arrow-left {			
+			left: 5px;
+		}
+		.arrow-right {
+			right: 5px;
+		}
+		.slider {
+			background-color: yellow;
+			width: 120px;
+			height: 20px;
+			position: absolute;
+			left: 50%;
+			margin-left: -50px;
+			bottom: 40px;
+			padding: 5px;
+		}
+		.slider li {
+			background-color: blue;
+			width: 20px;
+			height: 20px;
+			display: inline-block;
+			border-radius: 50%;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<img src="/2019/04/02/CSS入门及提高/example/图片轮播/index/images/timg.jpg">
+		<a href="#" class="arrow-left"><</a>
+		<a href="#" class="arrow-right">></a>
+		<ul class="slider">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+</body>
+</html>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/04/02/CSS入门及提高/example/图片轮播/index/" data-id="cju85ccyt002a8suqxqtf5f6y" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-CSS入门及提高/example/26 绝对位置水平垂直居中" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/02/CSS入门及提高/example/26 绝对位置水平垂直居中/" class="article-date">
+  <time datetime="2019-04-01T23:41:08.728Z" itemprop="datePublished">2019-04-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>	</title>
+	<style>
+		.father {
+			height: 400px;	
+			width: 800px;	
+			background-color: purple;
+			margin: 50px auto;
+			position: relative;	
+		}
+		.son {
+			height: 200px;	
+			width: 200px;
+			background-color: pink;
+			position: absolute;	
+			left: 50%;
+			margin-left: -100px;
+			top: 50%;
+			margin-top: -100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son"></div>
+	</div>
+</body>
+</html>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/04/02/CSS入门及提高/example/26 绝对位置水平垂直居中/" data-id="cju85cbm5001q8suqyst7fzw7" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-CSS入门及提高/example/学成网/index" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/04/01/CSS入门及提高/example/学成网/index/" class="article-date">
@@ -182,7 +400,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/01/CSS入门及提高/example/学成网/index/" data-id="cjtxlyzib001z00uqfmpgdd25" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/04/01/CSS入门及提高/example/学成网/index/" data-id="cju85ccxb00218suq6oe0lj21" class="article-share-link">Share</a>
       
       
     </footer>
@@ -219,7 +437,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/28/mysql使用/" data-id="cjtxlywdt000x00uqrfxvjcvr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/28/mysql使用/" data-id="cju85cakb000x8suqic49g6p6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -261,7 +479,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/22/CSS入门及提高/example/25 使用双伪元素清除浮动/" data-id="cjtxlywzk001n00uq8cu6za8b" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/22/CSS入门及提高/example/25 使用双伪元素清除浮动/" data-id="cju85cbm4001p8suq2eceuyvx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -346,7 +564,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/22/CSS入门及提高/example/24 通栏平均分布布局/" data-id="cjtxlyx1q001q00uql42h09rq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/22/CSS入门及提高/example/24 通栏平均分布布局/" data-id="cju85cbm3001o8suq3uly89ql" class="article-share-link">Share</a>
       
       
     </footer>
@@ -429,7 +647,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/22/CSS入门及提高/example/23 两列左窄右宽布局/" data-id="cjtxlywys001l00uqt1jx46ot" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/22/CSS入门及提高/example/23 两列左窄右宽布局/" data-id="cju85cbm2001n8suq6b2nrnke" class="article-share-link">Share</a>
       
       
     </footer>
@@ -493,7 +711,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/22/CSS入门及提高/example/22 横向布局/" data-id="cjtxlywxi001k00uqtdfztrqi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/22/CSS入门及提高/example/22 横向布局/" data-id="cju85cbmg001x8suq3vbmwan2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -701,365 +919,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/window/" data-id="cjtxlyzwx009500uqlvjgf4x5" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/validatebox" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/validatebox/" class="article-date">
-  <time datetime="2019-03-21T09:22:47.272Z" itemprop="datePublished">2019-03-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        .inputbox {
-  display: inline-block;
-  vertical-align: middle;
-  overflow: hidden;
-  white-space: nowrap;
-  margin: 0;
-  padding: 0;
-}
-.validatebox-invalid {
-  border-color: #ffa8a8;
-  background-color: #fff3f3;
-  color: #000;
-}
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/validatebox/" data-id="cjtxlyzwr009100uq34c0tlno" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/tree" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/tree/" class="article-date">
-  <time datetime="2019-03-21T09:22:47.269Z" itemprop="datePublished">2019-03-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        .tree {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-}
-.tree li {
-  white-space: nowrap;
-}
-.tree li ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-.tree-node {
-  height: 26px;
-  white-space: nowrap;
-  cursor: pointer;
-}
-.tree-hit {
-  cursor: pointer;
-}
-.tree-expanded,
-.tree-collapsed,
-.tree-folder,
-.tree-file,
-.tree-checkbox,
-.tree-indent {
-  display: inline-block;
-  width: 16px;
-  height: 18px;
-  margin: 4px 0;
-  vertical-align: middle;
-  overflow: hidden;
-}
-.tree-expanded {
-  background: url('images/tree_icons.png') no-repeat -18px 0px;
-}
-.tree-expanded-hover {
-  background: url('images/tree_icons.png') no-repeat -50px 0px;
-}
-.tree-collapsed {
-  background: url('images/tree_icons.png') no-repeat 0px 0px;
-}
-.tree-collapsed-hover {
-  background: url('images/tree_icons.png') no-repeat -32px 0px;
-}
-.tree-lines .tree-expanded,
-.tree-lines .tree-root-first .tree-expanded {
-  background: url('images/tree_icons.png') no-repeat -144px 0;
-}
-.tree-lines .tree-collapsed,
-.tree-lines .tree-root-first .tree-collapsed {
-  background: url('images/tree_icons.png') no-repeat -128px 0;
-}
-.tree-lines .tree-node-last .tree-expanded,
-.tree-lines .tree-root-one .tree-expanded {
-  background: url('images/tree_icons.png') no-repeat -80px 0;
-}
-.tree-lines .tree-node-last .tree-collapsed,
-.tree-lines .tree-root-one .tree-collapsed {
-  background: url('images/tree_icons.png') no-repeat -64px 0;
-}
-.tree-line {
-  background: url('images/tree_icons.png') no-repeat -176px 0;
-}
-.tree-join {
-  background: url('images/tree_icons.png') no-repeat -192px 0;
-}
-.tree-joinbottom {
-  background: url('images/tree_icons.png') no-repeat -160px 0;
-}
-.tree-folder {
-  background: url('images/tree_icons.png') no-repeat -208px 0;
-}
-.tree-folder-open {
-  background: url('images/tree_icons.png') no-repeat -224px 0;
-}
-.tree-file {
-  background: url('images/tree_icons.png') no-repeat -240px 0;
-}
-.tree-loading {
-  background: url('images/loading.gif') no-repeat center center;
-}
-.tree-checkbox0 {
-  background: url('images/tree_icons.png') no-repeat -208px -18px;
-}
-.tree-checkbox1 {
-  background: url('images/tree_icons.png') no-repeat -224px -18px;
-}
-.tree-checkbox2 {
-  background: url('images/tree_icons.png') no-repeat -240px -18px;
-}
-.tree-title {
-  font-size: 14px;
-  display: inline-block;
-  text-decoration: none;
-  vertical-align: middle;
-  white-space: nowrap;
-  padding: 0 2px;
-  margin: 4px 0;
-  height: 18px;
-  line-height: 18px;
-}
-.tree-node-proxy {
-  font-size: 14px;
-  line-height: 20px;
-  padding: 0 2px 0 20px;
-  border-width: 1px;
-  border-style: solid;
-  z-index: 9900000;
-}
-.tree-dnd-icon {
-  display: inline-block;
-  position: absolute;
-  width: 16px;
-  height: 18px;
-  left: 2px;
-  top: 50%;
-  margin-top: -9px;
-}
-.tree-dnd-yes {
-  background: url('images/tree_icons.png') no-repeat -256px 0;
-}
-.tree-dnd-no {
-  background: url('images/tree_icons.png') no-repeat -256px -18px;
-}
-.tree-node-top {
-  border-top: 1px dotted red;
-}
-.tree-node-bottom {
-  border-bottom: 1px dotted red;
-}
-.tree-node-append .tree-title {
-  border: 1px dotted red;
-}
-.tree-editor {
-  border: 1px solid #ddd;
-  font-size: 14px;
-  height: 26px;
-  line-height: 26px;
-  padding: 0 4px;
-  margin: 0;
-  width: 80px;
-  outline-style: none;
-  vertical-align: middle;
-  position: absolute;
-  top: 0;
-}
-.tree-node-proxy {
-  background-color: #fff;
-  color: #444;
-  border-color: #ddd;
-}
-.tree-node-hover {
-  background: #E6E6E6;
-  color: #444;
-}
-.tree-node-selected {
-  background: #CCE6FF;
-  color: #000;
-}
-.tree-node-hidden {
-  display: none;
-}
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/tree/" data-id="cjtxlyzwu009300uq9wdzy3f6" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/tooltip" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/tooltip/" class="article-date">
-  <time datetime="2019-03-21T09:22:47.267Z" itemprop="datePublished">2019-03-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        .tooltip {
-  position: absolute;
-  display: none;
-  z-index: 9900000;
-  outline: none;
-  opacity: 1;
-  filter: alpha(opacity=100);
-  padding: 5px;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 5px;
-  -moz-border-radius: 0px 0px 0px 0px;
-  -webkit-border-radius: 0px 0px 0px 0px;
-  border-radius: 0px 0px 0px 0px;
-}
-.tooltip-content {
-  font-size: 14px;
-}
-.tooltip-arrow-outer,
-.tooltip-arrow {
-  position: absolute;
-  width: 0;
-  height: 0;
-  line-height: 0;
-  font-size: 0;
-  border-style: solid;
-  border-width: 6px;
-  border-color: transparent;
-  _border-color: tomato;
-  _filter: chroma(color=tomato);
-}
-.tooltip-arrow {
-  display: none \9;
-}
-.tooltip-right .tooltip-arrow-outer {
-  left: 0;
-  top: 50%;
-  margin: -6px 0 0 -13px;
-}
-.tooltip-right .tooltip-arrow {
-  left: 0;
-  top: 50%;
-  margin: -6px 0 0 -12px;
-}
-.tooltip-left .tooltip-arrow-outer {
-  right: 0;
-  top: 50%;
-  margin: -6px -13px 0 0;
-}
-.tooltip-left .tooltip-arrow {
-  right: 0;
-  top: 50%;
-  margin: -6px -12px 0 0;
-}
-.tooltip-top .tooltip-arrow-outer {
-  bottom: 0;
-  left: 50%;
-  margin: 0 0 -13px -6px;
-}
-.tooltip-top .tooltip-arrow {
-  bottom: 0;
-  left: 50%;
-  margin: 0 0 -12px -6px;
-}
-.tooltip-bottom .tooltip-arrow-outer {
-  top: 0;
-  left: 50%;
-  margin: -13px 0 0 -6px;
-}
-.tooltip-bottom .tooltip-arrow {
-  top: 0;
-  left: 50%;
-  margin: -12px 0 0 -6px;
-}
-.tooltip {
-  background-color: #fff;
-  border-color: #ddd;
-  color: #444;
-}
-.tooltip-right .tooltip-arrow-outer {
-  border-right-color: #ddd;
-}
-.tooltip-right .tooltip-arrow {
-  border-right-color: #fff;
-}
-.tooltip-left .tooltip-arrow-outer {
-  border-left-color: #ddd;
-}
-.tooltip-left .tooltip-arrow {
-  border-left-color: #fff;
-}
-.tooltip-top .tooltip-arrow-outer {
-  border-top-color: #ddd;
-}
-.tooltip-top .tooltip-arrow {
-  border-top-color: #fff;
-}
-.tooltip-bottom .tooltip-arrow-outer {
-  border-bottom-color: #ddd;
-}
-.tooltip-bottom .tooltip-arrow {
-  border-bottom-color: #fff;
-}
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/tooltip/" data-id="cjtxlyzwt009200uqrx2onzue" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/21/EasyUI-插件开发/jquery-easyui-ribbon/themes/metro/window/" data-id="cju85cd7w00998suqd8uk1xif" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1119,23 +979,23 @@
       <ul>
         
           <li>
+            <a href="/2019/04/03/CSS入门及提高/example/27 鼠标经过显示图片/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/02/CSS入门及提高/example/图片轮播/index/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/02/CSS入门及提高/example/26 绝对位置水平垂直居中/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2019/04/01/CSS入门及提高/example/学成网/index/">(no title)</a>
           </li>
         
           <li>
             <a href="/2019/03/28/mysql使用/">&#39;mysql使用&#39;</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/22/CSS入门及提高/example/25 使用双伪元素清除浮动/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/22/CSS入门及提高/example/24 通栏平均分布布局/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/22/CSS入门及提高/example/23 两列左窄右宽布局/">(no title)</a>
           </li>
         
       </ul>
